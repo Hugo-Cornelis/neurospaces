@@ -9,7 +9,7 @@ In principle anyone can join, yet we do focus on software development.  This is 
 
 = Details =
 
-  * [[GeneralProjectLayout]General project layout].
+  * [[GeneralProjectLayout][General project layout]].
   * should add a the ssp documentation I wrote.
   * add docs of the developer package.
 
