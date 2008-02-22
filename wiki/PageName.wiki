@@ -1,4 +1,4 @@
-#summary One-sentence summary of the Neurospaces project with links to the most important pages.
+#summary Wiki for Neurospaces project developers.
 
 = Introduction =
 
