@@ -14,6 +14,7 @@ In principle anyone can join, yet we do focus on tools and documentation related
   * Structure of a TargetMachine
   * the ssp FastGuide.
   * the DeveloperPackage.
+  * the NeurospacesTester framework.
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
