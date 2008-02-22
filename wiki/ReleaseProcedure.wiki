@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The same procedure is used to building a release of all or individual packages.  An official release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
+The same procedure is used to building a release of all, or of individual packages.  An official release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
 
 The release procedure normally checks for package correctness using the automake 'distcheck' target.  Official releases must always succeed on this target.  Intermediate releases might fail on this target.
 
