@@ -7,11 +7,13 @@ Developer utilities that comply with Neurospaces development standards.
 Some of the utilities currently depend on monotone for source code version control due to their configuration.  It is possible to work with other version control systems.
 
 
-= Details =
-
-Utilities:
+= Utilities =
 
   * release_extract: extract release information from a monotone repository.  When a Tag is set, that will be the result, otherwise the SHA of the current base revision will be the result.
   * release_expand: do keyword expansion, see the manpage in the source for more details.
   * neurospaces_status: check the status of the source code on your machine with the monotone repositories.
   * neurospaces_build: perform various build operations, do 'neurospaces_build --help' to see how it works.
+
+= Other =
+
+  * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this is working for about 60%.
