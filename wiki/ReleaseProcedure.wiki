@@ -23,4 +23,7 @@ The release procedure normally checks for package correctness using the automake
     * For internal releases, 'neurospaces_build --dist' is ok, but make sure you know what you are doing.
     * Again use additional options to select individual packages if needed.
     * Use the '--certification-report' to annotate the mtn revision with the output of the build, if that is useful.
+
 Note that the build script also automatically installs the packages on the developer machine.  This is for some packages a requirement for 'distcheck' to succeed.
+
+  * 
