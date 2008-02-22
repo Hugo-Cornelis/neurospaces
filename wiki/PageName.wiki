@@ -9,7 +9,7 @@ In principle anyone can join, yet we do focus on tools and documentation related
 
 = Details =
 
-  * GeneralProjectLayout
+  * GlobalProjectLayout
   * Setting up a DeveloperMachine
   * Structure of a TargetMachine
   * the ssp FastGuide.
