@@ -9,7 +9,7 @@ Because official releases are built using automake's distcheck target, they pass
 The release procedure normally checks for package correctness using the automake 'distcheck' target.  Official releases must always succeed on this target.  Intermediate releases might fail on this target.
 
 
-= Details =
+= The Details of the Release Procedure =
 
   * Define the tag
     * In principal developer tags follow the naming convention '<milestone-number>.  So for example for the latest release at this moment, the release tag is 'des-10', which is the tenth subrelease after starting development of the 'des' milestone.
