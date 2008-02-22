@@ -11,4 +11,4 @@ Some of the utilities currently depend on monotone for source code version contr
 
 Utilities:
 
-  * release_extract: extract release information from a monotone repository.
+  * release_extract: extract release information from a monotone repository.  When a Tag is set, that will be the result, otherwise the SHA of the current base revision will be the result.
