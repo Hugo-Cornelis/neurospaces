@@ -9,5 +9,10 @@ The release procedure normally checks for package correctness using the automake
 
 = Details =
 
-  * Set the tag(s).  In principal developer tags follow the naming convention '<milestone-number>.  So for example for the latest release at this moment, the release tag is 'des-10', which is the tenth subrelease of the 'des' milestone.  Milestone labels point to an important event for development.  Tag number are monotonically increasing.  Some packages might skip some releases -- milestone labels as well as release numbers.  Internally, the development system refers to the milestone labels as 'major', the numbers as 'minor', and for future use, there is also a 'micro' number possible.
+  * Set the tag(s).
+    + In principal developer tags follow the naming convention '<milestone-number>.  So for example for the latest release at this moment, the release tag is 'des-10', which is the tenth subrelease of the 'des' milestone.
+    + Milestone labels point to an important event for development.
+    + Tag number are monotonically increasing.
+    + Some packages might skip some releases -- milestone labels as well as release numbers.
+    + Internally, the development system refers to the milestone labels as 'major', the numbers as 'minor', and for future use, there is also a 'micro' number possible.
   * 
