@@ -10,8 +10,10 @@ In principle anyone can join, yet we do focus on tools and documentation related
 = Details =
 
   * GeneralProjectLayout
-  * should add a the ssp documentation I wrote.
-  * add docs of the developer package.
+  * Setting up a DeveloperMachine
+  * Structure of a TargetMachine
+  * the ssp FastGuide.
+  * the DeveloperPackage.
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
