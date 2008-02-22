@@ -2,7 +2,9 @@
 
 = Introduction =
 
-The same procedure is used to building a release of all, or of individual packages.  An official release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
+The same procedure is used to building a release of all, or of individual packages.  An official public release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
+
+Because official releases are built using automake's distcheck target, they pass the tests of the package.  So they are considered alpha releases (ie. internally tested).
 
 The release procedure normally checks for package correctness using the automake 'distcheck' target.  Official releases must always succeed on this target.  Intermediate releases might fail on this target.
 
