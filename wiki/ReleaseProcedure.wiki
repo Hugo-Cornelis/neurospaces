@@ -15,4 +15,4 @@ The release procedure normally checks for package correctness using the automake
     * Tag number are monotonically increasing.
     * Some packages might skip some releases -- milestone labels as well as release numbers.
     * Internally, the development system refers to the milestone labels as 'major', the numbers as 'minor', and for future use, there is also a 'micro' number possible.
-  * 
+  * More will follow.
