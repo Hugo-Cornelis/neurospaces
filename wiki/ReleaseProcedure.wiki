@@ -26,6 +26,8 @@ The release procedure normally checks for package correctness using the automake
 
 Note that the build script also automatically installs the packages on the developer machine.  This is for some packages a requirement for 'distcheck' to succeed.
 
+  * For examples, see the DeveloperPackage
+
   * Upload the packages to sourceforge, fill in the correct information.
 
 It might be useful to do 'make html-upload' for some packages after the release, to synchronize the content of the website with the content of the downloadable packages.
