@@ -17,8 +17,15 @@ Some of the utilities currently depend on monotone for source code version contr
 = Examples =
 
   * building a release for the developer package:
-    1 Tag the code
+    1 Tag the code, eg. we use the tag 'build-9'
+{{{
+neurospaces_build --tag build-9 --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer
+}}}
 
+    2 Build the release for the tagged code:
+{{{
+neurospaces_build --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer
+}}}
 
 = Other =
 
