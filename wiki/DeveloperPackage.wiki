@@ -14,6 +14,12 @@ Some of the utilities currently depend on monotone for source code version contr
   * neurospaces_status: check the status of the source code on your machine with the monotone repositories.
   * neurospaces_build: perform various build operations, do 'neurospaces_build --help' to see how it works.  Also look at ReleaseProcedure.
 
+= Examples =
+
+  * building a release for the developer package:
+    1 Tag the code
+
+
 = Other =
 
   * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this is working for about 60%.
