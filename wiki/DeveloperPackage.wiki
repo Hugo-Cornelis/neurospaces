@@ -21,7 +21,6 @@ Some of the utilities currently depend on monotone for source code version contr
 {{{
 neurospaces_build --tag build-9 --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer
 }}}
-
     2 Build the release for the tagged code:
 {{{
 neurospaces_build --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer
