@@ -16,8 +16,8 @@ Here is an example:
 use strict;
 
 my $package_name = "heccer";
-my $package_label = "bf53d1eea85235e08a0f39d09a66d6826f730641-0";
-my $package_version = "bf53d1eea85235e08a0f39d09a66d6826f730641-0-0";
+my $package_label = "build-8";
+my $package_version = "build-8-0";
 
 my $monotone_id = `mtn automate get_current_revision_id`;
 chomp $monotone_id;
