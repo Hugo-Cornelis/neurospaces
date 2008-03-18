@@ -37,4 +37,6 @@ return $config;
 
   * `core_directory` is the directory with the source code of your package.  Tests can use this directory to read files.
   * `description` is a few word description of the tests.
+  * `outputs_dir` defines the directory where to put the htmlified test specifications (generated using `tests_2_html`).
   * `package` contains package version information.
+  * `tests_dir` contains the directory where to search for test specifications with the `.t` suffix.
