@@ -6,7 +6,7 @@ The Neurospaces tester needs to know certain things about your machine before te
 
 It is normal that a software package has multiple `tests.config` files, eg. in several directories.
 
-The config file defines a perl hash (soon JSON supported to).  In the test specifications, this hash is available in the variable `main::config`.
+The config file defines a perl hash (soon JSON supported to).  In the test specifications, this hash is available in the variable `main::config`.  So to access the `core_directory` entry in the hash, you have `$main::config->{core_directory}`.
 
 Here is an example:
 
