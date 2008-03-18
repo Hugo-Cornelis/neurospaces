@@ -12,21 +12,28 @@ Here is an example:
 
 {{{
 #!/usr/bin/perl -w
-#
 
 use strict;
 
-my $package_name = "model-container";
-my $package_version = "build-8";
+my $package_name = "heccer";
+my $package_label = "bf53d1eea85235e08a0f39d09a66d6826f730641-0";
+my $package_version = "bf53d1eea85235e08a0f39d09a66d6826f730641-0-0";
+
+my $monotone_id = `mtn automate get_current_revision_id`;
+chomp $monotone_id;
 
 my $config
     = {
        core_directory => './',
-       description => 'Neurospaces functional tests.',
+       description => 'Configure the tester when run from this directory',
+       outputs_dir => './tests/html',
        package => {
+                   label => $package_label,
                    name => $package_name,
                    version => $package_version,
-                  }
+                   version_control_id => $monotone_id,
+                  },
+       tests_directory => './tests/specifications',
       };
 
 return $config;
