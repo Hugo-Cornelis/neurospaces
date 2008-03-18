@@ -21,6 +21,7 @@ Despite the wealth of functionality, using and configuring the tester is quite s
 = Details =
 
   * TesterCalling
+  * TesterConfiguration
   * TesterSpecifications
   * TesterHTML
   * TesterTutorial
