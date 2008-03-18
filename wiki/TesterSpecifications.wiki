@@ -30,7 +30,6 @@ my $test
 return $test;
 
 }}}
-
   2 A test specification contains the following keys/values:
     * comment: a general purpose comment, e.g. `this test is broken because ... `.
     * description: describes the purpose of the test in a few words (not an entire paragraph).
