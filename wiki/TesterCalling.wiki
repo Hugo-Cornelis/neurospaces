@@ -1,5 +1,7 @@
 #summary How to run the tester.
 
+NeurospacesTester
+
 = Introduction =
 
 The most convenient way to call the tester is by doing `make check`.  For Neurospaces software packages, this calls the command line `tests/neurospaces_harness`.
