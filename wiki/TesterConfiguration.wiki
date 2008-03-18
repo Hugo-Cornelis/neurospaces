@@ -35,4 +35,6 @@ return $config;
 
 = Details =
 
-  * `core_directory` is the directory with the source code of your package.  Tests can use
+  * `core_directory` is the directory with the source code of your package.  Tests can use this directory to read files.
+  * `description` is a few word description of the tests.
+  * `package` contains package version information.
