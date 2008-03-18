@@ -1,5 +1,7 @@
 #summary The tester configuration file.
 
+NeurospacesTester
+
 = Introduction =
 
 The Neurospaces tester needs to know certain things about your machine before tests can be executed.  These things are in the tester configuration file, named `tests.config`, located in your current directory.
