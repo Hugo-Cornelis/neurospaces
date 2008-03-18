@@ -14,7 +14,7 @@ If there was configuration in effect for an application specific library, the li
 
 = Test Specifications =
 
-  1 A test specification is a file with perl code that returns a perl hash (quite soon, JSON supported too):
+A test specification is a file with perl code that returns a perl hash (quite soon, JSON supported too):
 {{{
 #!/usr/bin/perl -w
 
@@ -29,10 +29,52 @@ my $test
 return $test;
 
 }}}
-  2 A test specification contains the following keys/values:
+
+The content of the hash ref encodes all the tests in the specification.  I discuss with the following example, taken from the Neurospaces model container software package:
+
+{{{
+#!/usr/bin/perl -w
+#
+
+use strict;
+
+my $test
+    = {
+       command_definitions => [
+                               {
+                                arguments => [
+                                              '-q',
+                                             ],
+                                command => './neurospacesparse',
+                                command_tests => [
+                                                  {
+                                                   description => "Is neurospace
+s startup successful ?",
+                                                   read => 'neurospaces ',
+                                                   timeout => 3,
+                                                   write => undef,
+                                                  },
+                                                  {
+                                                   description => "Does the version information match with model-container-build-8 ?",
+                                                   read => "model-container-build-8",
+                                                   write => "version",
+                                                  },
+                                                 ],
+                                description => "check version information",
+                               },
+                              ],
+       description => "run-time versioning",
+       name => 'version.t',
+      };
+
+
+return $test;
+}}}
+
+A test specification contains the following keys/values:
     * comment: a general purpose comment, e.g. `this test is broken because ... `.
     * description: describes the purpose of the test in a few words (not an entire paragraph).
-    * name: must be the same as the filename, e.g. `convertors.t`.
+    * name: must be the same as the filename, e.g. `version.t`.
     * command_definitions: an array ref with hash refs.  Each hash ref contains the tests for one application run.  See below.
 
 = Command Specification =
