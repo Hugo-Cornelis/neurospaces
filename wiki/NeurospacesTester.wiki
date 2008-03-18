@@ -16,7 +16,7 @@ It allows to:
   * Allows to run the application in a chrooted environment.
   * Converts the test cases to html.
 
-Despite the wealth of functionality, using and configuring the tester is quite simple, read below for more.  The latest version of the tester framework can be found in the model container package at the neurospaces website (http://www.neurospaces/org/).  The same framework is used for regression testing of all Neurospaces related software.
+Despite the wealth of functionality, using and configuring the tester is quite simple, read below for more.  The latest version of the tester framework can be found in the model container package at the neurospaces website (http://www.neurospaces.org/).  The same framework is used for regression testing of all Neurospaces related software.
 
 The Neurospaces tester is written in perl, knowledge of perl is not necessary to be able to work with the tester.  Basic knowledge of perl might be handy, and is explained on these pages.
 
