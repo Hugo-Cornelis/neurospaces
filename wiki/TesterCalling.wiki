@@ -11,6 +11,14 @@ The most convenient way to call the tester is by doing `make check`.  For Neuros
 
   * `--regex` option runs those test specifications that match with the given regular expression.  E.g. `neurospaces_harness --regex convertors` runs all tests whose pathnames match with `convertors`.
 
+  * `--numerical-compare` enables numerical comparisons for numerical output.
+
+  * `--randomize-order` randomizes the order of the tests before executing them.
+
+  * `--timeout-multiplier` multiplies all timeout values with the given constant.
+
+  * `--timings` adds timing information to the test report.
+
 = Details =
 
 Add your content here.  Format your content with:
