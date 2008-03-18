@@ -16,6 +16,17 @@ If there was configuration in effect for an application specific library, the li
 
 A test specification is a file with perl code that returns a perl hash (quite soon, JSON supported too):
 
-`
+{{{
+#!/usr/bin/perl -w
 
-`
+use strict;
+
+my $test
+    = {
+...
+...
+      };
+
+return $test;
+
+}}}
