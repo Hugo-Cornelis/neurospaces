@@ -1,0 +1,38 @@
+#summary The tester configuration file.
+
+= Introduction =
+
+The Neurospaces tester needs to know certain things about your machine before tests can be executed.  These things are in the tester configuration file, named `tests.config`, located in your current directory.
+
+It is normal that a software package has multiple `tests.config` files, eg. in several directories.
+
+The config file defines a perl hash (soon JSON supported to).  In the test specifications, this hash is available in the variable `main::config`.
+
+Here is an example:
+
+{{{
+#!/usr/bin/perl -w
+#
+
+use strict;
+
+my $package_name = "model-container";
+my $package_version = "build-8";
+
+my $config
+    = {
+       core_directory => './',
+       description => 'Neurospaces functional tests.',
+       package => {
+                   name => $package_name,
+                   version => $package_version,
+                  }
+      };
+
+return $config;
+}}}
+
+
+= Details =
+
+  * `core_directory` is the directory with the source code of your package.  Tests can use
