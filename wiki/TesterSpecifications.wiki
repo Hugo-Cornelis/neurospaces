@@ -1,0 +1,20 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+A tester specification is contained in a file with a name that has a suffix of `.t`.  The tester specification tells the tester what application to run, with what command line, command line options, and under what environment.  It is possible to change directory before the application gets executed, or to change to a chrooted environment by using shell pipelines.
+
+After running the application, the tester communicates with the application over stdin/stdout/stderr (general socket communication under development).  The output read from stdout/sterr is checked with expected output (literal output or regular expressions), and mismatches are reported.
+
+Multiple writes to and reads from the application are possible.
+
+If, for whatever reason, the same application is started in more than one test specification, the running application is 'recycled' (unless the `side_effects` option is used, see below).
+
+If there was configuration in effect for an application specific library, the library is checked for changes after a test has been performed.  Changes are not allowed.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
