@@ -1,0 +1,24 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+The neurospaces tester framework provides a general purpose framework for regressing testing.
+
+It allows to:
+
+  * Test the output of simple and complex applications.
+  * Test command line options.
+  * Test communicate over file descriptors with an application, and test the behaviour of the application.
+  * Test the consistency of the source code.
+  * Has built in support for application specific libraries.
+  * Allows to interact with the environment, including environment variables.
+  * Allows to run the application in a chrooted environment.
+  * Converts the test cases to html.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
