@@ -48,8 +48,7 @@ my $test
                                 command => './neurospacesparse',
                                 command_tests => [
                                                   {
-                                                   description => "Is neurospace
-s startup successful ?",
+                                                   description => "Is neurospaces startup successful ?",
                                                    read => 'neurospaces ',
                                                    timeout => 3,
                                                    write => undef,
