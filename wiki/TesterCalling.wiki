@@ -1,0 +1,15 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+The most convenient way to call the tester is by doing `make check`.  For Neurospaces software packages, this calls the command line `tests/neurospaces_harness`.
+
+`tests/neurospaces_harness` runs all the TesterSpecifications found in `tests/specifications`.  A test specification is a file ending in the suffix `.t`.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
