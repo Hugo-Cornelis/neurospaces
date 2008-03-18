@@ -12,7 +12,7 @@ If, for whatever reason, the same application is started in more than one test s
 
 If there was configuration in effect for an application specific library, the library is checked for changes after a test has been performed.  Changes are not allowed.
 
-= Test Specification Details =
+= Test Specifications =
 
 A test specification is a file with perl code that returns a perl hash (quite soon, JSON supported too):
 
