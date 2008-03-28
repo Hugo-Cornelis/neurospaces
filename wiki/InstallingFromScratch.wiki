@@ -26,6 +26,8 @@ Then follow this outline:
     * make check (some tests are known to fail at this moment, e.g. the test that downloads from a non-existent server fails, that is ok).
     * sudo make install
   Now the neurospaces installer has been installed.
+  * Make a directory to contain downloaded packages.
+    * mkdir $HOME/automated
   * Download and install the other packages
   This is done automatically by the neurospaces installer.  Use the following command line:
     * neurospaces_build
