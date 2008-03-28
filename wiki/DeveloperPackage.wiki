@@ -37,7 +37,16 @@ neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compi
 {{{
 neurospaces_build --packages
 }}}
-
+    1 Figuring out what actions are taken by default:
+{{{
+neurospaces_build --packages
+}}}
+      and inspect the flags at the end of the output.  At this time, --configure, --compile and --install are the default actions.
+    1 Figuring out what actions are taken after options have been given, eg.
+{{{
+neurospaces_build --distcheck --help
+}}}
+      will enable the distcheck target of the makefiles, in addition to the default actions.
     1 Uninstalling 4 packages on your developer machine:
 {{{
 neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --uninstall --regex '(model_container|heccer|ssp|studio)' --developer
