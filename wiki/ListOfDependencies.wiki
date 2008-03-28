@@ -1,0 +1,24 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Dependencies fall into two categories:
+
+1. Binary dependencies.
+2. Perl dependencies.
+
+
+= Details =
+
+Binary dependencies:
+
+  * a compiler, and a makefile system.  See the GNU website.  Most Linux distributions come with these installed.
+  * GTK+, available for all common Linux distributions.
+  * SDL2 for visualization functions.  For most systems there are prebuilt packages available.  Note that SDL2 is required, SDL1 does not suffice.
+
+Perl dependencies:
+
+All the following dependencies are available from CPAN (search.cpan.org).  You can install them with a command line like "sudo perl -MCPAN -e 'install Mail::Sender'", where "Mail::Sender" should be replaced with the appropriate package name.
+
+  * Mail::Sender
+  * Clone
