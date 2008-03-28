@@ -25,4 +25,4 @@ Then follow this outline:
     * make
     * make check
     * sudo make install
-    Now the neurospaces installer has been installed.
+  Now the neurospaces installer has been installed.
