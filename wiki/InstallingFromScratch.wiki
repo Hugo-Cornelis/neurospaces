@@ -30,7 +30,7 @@ Then follow this outline:
     * mkdir $HOME/automated
   * Download and install the other packages
   This is done automatically by the neurospaces installer.  Use the following command line to install version 'des-10' of all packages:
-    * neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated
+    * neurospaces_build --download-server downloads.sourceforge.net --regex 'model_container|heccer|ssp|studio' --src-tag des-10 --src-dir $HOME/automated
   Go for a coffee, and come back in an hour -- all the packages get tested, which takes some time.
 
   If you want to see what is going to happen, without making it happen, use the --check option:
