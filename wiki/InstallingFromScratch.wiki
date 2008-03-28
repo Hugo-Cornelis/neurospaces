@@ -1,5 +1,7 @@
 #summary Installation of neurospaces packages from scratch
 
+DeveloperPackage
+
 = Introduction =
 
 Installation of neurospaces packages from scratch.
