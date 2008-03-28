@@ -1,0 +1,19 @@
+#summary Installation of neurospaces packages from scratch
+
+= Introduction =
+
+Installation of neurospaces packages from scratch.
+
+Because Neurospaces is compliant with the CBI simulator architecture, it consists of many independent software packages.  Because installation of the simulator, requires installation of many packages, an installer has been written.  The installer is part of the developer package.
+
+Obviously you need to install Linux first (ListOfTestedDistributions).
+
+Then you need to install the dependencies (ListOfDependencies).
+
+Then follow this outline:
+
+= Details =
+
+(This is based on developer-build-13.tar.gz).
+
+  * Install the neurospaces installer.
