@@ -17,3 +17,12 @@ Then follow this outline:
 (This is based on developer-build-13.tar.gz).
 
   * Install the neurospaces installer.
+    * mkdir tmp ; cd tmp
+    * mv <path to your developer package> tmp/developer-build-13.tar.gz
+    * tar xfz developer-build-13.tar.gz
+    * cd developer-build-13
+    * ./configure
+    * make
+    * make check
+    * sudo make install
+    Now the neurospaces installer has been installed.
