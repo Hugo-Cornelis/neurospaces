@@ -30,4 +30,11 @@ Then follow this outline:
     * mkdir $HOME/automated
   * Download and install the other packages
   This is done automatically by the neurospaces installer.  Use the following command line:
-    * neurospaces_build
+    * neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated
+  Go for a coffee, and come back in an hour -- all the packages get tested, which takes some time.
+
+If you want to see what is going to happen, without making it happen, use the --check option:
+  * neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --check
+
+To select individual packages, use the --regex option, e.g. to install only heccer:
+  * neurospaces_build --download-server downloads.sourceforge.net --regex heccer --src-tag des-10 --src-dir $HOME/automated --check
