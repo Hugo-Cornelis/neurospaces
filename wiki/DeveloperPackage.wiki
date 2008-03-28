@@ -33,6 +33,11 @@ neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compi
 
 = Other Examples =
 
+    1 Figuring out what packages are known:
+{{{
+neurospaces_build --packages
+}}}
+
     1 Uninstalling 4 packages on your developer machine:
 {{{
 neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --uninstall --regex '(model_container|heccer|ssp|studio)' --developer
