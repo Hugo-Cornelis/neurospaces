@@ -30,6 +30,11 @@ neurospaces_build --dist --verbose --verbose --verbose --no-compile --no-configu
 {{{
 neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer --developer
 }}}
+    4 Uninstalling 4 packages on your developer machine:
+{{{
+neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --uninstall --regex '(model_container|heccer|ssp|studio)' --developer
+}}}
+
 = Other =
 
   * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this is working for about 60%.
