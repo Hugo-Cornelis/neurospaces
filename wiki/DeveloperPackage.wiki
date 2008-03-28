@@ -39,7 +39,7 @@ neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --un
 }}}
     5 Building checked releases for four packages:
 {{{
-neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
+neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
 }}}
 
 = Other =
