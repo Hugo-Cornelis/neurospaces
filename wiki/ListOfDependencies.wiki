@@ -15,10 +15,16 @@ Binary dependencies:
   * a compiler, and a makefile system.  See the GNU website.  Most Linux distributions come with these installed.
   * GTK+, available for all common Linux distributions.
   * SDL2 for visualization functions.  For most systems there are prebuilt packages available.  Note that SDL2 is required, SDL1 does not suffice.
+  * Graphviz, available from www.graphviz.org.  For redhat users: if you install this from an RPM, be sure to know what you are doing.
 
 Perl dependencies:
 
 All the following dependencies are available from CPAN (search.cpan.org).  You can install them with a command line like "sudo perl -MCPAN -e 'install Mail::Sender'", where "Mail::Sender" should be replaced with the appropriate package name.
 
-  * Mail::Sender
-  * Clone
+    * Mail::Sender
+    * Clone
+    * Expect::Simple
+    * YAML
+    * File::Find::Rule
+    * Digest::SHA
+    * Data::Utilities
