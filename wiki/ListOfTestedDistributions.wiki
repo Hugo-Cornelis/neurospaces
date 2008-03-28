@@ -1,0 +1,17 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Neurospaces packages have been tested on these Linux distros:
+
+    * Redhat enterprise release 3, 4, 5
+    * Ubuntu 6.06
+    * Suse 10
+    * Fedora 7
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
