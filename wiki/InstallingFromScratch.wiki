@@ -39,5 +39,5 @@ Then follow this outline:
   To select individual packages, use the --regex option, e.g. to install only heccer:
     * neurospaces_build --download-server downloads.sourceforge.net --regex heccer --src-tag des-10 --src-dir $HOME/automated
 
-  If you don't trust what is going to happen, first use the --dry-run option and pipe to less (or more):
-    * neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --dry-run | less
+  If you don't trust what is going to happen, first use the --verbose option (times 3) and --dry-run option and pipe to less (or more):
+    * neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --verbose --verbose --verbose --dry-run | less
