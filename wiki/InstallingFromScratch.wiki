@@ -23,7 +23,9 @@ Then follow this outline:
     * cd developer-build-13
     * ./configure
     * make
-    * make check
+    * make check (some tests are known to fail at this moment, e.g. the test that downloads from a non-existent server fails, that is ok).
     * sudo make install
   Now the neurospaces installer has been installed.
   * Download and install the other packages
+  This is done automatically by the neurospaces installer.
+    * neurospaces_build
