@@ -27,5 +27,5 @@ Then follow this outline:
     * sudo make install
   Now the neurospaces installer has been installed.
   * Download and install the other packages
-  This is done automatically by the neurospaces installer.
+  This is done automatically by the neurospaces installer.  Use the following command line:
     * neurospaces_build
