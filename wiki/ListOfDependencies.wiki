@@ -28,3 +28,14 @@ All the following dependencies are available from CPAN (search.cpan.org).  You c
     * File::Find::Rule
     * Digest::SHA
     * Data::Utilities
+
+    * ExtUtils::Depends (Gtk2)
+    * ExtUtils::PkgConfig (Gtk2)
+    * Glib (Gtk2)
+    * Cairo (Gtk2)
+    * Gtk2
+
+    * Bundle::CPAN (SDL uses Build.pl, so make sure you have the latest)
+
+    * SDL, only required for the Neurospaces Studio
+    * GraphViz, only required for the Neurospaces Studio
