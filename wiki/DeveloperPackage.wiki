@@ -33,11 +33,11 @@ neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compi
 
 = Other Examples =
 
-    4 Uninstalling 4 packages on your developer machine:
+    1 Uninstalling 4 packages on your developer machine:
 {{{
 neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --uninstall --regex '(model_container|heccer|ssp|studio)' --developer
 }}}
-    5 Building checked releases for four packages:
+    1 Building checked releases for four packages:
 {{{
 neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
 }}}
