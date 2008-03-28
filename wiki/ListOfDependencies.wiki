@@ -1,4 +1,6 @@
-#summary One-sentence summary of this page.
+#summary Things to install before installing Neurospaces
+
+InstallingFromScratch
 
 = Introduction =
 
