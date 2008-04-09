@@ -4,11 +4,11 @@
 
   * A simple build for packages model_container, heccer, ssp, studio.
 {{{
-time (cd ~/tmp && neurospaces_build --developer --regex 'model_container|heccer|ssp|studio')
+neurospaces_build --developer --regex 'model_container|heccer|ssp|studio'
 }}}
   * Including running the tests via the check target of the makefiles.
 {{{
-time (cd ~/tmp && neurospaces_build --check --developer --regex 'model_container|heccer|ssp|studio')
+neurospaces_build --check --developer --regex 'model_container|heccer|ssp|studio'
 }}}
 
 = Details =
