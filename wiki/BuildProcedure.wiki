@@ -1,0 +1,19 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+  * A simple build for packages model_container, heccer, ssp, studio.
+{{{
+time (cd ~/tmp && neurospaces_build --developer --regex 'model_container|heccer|ssp|studio')
+}}}
+  * Including running the tests via the check target of the makefiles.
+{{{
+time (cd ~/tmp && neurospaces_build --check --developer --regex 'model_container|heccer|ssp|studio')
+}}}
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
