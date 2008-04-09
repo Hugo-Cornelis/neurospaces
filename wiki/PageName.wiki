@@ -11,6 +11,7 @@ In principle anyone can join, yet we do focus on tools and documentation related
 
   * GlobalProjectLayout
   * Setting up a DeveloperMachine
+  * BuildProcedure
   * Structure of a TargetMachine
   * ReleaseProcedure
   * the ssp FastGuide.
