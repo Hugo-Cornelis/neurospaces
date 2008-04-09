@@ -4,6 +4,8 @@
 
 You can go to the directory of each individual software component, configure, compile, check and install the package.  The DeveloperPackage has builtin support to automate these actions, while respecting the dependencies between the packages (ie. each of the mentioned steps is done for each package in the correct order).
 
+Examples:
+
   * A simple build for packages model_container, heccer, ssp, studio.
 {{{
 neurospaces_build --developer --regex 'model_container|heccer|ssp|studio'
