@@ -1,5 +1,7 @@
 #summary Structure and Configuration of a Neurospaces Target PC
 
+PageName
+
 = Introduction =
 
   * Required packages for a base installation: perl.
