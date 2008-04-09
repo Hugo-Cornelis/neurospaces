@@ -6,14 +6,16 @@ You can go to the directory of each individual software component, configure, co
 
 Examples:
 
-  * A simple build for packages model_container, heccer, ssp, studio.
+  * A simple build for packages model_container, heccer, ssp, studio:
 {{{
 neurospaces_build --developer --regex 'model_container|heccer|ssp|studio'
 }}}
-  * Including running the tests via the check target of the makefiles.
+  * Including running the tests via the check target of the makefiles:
 {{{
 neurospaces_build --check --developer --regex 'model_container|heccer|ssp|studio'
 }}}
+
+For more information, see the details of the DeveloperPackage.
 
 = Details =
 
