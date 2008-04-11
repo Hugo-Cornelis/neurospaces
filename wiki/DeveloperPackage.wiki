@@ -53,7 +53,7 @@ neurospaces_build --distcheck --help
       will enable the distcheck target of the makefiles, in addition to the default actions.
     1 Figuring out what shell commands will be run after options have been given, without really running the commands:
 {{{
-neurospaces_build --distcheck --dry-run
+neurospaces_build --verbose --distcheck --dry-run --developer
 }}}
     1 Uninstalling 4 packages on your developer machine:
 {{{
