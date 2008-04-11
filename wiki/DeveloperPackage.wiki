@@ -55,6 +55,10 @@ neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --un
 {{{
 neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
 }}}
+    1 After a modification of the developer package, reinstall it:
+{{{
+neurospaces_build --enable developer --regex developer --developer --verbose --verbose --verbose
+}}}
 
 = Other =
 
