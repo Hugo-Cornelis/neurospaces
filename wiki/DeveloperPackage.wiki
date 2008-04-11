@@ -39,9 +39,13 @@ neurospaces_build --packages
 }}}
     1 Figuring out what actions are taken by default:
 {{{
-neurospaces_build --packages
+neurospaces_build --help
 }}}
       and inspect the flags at the end of the output.  At this time, --configure, --compile and --install are the default actions.
+    1 Figuring how operations are mapped to the packages:
+{{{
+neurospaces_build --help-all
+}}}
     1 Figuring out what actions are taken after options have been given, eg.
 {{{
 neurospaces_build --distcheck --help
