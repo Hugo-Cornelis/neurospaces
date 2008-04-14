@@ -16,7 +16,7 @@ The release procedure normally checks for package correctness using the automake
     * Milestone labels point to an important event for development.
     * Tag numbers are monotonically increasing per milestone.
     * Some packages might skip some releases -- milestone labels as well as tag numbers.
-    * Internally, the development system refers to the milestone labels as 'major', the numbers as 'minor', and for future use, there is also a 'micro' number possible.
+    * Internally, the development system refers to the milestone labels as 'major's, the numbers as 'minor's, and for future use, there is also a 'micro' number possible.
   * Set the tag using 'neurospaces_build'.  Use the options '--tag', eg. 'neurospaces_build --tag des-10'.  Use additional options to select individual packages if needed.
   * Build the tarballs:
     * For public alpha releases: 'neurospaces_build --distcheck'
