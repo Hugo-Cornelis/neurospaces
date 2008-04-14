@@ -30,6 +30,10 @@ neurospaces_build --dist --verbose --verbose --verbose --no-compile --no-configu
 {{{
 neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer --developer
 }}}
+    1 Upload the tarballs:
+{{{
+neurospaces_build 
+}}}
 
 = Other Examples =
 
