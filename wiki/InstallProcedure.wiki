@@ -17,3 +17,4 @@ Using the install script of the developer package:
 {{{
 neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir /local_home/hugo/neurospaces_project/automated --regex 'heccer|ssp|studio|model_container' --verbose --verbose --verbose
 }}}
+    Add a couple of '--verbose' options to see what is going on.
