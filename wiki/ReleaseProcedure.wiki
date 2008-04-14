@@ -31,6 +31,4 @@ Note that the build script by default installs the packages on the developer mac
 
   * For examples, see the DeveloperPackage
 
-  * Upload the packages to sourceforge, fill in the correct information.
-
 It might be useful to do 'make html-upload' for some packages after the release, to synchronize the content of the website with the content of the downloadable packages.
