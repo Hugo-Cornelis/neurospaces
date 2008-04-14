@@ -14,7 +14,7 @@ The release procedure normally checks for package correctness using the automake
 In a summary:
 
 {{{
-asdf
+neurospaces_build --tag build-17 --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
 }}}
 
 
