@@ -23,6 +23,9 @@ The release procedure normally checks for package correctness using the automake
     * For internal releases, 'neurospaces_build --dist' is ok, but make sure you know what you are doing.
     * Again use additional options to select individual packages if needed.
     * Use the '--certification-report' to annotate the mtn revision with the output of the build, if that is useful.
+  * Put the files on an file server.
+    * For the moment only ftp is supported.
+    * If uploading to the sourceforge server, you have to fill the release notes manually.
 
 Note that the build script by default installs the packages on the developer machine.  Use '--no-install' if this is not intended.
 
