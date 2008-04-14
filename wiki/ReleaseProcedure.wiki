@@ -14,7 +14,7 @@ The release procedure normally checks for package correctness using the automake
 In a summary you need to put a tag, and distcheck the current code, then make them available on sourceforge:
 
 {{{
-neurospaces_build --tag build-17 --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
+neurospaces_build --tag build-17 --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
 }}}
 
 
