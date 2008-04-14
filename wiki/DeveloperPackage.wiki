@@ -34,6 +34,7 @@ neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compi
 {{{
 neurospaces_build --src-tag build-11 --upload-server ftp://upload.sourceforge.net/incoming --verbose --verbose --verbose --no-compile --no-configure --no-install --regex model-container --developer
 }}}
+    1 Do not forget to edit release notes, tag the files as 'Any', 'Source .gz', etc.
 
 = Other Examples =
 
