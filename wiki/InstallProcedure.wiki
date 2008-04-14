@@ -11,7 +11,9 @@ The most easy way to do the installation, is by using the package installer, see
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Using the install script of the developer package:
+
+  * Install the common Neurospaces packages (at this moment, the model container, heccer, ssp and the studio):
+{{{
+neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir /local_home/hugo/neurospaces_project/automated --regex 'heccer|ssp|studio|model_container' --verbose --verbose --verbose
+}}}
