@@ -20,19 +20,19 @@ Some of the utilities currently depend on monotone for source code version contr
   * building a release for the developer package (see also ReleaseProcedure):
     1 Tag the code, eg. we use the tag 'build-9'
 {{{
-neurospaces_build --tag build-9 --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer --developer
+neurospaces_build --tag build-11 --verbose --verbose --verbose --no-compile --no-configure --no-install --regex model-container --developer
 }}}
     1 Build the release for the tagged code:
 {{{
-neurospaces_build --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer --developer
+neurospaces_build --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex model-container --developer
 }}}
     1 Or with one command line:
 {{{
-neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex developer --developer
+neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compile --no-configure --no-install --regex model-container --developer
 }}}
     1 Upload the tarballs:
 {{{
-neurospaces_build --src-tag build-11 --upload-server ftp://upload.sourceforge.net/incoming --regex model_container --verbose --verbose --verbose --no-compile --no-configure --no-install --developer
+neurospaces_build --src-tag build-11 --upload-server ftp://upload.sourceforge.net/incoming --regex model-container --verbose --verbose --verbose --no-compile --no-configure --no-install --developer
 }}}
 
 = Other Examples =
