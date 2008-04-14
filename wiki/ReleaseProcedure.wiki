@@ -14,7 +14,7 @@ The release procedure normally checks for package correctness using the automake
 In a summary you need to put a tag, and distcheck the current code, for all the packages to be released:
 
 {{{
-neurospaces_build --tag build-17 --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
+neurospaces_build --tag build-17 --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
 }}}
 
 
