@@ -32,7 +32,7 @@ neurospaces_build --tag build-11 --dist --verbose --verbose --verbose --no-compi
 }}}
     1 Upload the tarballs:
 {{{
-neurospaces_build --src-tag build-11 --upload-server ftp://upload.sourceforge.net/incoming --regex model-container --verbose --verbose --verbose --no-compile --no-configure --no-install --developer
+neurospaces_build --src-tag build-11 --upload-server ftp://upload.sourceforge.net/incoming --verbose --verbose --verbose --no-compile --no-configure --no-install --regex model-container --developer
 }}}
 
 = Other Examples =
