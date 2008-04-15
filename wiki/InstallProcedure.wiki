@@ -12,7 +12,7 @@ The most easy way to do the installation, is by using the package installer, see
 
 = Details =
 
-Using the install script of the developer package:
+Using the install script of the InstallerPackage:
 
   * Install the common Neurospaces packages (at this moment, the model container, heccer, ssp and the studio), from downloads.sourceforge.net, distribution des-10:
 {{{
