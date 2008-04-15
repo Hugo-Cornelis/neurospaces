@@ -1,5 +1,7 @@
 #summary Neurospaces has been tested on these distributions
 
+[Index]
+
 InstallingFromScratch
 
 = Introduction =
