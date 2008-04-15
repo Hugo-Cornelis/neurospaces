@@ -1,5 +1,7 @@
 #summary The tester configuration file.
 
+[Index]
+
 NeurospacesTester
 
 = Introduction =
