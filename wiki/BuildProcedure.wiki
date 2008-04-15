@@ -17,7 +17,7 @@ neurospaces_build --developer --regex 'model_container|heccer|ssp|studio'
 neurospaces_build --check --developer --regex 'model_container|heccer|ssp|studio'
 }}}
 
-For more information, see the details of the DeveloperPackage.
+For more information, see the details of the InstallerPackage.
 
 = Details =
 
