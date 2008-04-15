@@ -1,6 +1,8 @@
 #summary Installation of neurospaces packages from scratch
 
-DeveloperPackage
+[Index]
+
+InstallerPackage
 
 = Introduction =
 
