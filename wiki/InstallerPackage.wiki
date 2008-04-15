@@ -1,5 +1,7 @@
 #summary The Neurospaces developer package.
 
+[Index]
+
 = Introduction =
 
 Developer utilities that comply with Neurospaces development standards.
