@@ -1,6 +1,6 @@
 #summary Structure and Configuration of a Neurospaces Target PC
 
-PageName
+[Index]
 
 = Introduction =
 
