@@ -74,7 +74,7 @@ neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --no
 {{{
 neurospaces_build --enable installer --regex installer --developer --verbose --verbose --verbose
 }}}
-    1 Releasing the installer on sourceforge:
+    1 Releasing the installer package on sourceforge:
 {{{
 neurospaces_build --tag build-25 --dist --src-tag build-25 --upload-server ftp://upload.sourceforge.net/incoming --enable installer --regex '(installer)' --developer --verbose
 }}}
