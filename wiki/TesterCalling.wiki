@@ -1,5 +1,7 @@
 #summary How to run the tester.
 
+[Index]
+
 NeurospacesTester
 
 = Introduction =
