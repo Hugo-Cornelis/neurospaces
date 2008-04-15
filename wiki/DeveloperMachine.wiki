@@ -7,7 +7,7 @@
   * Use the InstallerPackage to do the initial directory layout.
   * The tools I use are gdb, gcc, xemacs with its many elisp packages.
   * The neurospaces NDF file format has a special elisp package.
-  * For version control I use Monotone (http://www.monotone.ca/), monotone is also supported by the DeveloperPackage.
+  * For version control I use Monotone (http://www.monotone.ca/), monotone is also supported by the InstallerPackage.
   * The monotone I use is statically linked.  Because Monotone is a distributed version control system, we sometimes send repositories and monotone executables as email attachments between developers.
 
 = Details =
