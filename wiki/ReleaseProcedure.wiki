@@ -36,6 +36,6 @@ The release procedure normally checks for package correctness using the automake
 
 Note that the build script by default installs the packages on the developer machine.  Use '--no-install' if this is not intended.
 
-  * For examples, see the DeveloperPackage
+  * For examples, see the InstallerPackage
 
 It might be useful to do 'make html-upload' for some packages after the release, to synchronize the content of the website with the content of the downloadable packages.
