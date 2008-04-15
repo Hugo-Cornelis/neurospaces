@@ -1,5 +1,7 @@
 #summary How to make a release ?
 
+[Index]
+
 = Introduction =
 
 In a one line summary you need to put a tag, and distcheck the current code, then make them available on sourceforge.  In one line of code:
