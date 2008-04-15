@@ -1,5 +1,7 @@
 #summary Things to install before installing Neurospaces
 
+[Index]
+
 InstallingFromScratch
 
 = Introduction =
