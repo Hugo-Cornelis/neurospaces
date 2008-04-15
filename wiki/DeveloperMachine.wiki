@@ -1,6 +1,6 @@
 #summary Starting Neurospaces development.
 
-Index
+[Index]
 
 = Introduction =
 
