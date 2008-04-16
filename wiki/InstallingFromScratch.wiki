@@ -14,7 +14,23 @@ Obviously you need to install Linux first (ListOfTestedDistributions).
 
 Then you need to install the dependencies (ListOfDependencies).
 
-Then follow this outline:
+In a summary, for downloading and installing:
+
+{{{
+neurospaces_build --download-server downloads.sourceforge.net --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --regex 'heccer|ssp|studio|model-container' --verbose
+}}}
+
+For checking:
+{{{
+neurospaces_build --check --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --regex 'heccer|ssp|studio|model-container' --verbose
+}}}
+
+Or all with one command
+
+{{{
+neurospaces_build --download-server downloads.sourceforge.net --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --check --regex 'heccer|ssp|studio|model-container' --verbose
+}}}
+
 
 = Details =
 
