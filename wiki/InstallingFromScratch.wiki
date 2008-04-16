@@ -14,7 +14,7 @@ Obviously you need to install Linux first (ListOfTestedDistributions).
 
 Then you need to install the dependencies (ListOfDependencies).
 
-In a summary, for downloading and installing:
+In a summary, first install the InstallerPackage manually, then for downloading and installing:
 
 {{{
 neurospaces_build --download-server downloads.sourceforge.net --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --regex 'heccer|ssp|studio|model-container' --verbose
