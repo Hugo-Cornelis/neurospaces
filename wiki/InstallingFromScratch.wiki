@@ -22,7 +22,7 @@ neurospaces_build --download-server downloads.sourceforge.net --src-tag build-25
 
 For checking:
 {{{
-neurospaces_build --check --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --regex 'heccer|ssp|studio|model-container' --verbose
+neurospaces_build --check --no-install --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --regex 'heccer|ssp|studio|model-container' --verbose
 }}}
 
 Or all with one command
