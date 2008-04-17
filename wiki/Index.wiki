@@ -1,4 +1,5 @@
 #summary Wiki for Neurospaces project developers.
+#labels Phase-Requirements,Featured
 
 = Introduction =
 
