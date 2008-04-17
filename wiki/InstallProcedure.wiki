@@ -1,4 +1,5 @@
 #summary Installation Instruction for a correctly configured target PC
+#labels Phase-Deploy
 
 [Index]
 
