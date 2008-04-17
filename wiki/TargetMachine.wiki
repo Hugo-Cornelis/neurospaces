@@ -1,4 +1,5 @@
 #summary Structure and Configuration of a Neurospaces Target PC
+#labels Phase-Deploy
 
 [Index]
 
