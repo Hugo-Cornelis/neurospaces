@@ -14,7 +14,7 @@ The most easy way to do the installation, is by using the package installer, see
 
 Using the install script of the InstallerPackage:
 
-  * Install the common Neurospaces packages (at this moment, the model container, heccer, ssp and the studio), from downloads.sourceforge.net, distribution des-10:
+  * Install the common Neurospaces packages (at this moment, the model container, heccer, ssp and the studio), from downloads.sourceforge.net, distribution des-10 (*Please, modify des-10 to be the latest release available for download*):
 {{{
 neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir /local_home/hugo/neurospaces_project/automated --regex 'heccer|ssp|studio|model_container' --verbose --verbose --verbose
 }}}
