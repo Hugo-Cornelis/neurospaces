@@ -1,4 +1,5 @@
 #summary Installation of neurospaces packages from scratch
+#labels Phase-Deploy
 
 [Index]
 
