@@ -1,4 +1,5 @@
 #summary How to specify tests.
+#labels Phase-QA
 
 [Index]
 
