@@ -9,7 +9,7 @@ InstallingFromScratch
 Dependencies fall into two categories:
 
   1 Binary dependencies.
-  2 Perl dependencies.
+  1 Perl dependencies.
 
 
 = Details =
