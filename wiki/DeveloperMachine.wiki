@@ -5,7 +5,7 @@
 
 = Introduction =
 
-  * Use the InstallerPackage to do the initial directory layout.
+  * Use the InstallerPackage to do the initial directory layout (look inside the script neurospaces_build).
   * The tools I use are gdb, gcc, xemacs with its many elisp packages.
   * The neurospaces NDF file format has a special elisp package.
   * For version control I use Monotone (http://www.monotone.ca/), monotone is also supported by the InstallerPackage.
