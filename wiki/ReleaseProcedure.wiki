@@ -8,7 +8,7 @@
 In a one line summary you need to put a tag, and distcheck the current code, then make them available on sourceforge.  In one line of code:
 
 {{{
-neurospaces_build --tag build-17 --distcheck --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --regex '(model_container|heccer|ssp|studio)' --developer
+neurospaces_build --tag build-17 --distcheck --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --regex '(model-container|heccer|ssp|studio)' --developer
 }}}
 
 The same procedure is used to building a release of all, or of individual packages.  An official public release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
