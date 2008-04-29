@@ -65,11 +65,11 @@ neurospaces_build --verbose --distcheck --dry-run --developer
 }}}
     1 Uninstalling 4 packages on your developer machine:
 {{{
-neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --uninstall --regex '(model_container|heccer|ssp|studio)' --developer
+neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --uninstall --regex '(model-container|heccer|ssp|studio)' --developer
 }}}
     1 Building checked releases for four packages:
 {{{
-neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model_container|heccer|ssp|studio)' --developer
+neurospaces_build --verbose --verbose --verbose --no-compile --no-configure --no-install --distcheck --regex '(model-container|heccer|ssp|studio)' --developer
 }}}
     1 After a modification of the installer package, reinstall it:
 {{{
