@@ -59,15 +59,15 @@ neurospaces_build --download-server downloads.sourceforge.net --regex 'model-con
 
   * To select individual packages, use the --regex option, e.g. to install only heccer:
 {{{
-neurospaces_build --download-server downloads.sourceforge.net --regex heccer --src-tag des-10 --src-dir $HOME/automated
+neurospaces_build --download-server downloads.sourceforge.net --regex heccer --src-tag des-10 --src-dir <path-to-a-directory-for-unpacking>
 }}}
     At this moment, not all packages are available for download.  So always use the option --regex 'model-container|heccer|ssp|studio'.
   * If you don't trust what is going to happen, first use the --verbose option (times 3) and --dry-run option and pipe to less (or more):
 {{{
-neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --verbose --verbose --verbose --dry-run | less
+neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir <path-to-a-directory-for-unpacking> --verbose --verbose --verbose --dry-run | less
 }}}
   * If you want to test the packages, use the --check option:
 {{{
-neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --check
+neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir <path-to-a-directory-for-unpacking> --check
 }}}
   Now go for a coffee, and come back in an hour -- all the packages get tested, which takes some time.
