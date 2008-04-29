@@ -20,8 +20,7 @@ Using the install script of the InstallerPackage:
 neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir /local_home/hugo/neurospaces_project/automated --regex 'heccer|ssp|studio|model-container' --verbose --verbose --verbose
 }}}
     Add a couple of '--verbose' options to see what is going on.
-
-To uninstall you can use the same command line, and use the '--uninstall' option:
+  * To uninstall you can use the same command line, and use the '--uninstall' option:
 {{{
 neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir /local_home/hugo/neurospaces_project/automated --regex 'heccer|ssp|studio|model-container' --verbose --verbose --verbose --uninstall --no-configure --no-compile --no-install
 }}}
