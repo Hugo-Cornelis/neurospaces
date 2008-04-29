@@ -61,7 +61,7 @@ neurospaces_build --download-server downloads.sourceforge.net --regex 'model-con
 {{{
 neurospaces_build --download-server downloads.sourceforge.net --regex heccer --src-tag des-10 --src-dir $HOME/automated
 }}}
-    At this moment, not all packages are available for download.  So always use the option --regex 'model_container|heccer|ssp|studio'.
+    At this moment, not all packages are available for download.  So always use the option --regex 'model-container|heccer|ssp|studio'.
   * If you don't trust what is going to happen, first use the --verbose option (times 3) and --dry-run option and pipe to less (or more):
 {{{
 neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --verbose --verbose --verbose --dry-run | less
