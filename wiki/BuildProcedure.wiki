@@ -11,11 +11,11 @@ Examples:
 
   * A simple build for packages model_container, heccer, ssp, studio on a developer machine:
 {{{
-neurospaces_build --developer --regex 'model_container|heccer|ssp|studio'
+neurospaces_build --developer --regex 'model-container|heccer|ssp|studio'
 }}}
   * Including running the tests via the check target of the makefiles on a developer machine:
 {{{
-neurospaces_build --check --developer --regex 'model_container|heccer|ssp|studio'
+neurospaces_build --check --developer --regex 'model-container|heccer|ssp|studio'
 }}}
 
 For more information, see the details of the InstallerPackage.
