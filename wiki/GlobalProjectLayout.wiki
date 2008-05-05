@@ -17,9 +17,6 @@ Conclusions:
 
 The InstallerPackage has builtin support for this directory structure when working in developer mode (using its `--developer` option).
 
-= Configurationn =
+= Configuration =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Configuration comes in the `/etc/neurospaces/` directory.
