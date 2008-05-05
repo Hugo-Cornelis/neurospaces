@@ -1,0 +1,17 @@
+#summary GlobalProjectLayout, directory structure, development workflows.
+
+= Introduction =
+
+This page describes the directory structure I use to do Neurospaces development.  Also the general workflows should be described here.
+
+[http://www.neurospaces.org/ The Neurospaces project] develops several software components useful for simulations using models based on experimental data.
+
+Each software component can have implementations in several programming languages (e.g. there is a java based and C based implementation of the [http://www.neurospaces.org/# model-container component].
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
