@@ -16,6 +16,7 @@ Conclusions:
 
   * the source code of a software component is normally put in a directory `$HOME/neurospaces_project/<package-name>/source/<programming language>/snapshots/<branch name>/`.
   * Other resources are put in other directories: e.g. docs not part of the distribution can be put under `$HOME/neurospaces_project/<package-name>/docs/`.
+  * Archived patches are put in `$HOME/neurospaces_project/<package-name>/source/<programming language>/patches/`
 
 The InstallerPackage has builtin support for this directory structure when working in developer mode (using its `--developer` option).
 
