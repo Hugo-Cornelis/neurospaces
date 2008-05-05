@@ -1,5 +1,7 @@
 #summary GlobalProjectLayout, directory structure, development workflows.
 
+[Index]
+
 = Developing Sources =
 
 This page describes the directory structure I use to do Neurospaces development.  Also the general workflows should be described here.
@@ -20,3 +22,13 @@ The InstallerPackage has builtin support for this directory structure when worki
 = Configuration =
 
 Configuration comes in the `/etc/neurospaces/` directory.
+
+Every software component or tool has its own subdirectory.  E.g. the `morphology2ndf` convertor, part of the [http://www.neurospaces.org/#section-neurospaces model-container], has its default configuration in `/etc/neurospaces/morphology2ndf`.  Configuration files are specified in the [http://www.yaml.org/ YAML format], because scripting languages like perl and python have builtin support to process YAML, and because YAML is more readable than XML.
+
+Configuration is normally processed as follows:
+
+  1 Every tool has builtin default configuration.
+  1 Every tool reads its configuration from `/etc/neurospaces/<tool-name>/`.  This is merged with default configuration, possibly overriding default configuration.
+  1 Every tool accepts additional configuration from the user, via command line options or otherwise, again possibly overwriting configuration setting generated in the previous step.
+
+The merging algorithm is defined in [http://search.cpan.org/Data-Utilities/ the Data-Utilities package], available from [http://www.cpan.org/ CPAN].
