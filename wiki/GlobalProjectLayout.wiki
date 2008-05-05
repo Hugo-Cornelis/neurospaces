@@ -28,7 +28,7 @@ Every software component or tool has its own subdirectory.  E.g. the `morphology
 
 Configuration is normally processed as follows:
 
-  1 Every tool has builtin default configuration.
+  1 Every tool has builtin default configuration.  Every tool must be able to work in an intuitive way when no other configuration is found except the default builtin configuration.
   1 Every tool reads its configuration from `/etc/neurospaces/<tool-name>/`.  This is merged with default configuration, possibly overriding default configuration.
   1 Every tool accepts additional configuration from the user, via command line options or otherwise, again possibly overwriting configuration setting generated in the previous step.
 
