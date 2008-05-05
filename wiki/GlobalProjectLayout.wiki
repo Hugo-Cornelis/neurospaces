@@ -24,7 +24,7 @@ The InstallerPackage has builtin support for this directory structure when worki
 
 Configuration comes in the `/etc/neurospaces/` directory.
 
-Every software component or tool has its own subdirectory.  E.g. the `morphology2ndf` convertor, part of the [http://www.neurospaces.org/#section-neurospaces model-container], has its default configuration in `/etc/neurospaces/morphology2ndf`.  Configuration files are specified in the [http://www.yaml.org/ YAML format], because scripting languages like perl and python have builtin support to process YAML, and because YAML is more readable than XML.
+Every software component or tool has its own subdirectory.  E.g. the `morphology2ndf` convertor, part of the [http://www.neurospaces.org/#section-neurospaces model-container], has its default configuration in `/etc/neurospaces/morphology2ndf`.  Configuration files are specified in the [http://www.yaml.org/ YAML format], because scripting languages like [http://www.perl.org/ perl] and [http://www.python.org/ python] have builtin support to process YAML, and because YAML is more readable than XML.
 
 Configuration is normally processed as follows:
 
