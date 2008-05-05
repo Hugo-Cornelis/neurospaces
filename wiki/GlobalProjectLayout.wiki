@@ -6,7 +6,7 @@
 
 This page describes the directory structure I use to do Neurospaces development.  Also the general workflows should be described here.
 
-[http://www.neurospaces.org/ The Neurospaces project] develops several software components useful for simulations using models based on experimental data:
+[http://www.neurospaces.org/ The Neurospaces project] develops several software components useful for neural simulations using models based on experimental data:
 
   1 Each software component can have implementations in several programming languages (e.g. there is a java based and C based implementation of the [http://www.neurospaces.org/#section-neurospaces model-container component]).
   1 Each software component has several resources: source code, documentation, additional tools etc.
