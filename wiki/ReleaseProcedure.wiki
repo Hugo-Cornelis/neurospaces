@@ -11,6 +11,12 @@ In a one line summary you need to put a tag, and distcheck the current code, the
 neurospaces_build --tag build-17 --distcheck --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --regex '(model-container|heccer|ssp|studio)' --developer
 }}}
 
+If you don't want to do the upload, fi for a single package:
+
+{{{
+neurospaces_build --tag build-33 --distcheck --regex '(model-container)' --developer
+}}}
+
 The same procedure is used to building a release of all, or of individual packages.  An official public release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
 
 Because official releases are built using automake's distcheck target, they pass the tests of the package.  So they are considered alpha releases (ie. internally well tested).
