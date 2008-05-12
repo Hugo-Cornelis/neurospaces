@@ -39,4 +39,12 @@ Using the install script of the InstallerPackage:
   1 Understand how and why it works for a regular user.
   1 use the following commands:
 {{{
+# download, install, check
+neurospaces_build --download-server downloads.sourceforge.net --check --regex 'model-container|heccer|ssp|studio' --src-tag build-37 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose
+
+# uninstall
+neurospaces_build --no-compile --uninstall --regex 'model-container|heccer|ssp|studio' --src-tag build-37 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose
+
+# install the things you are developing
+neurospaces_build --regex 'model-container|heccer|ssp|studio' --verbose --verbose --developer --verbose
 }}}
