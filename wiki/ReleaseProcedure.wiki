@@ -8,20 +8,22 @@
 In a one line summary you need to put a tag, and distcheck the current code, then make them available on sourceforge.  In one line of code:
 
 {{{
-neurospaces_build --tag build-17 --distcheck --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --regex '(model-container|heccer|ssp|studio)' --developer
+neurospaces_build --tag build-17 --distcheck --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --regex '(model-container|heccer|ssp|studio)' --developer --verbose
 }}}
 
 If you don't want to do the upload, fi for a single package:
 
 {{{
-neurospaces_build --tag build-33 --distcheck --regex '(model-container)' --developer
+neurospaces_build --tag build-33 --distcheck --regex '(model-container)' --developer --verbose
 }}}
 
-The same procedure is used to building a release of all, or of individual packages.  An official public release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
+The `--verbose` option is there to let you know what is going on during this lengthy command.
 
-Because official releases are built using automake's distcheck target, they pass the tests of the package.  So they are considered alpha releases (ie. internally well tested).
+The same procedure is used to build a release of all, or of individual packages.  An official public release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
 
-The release procedure normally checks for package correctness using the automake 'distcheck' target.  Official releases must always succeed on this target.  Intermediate releases might fail on this target.
+Because official releases are built using automake's distcheck target, they must pass the tests of the package (on the machine used for the build).  So they are considered alpha releases (ie. internally well tested).
+
+The release procedure normally checks for package correctness using the automake 'distcheck' target, meaning that both `install` and `uninstall` targets work and are each other's complement.  Official releases must always succeed on this target.  Intermediate releases can fail.
 
 
 = The Details of the Release Procedure =
