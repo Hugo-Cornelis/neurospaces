@@ -32,7 +32,7 @@ neurospaces_build --no-compile --uninstall --regex 'model-container|heccer|ssp|s
     Note that you must add the '--no-compile' option, otherwise things might break because of the compilation dependencies between the packages.
 
 
-= For a regular developer =
+= For a developer =
 
 Using the install script of the InstallerPackage:
 
