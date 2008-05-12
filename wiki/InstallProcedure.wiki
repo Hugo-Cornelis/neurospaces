@@ -11,7 +11,7 @@ All Neurospaces packages can be downloaded and installed by themselves, based on
 
 The most easy way to do the installation, is by using the package installer, see below.
 
-= For a regular user =
+= For a user =
 
 Using the install script of the InstallerPackage:
 
