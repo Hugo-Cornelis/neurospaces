@@ -7,7 +7,7 @@
 
 This page assumes that the target PC has all dependencies installed.
 
-All Neurospaces packages can be downloaded and installed by themselves, based on autotools ('./configure', 'make', 'sudo make install').
+All Neurospaces packages can be downloaded and installed by themselves, based on autotools ('./configure', 'make', 'sudo make install').  There is a small issue with the Heccer package: its compilation depends on the NMC to be installed (where it should not).
 
 The most easy way to do the installation, is by using the package installer, see below.
 
