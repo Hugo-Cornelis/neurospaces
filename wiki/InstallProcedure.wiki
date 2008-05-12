@@ -25,3 +25,8 @@ neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 -
 neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir /local_home/hugo/neurospaces_project/automated --regex 'heccer|ssp|studio|model-container' --verbose --verbose --verbose --uninstall --no-configure --no-compile --no-install
 }}}
     Note that you must add the '--no-compile' option, otherwise things might break.
+  * Of if you the sources still in your filesystem after a previous download:
+{{{
+neurospaces_build --src-tag des-10 --src-dir /local_home/hugo/neurospaces_project/automated --regex 'heccer|ssp|studio|model-container' --verbose --verbose --verbose --uninstall --no-configure --no-compile --no-install
+}}}
+    Note that you must add the '--no-compile' option, otherwise things might break.
