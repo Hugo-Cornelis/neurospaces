@@ -33,3 +33,5 @@ Configuration is normally processed as follows:
   1 Every tool accepts additional configuration from the user, via command line options or otherwise, again possibly overwriting configuration settings generated in the previous step.
 
 The merging algorithm is defined in [http://search.cpan.org/dist/Data-Utilities/ the Data-Utilities package], available from [http://www.cpan.org/ CPAN].
+
+There is a default configuration available in [http://neurospaces.sourceforge.net/#section-configurator the configurator package].
