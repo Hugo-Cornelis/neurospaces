@@ -32,7 +32,7 @@ neurospaces_build --no-compile --uninstall --regex 'model-container|heccer|ssp|s
     Note that you must add the '--no-compile' option, otherwise things might break because of the compilation dependencies between the packages.
 
 
-= For a regular user =
+= For a regular developer =
 
 Using the install script of the InstallerPackage:
 
@@ -45,6 +45,6 @@ neurospaces_build --download-server downloads.sourceforge.net --check --regex 'm
 # uninstall
 neurospaces_build --no-compile --uninstall --regex 'model-container|heccer|ssp|studio' --src-tag build-37 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose
 
-# install the things you are developing
+# reinstall the things you were working on, developing
 neurospaces_build --regex 'model-container|heccer|ssp|studio' --verbose --verbose --developer --verbose
 }}}
