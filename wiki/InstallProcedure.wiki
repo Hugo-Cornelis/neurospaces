@@ -30,7 +30,7 @@ neurospaces_build --download-server downloads.sourceforge.net --src-tag build-37
 neurospaces_build --no-compile --uninstall --regex 'model-container|heccer|ssp|studio' --src-tag build-37 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose
 }}}
     Note that you must add the '--no-compile' option, otherwise things might break because of the compilation dependencies between the packages.
-
+  * For each of the above command lines, it is possible to select individual packages using the `--regex` options.  Its default value is `--regex 'model-container|heccer|ssp|studio'`.
 
 = For a developer =
 
