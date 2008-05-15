@@ -17,17 +17,17 @@ Using the install script of the InstallerPackage:
 
   * Install the common Neurospaces packages (at this moment, the model container, heccer, ssp and the studio), from downloads.sourceforge.net, distribution build-37 (*please, modify 'build-37' to be the latest release available for download, at present it is 'build-37'*):
 {{{
-neurospaces_build --download-server downloads.sourceforge.net --src-tag build-37 --src-dir  /tmp/neurospaces/downloads --regex 'heccer|ssp|studio|model-container' --verbose --verbose --verbose
+neurospaces_build --download-server downloads.sourceforge.net --src-tag build-37 --src-dir  /tmp/neurospaces/downloads --verbose --verbose --verbose
 }}}
     Add a couple of '--verbose' options to see what is going on.
   * To uninstall you can use the same command line, and use the '--uninstall' option:
 {{{
-neurospaces_build --download-server downloads.sourceforge.net --src-tag build-37 --src-dir /tmp/neurospaces/downloads --regex 'heccer|ssp|studio|model-container' --verbose --verbose --verbose --uninstall --no-configure --no-compile --no-install
+neurospaces_build --download-server downloads.sourceforge.net --src-tag build-37 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose --uninstall --no-configure --no-compile --no-install
 }}}
     Note that you must add the '--no-compile' option, otherwise things might break because of the compilation dependencies between the packages.
   * Or if you the sources still in your filesystem after a previous download:
 {{{
-neurospaces_build --no-compile --uninstall --regex 'model-container|heccer|ssp|studio' --src-tag build-37 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose
+neurospaces_build --no-compile --uninstall --src-tag build-37 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose
 }}}
     Note that you must add the '--no-compile' option, otherwise things might break because of the compilation dependencies between the packages.
   * For each of the above command lines, it is possible to select individual packages using the `--regex` options.  Its default value is `--regex 'model-container|heccer|ssp|studio'`.
