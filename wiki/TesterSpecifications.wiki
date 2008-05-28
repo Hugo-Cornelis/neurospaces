@@ -35,7 +35,7 @@ return $test;
 
 }}}
 
-The content of the hash ref encodes all the tests in the specification.  I discuss with the following example, taken from the Neurospaces model container software package:
+The content of the hash ref encodes all the tests in the specification.  I discuss the following example, taken from the Neurospaces model container software package:
 
 {{{
 #!/usr/bin/perl -w
