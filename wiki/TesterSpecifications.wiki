@@ -76,11 +76,22 @@ return $test;
 }}}
 
 A test specification contains the following keys/values:
-    * comment: a general purpose comment, e.g. `this test is broken because ... `.
-    * description: describes the purpose of the test in a few words (not an entire paragraph).
-    * name: must be the same as the filename, e.g. `version.t`.
-    * command_definitions: an array ref with hash refs.  Each hash ref contains the tests for one application run.  See below.
+    * `comment` a general purpose comment, e.g. `this test is broken because ... `.
+    * `description` describes the purpose of the test in a few words (not an entire paragraph).
+    * `name` must be the same as the filename, e.g. `version.t`.
+    * `command_definitions` an array ref with hash refs.  Each hash ref contains the tests for one application run.  See below.
 
-= Command Specification =
+= Command Definitions =
 
-Still TODO ...
+  1 `arguments` and `command` keys are the shell command line to run, and to connect stdin and stdout.
+  1 `command_tests`, see below.
+  1 `description` describes the purpose of the test in a few words (not an entire paragraph).
+
+= Command Tests =
+
+  1 `description` describes the purpose of the test in a few words (not an entire paragraph).
+  1 `read` expected output from the application.
+    * If this is a string, it is taken as (a part of the) output to be expected literally.  
+    * If this is an array, the first element in the array should be `-re`, and the second element can be a regular expression that is matched against the real output of the application.
+    * If this is a hash, the hash must contain a key `alternatives` that enumerates several alternatives for the expected output in an array.
+  1 `write` writes output to stdin of the application before any output is expected.
