@@ -89,9 +89,15 @@ A test specification contains the following keys/values:
 
 = Command Tests =
 
+The `description` key is mandatory, the other keys may be omitted.
+
   1 `description` describes the purpose of the test in a few words (not an entire paragraph).
   1 `read` expected output from the application.
     * If this is a string, it is taken as (a part of the) output to be expected literally.  
     * If this is an array, the first element in the array should be `-re`, and the second element can be a regular expression that is matched against the real output of the application.
     * If this is a hash, the hash must contain a key `alternatives` that enumerates several alternatives for the expected output in an array.
   1 `write` writes output to stdin of the application before any output is expected.
+  1 `comment` a free style text comment.
+  1 `side_effects` avoid recycling of application commands, even if the options are the same.
+  1 `preparation` and `reparation` are two commands to bring the *application environment* in a particalur state and restore the previous state after the test has been performed.  Do not use this to change the application state, use the `write` key for that.
+  1 `disabled` gives explanation why a test has been disabled.  Omitting this key or setting this key to a false value or the emtpy string, enables the test.
