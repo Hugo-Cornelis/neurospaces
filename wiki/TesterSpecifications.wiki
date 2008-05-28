@@ -15,7 +15,7 @@ Multiple writes to and reads from the application are possible.
 
 If, for whatever reason, the same application is started in more than one test specification, the running application is 'recycled' (unless the `side_effects` option is used, see below).
 
-If there was configuration in effect for an application specific library, the library is checked for changes after a test has been performed.  Changes are not allowed.
+If there was configuration in effect for an application specific library, the library is checked for changes after a test has been performed.  Changes to the library are not allowed.
 
 = Test Specifications =
 
