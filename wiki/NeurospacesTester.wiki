@@ -11,7 +11,7 @@ It allows to:
 
   * Test the output and behavior of simple and complex applications.
   * Give a human readable report of the tests performed, a description of the errors (if any), and configuration options and environment.
-  * Test command line options.
+  * Test application command line options.
   * Test communicate over file descriptors with an application, and test the behaviour of the application.
   * Test the consistency of the source code.
   * Has built in support for application specific libraries.
