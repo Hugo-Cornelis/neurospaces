@@ -14,7 +14,13 @@ neurospaces_build --developer --distcheck --verbose --tag network-5 --src-tag ne
 If you don't want to do the upload, fi for a single package:
 
 {{{
-neurospaces_build --tag build-33 --distcheck --regex '(model-container)' --developer --verbose
+neurospaces_build --tag network-5 --distcheck --regex 'model-container' --developer --verbose
+}}}
+
+If that works, you then wanna do the upload:
+
+{{{
+neurospaces_build --src-tag network-5 --upload-server https://frs.sourceforge.net/uploads --regex 'model-container' --developer --verbose
 }}}
 
 The `--verbose` option is there to let you know what is going on during this lengthy command.
