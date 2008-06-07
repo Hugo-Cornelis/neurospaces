@@ -9,6 +9,8 @@ In a one line summary you need to put a tag, and distcheck the current code, the
 
 {{{
 neurospaces_build --tag build-17 --distcheck --src-tag build-17 --upload-server ftp://upload.sourceforge.net/incoming --regex '(model-container|heccer|ssp|studio)' --developer --verbose
+
+neurospaces_build --developer --distcheck --verbose --tag network-5 --verbose
 }}}
 
 If you don't want to do the upload, fi for a single package:
