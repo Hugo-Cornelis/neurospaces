@@ -1,0 +1,26 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Ranger of TACC is currently the fourth fastest computer in the world.
+
+
+= Details =
+
+{{{
+mkdir -p ~/lib/perl5
+echo '
+export PERL5LIB=${PERL5LIB}:~/perl5lib' >> ~/.bashrc
+source ~/.bashrc
+
+mkdir -p ~/.cpan/CPAN
+echo "\$CPAN::Config = {}"> ~/.cpan/CPAN/MyConfig.pm
+perl -MCPAN -e shell
+}}}
+
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
