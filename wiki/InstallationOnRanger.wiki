@@ -2,18 +2,23 @@
 
 = Introduction =
 
-Ranger of TACC is currently the fourth fastest computer in the world.
+Ranger (ranger.tacc.utexas.edu) of TACC is currently the fourth fastest computer in the world.  It does not have all the perl modules necessary to compile and test Neurospaces.
 
-ranger.tacc.utexas.edu
 
 = Details =
+
+Make sure perl can find the modules you are going to install in your home directory.
 
 {{{
 mkdir -p ~/lib/perl5
 echo '
 export PERL5LIB=${PERL5LIB}:~/perl5lib' >> ~/.bashrc
 source ~/.bashrc
+}}}
 
+Empty the CPAN config such that you can install perl modules in your home directory.
+
+{{{
 mkdir -p ~/.cpan/CPAN
 echo "\$CPAN::Config = {}"> ~/.cpan/CPAN/MyConfig.pm
 perl -MCPAN -e shell
