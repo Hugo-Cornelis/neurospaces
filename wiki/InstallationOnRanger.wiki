@@ -5,7 +5,7 @@
 Ranger (ranger.tacc.utexas.edu) of TACC is currently the fourth fastest computer in the world.  It does not have all the perl modules necessary to compile and test Neurospaces.
 
 
-= Details =
+= Configuring to install perl modules in your home directory =
 
 Make sure perl can find the modules you are going to install in your home directory.
 
@@ -56,8 +56,4 @@ Finish the CPAN configuration by accepting the rest of the defaults. When asked 
 Finally, when presented with the "cpan>" prompt, press Ctrl-D to exit.
 
 
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Installing Neurospaces packages =
