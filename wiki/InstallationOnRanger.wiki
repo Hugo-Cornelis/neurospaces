@@ -48,8 +48,9 @@ Typical frequently used settings:
 
 Give the following answer:
 
+{{{
 PREFIX=~/lib/perl5 LIB=~/lib/perl5/lib INSTALLMAN1DIR=~/lib/perl5/man1 INSTALLMAN3DIR=~/lib/perl5/man3
-
+}}}
 
 Finish the CPAN configuration by accepting the rest of the defaults. When asked for which mirrors you want to use, pick 10 or so in the United States.
 Finally, when presented with the "cpan>" prompt, press Ctrl-D to exit.
