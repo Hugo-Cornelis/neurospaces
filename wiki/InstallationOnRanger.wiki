@@ -21,8 +21,38 @@ Empty the CPAN config such that you can install perl modules in your home direct
 {{{
 mkdir -p ~/.cpan/CPAN
 echo "\$CPAN::Config = {}"> ~/.cpan/CPAN/MyConfig.pm
+}}}
+
+Now start the CPAN shell to configure the CPAN installer:
+
+{{{
 perl -MCPAN -e shell
 }}}
+
+Accept all the defaults until you reach this question:
+
+{{{
+Every Makefile.PL is run by perl in a separate process. Likewise we
+run 'make' and 'make install' in processes. If you have any
+parameters (e.g. PREFIX, LIB, UNINST or the like) you want to pass
+to the calls, please specify them here.
+
+If you don't understand this question, just press ENTER.
+
+Parameters for the 'perl Makefile.PL' command?
+Typical frequently used settings:
+
+    PREFIX=~/perl       non-root users (please see manual for more hints)
+
+}}}
+
+Give the following answer:
+
+PREFIX=~/lib/perl5 LIB=~/lib/perl5/lib INSTALLMAN1DIR=~/lib/perl5/man1 INSTALLMAN3DIR=~/lib/perl5/man3
+
+
+Finish the CPAN configuration by accepting the rest of the defaults. When asked for which mirrors you want to use, pick 10 or so in the United States.
+Finally, when presented with the "cpan>" prompt, press Ctrl-D to exit.
 
 
 
