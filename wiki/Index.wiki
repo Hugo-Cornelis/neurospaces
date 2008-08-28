@@ -19,6 +19,7 @@ In principle anyone can join, yet we do focus on tools and documentation related
   * the ssp FastGuide.
   * the InstallerPackage.
   * the NeurospacesTester framework.
+  * The NeurospacesRepository 
 
 = Custom Installations =
 
