@@ -7,9 +7,37 @@ For coordinated development of all components of the neurospaces project the bui
 
 = Details =
 
+*Server*
+
+A monotone server for the neurospaces project will be hosted at:
+
+   _virtual2.cbi.utsa.edu_
+
+_server details_
+
 The build machine is already remotely connectible a virtual2.cbi.utsa.edu. So a bind using monotone can be performed using the command: 
 
 
    _mtn --db=server.mtn --bind=virtual2.cbi.utsa.edu serve_
 
 A solution must be made so that the separate repositories can all be accessible via the single url. 
+
+
+
+*Branches*
+
+Since you must know the desired branch you want when pulling from a repository here available branches.
+
+  _*Neurospaces Genesis SLI* - ns-genesis.sli_
+
+
+
+*Pulling from the repository*
+
+To pull a complete copy of a repository branch first initialize your own monotone repository:
+
+   _mtn --db=myrepo.mtn db init_
+
+Then execute a pull into your repository via.
+
+   _mtn --db=myrepo.mtn pull virtual2.cbi.utsa.edu '<branch>'
