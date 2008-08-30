@@ -9,7 +9,7 @@ InstallerPackage
 
 Installation of neurospaces packages from scratch.
 
-Because Neurospaces is compliant with the CBI simulator architecture, it consists of many independent software packages.  Because installation of the simulator, requires installation of many packages, an installer has been written.
+Because Neurospaces is compliant with the CBI simulator architecture, it consists of many independent software packages.  To facilitate the installation of these packages, an installer has been written.
 
 Obviously you need to install Linux first (ListOfTestedDistributions).
 
