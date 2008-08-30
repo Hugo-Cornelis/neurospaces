@@ -11,7 +11,7 @@ Installation of neurospaces packages on a Linux system.
 
 Because Neurospaces is compliant with the CBI simulator architecture, it consists of many independent software packages.  To facilitate the installation of these packages, an installer has been written.
 
-Then you need to install the dependencies (ListOfDependencies).
+First you need to install the dependencies (ListOfDependencies).
 
 In a summary, first install the InstallerPackage manually, then for downloading and installing:
 
