@@ -69,3 +69,7 @@ neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 -
 neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --check
 }}}
   Now go for a coffee, and come back in an hour -- all the packages get tested, which takes some time.
+  * If you have first installed the packages, and just want to test them, omit the download options:
+{{{
+neurospaces_build --src-tag des-10 --src-dir $HOME/automated --check
+}}}
