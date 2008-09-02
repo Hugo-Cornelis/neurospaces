@@ -46,4 +46,18 @@ To be able to commit changes to your local monotone repository you need to gener
 
   _mtn genkey email@address.com_
 
-This stores a private key for yourself in ~/.monotone
+This stores a private key for yourself in ~/.monotone. It will ask you to enter a passphrase which you'll use to verify your identification when you check in changes. To see all the keys monotone has stores you can do a:
+
+  _mtn list keys_ 
+
+and also an 
+
+  _mtn --db=myrepo.mtn list keys 
+
+If you have a monotone workspace set up for your pulled repository you can execute:
+
+  _mtn ci_ 
+
+To check in changes. Else you can make changes via:
+
+  _mtn --db=myrepo.mtn ci_
