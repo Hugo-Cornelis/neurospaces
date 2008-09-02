@@ -33,3 +33,14 @@ Since you must know the desired branch you want when pulling a specific branch, 
 If you download all branches via the "`*`" argument you can get a list of what branches are available to check out from your local repository via the command:
 
   _mtn --db=myrepo.mtn list branches
+
+
+
+*Committing Changes*
+
+To be able to commit changes to your local monotone repository you need to generate a key pair. To do this execute the command:
+
+  _mtn genkey email@address.com_
+
+This stores a private key for yourself in ~/.monotone
+
