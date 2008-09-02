@@ -16,7 +16,7 @@ To check out the latest version of the neurospaces project code you must first i
 
 Then you may pull the code from the monotone server into your working repository via the command.
 
-  _mtn --db=myrepo.mtn pull virtual2.cbi.utsa.edu "&#42;"_
+  _mtn --db=myrepo.mtn pull virtual2.cbi.utsa.edu "<nowiki>*</nowiki>"_
 
 The "" argument pulls all branches from the server into your local repository. To pull a specific branch look at the next section. Once the code has been pulled you can checkout one of the branches into your working directory via the command:
 
