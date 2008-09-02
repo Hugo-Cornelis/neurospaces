@@ -57,5 +57,3 @@ and also an
 To commit the changes you made to your own database repository; inside of the source directory execute:
 
   _mtn ci_ or _mtn commit_
-
-To check in changes. 
