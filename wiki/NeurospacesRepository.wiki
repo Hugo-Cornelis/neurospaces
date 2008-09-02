@@ -24,6 +24,9 @@ The "" argument pulls all branches from the server into your local repository. T
 
 
 
+
+
+
 *Branches*
 
 Since you must know the desired branch you want when pulling a specific branch, here are the branches available on the monotone server.
@@ -36,6 +39,10 @@ If you download all branches via the "`*`" argument you can get a list of what b
 
 
 
+
+
+
+
 *Committing Changes*
 
 To be able to commit changes to your local monotone repository you need to generate a key pair. To do this execute the command:
@@ -43,4 +50,3 @@ To be able to commit changes to your local monotone repository you need to gener
   _mtn genkey email@address.com_
 
 This stores a private key for yourself in ~/.monotone
-
