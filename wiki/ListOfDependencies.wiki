@@ -21,6 +21,7 @@ Binary dependencies:
   * GTK+, available for all common Linux distributions.
   * SDL2 for visualization functions.  For most systems there are prebuilt packages available.  Note that SDL2 is required, SDL1 does not suffice.
   * Graphviz, available from www.graphviz.org.  For redhat users: if you install this from an RPM, be sure to know what you are doing.
+  * Python and Perl developer packages (eg. the file Python.h must be installed, and is often distributed in a separate rpm or deb file).
 
 Perl dependencies:
 
