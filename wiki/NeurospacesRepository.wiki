@@ -6,9 +6,7 @@
 For coordinated development of all components of the neurospaces project the build machine houses a monotone server that is connectible over the internet. This way changes made can be properly merged using the functions available on monotone. As a result the build mechanism will always build the most up to date version of the code.
 
 
-= Details =
-
-*Checking out code*
+= Checking out code =
 
 To check out the latest version of the neurospaces project code you must first initialize a local monotone repository via this command.
 
@@ -30,7 +28,7 @@ The "" argument pulls all branches from the server into your local repository. T
 
 
 
-*Branches*
+= Branches =
 
 Since you must know the desired branch you want when pulling a specific branch, here are the branches available on the monotone server.
 
@@ -49,7 +47,7 @@ If you download all branches via the "`*`" argument you can get a list of what b
 
 
 
-*Committing Changes*
+= Committing Changes =
 
 To be able to commit changes to your local monotone repository you need to generate a key pair. To do this execute the command:
 
