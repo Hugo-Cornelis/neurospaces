@@ -42,7 +42,7 @@ If you download all branches via the "`*`" argument you can get a list of what b
 
 = Committing Changes =
 
-To be able to commit changes to your local monotone repository you need to generate a key pair. To do this execute the command:
+A monotone repository is an annotated database and every change that is made is signed with keys. To be able to commit changes to your local monotone repository you need to generate a key pair. To do this execute the command:
 
   _mtn genkey email@address.com_
 
