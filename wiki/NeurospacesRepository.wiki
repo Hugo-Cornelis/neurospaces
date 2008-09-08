@@ -32,7 +32,7 @@ Since you must know the desired branch you want when pulling a specific branch, 
 
 If you download all branches via the "`*`" argument you can get a list of what branches are available to check out from your local repository via the command:
 
-  _mtn --db=myrepo.mtn list branches
+  _mtn --db=myrepo.mtn list branches_
 
 
 
