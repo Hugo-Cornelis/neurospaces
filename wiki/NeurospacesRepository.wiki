@@ -57,3 +57,18 @@ and also an
 To commit the changes you made to your own database repository; inside of the source directory execute:
 
   _mtn ci_ or _mtn commit_
+
+
+= Repository Access =
+
+To get write access to a repository which you did not initiate, it must be signed with your public key.
+
+To export your public key perform the following comment:
+
+ _mtn --db=repo.mtn pubkey my@email.com > me.pubkey_
+
+Send the repository owner your public key for write access. To perform this you must have monotone read in the key from stdin with the read command:
+
+ _cat me.pubkey | mtn --db=repo.mtn read_
+
+If it is successful it will indicate that it read in a packet. You can input several keys in a file this way and it will indicate the number of successful packets read in. 
