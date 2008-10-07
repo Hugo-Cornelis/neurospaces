@@ -12,16 +12,30 @@ To check out the latest version of the neurospaces project code you must first i
 
   _mtn --db=myrepo.mtn db init_
 
-Then you may pull the code from the monotone server into your working repository via the command.
+There are monotone instances running for different parts of neurospaces on different ports. To target the correct component you want you need to use these arguments for the remote server:
 
-  _mtn --db=myrepo.mtn pull virtual2.cbi.utsa.edu "`*`"_
+  _NS genesis backward compatability layer:  virtual2.cbi.utsa.edu:4692_
+  _Neurospaces Model Container:              virtual2.cbi.utsa.edu:4693_
+  _Heccer solver package:                    virtual2.cbi.utsa.edu:4694_
+
+
+
+To pull the code from the monotone server into your working repository via the command.
+
+  _mtn --db=myrepo.mtn pull virtual2.cbi.utsa.edu:<port#> "`*`"_
 
 The "`*`" argument pulls all branches from the server into your local repository. To pull a specific branch look at the next section. Once the code has been pulled you can checkout one of the branches into your working directory via the command:
 
   _mtn --db=myrepo.mtn --branch=<Branch ID> co source_directory_
 
 
+= Syncing Databases =
 
+To sync your monotone repository to the remote server you'll need to use the sync command with the proper address of the server (as listed above). 
+
+   _mtn --db=myrepo.mtn sync virtual2.cbi.utsa.edu:<port#> "`*`"_
+
+Now all changes, including logs will be on both the client and server repositories. Note in order to perform this operation you need to be given write access to the repositories on virtual2.
 
 
 = Branches =
