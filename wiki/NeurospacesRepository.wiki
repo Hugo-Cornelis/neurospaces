@@ -20,6 +20,8 @@ There are monotone instances running for different parts of neurospaces on diffe
 
   _Heccer solver package:                    virtual2.cbi.utsa.edu:4694_
 
+  _SSP:                                      virtual2.cbi.utsa.edu:4695_
+
 
 
 To pull the code from the monotone server into your working repository via the command.
