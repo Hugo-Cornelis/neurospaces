@@ -22,6 +22,7 @@ There are monotone instances running for different parts of neurospaces on diffe
 
   _SSP:                                      virtual2.cbi.utsa.edu:4695_
 
+  _Installer:                                virtual2.cbi.utsa.edu:4695_
 
 
 To pull the code from the monotone server into your working repository via the command.
