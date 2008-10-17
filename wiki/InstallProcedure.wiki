@@ -5,7 +5,7 @@
 
 = Introduction =
 
-This page assumes that the target PC has all [ListOfDependencies dependencies] installed.  You can the proceed by downloading the packages from [http://sourceforge.net/project/showfiles.php?group_id=162899].  The download can be automated by the InstallerPackage.  Alternatively, you can checkout the code from the [monontone repositories].
+This page assumes that the target PC has all [ListOfDependencies dependencies] installed.  You can the proceed by downloading the packages from [http://sourceforge.net/project/showfiles.php?group_id=162899].  The download can be automated by the InstallerPackage.  Alternatively, you can checkout the code from the [NeurospacesRepository monontone repositories].
 
 
 All Neurospaces packages can be downloaded and installed by themselves, based on autotools ('./configure', 'make', 'sudo make install').  There is a small issue with the Heccer package: its compilation depends on the NMC to be installed.
