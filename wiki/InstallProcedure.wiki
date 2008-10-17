@@ -5,7 +5,10 @@
 
 = Introduction =
 
-This page assumes that the target PC has all [ListOfDependencies dependencies] installed.
+This page assumes that the target PC has all [ListOfDependencies dependencies] installed.  You can the proceed by downloading from 
+
+http://sourceforge.net/project/showfiles.php?group_id=162899
+
 
 All Neurospaces packages can be downloaded and installed by themselves, based on autotools ('./configure', 'make', 'sudo make install').  There is a small issue with the Heccer package: its compilation depends on the NMC to be installed.
 
