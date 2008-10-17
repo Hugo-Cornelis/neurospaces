@@ -11,12 +11,12 @@ All Neurospaces packages can be downloaded and installed by themselves, based on
 
 The order of installation is:
 
-  * Installer (optional)
-  * NMC (model-container)
-  * Heccer
-  * SSP
-  * Studio
-  * Project-Browser
+  * [http://www.neurospaces.org/#installer Installer] (optional)
+  * [http://www.neurospaces.org/#model-container NMC (model-container)]
+  * [http://www.neurospaces.org/#heccer Heccer]
+  * [http://www.neurospaces.org/#ssp SSP]
+  * [http://www.neurospaces.org/#studio Studio]
+  * [http://www.neurospaces.org/#project-browser Project-Browser]
 
 The most easy way to do the installation, is by using the package installer, see below.
 
