@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The NeurospacesRepository is accessible from the Installer package.
+The NeurospacesRepository is accessible from the InstallerPackage.
 
 = Details =
 
