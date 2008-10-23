@@ -10,7 +10,7 @@ The NeurospacesRepository is accessible from the InstallerPackage.
 
   * pulling to your local repository
 {{{
-neurospaces_build --repo-pull virtual2.cbi.utsa.edu --no-configure --no-install --no-compile --verbose --developer --regex heccer
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp'
 }}}
 
 
