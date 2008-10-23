@@ -5,13 +5,23 @@
 
 = Introduction =
 
-  * Use the InstallerPackage to do the initial directory layout (look inside the script neurospaces_build).
+  * Use the InstallerPackage to do the initial directory layout.
   * The tools I use are gdb, gcc, xemacs with its many elisp packages.
   * The neurospaces NDF file format has a special elisp package for use with (x)emacs.
   * For version control I use Monotone (http://www.monotone.ca/), monotone is also supported by the InstallerPackage.
   * The monotone I use is statically linked.  Because Monotone is a distributed version control system, we sometimes send repositories and monotone executables as email attachments between developers.
 
-= Details =
+= Directories =
+
+  * there is a directory `~/neurospaces_project` in your home directory.
+  * the directory `~/neurospaces_project/MTN` contains all monotone repositories accessible to the InstallerPackage.
+  * every software package has its own subdirectory, eg. `~/neurospaces_project/heccer`
+  * every software package has several subdirectories:
+    + `docs` contains documentation not included in the distribution
+    + `source/snapshots/0` contains the source code you are working on.
+    + `source/snapshots/0/_MTN` is the directory with the monotone options specific to the source code.
+    + `source/snapshots/0/installed` optionally contains a locally installed version of the software package.
+    + `source/snapshots/patches` contains diffs / patches to your code.
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
