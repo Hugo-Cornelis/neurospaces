@@ -3,6 +3,8 @@
 
 [Index]
 
+[NeurospacesRepository]
+
 = Introduction =
 
   * Use the InstallerPackage to do the initial directory layout.
