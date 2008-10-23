@@ -22,6 +22,7 @@ neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose -
 
   * It can be useful if you start from scratch to create the directories where your workspaces are located
 {{{
+neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp' --directories-create
 }}}
 
 
