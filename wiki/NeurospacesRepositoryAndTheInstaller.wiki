@@ -8,6 +8,13 @@ The NeurospacesRepository is accessible from the InstallerPackage.
 
 = Details =
 
+  * pulling to your local repository
+{{{
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --no-configure --no-install --no-compile --verbose --developer --regex heccer
+}}}
+
+
+
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
