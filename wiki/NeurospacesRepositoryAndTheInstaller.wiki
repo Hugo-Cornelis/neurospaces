@@ -2,6 +2,8 @@
 
 [Index]
 
+[NeurospacesRepository]
+
 = Introduction =
 
 The NeurospacesRepository is accessible from the InstallerPackage.
@@ -13,6 +15,14 @@ The NeurospacesRepository is accessible from the InstallerPackage.
 neurospaces_build --repo-pull virtual2.cbi.utsa.edu --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp'
 }}}
 
+  * checkout from your local repository
+{{{
+neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp'
+}}}
+
+  * It can be useful if you start from scratch to create the directories where your workspaces are located
+{{{
+}}}
 
 
 Add your content here.  Format your content with:
