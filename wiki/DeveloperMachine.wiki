@@ -19,11 +19,11 @@
   * the directory `~/neurospaces_project/MTN` contains all monotone repositories accessible to the InstallerPackage.
   * every software package has its own subdirectory, eg. `~/neurospaces_project/heccer`
   * inside a software package directory there are several subdirectories:
-    || `~/neurospaces_project/heccer/docs` || contains documentation not included in the distribution. ||
-    || `~/neurospaces_project/heccer/source/snapshots/0` || contains the source code you are working on. ||
-    || `~/neurospaces_project/heccer/snapshots/0/_MTN` || is the directory with the monotone options specific to the source code. ||
-    || `~/neurospaces_project/heccer/source/snapshots/0/installed` || optionally contains a locally installed version of the software package. ||
-    || `~/neurospaces_project/heccer/source/snapshots/patches` || contains diffs / patches to your code. ||
+  || `~/neurospaces_project/heccer/docs` || contains documentation not included in the distribution. ||
+  || `~/neurospaces_project/heccer/source/snapshots/0` || contains the source code you are working on. ||
+  || `~/neurospaces_project/heccer/snapshots/0/_MTN` || is the directory with the monotone options specific to the source code. ||
+  || `~/neurospaces_project/heccer/source/snapshots/0/installed` || optionally contains a locally installed version of the software package. ||
+  || `~/neurospaces_project/heccer/source/snapshots/patches` || contains diffs / patches to your code. ||
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
