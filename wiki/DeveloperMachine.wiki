@@ -13,7 +13,7 @@
   * The monotone I use is statically linked.  Because Monotone is a distributed version control system, developers sometimes exchange monotone repositories and monotone executables.
   * You can optionally use the InstallerPackage to do the initial directory layout.
 
-= Directories =
+= Basic Directory layout =
 
   * there is a directory `~/neurospaces_project` in your home directory.
   * the directory `~/neurospaces_project/MTN` contains all monotone repositories accessible to the InstallerPackage.
