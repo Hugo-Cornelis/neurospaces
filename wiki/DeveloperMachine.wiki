@@ -24,3 +24,4 @@
 || `~/neurospaces_project/heccer/snapshots/0/_MTN` || is the directory with the monotone options specific to the source code. ||
 || `~/neurospaces_project/heccer/source/snapshots/0/installed` || optionally contains a locally installed version of the software package. ||
 || `~/neurospaces_project/heccer/source/snapshots/patches` || contains diffs / patches to your code. ||
+  * The InstallerPackage knows how to work with this directory hierarchy.
