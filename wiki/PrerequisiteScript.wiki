@@ -1,0 +1,115 @@
+#summary An optional installer script for prerequisites and automated testing.
+#labels script
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+`#!/usr/bin/perl -w
+use strict;
+####################################################################
+### install.pl
+### neurospaces prereqisite installer
+### pulls packages from various repositories online in preparation
+### for installing the neurospaces neural simulator
+####################################################################
+my @modules = ( 'Bundle::CPAN',
+                'Clone',
+                'Expect::Simple',
+                'YAML',
+                'File::Find::Rule',
+                'Digest::SHA',
+                'Data::Utilities',
+                'File::chdir',
+                'ExtUtils::Depends',
+                'ExtUtils::PkgConfig',
+                'Glib',
+                'Cairo',
+                'Gtk2');
+
+my @mypackages = (
+                'SDL_gfx',
+                'SDL_gfx-debuginfo',
+                'SDL_gfx-demos',
+                'SDL_gfx-devel',
+                'SDL_image',
+                'SDL_image-devel',
+                'SDL_mixer',
+                'SDL_mixer-devel',
+                'SDL_net',
+                'SDL_net-devel',
+                'SDL_Perl',
+                'SDL_ttf',
+                'SDL_ttf-devel',
+                'graphviz',
+                'graphvis-perl',
+                'wget'
+);
+
+use CPAN;
+#for my $mod (@modules) {
+        #print "Installing Module: $mod\n";
+        #system("perl -MCPAN -e \'install $mod \'");
+
+        #CPAN docs say this should work, but it doesn't seem to
+        #my $obj=CPAN::Shell->expand('Module',("$mod"));
+        #$obj->install;
+#}
+my $loginname = getlogin();
+if ($< != 0) { die("This script should be run as root.\n"); }
+
+print("Installing graphviz repo files.");
+
+open( OUTFILE, '>/etc/yum.repos.d/graphviz-rhel.repo');
+print OUTFILE qq(
+[graphviz-stable]
+name=Graphviz - RHEL \$releasever - \$basearch
+baseurl=http://www.graphviz.org/pub/graphviz/stable/redhat/el\$releasever/\$basearch/os/
+enabled=1
+gpgcheck=0
+
+[graphviz-stable-source]
+name=Graphviz - RHEL \$releasever - Source
+baseurl=http://www.graphviz.org/pub/graphviz/stable/SRPMS/
+enabled=0
+gpgcheck=0
+
+[graphviz-stable-debuginfo]
+name=Graphviz - RHEL - Debug
+baseurl=http://www.graphviz.org/pub/graphviz/stable/redhat/el\$releasever/\$basearch/debug/
+enabled=0
+gpgcheck=0
+
+[graphviz-snapshot]
+name=Graphviz - RHEL \$releasever - \$basearch
+baseurl=http://www.graphviz.org/pub/graphviz/development/redhat/el\$releasever/\$basearch/os/
+enabled=0
+gpgcheck=0
+
+[graphviz-snapshot-source]
+name=Graphviz - RHEL \$releasever - Source
+baseurl=http://www.graphviz.org/pub/graphviz/development/SRPMS/
+enabled=0
+gpgcheck=0
+
+[graphviz-snapshot-debuginfo]
+name=Graphviz - RHEL - Debug
+baseurl=http://www.graphviz.org/pub/graphviz/development/redhat/el\$releasever/\$basearch/debug/
+enabled=0
+gpgcheck=0
+);
+print ("Installing DAG gpg key and repo files\n");
+system("rpm -Uhv http://apt.sw.be/redhat/el5/en/i386/rpmforge/RPMS/rpmforge-release-0.3.6-1.el5.rf.i386.rpm");
+
+for my $mypackage (@mypackages) {
+        print "Installing RPM: $mypackage\n";
+        system("yum install -y $mypackage");
+}
+
+system("wget http://www.monotone.ca/downloads/0.41/mtn-0.41-linux-x86.bz2");
+system("bzip2 -d mtn-0.41-linux-x86.bz2 mtn");
+system("chmod u+x mtn");
+
+system ("sudo neurospaces_build --download-server downloads.sourceforge.net --check --regex 'model-container|heccer|ssp' --src-tag python-2 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose >& output.out");`
