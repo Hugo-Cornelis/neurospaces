@@ -2,7 +2,13 @@
 #labels script
 = Introduction =
 
-Add your content here.
+The purpose of this script is to install the prerequisite for the neurospaces system software.  The script installs a yum repository for the graphviz software, sets up the DAG repositories, and pulls down the monotone binary.  The purpose of this script is for use in an automated testing environment and has only been tested on CentOS 5 (i386).  It should work on any recent fedora derivative though (Fedora, CentOS, RedHat Enterprise 5).
+
+Currently all values are hard coded, including architecture and distro information.
+
+Future plans:
+Detect architecture and distro and automate 
+Ubuntu/Debian support
 
 
 = Details =
