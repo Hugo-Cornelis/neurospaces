@@ -2,7 +2,9 @@
 #labels Phase-Implementation
 
 [Index]
+
 [NeurospacesRepository]
+
 [NeurospacesRepositoryAndTheInstaller]
 
 = Introduction =
