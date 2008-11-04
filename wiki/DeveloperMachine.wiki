@@ -90,5 +90,6 @@ test -z "/usr/local/neurospaces/installer" || mkdir -p -- "/usr/local/neurospace
  /local_home/hugo/neurospaces_project/installer/source/snapshots/0/install-sh -c -m 644 'tests/specifications/strings/neurospaces_build--tag-build-10--no-compile--no-configure--no-install--regex-installer--dry-run--developer--verbose--verbose--verbose.txt' '/usr/local/neurospaces/installer/tests/specifications/strings/neurospaces_build--tag-build-10--no-compile--no-configure--no-install--regex-installer--dry-run--developer--verbose--verbose--verbose.txt'
 make[2]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
 make[1]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
-[11:08] (0,2) 0 $ 
+
+[11:08] (0,2) 0 $ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp'
 }}}
