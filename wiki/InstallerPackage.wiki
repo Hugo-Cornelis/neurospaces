@@ -82,4 +82,4 @@ neurospaces_build --tag build-25 --dist --src-tag build-25 --upload-server ftp:/
 
 = Other =
 
-  * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this is working for about 60%.
+  * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this has been used to convert the Heccer developer documentation to doxygen format.  Other packages will follow.
