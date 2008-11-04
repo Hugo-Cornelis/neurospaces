@@ -7,7 +7,7 @@
 
 = Introduction =
 
-For the federated development of the software components of the neurospaces project and other software components the build machine houses a monotone server that is connectible over the internet. This way changes made can be properly merged using the functions available on monotone. As a result the build mechanism will always build the most up to date version of the code.
+For the federated development of the software components of the neurospaces project and other software components a software buildbot machine houses a monotone server that is connectible over the internet. Source code changes can be properly merged using the functions available on monotone, regardless of the location where the changes have been made (at home, in your office, on the airplane). The build mechanism will always build the most up to date version of the code.
 
 
 = Checking out code =
