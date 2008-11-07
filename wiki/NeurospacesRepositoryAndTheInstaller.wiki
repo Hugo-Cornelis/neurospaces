@@ -27,7 +27,7 @@ neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose -
 
   * combining everything, including compilation and installation
 {{{
-neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --regex 'heccer|model-container|ssp' --directories-create
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create
 }}}
 
 Add your content here.  Format your content with:
