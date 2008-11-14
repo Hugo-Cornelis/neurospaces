@@ -20,7 +20,7 @@ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --no-configure --no-install 
 neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp'
 }}}
 
-  * When you start from scratch it is useful to create the directories where your workspaces are located
+  * When you start from scratch it is useful to create the workspace directories
 {{{
 neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp' --directories-create
 }}}
