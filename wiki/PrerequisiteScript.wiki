@@ -56,14 +56,15 @@ my @mypackages = (
 );
 
 use CPAN;
-#for my $mod (@modules) {
-        #print "Installing Module: $mod\n";
-        #system("perl -MCPAN -e \'install $mod \'");
+for my $mod (@modules) {
+        print "Installing Module: $mod\n";
+        system("perl -MCPAN -e \'install $mod \'");
 
         #CPAN docs say this should work, but it doesn't seem to
         #my $obj=CPAN::Shell->expand('Module',("$mod"));
         #$obj->install;
-#}
+}
+
 my $loginname = getlogin();
 if ($< != 0) { die("This script should be run as root.\n"); }
 
