@@ -22,21 +22,11 @@ use strict;
 ### pulls packages from various repositories online in preparation
 ### for installing the neurospaces neural simulator
 ####################################################################
-my @modules = ( 'Bundle::CPAN',
-                'Clone',
-                'Expect::Simple',
-                'YAML',
-                'File::Find::Rule',
-                'Digest::SHA',
-                'Data::Utilities',
-                'File::chdir',
-                'ExtUtils::Depends',
-                'ExtUtils::PkgConfig',
-                'Glib',
-                'Cairo',
-                'Gtk2');
+
 
 my @mypackages = (
+                'perl',
+                'gcc',
                 'SDL_gfx',
                 'SDL_gfx-debuginfo',
                 'SDL_gfx-demos',
@@ -55,18 +45,19 @@ my @mypackages = (
                 'wget'
 );
 
-use CPAN;
-for my $mod (@modules) {
-        print "Installing Module: $mod\n";
-# Use this if you don't expect any test failures
-#        system("perl -MCPAN -e \'install $mod \'");
-# I usually get some test failures which can break the whole thing, so I use
-        system("perl -MCPAN -e \'force install $mod \'");
-
-        #CPAN docs say this should work, but it doesn't seem to
-        #my $obj=CPAN::Shell->expand('Module',("$mod"));
-        #$obj->install;
-}
+my @modules = ( 'Bundle::CPAN',
+                'Clone',
+                'Expect::Simple',
+                'YAML',
+                'File::Find::Rule',
+                'Digest::SHA',
+                'Data::Utilities',
+                'File::chdir',
+                'ExtUtils::Depends',
+                'ExtUtils::PkgConfig',
+                'Glib',
+                'Cairo',
+                'Gtk2');
 
 my $loginname = getlogin();
 if ($< != 0) { die("This script should be run as root.\n"); }
@@ -114,9 +105,26 @@ gpgcheck=0
 print ("Installing DAG gpg key and repo files\n");
 system("rpm -Uhv http://apt.sw.be/redhat/el5/en/i386/rpmforge/RPMS/rpmforge-release-0.3.6-1.el5.rf.i386.rpm");
 
+#this next part is here because vmware restore seems to mess up yum metadata
+system("yum clean all");
+
+#install rpms first to make sure compiler is present for CPAN
 for my $mypackage (@mypackages) {
         print "Installing RPM: $mypackage\n";
         system("yum install -y $mypackage");
+}
+
+use CPAN;
+for my $mod (@modules) {
+        print "Installing Module: $mod\n";
+# Use this if you don't expect any test failures
+#        system("perl -MCPAN -e \'install $mod \'");
+# I usually get some test failures which can break the whole thing, so I use
+        system("perl -MCPAN -e \'force install $mod \'");
+
+        #CPAN docs say this should work, but it doesn't seem to
+        #my $obj=CPAN::Shell->expand('Module',("$mod"));
+        #$obj->install;
 }
 
 system("wget http://www.monotone.ca/downloads/0.41/mtn-0.41-linux-x86.bz2");
