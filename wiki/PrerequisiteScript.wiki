@@ -58,7 +58,10 @@ my @mypackages = (
 use CPAN;
 for my $mod (@modules) {
         print "Installing Module: $mod\n";
-        system("perl -MCPAN -e \'install $mod \'");
+# Use this if you don't expect any test failures
+#        system("perl -MCPAN -e \'install $mod \'");
+# I usually get some test failures which can break the whole thing, so I use
+        system("perl -MCPAN -e \'force install $mod \'");
 
         #CPAN docs say this should work, but it doesn't seem to
         #my $obj=CPAN::Shell->expand('Module',("$mod"));
