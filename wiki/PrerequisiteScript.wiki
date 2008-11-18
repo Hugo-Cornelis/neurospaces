@@ -106,7 +106,12 @@ print ("Installing DAG gpg key and repo files\n");
 system("rpm -Uhv http://apt.sw.be/redhat/el5/en/i386/rpmforge/RPMS/rpmforge-release-0.3.6-1.el5.rf.i386.rpm");
 
 #this next part is here because vmware restore seems to mess up yum metadata
-system("yum clean all");
+system("yum clean all -y");
+
+# I had problems installing gcc if the rest of the packages weren't up to date
+#Should have just updated what it needed, but whatever...
+print "Updating all current packages.\n"
+system("yum update -y");
 
 #install rpms first to make sure compiler is present for CPAN
 for my $mypackage (@mypackages) {
