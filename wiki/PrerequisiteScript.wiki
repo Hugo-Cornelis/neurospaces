@@ -134,8 +134,10 @@ for my $mod (@modules) {
 
 system("wget http://www.monotone.ca/downloads/0.41/mtn-0.41-linux-x86.bz2");
 system("bzip2 -d mtn-0.41-linux-x86.bz2");
-system("mv mtn-0.41-linux-x86 mtn");
-system("chmod u+x mtn");
+system("mv mtn-0.41-linux-x86 /usr/local/bin/mtn");
+system("chmod u+x /usr/local/bin/mtn");
+system("mkdir ~/mtn");
+system("mtn db init --db ~/mtn/neurospaces.mtn");
 
 system("wget http://superb-east.dl.sourceforge.net/sourceforge/neurospaces/installer-python-2.tar.gz");
 system("tar xzvf installer-python-2.tar.gz");
