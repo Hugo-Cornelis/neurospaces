@@ -3,6 +3,8 @@
 
 [Index]
 
+[NeurospacesRepositoryAndTheInstaller]
+
 = Introduction =
 
 Developer utilities that comply with Neurospaces development standards.
