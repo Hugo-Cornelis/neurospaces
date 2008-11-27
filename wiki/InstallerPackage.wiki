@@ -7,12 +7,13 @@
 
 = Introduction =
 
-Developer utilities that comply with Neurospaces development standards.
+Developer utilities that comply with Neurospaces development standards.  The most important one is the 'neurospaces_build' script used for automated software installation and maintenance on a set of software packages.  Because this script has many options, most common operations are provided using frontends.  Other scripts are related to version identification of the software, and source code documentation comments.
 
 Some of the utilities currently depend on monotone for source code version control due to their configuration.  It is possible to work with other version control systems.
 
-Below are the most common operations for a developr.  They are simple frontends to the neurospaces_build script.
+= Utilities =
 
+  * neurospaces_build: perform various build operations, do 'neurospaces_build --help' to see how it works.  Also look at ReleaseProcedure.
   * neurospaces_pull: download the source code from a repository
   * neurospaces_install: install the simulator software
   * neurospaces_check: check for correctness of the installed software
@@ -23,12 +24,10 @@ Soon also:
 
   * neurospaces_download: download the simulator from a central archive
 
-= Utilities =
+For updating of version keywords:
 
   * release_extract: extract release information from a monotone repository.  When a Tag is set, that will be the result, otherwise the SHA of the current base revision will be the result.
   * release_expand: do keyword expansion, see the manpage in the source for more details.
-  * neurospaces_status: check the status of the source code on your machine with the monotone repositories.
-  * neurospaces_build: perform various build operations, do 'neurospaces_build --help' to see how it works.  Also look at ReleaseProcedure.
 
 = Examples =
 
