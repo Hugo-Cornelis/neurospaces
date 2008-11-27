@@ -11,18 +11,17 @@ Developer utilities that comply with Neurospaces development standards.
 
 Some of the utilities currently depend on monotone for source code version control due to their configuration.  It is possible to work with other version control systems.
 
-- neurospaces_download: download the simulator from a central archive
+Below are the most common operations for a developr.  They are simple frontends to the neurospaces_build script.
 
-- neurospaces_pull: download the source code from a repository
+  * neurospaces_pull: download the source code from a repository
+  * neurospaces_install: install the simulator software
+  * neurospaces_check: check for correctness of the installed software
+  * neurospaces_status: check for local source code modification
+  * neurospaces_sync: synchronize local source code modification with a repository
 
-- neurospaces_install: install the simulator software
+Soon also:
 
-- neurospaces_check: check for correctness of the installed software
-
-- neurospaces_status: check for local source code modification
-
-- neurospaces_sync: synchronize local source code modification with a repository
-
+  * neurospaces_download: download the simulator from a central archive
 
 = Utilities =
 
