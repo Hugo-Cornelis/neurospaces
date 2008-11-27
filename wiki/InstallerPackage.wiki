@@ -29,6 +29,11 @@ For updating of version keywords:
   * release_extract: extract release information from a monotone repository.  When a Tag is set, that will be the result, otherwise the SHA of the current base revision will be the result.
   * release_expand: do keyword expansion, see the manpage in the source for more details.
 
+Other:
+
+  * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this has been used to convert the Heccer developer documentation to doxygen format.  Other packages will follow.
+
+
 = Examples =
 
   * See also InstallingFromScratch
@@ -55,7 +60,7 @@ neurospaces_build --src-tag build-11 --upload-server ftp://upload.sourceforge.ne
 
     1 Figuring out what packages are known:
 {{{
-neurospaces_build --packages
+neurospaces_build --help-packages
 }}}
     1 Figuring out what actions are taken by default:
 {{{
@@ -91,7 +96,3 @@ neurospaces_build --enable installer --regex installer --developer --verbose --v
 {{{
 neurospaces_build --tag build-25 --dist --src-tag build-25 --upload-server ftp://upload.sourceforge.net/incoming --enable installer --regex '(installer)' --developer --verbose
 }}}
-
-= Other =
-
-  * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this has been used to convert the Heccer developer documentation to doxygen format.  Other packages will follow.
