@@ -13,6 +13,12 @@ In summary, what you want to do is this: pulling the set of default packages fro
 neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create
 }}}
 
+There are developer friendly frontends to the neurospaces_build script in the InstallerPackage:
+
+  * neurospaces_pull: pull remote repositories.
+  * neurospaces_sync: sync with remote repositories.
+  * neurospaces_status: report about local changes.
+
 
 = Details =
 
