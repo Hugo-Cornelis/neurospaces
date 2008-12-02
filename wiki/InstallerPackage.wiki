@@ -19,6 +19,7 @@ Some of the utilities currently depend on monotone for source code version contr
   * neurospaces_check: check for correctness of the installed software
   * neurospaces_status: check for local source code modification
   * neurospaces_sync: synchronize local source code modification with a repository
+  * neurospaces_website_prepare: prepare a version of the website on your local pc, and optionally upload it.
 
 Soon also:
 
