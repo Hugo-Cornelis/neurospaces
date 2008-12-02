@@ -19,12 +19,12 @@ To check out the latest version of the neurospaces project code you must first i
 There are monotone instances running for different parts of neurospaces on different ports. To target the correct component you want you need to use these arguments for the remote server:
 
   || *Description* || *Package name* || *Server address* || *Repository Name* ||
-  || NS genesis backward compatability layer:  || ns-genesis-SLI || virtual2.cbi.utsa.edu:4692 ||  ||
-  || Neurospaces Model Container:              || model-container || virtual2.cbi.utsa.edu:4693 ||  ||
-  || Heccer solver package:                    || heccer || virtual2.cbi.utsa.edu:4694 ||  ||
-  || SSP:                                      || ssp || virtual2.cbi.utsa.edu:4695 ||  ||
-  || Installer:                                || installer || virtual2.cbi.utsa.edu:4696 ||  ||
-  || Project Browser:                          || project-browser || virtual2.cbi.utsa.edu:4697 ||  ||
+  || NS genesis backward compatability layer:  || ns-genesis-SLI || virtual2.cbi.utsa.edu:4692 || ns-gen.mtn ||
+  || Neurospaces Model Container:              || model-container || virtual2.cbi.utsa.edu:4693 || model-container.mtn ||
+  || Heccer solver package:                    || heccer || virtual2.cbi.utsa.edu:4694 || heccer.mtn ||
+  || SSP:                                      || ssp || virtual2.cbi.utsa.edu:4695 || ssp.mtn ||
+  || Installer:                                || installer || virtual2.cbi.utsa.edu:4696 || neurospaces-developer.mtn ||
+  || Project Browser:                          || project-browser || virtual2.cbi.utsa.edu:4697 || neurospacesweb.mtn ||
 
 To pull the code from the monotone server into your working repository via the command.
 
