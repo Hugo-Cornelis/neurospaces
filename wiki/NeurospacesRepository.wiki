@@ -20,9 +20,9 @@ There are monotone instances running for different parts of neurospaces on diffe
 
   || *Description* || *Package name* || *Server address* || *Repository Name* ||
   || NS genesis backward compatability layer || ns-genesis-SLI || virtual2.cbi.utsa.edu:4692 || ns-gen.mtn ||
-  || Neurospaces Model Container || model-container || virtual2.cbi.utsa.edu:4693 || model-container.mtn ||
-  || Heccer solver package || heccer || virtual2.cbi.utsa.edu:4694 || heccer.mtn ||
-  || SSP || ssp || virtual2.cbi.utsa.edu:4695 || ssp.mtn ||
+  || Internal Storage for Models || model-container || virtual2.cbi.utsa.edu:4693 || model-container.mtn ||
+  || Single neuron solver || heccer || virtual2.cbi.utsa.edu:4694 || heccer.mtn ||
+  || Scheduler || ssp || virtual2.cbi.utsa.edu:4695 || ssp.mtn ||
   || Installer || installer || virtual2.cbi.utsa.edu:4696 || neurospaces-developer.mtn ||
   || Project Browser || project-browser || virtual2.cbi.utsa.edu:4697 || neurospacesweb.mtn ||
 
