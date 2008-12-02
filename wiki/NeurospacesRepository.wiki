@@ -26,6 +26,12 @@ There are monotone instances running for different parts of neurospaces on diffe
   || Installer || installer || virtual2.cbi.utsa.edu:4696 || neurospaces-developer.mtn ||
   || Project Browser || project-browser || virtual2.cbi.utsa.edu:4697 || neurospacesweb.mtn ||
 
+
+|| *Year* || *Temperature (low)* || *Temperature (high)* ||
+|| 1900 || -10 || 25 ||
+|| 1910 || -15 || 30 ||
+
+
 To pull the code from the monotone server into your working repository via the command.
 
   _mtn --db=myrepo.mtn pull virtual2.cbi.utsa.edu:<port#> "`*`"_
