@@ -28,8 +28,7 @@ Soon also:
 
   * neurospaces_download: download the simulator from a central archive
 
-For updating of version keywords:
-
+For updating of version keywords the following are invoked automatically by the neurospaces_build script:
   * release_extract: extract release information from a monotone repository.  When a Tag is set, that will be the result, otherwise the SHA of the current base revision will be the result.
   * release_expand: do keyword expansion, see the manpage in the source for more details.
 
