@@ -65,6 +65,10 @@ neurospaces_build --src-tag build-11 --upload-server ftp://upload.sourceforge.ne
 {{{
 neurospaces_build --help-packages
 }}}
+    1 Figuring out what operations on those packages are known:
+{{{
+neurospaces_build --help-operations
+}}}
     1 Figuring out what actions are taken by default:
 {{{
 neurospaces_build --help
