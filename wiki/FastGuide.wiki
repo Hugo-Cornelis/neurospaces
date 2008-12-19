@@ -7,3 +7,347 @@ Below is the SSP Fastguide that is shipped with SSP.  It provides an simple outl
 
 = FastGuide =
 
+========================================
+SSP: a small & fast incomplete userguide
+========================================
+
+- - - - - - - - - - - - - - - -
+Introduction: SSP functionality
+- - - - - - - - - - - - - - - -
+
+In a quick list, what SSP offers:
+
+- SSP glues other software components together.
+- SSP synchronizes the activities of other components during a simulation.
+- SSP is configurable.
+
+From the Neurospaces website:
+
+Both the Neurospaces model container and Heccer are stand-alone
+components. They need to be glued together before they are
+useful. Besides that, they also need to be activated correctly, such
+that they can work together on a single simulation. This is exactly
+what the SSP scheduler does. The Simple Scheduler in Perl, activates
+other software components according to a configurable
+schedule. Because the SSP scheduler does not have any computational
+load, its implementation is very simple, and configurable. It is
+actually the configuration that connects SSP to the model container
+for internal storage of model and to Heccer for numerical integration
+of biological models.  Other configurations will connect SSP to other
+modeling services or solvers.  SSP achieves this by loading on the fly
+those software modules referenced in its configuration.  Other modules
+are not loaded.
+
+Two examples
+============
+
+This section should only give one small example, this is meant to be
+an introduction only.  Then have a more extended example section at
+the end, or, alternatively, start with a light-readable example
+section, then, give a more 'specification'-like manual.
+
+Below is a typical configuration file for SSP. It first configures SSP
+to use the Neurospaces model container for internal storage of
+biological models (called Neurospaces for legacy reasons).  It then
+instructs SSP to load a model called 'cells/tensizesp.ndf', and to
+instantiate a solver called 'Heccer' for that part of the model
+('/tensizesp').  The simulation of the model is run using the 'apply'
+entry in the configuration file (note that the order in the
+configuration file below is alphabetical, not chronological.  A user
+may specify these entries in any order.).
+
+::
+
+  --- !!perl/hash:SSP
+  apply:
+    simulation:
+      - arguments:
+          - 10
+          - 1
+        method: steps
+      - arguments:
+          - 0.1
+        method: advance
+  models:
+    - modelname: /tensizesp
+      solverclass: heccer
+  name: tensizesp
+  services:
+    neurospaces:
+      initializers:
+        - arguments:
+            -
+              - ./example
+              - -P
+              - tests/cells/tensizesp.ndf
+          method: read
+      module_name: Neurospaces
+  solverclasses:
+    heccer:
+      module_name: Heccer
+      service_name: neurospaces
+      
+
+Below is a slightly enhanced SSP configuration file. Additionally,
+this file also shows how to pass specific options to Heccer: Heccer
+will give a small report after every time step in the simulation, and
+the time step is set to new value. This configuraton file also
+specifies the output classes and actual outputs of the simulation. The
+specified outputs are written to a file in the file system (in this
+case using a default filename).
+
+::
+
+  --- !!perl/hash:SSP
+  apply:
+    simulation:
+      - arguments:
+          - 1000
+          - 1
+        method: steps
+      - arguments:
+          - 0.1
+        method: advance
+  models:
+    - modelname: /pool1_feedback1
+      solverclass: heccer
+  name: pool1_feedback1
+  outputclasses:
+    double_2_ascii:
+      constructor: Heccer::Output
+      module_name: Heccer
+  outputs:
+    - component_name: '/pool1_feedback1/segments/main[0]'
+      field: Vm
+      outputclass: double_2_ascii
+    - component_name: '/pool1_feedback1/segments/main[0]/Ca_pool'
+      field: Ca
+      outputclass: double_2_ascii
+  services:
+    neurospaces:
+      initializers:
+        - arguments:
+            -
+              - ./tests/perl/pool1-feedback1
+              - -P
+              - tests/cells/pool1_feedback1.ndf
+          method: read
+      module_name: Neurospaces
+  solverclasses:
+    heccer:
+      constructor_settings:
+        configuration:
+          reporting:
+            granularity: 100
+            tested_things: 6225920
+        dStep: 1e-06
+      module_name: Heccer
+      service_name: neurospaces
+      
+
+- - - - - - - - 
+Working with SSP
+- - - - - - - - 
+
+SSP is started using the command 'ssp'.  Starting ssp without options
+does not do anything, except for telling you how to use it.
+
+The comand 'ssp_directory' calls 'ssp' for each schedule in a given
+directory, with the options 'set-name' and 'set-outputclass-filename'
+(see below).
+
+
+Starting SSP
+============
+
+When starting SSP, you must specify a schedule template (a filename)
+for SSP to read.  SSP will read the schedule template, modify it
+according to command line options, convert it to a real schedule and
+execute the schedule.
+
+The most important options at this time are:
+
+::
+
+    set-name           overwrite the schedule name with the name of the file that contains the schedule
+    set-outputclass-filename
+                       overwrite the outputclass filename with something derived from the name of the
+                       file that contains the schedule
+
+
+Both of these options allow a user to track the correspondence between
+the schedule filename, the internal schedule name, and the filename of
+the simulation output file.
+
+
+SSP schedules: important keys
+=============================
+
+A schedule is a hierarchical enumeration of 'keys' that tell SSP to do
+certain things.  In a SSP schedule is defined:
+
+- what external modules must be loaded by SSP
+- how to link these modules together (if that is needed)
+- how to activate the modules
+- what the outputs are of the schedule
+- how to finish and clean up
+
+If some of these things are not defined in the schedule, SSP assumes
+defaults.
+
+There is one special key 'description'.  This key is available at all
+levels of the hierarchy, but is ignored by SSP.  It allows a user to
+tell other people what the intent is of the values he specified.
+
+The SSP schedules are in Yaml format.  The basics of this format are
+that it uses dashes for an order sensitive enumeration of items, and
+it uses colons for an order insensitive enumeration of key, value
+pairs.  Each entry is newline terminated.
+
+SSP relies on external 'services' and 'engines'.  In computational
+neuroscience parlance, the engines are solvers, and the services
+contain the model that needs to be computed by the solvers.  So SSP
+tells the engines *when* to do something, but the services tell the
+engines *what* has to be done.  Currently the services are information
+services, but that is subject to change (e.g. it is currently unclear
+if a discrete event scheduler must be specified as a service or as an
+engine, from semantics it is the former, from software architecture it
+is the latter).
+
+Following is a non-exhaustive list of keys (about 70% of the currently
+defined keys are covered here).
+
+apply
+  The *apply* key contains a set of subkeys that define how to run a schedule.
+  Each subkey contains an array of 'methods' that have to be executed.  The
+  most important subkey is called *simulation*, which defines the method to
+  use to run the simulation and the number of steps to perform during the
+  simulation.
+
+::
+
+    simulation:
+      - arguments:
+          - 1000
+          - 1
+        description: run 1000 steps of the simulation.
+        method: steps
+      - arguments:
+          - 0.1
+        description: advance the simulation by 0.1s.
+        method: advance
+
+services
+  Contains a definition of all the services, and the method to
+  instantiate these services.  For the neurospaces service, the most
+  important methods are 'read', to read a model specified in a
+  neurospaces description file, and 'load', to load a model specified
+  in an external format (only Genesis .p files are supported at
+  present).  Additional options like e.g. a shrinkage correction
+  factor, or a spines distribution definition, can be specified
+  overhere.
+
+solverclasses
+  The solver classes, and their relationship to the services.
+  E.g. this key tells ssp to load in the heccer module, and, whenever
+  it is used, it must talk to neurospaces to figure out what needs to
+  be simulated.  Solver specific settings, e.g. the time step, are
+  specified overhere.
+
+models
+  An enumeration of the parts of the model to simulate, and what
+  solverclasses to use for this part of the model.  Model parts not
+  listed are not simulated.  For each entry of the enumeration,
+  i.e. for each part of the model that will be simulated, you have the
+  possibility to set a number of parameters, right before the engines
+  get to see the model.  The subkeys in an entry of the enumeration to
+  do that are:
+
+  granular_parameters
+    Allows to set parameters at a granular level, ie. the level of the
+    model that the engines will get to see.
+
+::
+
+    granular_parameters:
+      - component_name: /Purkinje/segments/soma
+        description: current injection into the somatic compartment.
+        field: INJECT
+        value: 0.2e-9
+
+  conceptual_parameters
+    Allows to set parameters at a conceptual level.  The modeling service
+    is responsible to have the new values propagate to all the levels
+    in the granular representation of the model.
+
+::
+
+    conceptual_parameters:
+      - component_name: spinyd::gaba::/Purk_GABA
+        description: endogenous activity
+        field: FREQUENCY
+        value: 0.5
+      - component_name: spine::/Purk_spine/head/par
+        description: endogenous activity
+        field: FREQUENCY
+        value: 13
+
+  When using neurospaces as the modeling service, the difference
+  between granular_parameters and conceptual_parameters is inferred by
+  the difference in addressing the components in the model: the
+  separator '/' is used for addressing components at the granular
+  level.  The separator '::' is used to go throught the levels of the
+  conceptual representation of the model.
+
+outputclasses
+  The output classes specify the type of outputs.  Internally,
+  output classes are the same as solver classes, but they come in a
+  separate key for interfacing with other software.  Options for the output
+  class can be specified overhere (e.g. a filename for output).
+
+outputs
+  The actual outputs of the simulation are defined here.  This key is
+  an enumeration of elements and fields that are present in the model.
+  The addressing scheme to get to these fields and elements is defined
+  by the model service.  So for neurospaces, '/' is the element
+  separator, and '->' is the field separator.
+
+name
+  The internal name of the schedule.  It is a good idea to maintain a clear
+  correspondence between the internal name and the filename of the
+  schedule.
+
+version
+  defines the version number the schedule complies to.  If omitted its
+  value is '0', the current schedule protocol version at this time.
+
+
+Creating and changing SSP schedules
+===================================
+
+The best way to create a new SSP schedule, is to take an exising one,
+and modify it to your needs.  I use small perl scripts to generate a
+mass of ssp schedules, then I simulate all of them in batch mode using
+a command line:
+
+::
+
+ssp_directory >schedules.out 2>&1 --schedules-directory schedules/ --verbose &
+
+Then, to monitor the progress of the thousands of simulations, I do:
+
+::
+
+tail -f schedules.out
+
+
+SSP schedules are specified in yaml format, and easy to understand
+format for naive computer users (see http://www.yaml.org/).
+
+Yaml is white space sensitive, because users use white space to
+structure the content of information.  Indentation is used to define
+the hierarchical depth of an entry, while newlines are used to
+terminate an entry.  This results in a very easy to understand format.
+All the examples above are given in YAML syntax.  Additionally, all
+the scripting languages I know off, have builtin support for yaml data
+structures.
