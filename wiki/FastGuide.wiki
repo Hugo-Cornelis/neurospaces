@@ -1,6 +1,6 @@
 #summary A simple outline of how to use SSP for running simulations.
 
-Index
+[Index]
 
 = Introduction =
 
