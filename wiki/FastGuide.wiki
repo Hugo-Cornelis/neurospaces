@@ -17,9 +17,9 @@ Introduction: SSP functionality
 
 In a quick list, what SSP offers:
 
-* SSP glues other software components together.
-* SSP synchronizes the activities of other components during a simulation.
-* SSP is configurable.
+  * SSP glues other software components together.
+  * SSP synchronizes the activities of other components during a simulation.
+  * SSP is configurable.
 
 From the Neurospaces website:
 
@@ -56,6 +56,7 @@ entry in the configuration file (note that the order in the
 configuration file below is alphabetical, not chronological.  A user
 may specify these entries in any order.).
 
+{{{
 ::
 
   --- !!perl/hash:SSP
@@ -86,6 +87,7 @@ may specify these entries in any order.).
     heccer:
       module_name: Heccer
       service_name: neurospaces
+}}}
       
 
 Below is a slightly enhanced SSP configuration file. Additionally,
@@ -96,6 +98,7 @@ specifies the output classes and actual outputs of the simulation. The
 specified outputs are written to a file in the file system (in this
 case using a default filename).
 
+{{{
 ::
 
   --- !!perl/hash:SSP
@@ -143,6 +146,7 @@ case using a default filename).
         dStep: 1e-06
       module_name: Heccer
       service_name: neurospaces
+}}}
       
 
 - - - - - - - - 
@@ -167,12 +171,14 @@ execute the schedule.
 
 The most important options at this time are:
 
+{{{
 ::
 
     set-name           overwrite the schedule name with the name of the file that contains the schedule
     set-outputclass-filename
                        overwrite the outputclass filename with something derived from the name of the
                        file that contains the schedule
+}}}
 
 
 Both of these options allow a user to track the correspondence between
@@ -186,11 +192,11 @@ SSP schedules: important keys
 A schedule is a hierarchical enumeration of 'keys' that tell SSP to do
 certain things.  In a SSP schedule is defined:
 
-- what external modules must be loaded by SSP
-- how to link these modules together (if that is needed)
-- how to activate the modules
-- what the outputs are of the schedule
-- how to finish and clean up
+  * what external modules must be loaded by SSP
+  * how to link these modules together (if that is needed)
+  * how to activate the modules
+  * what the outputs are of the schedule
+  * how to finish and clean up
 
 If some of these things are not defined in the schedule, SSP assumes
 defaults.
@@ -224,6 +230,7 @@ apply
   use to run the simulation and the number of steps to perform during the
   simulation.
 
+{{{
 ::
 
     simulation:
@@ -236,6 +243,7 @@ apply
           - 0.1
         description: advance the simulation by 0.1s.
         method: advance
+}}}
 
 services
   Contains a definition of all the services, and the method to
@@ -267,6 +275,7 @@ models
     Allows to set parameters at a granular level, ie. the level of the
     model that the engines will get to see.
 
+{{{
 ::
 
     granular_parameters:
@@ -274,12 +283,14 @@ models
         description: current injection into the somatic compartment.
         field: INJECT
         value: 0.2e-9
+}}}
 
   conceptual_parameters
     Allows to set parameters at a conceptual level.  The modeling service
     is responsible to have the new values propagate to all the levels
     in the granular representation of the model.
 
+{{{
 ::
 
     conceptual_parameters:
@@ -291,6 +302,7 @@ models
         description: endogenous activity
         field: FREQUENCY
         value: 13
+}}}
 
   When using neurospaces as the modeling service, the difference
   between granular_parameters and conceptual_parameters is inferred by
@@ -330,15 +342,19 @@ and modify it to your needs.  I use small perl scripts to generate a
 mass of ssp schedules, then I simulate all of them in batch mode using
 a command line:
 
+{{{
 ::
 
 ssp_directory >schedules.out 2>&1 --schedules-directory schedules/ --verbose &
+}}}
 
 Then, to monitor the progress of the thousands of simulations, I do:
 
+{{{
 ::
 
 tail -f schedules.out
+}}}
 
 
 SSP schedules are specified in yaml format, and easy to understand
