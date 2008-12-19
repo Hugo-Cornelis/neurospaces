@@ -1,0 +1,9 @@
+#summary A simple outline of how to use SSP for running simulations.
+
+= Introduction =
+
+Below is the SSP Fastguide that is shipped with SSP.  It provides an simple outline of how to use SSP for running simulations.
+
+
+= FastGuide =
+
