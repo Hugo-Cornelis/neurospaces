@@ -17,9 +17,9 @@ Introduction: SSP functionality
 
 In a quick list, what SSP offers:
 
-- SSP glues other software components together.
-- SSP synchronizes the activities of other components during a simulation.
-- SSP is configurable.
+* SSP glues other software components together.
+* SSP synchronizes the activities of other components during a simulation.
+* SSP is configurable.
 
 From the Neurospaces website:
 
