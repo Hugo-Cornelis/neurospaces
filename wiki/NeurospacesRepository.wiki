@@ -23,7 +23,7 @@ There are monotone instances running for different parts of neurospaces on diffe
 || Internal Storage for Models || model-container || virtual2.cbi.utsa.edu:4693 || model-container.mtn ||
 || Single neuron solver || heccer || virtual2.cbi.utsa.edu:4694 || heccer.mtn ||
 || Scheduler || ssp || virtual2.cbi.utsa.edu:4695 || ssp.mtn ||
-|| Studio || studio || virtual2.cbi.utsa.edu:4698 || studio.mtn ||
+|| Incomplete GUI || studio || virtual2.cbi.utsa.edu:4698 || studio.mtn ||
 || Installer || installer || virtual2.cbi.utsa.edu:4696 || neurospaces-developer.mtn ||
 || Project Browser || project-browser || virtual2.cbi.utsa.edu:4697 || neurospacesweb.mtn ||
 
