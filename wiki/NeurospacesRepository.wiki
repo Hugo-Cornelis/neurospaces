@@ -13,6 +13,8 @@ For the federated development of the software components of the neurospaces proj
 
 The most easy way to get the latest version of the source code is via the Neurospaces installer.  See NeurospacesRepositoryAndTheInstaller for more information.
 
+The information below explains how to checkout code manually when not using the installer.
+
 
 = Checking out Code Manually =
 
