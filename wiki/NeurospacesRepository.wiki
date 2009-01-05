@@ -14,7 +14,7 @@ For the federated development of the software components of the neurospaces proj
 The most easy way to get the latest version of the source code is via the Neurospaces installer.  See NeurospacesRepositoryAndTheInstaller for more information.
 
 
-= Checking out code =
+= Checking out code Manually =
 
 To check out the latest version of the neurospaces project code you must first initialize a local monotone repository via this command.
 
