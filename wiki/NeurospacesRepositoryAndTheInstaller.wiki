@@ -13,7 +13,7 @@ In summary, what you want to do is this: pulling the set of default packages fro
 neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create --no-configure --no-compile --no-install
 }}}
 
-If you also want to compile and install in just one run:
+This command has options that inhibit the default actions of configuration, compilation and installation.  If you also want to compile and install in just one run, simply omit those options:
 {{{
 neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create
 }}}
