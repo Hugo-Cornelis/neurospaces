@@ -11,7 +11,7 @@ For the federated development of the software components of the neurospaces proj
 
 = Convenient Access to the Source Code =
 
-See NeurospacesRepositoryAndTheInstaller.
+The most easy way to get the latest version of the source code is via the Neurospaces installer.  See NeurospacesRepositoryAndTheInstaller for more information.
 
 
 = Checking out code =
