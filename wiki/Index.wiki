@@ -11,7 +11,7 @@ In principle anyone can join, yet we do focus on tools and documentation related
 = Details =
 
   * GlobalProjectLayout
-  * Setting up a DeveloperMachine
+  * Setting up a DeveloperMachine, PrerequisiteScript and Dependencies
   * BuildProcedure
   * Structure of a TargetMachine
   * ReleaseProcedure
