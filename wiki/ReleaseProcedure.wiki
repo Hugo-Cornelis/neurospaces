@@ -5,6 +5,16 @@
 
 = Introduction =
 
+You first must check if the package can be built from the tarball.  The autotools 'distcheck' target does this (see below).  An additional check is to build the tarball, put it somewhere on your filesystem, and then build the 'check' target from the tarball.  First build the tarball and put it somewhere on your filesystem (eg. /tmp):
+
+{{{
+}}}
+
+Then build the 'check' target from the tarball:
+
+{{{
+}}}
+
 In a one line summary you need to put a tag, and distcheck the current code, then make them available on sourceforge.  In one line of code:
 
 {{{
