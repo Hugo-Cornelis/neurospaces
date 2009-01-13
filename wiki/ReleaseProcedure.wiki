@@ -5,7 +5,7 @@
 
 = Introduction =
 
-You first must check if the package can be built from the tarball.  The autotools 'distcheck' target does this (see below).  An additional check is to build the tarball, put it somewhere on your filesystem, and then build the 'check' target from the tarball.  First build the tarball and put it somewhere on your filesystem (eg. /tmp):
+After putting a tag on the code, you first must check if the package can be built from the tarball.  The autotools 'distcheck' target does this (see below).  An additional check is to build the tarball, put it somewhere on your filesystem, and then build the 'check' target from the tarball.  First build the tarball and put it somewhere on your filesystem (eg. /tmp):
 
 {{{
 neurospaces_build --developer --verbose --upload-server file://tmp/uploads --src-tag python-5 --no-configure --no-compile --no-install --regex studio
