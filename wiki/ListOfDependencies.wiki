@@ -5,6 +5,8 @@
 
 InstallingFromScratch
 
+PrerequisiteScript
+
 = Introduction =
 
 Dependencies fall into two categories:
