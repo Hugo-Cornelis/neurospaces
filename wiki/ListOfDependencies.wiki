@@ -12,6 +12,7 @@ Dependencies fall into two categories:
   1 Binary dependencies.
   1 Perl dependencies.
 
+For some linux distributions, these can be installed automatically using the PrerequisiteScript.
 
 = Details =
 
