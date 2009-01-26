@@ -30,19 +30,19 @@ Perl dependencies:
 
 All the following dependencies are available from CPAN (search.cpan.org).  You can install them with a command line like "sudo perl -MCPAN -e 'install Mail::Sender'", where "Mail::Sender" should be replaced with the appropriate package name.  Also remove things between parentheses ("sudo perl -MCPAN -e 'install Glib'", but not "sudo perl -MCPAN -e 'install Glib (Gtk2)'").
 
-    * Mail::Sender
-    * Clone
-    * Expect::Simple
-    * YAML
-    * File::Find::Rule
-    * Digest::SHA
-    * Data::Utilities
+    * `Mail::Sender`
+    * `Clone`
+    * `Expect::Simple`
+    * `YAML`
+    * `File::Find::Rule`
+    * `Digest::SHA`
+    * `Data::Utilities`
 
-    * ExtUtils::Depends (Gtk2)
-    * ExtUtils::PkgConfig (Gtk2)
-    * Glib (Gtk2)
-    * Cairo (Gtk2)
-    * Gtk2
+    * `ExtUtils::Depends` (Gtk2)
+    * `ExtUtils::PkgConfig` (Gtk2)
+    * `Glib` (Gtk2)
+    * `Cairo` (Gtk2)
+    * `Gtk2`
 
     * Bundle::CPAN (SDL uses Build.pl, so make sure you have the latest)
 
