@@ -63,4 +63,4 @@ All the following dependencies are available from CPAN (search.cpan.org).  You c
             * SDL_ttf-devel-2.0.8-1.i386.rpm
         * For debian based systems (includes ubuntu)
             * the debian files equivalent for the above rpm files are included in the standard debian repositories.
-    * GraphViz, only required for the Neurospaces Studio
+    * `GraphViz`, only required for the Neurospaces Studio
