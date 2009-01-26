@@ -28,7 +28,7 @@ Binary dependencies:
 
 Perl dependencies:
 
-All the following dependencies are available from CPAN (search.cpan.org).  You can install them with a command line like "sudo perl -MCPAN -e 'install Mail::Sender'", where "Mail::Sender" should be replaced with the appropriate package name.
+All the following dependencies are available from CPAN (search.cpan.org).  You can install them with a command line like "sudo perl -MCPAN -e 'install Mail::Sender'", where "Mail::Sender" should be replaced with the appropriate package name.  Also remove things between parentheses ("sudo perl -MCPAN -e 'install Glib'", but not "sudo perl -MCPAN -e 'install Glib (Gtk2)'").
 
     * Mail::Sender
     * Clone
