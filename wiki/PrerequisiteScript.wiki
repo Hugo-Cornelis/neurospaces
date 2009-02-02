@@ -110,7 +110,7 @@ system("yum clean all -y");
 
 # I had problems installing gcc if the rest of the packages weren't up to date
 #Should have just updated what it needed, but whatever...
-print "Updating all current packages.\n"
+print "Updating all current packages.\n";
 system("yum update -y");
 
 #install rpms first to make sure compiler is present for CPAN
