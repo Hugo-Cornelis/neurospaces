@@ -143,9 +143,10 @@ system("mtn db init --db ~/mtn/neurospaces.mtn");
 system("mtn --db=~/mtn/neurospaces.mtn pull virtual2.cbi.utsa.edu:4696 \"*\"");
 system("mtn --db=~/mtn/neurospaces.mtn --branch=0 co ~/neurospaces-installer-mtn");
 
-chdir("~/neurospaces-installer-mtn");
+chdir("$ENV{HOME}/neurospaces-installer-mtn");
 system("./configure");
 system("make");
 system("make install");
-system("sudo neurospaces_build --download-server downloads.sourceforge.net --check --regex 'model-container|heccer|ssp' --src-tag python-2 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose >& output.out");
+system("sudo neurospaces_build --download-server downloads.sourceforge.net --check --regex 'model-container|heccer|ssp' --src-tag python-2 --src-dir /tmp/neurospaces/downloads --verbose --verbose --verbose >& output.out &");
+system("tail -f output.out");
 }}}
