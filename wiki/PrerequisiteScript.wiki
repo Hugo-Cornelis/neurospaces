@@ -1,6 +1,8 @@
 #summary An optional installer script for prerequisites and automated testing.
 #labels script
 
+[Index]
+
 NeurospacesRepositoryAndTheInstaller
 
 = Introduction =
