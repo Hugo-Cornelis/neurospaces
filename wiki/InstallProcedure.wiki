@@ -3,6 +3,8 @@
 
 [Index]
 
+PrerequisiteScript ListOfDependencies
+
 = Introduction =
 
 This page assumes that the target PC has all [ListOfDependencies dependencies] installed.  You can the proceed by downloading the packages from [http://sourceforge.net/project/showfiles.php?group_id=162899].  The download can be automated by the InstallerPackage.  Alternatively, you can checkout the code from the [http://monotone.ca/ monontone] [NeurospacesRepository repositories].
