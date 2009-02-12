@@ -25,7 +25,7 @@
 || `~/neurospaces_project/installer/source/snapshots/0` || contains the source code you are working on. ||
 || `~/neurospaces_project/installer/snapshots/0/_MTN` || is the directory with the monotone options specific to the source code. ||
 || `~/neurospaces_project/installer/source/snapshots/0/installed` || optionally contains a locally installed version of the software package. ||
-|| `~/neurospaces_project/installer/source/snapshots/patches` || contains diffs / patches to your code, only available from your PC. ||
+|| `~/neurospaces_project/installer/source/snapshots/patches` || contains diffs / patches to your code, available on your local PC. ||
 
   * The InstallerPackage knows how to work with this directory hierarchy.
   * Here is a full example that sets up the installer repository on your local machine, checks out the code and then uses the installer to install all the currently available packages:
