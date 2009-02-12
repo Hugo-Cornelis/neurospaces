@@ -18,6 +18,8 @@ Some of the utilities currently depend on monotone for source code version contr
 
   Other utilities:
 
+  * neurospaces_packages: show what packages are enabled on your local machine.
+
   * neurospaces_pull: download the source code from a repository.
   * neurospaces_status: check for local source code modification.
   * neurospaces_sync: synchronize local source code modification with a repository.
@@ -26,6 +28,7 @@ Some of the utilities currently depend on monotone for source code version contr
   * neurospaces_check: check for correctness of the installed software.
   * neurospaces_clean: clean source code directories.
 
+  * neurospaces_docs: builds documentation on your local machine.
   * neurospaces_website_prepare: prepare a version of the website on your local pc, and optionally upload it.
 
   * neurospaces_cron: a cron job based tester script.
