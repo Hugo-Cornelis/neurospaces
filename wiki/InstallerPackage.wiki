@@ -17,16 +17,22 @@ Some of the utilities currently depend on monotone for source code version contr
   * neurospaces_build: perform various build operations, do 'neurospaces_build --help' to see how it works.  Also look at ReleaseProcedure.
 
   Other utilities:
-  * neurospaces_pull: download the source code from a repository
-  * neurospaces_install: install the simulator software
-  * neurospaces_check: check for correctness of the installed software
-  * neurospaces_status: check for local source code modification
-  * neurospaces_sync: synchronize local source code modification with a repository
+
+  * neurospaces_pull: download the source code from a repository.
+  * neurospaces_status: check for local source code modification.
+  * neurospaces_sync: synchronize local source code modification with a repository.
+
+  * neurospaces_install: install the simulator software.
+  * neurospaces_check: check for correctness of the installed software.
+  * neurospaces_clean: clean source code directories.
+
   * neurospaces_website_prepare: prepare a version of the website on your local pc, and optionally upload it.
+
+  * neurospaces_cron: a cron job based tester script.
 
 Soon also:
 
-  * neurospaces_download: download the simulator from a central archive
+  * neurospaces_download: download the simulator from a central archive.
 
 For updating of version keywords the following are invoked automatically by the neurospaces_build script:
   * release_extract: extract release information from a monotone repository.  When a Tag is set, that will be the result, otherwise the SHA of the current base revision will be the result.
