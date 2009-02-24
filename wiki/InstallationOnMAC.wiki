@@ -39,3 +39,6 @@ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --develo
   * swig (solved)
 
 = Known issues =
+
+  * ranlib (can be solved by compiling twice)
+  * libhistory (partially solved)
