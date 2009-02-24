@@ -10,4 +10,18 @@ New software components can be added to the configuration of the neurospaces_bui
 
   * add the new software component to the configuration of the neurospaces_build script.  For example, for the model-container, you have
 {{{
+       'model-container' => {
+			     './configure' => [
+					       '--with-delete-operation',
+					      ],
+			     directory => "$ENV{HOME}/neurospaces_project/model-container/source/snapshots/0",
+			     disabled => 0,
+			     order => 1,
+			     target_name => 'model-container',
+			     version_control => {
+						 port_number => 4693,
+						 repository => "$ENV{HOME}/neurospaces_project/MTN/model-container.mtn",
+						},
+			    },
 }}}
+which includes the directory name where sources are to be found, the build order, and version control information (note that the server port number cannot be changed at anytime).
