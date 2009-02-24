@@ -28,6 +28,7 @@ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --develo
   * untar, configure, make and sudo make for the downloaded installer
   * neurospaces_pull (pulls all the enabled software components from the central repositories)
 
+  * continue with standard installation
 
 = Solved issues =
 
