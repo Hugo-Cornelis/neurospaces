@@ -1,4 +1,4 @@
-#summary How to create new neurospaces software components
+#summary How to create new neurospaces components
 
 = Introduction =
 
