@@ -18,8 +18,8 @@ We are currently working on installation on the MAC.
   * download the installer from sourceforge
   * ./configure, make and sudo make install on the installer from sourceforge, or ...
   * ... cp -p neurospaces_build /usr/local/bin
-  * neurospaces_build --help should work now
   * add /usr/local/bin to your $PATH
+  * neurospaces_build --help should work now
   * add /System/Library/Frameworks to your $PATH (why again ?)
   * use neurospaces_build to pull the latest installer
 {{{
