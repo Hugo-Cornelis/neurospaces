@@ -12,7 +12,7 @@ We are currently working on installation on the MAC.
 
 = Note Book =
 
-  * install monotone
+  * install monotone (we are currently using 0.40)
   * install CPAN YAML
   * install make (no need to search for you CD if you have the matlab gmake, just make a symbolic link that is accessible from your $PATH)
   * download the installer from sourceforge
