@@ -23,6 +23,7 @@ In principle anyone can join, yet we do focus on tools and documentation related
 
 = Custom Installations =
 
+  * InstallationOnMAC
   * InstallationOnRanger
 
 Add your content here.  Format your content with:
