@@ -16,7 +16,7 @@ Some of the utilities currently depend on monotone for source code version contr
   Main driver script:
   * neurospaces_build: perform various build operations, do 'neurospaces_build --help' to see how it works.  Also look at ReleaseProcedure.
 
-  Other utilities:
+  Other utilities: these utilities take optional arguments of '--regex' to select what packages they operate on, and '--verbose' to run the command in a more verbose mode.
 
   * neurospaces_packages: show what packages are enabled on your local machine.
   * neurospaces_versions: shows what versions of the neurospaces packages are installed.
