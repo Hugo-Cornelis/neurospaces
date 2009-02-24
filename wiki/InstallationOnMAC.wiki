@@ -4,6 +4,8 @@
 
 [InstallerPackage]
 
+[NeurospacesRepository]
+
 = Introduction =
 
 We are currently working on installation on the MAC.
