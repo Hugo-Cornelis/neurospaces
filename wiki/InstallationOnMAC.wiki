@@ -17,6 +17,7 @@ We are currently working on installation on the MAC.
   * add /System/Library/Frameworks to your $PATH (why again ?)
   * use neurospaces_build to pull the latest installer
 {{{
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create --regex installer --enable installer
 }}}
   * configure, make and sudo make install latest installer
   * 
