@@ -19,8 +19,9 @@ We are currently working on installation on the MAC.
 {{{
 neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create --regex installer --enable installer
 }}}
-  * configure, make and sudo make install latest installer
-  * 
+  * untar, configure, make and sudo make for the downloaded installer
+  * neurospaces_pull (pulls all the enabled software components from the central repositories)
+
 
 = Solved issues =
 
