@@ -1,0 +1,20 @@
+#summary Installation on the MAC.
+
+= Introduction =
+
+We are currently working on installation on the MAC.
+
+= to be installed =
+
+  * CPAN YAML
+  * make (no need to search for you CD if you have the matlab one)
+
+= Solved issues =
+
+  * ranlib (solved)
+  * echo -n (solved)
+
+= Known issues =
+
+  * find does not recognize the `-printf` argument.
+  * swig
