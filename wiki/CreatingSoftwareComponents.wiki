@@ -6,6 +6,8 @@ Neurospaces contains many software components.  The source code of the most impo
 
 New software components can be added to the configuration of the neurospaces_build script of the InstallerPackage.  All the other tools of the InstallerPackage, such as tools to compile and install, tools to [NeurospacesRepositoryAndTheInstaller synchronize] the [NeurospacesRepository source code] with remote servers, and tools to generate and publish documentation on a website will work with the new configuration.
 
+For smooth integration with the neurospaces installer, it is a requirement that the top level source directory of the new component contains a `configure` script, and a `Makefile` with the targets `clean`, `check`, `dist`, `distcheck`, `install`, `uninstall`, `docs`, `html-upload`.
+
 = Creating a new software component, originator =
 
   * add the new software component to the configuration of the neurospaces_build script.  For example, for the model-container, you have
