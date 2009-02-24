@@ -26,6 +26,7 @@ New software components can be added to the configuration of the neurospaces_bui
 }}}
 which includes the directory name where sources are to be found, the build order, and version control information (note that the server port number cannot be changed at anytime).
   * neurospaces_build --enable model-container --regex model-container --create-directories --developer
+  * neurospaces_build --enable model-container --regex model-container --developer --repo-co
 
 = Creating a new software component, other machines =
 
