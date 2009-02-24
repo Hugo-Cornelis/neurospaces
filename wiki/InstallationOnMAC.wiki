@@ -1,5 +1,9 @@
 #summary Installation on the MAC.
 
+[Index]
+
+[InstallerPackage]
+
 = Introduction =
 
 We are currently working on installation on the MAC.
