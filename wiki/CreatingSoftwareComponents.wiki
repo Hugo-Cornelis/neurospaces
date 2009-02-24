@@ -1,15 +1,13 @@
-#summary One-sentence summary of this page.
+#summary How to create new neurospaces software components
 
 = Introduction =
 
 Neurospaces contains many software components.  The source code of the most important ones is publicly available from a central repository (virtual2 at cbi is coded as the default server in the InstallerPackage).  Other software components can be made available from other sources.  The installer package, when configured correctly, will automatically incorporate software components from distributed sources.
 
-New software components can easily by added
+New software components can be added to the configuration of the neurospaces_build script of the InstallerPackage.  All the other tools of the InstallerPackage, such as tools to compile and install, tools to synchronize the source code with remote servers, and tools to generate and publish documentation on a website will work with the new configuration.
 
+= Creating a new software component =
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * add the new software component to the configuration of the neurospaces_build script.  For example, for the model-container, you have
+{{{
+}}}
