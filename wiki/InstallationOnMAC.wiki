@@ -7,7 +7,7 @@ We are currently working on installation on the MAC.
 = to be installed =
 
   * CPAN YAML
-  * make (no need to search for you CD if you have the matlab one)
+  * make (no need to search for you CD if you have the matlab gmake, just make a symbolic link that is accessible from your $PATH)
 
 = Solved issues =
 
