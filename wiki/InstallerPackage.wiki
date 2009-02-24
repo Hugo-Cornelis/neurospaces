@@ -3,6 +3,8 @@
 
 [Index]
 
+[MACInstallation]
+
 [NeurospacesRepositoryAndTheInstaller]
 
 = Introduction =
