@@ -29,6 +29,7 @@ which includes the directory name where sources are to be found, the build order
   * neurospaces_build --enable model-container --regex model-container --developer --repo-co
   * start population the project with files, checkin your modifications using monotone.
   * configure the monotone server using the information in the configuration of the component.
+  * Use `neurospaces_sync` to synchronize your local monotone repository with the server one.
 
 = Creating a new software component, other machines =
 
