@@ -7,6 +7,9 @@ The neurospaces wiki is used by people who are involved in development of the Ne
 
 In principle anyone can join, yet we do focus on tools and documentation related to the software development.  So this is not a wiki for users who want to do scientific simulations.
 
+= Creating a New Software Component =
+
+See CreatingSoftwareComponents
 
 = Details =
 
