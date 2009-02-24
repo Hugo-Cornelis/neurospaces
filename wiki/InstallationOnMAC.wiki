@@ -6,6 +6,7 @@ We are currently working on installation on the MAC.
 
 = Note Book =
 
+  * install monotone
   * install CPAN YAML
   * install make (no need to search for you CD if you have the matlab gmake, just make a symbolic link that is accessible from your $PATH)
   * download the installer from sourceforge
@@ -17,6 +18,8 @@ We are currently working on installation on the MAC.
   * use neurospaces_build to pull the latest installer
 {{{
 }}}
+  * configure, make and sudo make install latest installer
+  * 
 
 = Solved issues =
 
