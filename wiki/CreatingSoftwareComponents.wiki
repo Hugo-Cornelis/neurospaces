@@ -25,3 +25,5 @@ New software components can be added to the configuration of the neurospaces_bui
 			    },
 }}}
 which includes the directory name where sources are to be found, the build order, and version control information (note that the server port number cannot be changed at anytime).
+  * `neurospaces_pull --enable docs --regex docs`
+  * 
