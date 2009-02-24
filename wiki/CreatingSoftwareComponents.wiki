@@ -25,8 +25,8 @@ New software components can be added to the configuration of the neurospaces_bui
 			    },
 }}}
 which includes the directory name where sources are to be found, the build order, and version control information (note that the server port number cannot be changed at anytime).
-  * neurospaces_build --enable model-container --regex model-container --create-directories --developer
-  * neurospaces_build --enable model-container --regex model-container --developer --repo-co
+  * `neurospaces_create_directories` to create the correct directory layout.
+  * `neurospaces_build --enable model-container --regex model-container --developer --repo-co` to create the monotone repository.
   * start population the project with files, checkin your modifications using monotone.
   * configure the monotone server using the information in the configuration of the component.
   * Use `neurospaces_sync` to synchronize your local monotone repository with the server one.
@@ -34,6 +34,7 @@ which includes the directory name where sources are to be found, the build order
 = Creating a new software component, other machines =
 
   * Get a version of the installer package that has configuration of the new software component.
+  * `neurospaces_create_directories` to create the correct directory layout.
   * `neurospaces_pull --enable model-container --regex model-container` pulls the repository from the server (creating a new repository locally if that is needed).
   * `neurospaces_update --enable model-container --regex model-container` updates local source code with the latest source in the local repository, keeping local changes if any.
   * `neurospaces_install` recompiles all software components, and links them against each other.  Use `--enable model-container --regex model-container` to perform this operation only on the model-container software component.
