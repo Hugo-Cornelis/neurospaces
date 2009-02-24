@@ -28,5 +28,7 @@ which includes the directory name where sources are to be found, the build order
   * neurospaces_build --enable model-container --regex model-container --create-directories --developer
 
 = Creating a new software component, other machines =
+
+  * Get a version of the installer package that has configuration of the new software component.
   * `neurospaces_pull --enable docs --regex docs`
   * 
