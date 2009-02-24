@@ -9,7 +9,7 @@ In principle anyone can join, yet we do focus on tools and documentation related
 
 = Creating a New Software Component =
 
-See CreatingSoftwareComponents
+See CreatingSoftwareComponentso
 
 = Details =
 
