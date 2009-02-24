@@ -14,14 +14,18 @@ We are currently working on installation on the MAC.
   * neurospaces_build --help should work now
   * add /usr/local/bin to your $PATH
   * add /System/Library/Frameworks to your $PATH (why again ?)
-
+  * use neurospaces_build to pull the latest installer
+{{{
+}}}
 
 = Solved issues =
 
   * ranlib (solved)
-  * echo -n (solved)
+  * echo -n in configure scripts (partially solved)
+  * mkdir --parents in the installer script (solved)
 
 = Known issues =
 
   * find does not recognize the `-printf` argument.
+  * echo -n in configure scripts (partially solved)
   * swig
