@@ -36,8 +36,7 @@ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --develo
   * mkdir --parents in the installer script (solved)
   * find does not recognize the `-printf` argument (solved).
   * swig (solved)
+  * ranlib (solved)
+  * libhistory (solved)
 
 = Known issues =
-
-  * ranlib (can be solved by compiling twice)
-  * libhistory (partially solved)
