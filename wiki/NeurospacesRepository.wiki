@@ -33,7 +33,7 @@ There are monotone instances running for different parts of neurospaces on diffe
 || Project Browser || project-browser || virtual2.cbi.utsa.edu:4697 || neurospacesweb.mtn || 
 || Incomplete GUI  || studio || virtual2.cbi.utsa.edu:4698 || studio.mtn ||
 || GShell || gshell || virtual2.cbi.utsa.edu:4699 || gshell.mtn ||
-|| User documentation || userdocs || virtual2.cbi.utsa.edu:700 || userdocs.mtn ||
+|| User documentation || userdocs || virtual2.cbi.utsa.edu:7000 || userdocs.mtn ||
 
 
 To pull the code from the monotone server into your working repository via the command.
