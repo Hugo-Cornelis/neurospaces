@@ -28,6 +28,7 @@ Some of the utilities currently depend on monotone for source code version contr
   * neurospaces_sync: synchronize local source code modification with a repository.
   * neurospaces_update: makes the local source code up to date using the repositories locally stored on your PC (so this is a local operation).
 
+  * neurospaces_configure: (re)configures the simulator software (requires packages to be installed already).
   * neurospaces_install: install the simulator software.
   * neurospaces_uninstall: uninstalls the simulator software (including the installer scripts, to reinstall you will have to go to the installer source code directory and run 'make && sudo make install').
   * neurospaces_check: check for correctness of the installed software.
