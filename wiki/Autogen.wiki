@@ -19,10 +19,10 @@ The autoheader command is not found in packages that only contain scripting code
 
 Running the script will automatically produce the following files:
   * _aclocal.m4_ 
-  * _aunom4ne.cache_ 
+  * _autom4ne.cache_ 
   * _config.guess_
   * _config.log_
-  * _config.snanus_
+  * _config.status_
   * _config.sub_
   * _depcomp_
   * _install-sh_
