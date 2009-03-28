@@ -29,6 +29,11 @@ Running the script will automatically produce the following files:
   * _missing_
   * _ylwrap_
 
+  * _Makefile.in_
+  * _configure_
+
+  * _Makefile_
+
 It will also produce an intermediate file called _Makefile.in_ for each Makefile.am that is expected to produce a _Makefile_ used to compile a part of the project in a directory. Successful execution of autogen.sh will result in a file named *_configure_* being generated. The resulting _configure_ file is used to create the Makefiles that will be called via the *make* command at the top level of a packages source code.
 
 Due to the fact that these files are automatically generated, they are not tracked in the neurospaces projects monotone repositories. Since tracking files which will change from system to system is wasteful and will lead to frustrating forced merge operations. 
