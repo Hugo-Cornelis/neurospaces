@@ -1,5 +1,9 @@
 #summary How the build system is set up for development via an autogen.sh script and the interaction with monotone.
 
+[Index]
+
+[Installer]
+
 This is a overview of how the build system is set up for development via an autogen.sh script and monotone.
 
 = Introduction =
