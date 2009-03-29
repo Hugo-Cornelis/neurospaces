@@ -6,6 +6,8 @@
 
 [InstallerPackage]
 
+[NeurospacesRepositoryAndTheInstaller]
+
 = Introduction =
 
 Neurospaces contains many software components.  The source code of the most important ones is publicly available from a central repository.  (The server virtual2 at cbi is coded as the default server in the InstallerPackage.  This default can be overwritten using command line options.)  Other software components can be made available from other sources.  The installer package, when configured correctly, will automatically incorporate software components from geographically distributed sources.
