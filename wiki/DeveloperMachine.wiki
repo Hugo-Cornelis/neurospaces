@@ -95,6 +95,18 @@ test -z "/usr/local/neurospaces/installer" || mkdir -p -- "/usr/local/neurospace
 make[2]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
 make[1]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
 
+[11:08] (0,2) 0 $ neurospaces_packages
+/usr/local/bin/neurospaces_build:
+  enabled packages in order of build:
+    - installer
+    - model-container
+    - heccer
+    - ssp
+    - studio
+    - ns-genesis-SLI
+    - gshell
+    - userdocs
+
 [11:08] (0,2) 0 $ neurospaces_pull
 [11:08] (0,2) 0 $ neurospaces_update
 [11:08] (0,2) 0 $ neurospaces_install
