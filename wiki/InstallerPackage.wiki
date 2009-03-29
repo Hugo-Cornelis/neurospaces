@@ -22,6 +22,7 @@ Some of the utilities currently depend on monotone for source code version contr
 
   * neurospaces_packages: show what packages are enabled on your local machine.
   * neurospaces_versions: shows what versions of the neurospaces packages are installed.
+  * neurospaces_create_directories: create the correct directory layout required for Neurospaces development.
 
   * neurospaces_pull: download the source code from a repository.
   * neurospaces_status: check for local source code modification (no network required).
