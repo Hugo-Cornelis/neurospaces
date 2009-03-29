@@ -29,7 +29,10 @@
 || `~/neurospaces_project/installer/source/snapshots/patches` || contains diffs / patches to your code, available on your local PC. ||
 
   * The InstallerPackage knows how to work with this directory hierarchy.
-  * Here is a full example that sets up the installer repository on your local machine, checks out the code and then uses the installer to install all the currently available packages:
+  * Here is a full example:
+    1 It sets up the installer repository on your local machine.
+    1 Checks out the code.
+    1 Uses the installer to install all the currently available packages.
 {{{
 [10:54] (0,2) ~ $ mkdir neurospaces_project/
 [10:54] (0,2) ~ $ cd neurospaces_project/
