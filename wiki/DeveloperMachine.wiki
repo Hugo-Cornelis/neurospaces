@@ -14,7 +14,7 @@
   * For version control we use Monotone (http://www.monotone.ca/), monotone is also supported by the InstallerPackage.
   * The monotone we use is a statically linked binary, version 0.40.  Because Monotone is a distributed version control system, developers sometimes exchange monotone repositories and monotone executables.
 
-  * It is recommended to use the InstallerPackage to do the initial directory layout.
+  * It is recommended to use the InstallerPackage to do the initial directory layout, see the script _neurospaces_create_directories_.
 
 = Basic Directory layout =
 
