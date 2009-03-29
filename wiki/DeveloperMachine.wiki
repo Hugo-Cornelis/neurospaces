@@ -92,5 +92,8 @@ test -z "/usr/local/neurospaces/installer" || mkdir -p -- "/usr/local/neurospace
 make[2]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
 make[1]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
 
-[11:08] (0,2) 0 $ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --directories-create --verbose --developer --regex 'heccer|model-container|ssp'
+[11:08] (0,2) 0 $ neurospaces_pull
+[11:08] (0,2) 0 $ neurospaces_update
+[11:08] (0,2) 0 $ neurospaces_install
+[11:08] (0,2) 0 $ neurospaces_check
 }}}
