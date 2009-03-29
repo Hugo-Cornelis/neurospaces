@@ -38,8 +38,8 @@
 [10:54] (0,2) ~ $ cd neurospaces_project/
 [10:55] (0,2) neurospaces_project $ mkdir MTN
 [10:57] (0,2) neurospaces_project $ cd MTN/
-[10:57] (0,2) MTN $ mtn --db=installer.mtn db init
-[11:00] (0,2) MTN $ mtn --db=installer.mtn pull virtual2.cbi.utsa.edu:4696 "*"
+[10:57] (0,2) MTN $ mtn --db=neurospaces-developer.mtn db init
+[11:00] (0,2) MTN $ mtn --db=neurospaces-developer.mtn pull virtual2.cbi.utsa.edu:4696 "*"
 mtn: doing anonymous pull; use -kKEYNAME if you need authentication
 mtn: connecting to virtual2.cbi.utsa.edu:4696
 mtn: first time connecting to server virtual2.cbi.utsa.edu:4696
