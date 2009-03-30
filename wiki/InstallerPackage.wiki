@@ -7,6 +7,8 @@
 
 [NeurospacesRepositoryAndTheInstaller]
 
+[Autogen]
+
 = Introduction =
 
 Developer utilities that comply with Neurospaces development standards.  The most important one is the 'neurospaces_build' script used for automated software installation and maintenance on a set of software packages.  Because this script has many options, most common operations are provided using frontends.  Other scripts are related to version identification of the software, and source code documentation comments.
