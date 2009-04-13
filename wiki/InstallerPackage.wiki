@@ -26,6 +26,7 @@ Some of the utilities currently depend on monotone for source code version contr
   * neurospaces_versions: shows what versions of the neurospaces packages are installed.
   * neurospaces_create_directories: create the correct directory layout required for Neurospaces development.
 
+  * neurospaces_serve: starts serving the source code repositories such that other people can pull and sync to your machine (note that this locks all your databases).
   * neurospaces_pull: download the source code from a repository.
   * neurospaces_status: check for local source code modification (no network required).
   * neurospaces_sync: synchronize local source code modification with a repository.
