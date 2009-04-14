@@ -18,7 +18,9 @@ The information below explains how to checkout code manually when not using the 
 
 = Serving your source code =
 
-If you want someone else to sync their code with what you have on your laptop, you can conveniently convert your laptop to a source code server using the command `neurospaces_serve` (see the InstallerPackage).  Other people can now connect to your laptop using eg. `neurospaces_sync --repo-sync <ip-address-of-your-laptop>` or `neurospaces_pull --repo-pull <ip-address-of-your-laptop>`.  To interrupt the server, kill  all the server processes using `neurospaces_kill_servers`.
+If you want someone else to sync their code with what you have on your laptop, you can conveniently convert your laptop to a source code server using the command `neurospaces_serve` (see the InstallerPackage).  Other people can now connect to your laptop using eg. `neurospaces_sync --repo-sync <ip-address-of-your-laptop>` or `neurospaces_pull --repo-pull <ip-address-of-your-laptop>`.  All these commands accept a `--regex <package-regex` to select packages to serve, sync and pull respectively.
+
+To interrupt the server, kill  all the server processes using `neurospaces_kill_servers`.
 
 
 = Checking out Code Manually =
