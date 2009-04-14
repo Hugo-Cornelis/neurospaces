@@ -20,9 +20,11 @@ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --develo
 
 There are developer friendly frontends to the neurospaces_build script in the InstallerPackage:
 
-  * neurospaces_pull: pull remote repositories.
-  * neurospaces_sync: sync with remote repositories.
-  * neurospaces_status: report about local changes.
+  * neurospaces_serve: starts serving the source code repositories such that other people can pull and sync to your machine (note that this locks all your databases).
+  * neurospaces_pull: download the source code from a repository.
+  * neurospaces_status: check for local source code modification (no network required).
+  * neurospaces_sync: synchronize local source code modification with a repository.
+  * neurospaces_update: makes the local source code up to date using the repositories locally stored on your PC (so this is a local operation).
 
 
 = Details =
