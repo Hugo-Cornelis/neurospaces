@@ -16,7 +16,7 @@ New software components can be added to the configuration of the neurospaces_bui
 
 For smooth integration with the neurospaces installer, it is a requirement that the top level source directory of the new component contains a `configure` script, and a `Makefile` with the targets `clean`, `check`, `dist`, `distcheck`, `install`, `uninstall`, `docs`, `html-upload-prepare`, `html-upload`, `dist-keywords`.
 
-= Creating a new software component, original development =
+= Creating a new software component, original development PC =
 
   * add the new software component to the configuration of the neurospaces_build script.  For example, for the model-container, you have
 {{{
@@ -41,7 +41,7 @@ which includes the directory name where sources are to be found, the build order
   * configure the monotone server using the information in the configuration of the component.
   * Use `neurospaces_sync` to synchronize your local monotone repository with the server one.
 
-= Creating a new software component, other machines =
+= Creating a new software component, other PCs =
 
   * Get a version of the installer package that has configuration of the new software component.
   * `neurospaces_create_directories` to create the correct directory layout.
