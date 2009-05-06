@@ -16,7 +16,7 @@ New software components can be added to the configuration of the neurospaces_bui
 
 For smooth integration with the neurospaces installer, it is a requirement that the top level source directory of the new component contains a `configure` script, and a `Makefile` with the targets `clean`, `check`, `dist`, `distcheck`, `install`, `uninstall`, `docs`, `html-upload-prepare`, `html-upload`, `dist-keywords`.
 
-= Creating a new software component, original development computer =
+= Creating a new software component on the original development computer =
 
   * add the new software component to the configuration of the neurospaces_build script.  For example, for the model-container, you have
 {{{
