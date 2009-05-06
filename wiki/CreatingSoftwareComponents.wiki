@@ -41,7 +41,7 @@ which includes the directory name where sources are to be found, the build order
   * configure the monotone server using the information in the configuration of the component.
   * Use `neurospaces_sync` to synchronize your local monotone repository with the server one.
 
-= Creating a new software component, other PCs =
+= Pushing the new software component to other PCs =
 
   * Get a version of the installer package that has configuration of the new software component.
   * `neurospaces_create_directories` to create the correct directory layout.
