@@ -14,7 +14,7 @@ Developing with software with autotools across different system types and autoto
 
 
 = *autogen.sh* =
-In each package you will find a script titled autogen.sh which is typically composed of four autotools commands:
+In each package you will find a script titled autogen.sh which is typically composed of four autotools commands (see http://www.gnu.org/software/autoconf/ for more information about these commands):
 
   * _aclocal_
   * _autoconf_
