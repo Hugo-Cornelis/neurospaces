@@ -1,9 +1,11 @@
 #summary Using the repository for development
-#labels monotone,repository
+#labels monotone,repository,G3doc
 
 [Index]
 
 [NeurospacesRepositoryAndTheInstaller]
+
+G3 Doc developers-intro
 
 = Introduction =
 
