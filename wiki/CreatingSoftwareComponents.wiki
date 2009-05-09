@@ -1,4 +1,5 @@
 #summary How to create new neurospaces components
+#labels G3doc
 
 [Index]
 
@@ -7,6 +8,8 @@
 [InstallerPackage]
 
 [NeurospacesRepositoryAndTheInstaller]
+
+G3 Doc: autogen
 
 = Introduction =
 
