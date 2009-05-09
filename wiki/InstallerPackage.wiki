@@ -1,5 +1,5 @@
 #summary The Neurospaces developer package.
-#labels Phase-Deploy
+#labels Phase-Deploy,G3doc
 
 [Index]
 
@@ -8,6 +8,8 @@
 [NeurospacesRepositoryAndTheInstaller]
 
 [Autogen]
+
+G3 Doc: installerpackage
 
 = Introduction =
 
