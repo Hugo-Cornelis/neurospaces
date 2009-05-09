@@ -1,6 +1,9 @@
 #summary GlobalProjectLayout, directory structure, development workflows.
+#labels G3doc
 
 [Index]
+
+G3 Doc: developers-intro
 
 = Developing Sources =
 
