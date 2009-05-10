@@ -56,7 +56,7 @@ For updating of version keywords the following are invoked automatically by the 
 Other:
 
   * mcad2doxy: convert obsoleted multicad documentation to doxygen format, this has been used to convert the Heccer developer documentation to doxygen format.  Other packages will follow.
-
+  * [ReleaseExpand release-expand]: for configurable keyword expansion in source code and documentation.
 
 = Examples =
 
