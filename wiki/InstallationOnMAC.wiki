@@ -8,7 +8,8 @@
 
 = Introduction =
 
-We are currently working on installation on the MAC.
+The same installation procedure for Neurospaces on a regular PC works on the MAC.
+
 
 = Note Book =
 
