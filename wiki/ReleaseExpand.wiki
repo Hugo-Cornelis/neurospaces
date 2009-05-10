@@ -4,6 +4,8 @@
 
 The release-expand utility does keyword expansion in text files.  Keywords and replacement texts are both customizable via a configuration file.
 
+Below is the man page of release-expand, it still needs to be wikified, so some things are out of place.
+
 
 = Details =
 
