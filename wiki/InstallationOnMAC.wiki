@@ -29,14 +29,3 @@ neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --develo
   * `neurospaces_pull` (pulls all the enabled software components from the central repositories)
 
   * continue with standard installation
-
-= Solved issues =
-
-  * echo -n in configure scripts (solved)
-  * mkdir --parents in the installer script (solved)
-  * find does not recognize the `-printf` argument (solved).
-  * swig (solved)
-  * ranlib (solved)
-  * libhistory (solved)
-
-= Known issues =
