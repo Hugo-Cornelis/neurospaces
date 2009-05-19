@@ -3,6 +3,8 @@
 
 [Index]
 
+G3 Doc: developers-intro
+
 = Introduction =
 
 You can go to the directory of each individual software component, configure, compile, check and install the package.  The InstallerPackage has builtin support to automate these actions, while respecting the dependencies between the packages (ie. each of the mentioned steps is done for each package in the correct order).
