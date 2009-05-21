@@ -2,6 +2,8 @@
 
 [Index]
 
+G3 Doc: autogen
+
 [InstallerPackage]
 
 [NeurospacesRepositoryAndTheInstaller]
