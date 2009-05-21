@@ -2,6 +2,8 @@
 
 [Index]
 
+G3 Doc: ssp.tex
+
 = Introduction =
 
 Below is the SSP Fastguide that is shipped with SSP.  It provides an simple outline of how to use SSP for running simulations.
