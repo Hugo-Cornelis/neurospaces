@@ -5,6 +5,8 @@
 
 NeurospacesTester
 
+G3 Doc: neurospaces-tester.tex
+
 = Introduction =
 
 A tester specification is contained in a file with a name that has a suffix of `.t`.  The tester specification tells the tester what application to run, with what command line, command line options, and under what environment.  It is possible to change directory before the application gets executed, or to change to a chrooted environment by using shell pipelines.
