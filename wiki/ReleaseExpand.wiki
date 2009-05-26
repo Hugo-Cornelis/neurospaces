@@ -1,5 +1,7 @@
 #summary Keyword expansion in text files.
 
+G3 Doc: release-expand.tex
+
 = Introduction =
 
 The release-expand utility does keyword expansion in text files.  Keywords and replacement texts are both customizable via a configuration file.
