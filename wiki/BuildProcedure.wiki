@@ -3,7 +3,7 @@
 
 [Index]
 
-G3 Doc: developers-intro
+G3 Doc: developers-intro.tex
 
 = Introduction =
 
