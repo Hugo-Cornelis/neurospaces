@@ -16,8 +16,7 @@ RELEASE-EXPAND(1)     User Contributed Perl Documentation    RELEASE-EXPAND(1)
 
 
 NAME
-       release-expand - expand keywords before building a release distribu‐
-       tion.
+       release-expand - expand keywords before building a release distribution.
 
 SYNOPSIS
            release-expand [ options ] <package> <major> <minor> <micro> <label> <email>
