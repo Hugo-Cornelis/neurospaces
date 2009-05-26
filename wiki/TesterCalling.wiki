@@ -3,9 +3,9 @@
 
 [Index]
 
-G3 Doc: neurospaces-tester.tex
-
 NeurospacesTester
+
+G3 Doc: neurospaces-tester.tex
 
 = Introduction =
 
