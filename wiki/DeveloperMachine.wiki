@@ -3,11 +3,12 @@
 
 [Index]
 
-G3 Doc: installation-developer.tex
 
 [NeurospacesRepository]
 
 [NeurospacesRepositoryAndTheInstaller]
+
+G3 Doc: installation-developer.tex
 
 = Introduction =
 
