@@ -52,7 +52,7 @@ USAGE
 
            Additional keywords can be added in the config file if needed.
            Beware that at the time of writing, these additional keywords can
-           not be overriden from the command line.
+           not be overridden from the command line.
 
        Specifying your source files
            Not all files are checked for keyword expansion.  The files that
