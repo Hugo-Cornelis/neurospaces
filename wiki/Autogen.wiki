@@ -2,7 +2,7 @@
 
 [Index]
 
-G3 Doc: autogen
+G3 Doc: autogen.tex
 
 [InstallerPackage]
 
