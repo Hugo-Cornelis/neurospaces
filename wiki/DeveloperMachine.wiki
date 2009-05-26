@@ -3,7 +3,7 @@
 
 [Index]
 
-G3 Doc: installation-developer/installation-developer.tex
+G3 Doc: installation-developer.tex
 
 [NeurospacesRepository]
 
