@@ -3,6 +3,8 @@
 
 [Index]
 
+G3 Doc: neurospaces-tester.tex
+
 = Introduction =
 
 The neurospaces tester framework provides a general purpose framework for regressing testing.
