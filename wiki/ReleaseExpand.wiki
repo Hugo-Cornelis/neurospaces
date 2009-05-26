@@ -47,8 +47,8 @@ USAGE
 
            package major minor micro label email
 
-           There is an implicit assumption that the ’label’ keyword is a con‐
-           catenation of ’major’, ’minor’, and ’micro’, with dashes in
+           There is an implicit assumption that the ’label’ keyword is a con
+catenation of ’major’, ’minor’, and ’micro’, with dashes in
            between.
 
            Additional keywords can be added in the config file if needed.
