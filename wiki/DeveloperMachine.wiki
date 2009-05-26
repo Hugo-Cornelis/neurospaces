@@ -3,6 +3,8 @@
 
 [Index]
 
+GT3 Doc: installation-developer/installation-developer.tex
+
 [NeurospacesRepository]
 
 [NeurospacesRepositoryAndTheInstaller]
