@@ -4,6 +4,8 @@
 
 [NeurospacesRepository]
 
+G3 Doc: installation-developer.tex
+
 = Introduction =
 
 The NeurospacesRepository is accessible from the InstallerPackage.  Important for this feature to work is to have the [DeveloperMachine correct directory layout on your developer machine].
