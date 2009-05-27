@@ -9,7 +9,7 @@
 
 [Autogen]
 
-G3 Doc: installerpackage
+G3 Doc: installer-package
 
 = Introduction =
 
