@@ -7,6 +7,8 @@ NeurospacesRepositoryAndTheInstaller
 
 InstallerPackage
 
+G3 Doc: prerequisite-script.tex
+
 = Introduction =
 
 The purpose of this script is to install the independent software packages required to run the neurospaces system software.
