@@ -1,5 +1,5 @@
 #summary How to make a release ?
-#labels Phase-Deploy
+#labels Phase-Deploy,G3Doc
 
 [Index]
 
