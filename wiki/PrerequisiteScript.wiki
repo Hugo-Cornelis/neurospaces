@@ -1,5 +1,5 @@
 #summary An optional installer script for prerequisites and automated testing.
-#labels script
+#labels script,G3doc
 
 [Index]
 
