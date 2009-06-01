@@ -1,9 +1,11 @@
 #summary Neurospaces has been tested on these distributions
-#labels Phase-Deploy
+#labels Phase-Deploy,G3doc
 
 [Index]
 
 InstallingFromScratch
+
+G3 doc: tested-distributions.tex
 
 = Introduction =
 
