@@ -1,5 +1,5 @@
 #summary Starting Neurospaces development.
-#labels Phase-Implementation
+#labels Phase-Implementation,G3doc
 
 [Index]
 
