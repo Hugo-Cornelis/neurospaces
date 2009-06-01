@@ -1,4 +1,5 @@
 #summary Keyword expansion in text files.
+#labels G3doc
 
 G3 Doc: release-expand.tex
 
