@@ -1,5 +1,5 @@
 #summary Procedure to build a neurospaces based simulator.
-#labels Phase-Deploy
+#labels Phase-Deploy,G3doc
 
 [Index]
 
