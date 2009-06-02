@@ -1,7 +1,9 @@
 #summary Structure and Configuration of a Neurospaces Target PC
-#labels Phase-Deploy
+#labels Phase-Deploy,G3doc
 
 [Index]
+
+G3 Doc: install-procedure.tex
 
 = Introduction =
 
