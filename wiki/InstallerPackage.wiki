@@ -43,7 +43,11 @@ Some of the utilities currently depend on monotone for source code version contr
   * neurospaces_docs: builds documentation on your local machine.
   * neurospaces_website_prepare: prepare a version of the website on your local pc, and optionally upload it.
 
-  * neurospaces_cron: a cron job based tester script.
+  * neurospaces_cron: a cron job based tester script. Typically started with a line in /etc/crontab like this:
+
+01 00 * * * g3tester neurospaces_cron
+
+g3tester is a a user set up for permissions to perform a 'sudo make install,' and 'sudo make uninstall' to run the job at 1 minute after midnight. 
 
 Soon also:
 
