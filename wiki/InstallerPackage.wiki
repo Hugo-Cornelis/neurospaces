@@ -47,7 +47,7 @@ Some of the utilities currently depend on monotone for source code version contr
 
 01 00 * * * g3tester neurospaces_cron
 
-g3tester is a a user set up for permissions to perform a 'sudo make install,' and 'sudo make uninstall' to run the job at 1 minute after midnight. 
+g3tester is a  user set up for permissions to perform a 'sudo make install,' and 'sudo make uninstall' to run the job at 1 minute after midnight. To set up a regular user to use sudo, add them to the /etc/sudoers file. 
 
 Soon also:
 
