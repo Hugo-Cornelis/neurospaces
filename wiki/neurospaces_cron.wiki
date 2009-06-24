@@ -8,8 +8,11 @@ The neurospaces_cron script is part of the [InstallerPackage], its function is t
 
 = Cron Job =
 
-Typically started with a line in /etc/crontab like this:
+There are several ways to run a cronjob on a machine, here are some of the easiest ways to do this on a Linux based machine. These typically require administrator rights to set up.
+
+*cron.d*
+This is a directory in /etc/, you can put a cronjob formatted text file in here and it will get picked up by the cron daemon. A typical invocation for neurospaces_cron would be with a line like this:
 
 01 00 `*` `*` `*` g3tester neurospaces_cron
 
-g3tester is a  user set up for permissions to perform a 'sudo make install,' and 'sudo make uninstall' to run the job at 1 minute after midnight. To set up a regular user to use sudo, add them to the /etc/sudoers file. 
+This particular job is set to run at exactly one minute after midnight. g3tester is a  user set up for permissions to perform a 'sudo make install,' and 'sudo make uninstall.' To set up a regular user to use sudo, add them to the /etc/sudoers file. 
