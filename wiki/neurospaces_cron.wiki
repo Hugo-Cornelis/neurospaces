@@ -1,17 +1,12 @@
-#summary This is an overview on the neurospaces_cron script which is designed to run as a cronjob for testing neurospaces.
+#summary An overview on the neurospaces_cron script.
 
 = Introduction =
 
-Add your content here.
+The neurospaces_cron script is part of the [InstallerPackage], its function is to perform sanity checks for communicating with a [NeurospacesRepository], system installation, and running tests to see that the software packages are properly working. This page is here to serve as a guide to show how to use the script, set up a cronjob and how to avoid some common pitfalls.
 
 
-= Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-
+= Cron Job =
 
 Typically started with a line in /etc/crontab like this:
 
