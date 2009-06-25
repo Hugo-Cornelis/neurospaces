@@ -4,8 +4,34 @@
 
 The neurospaces_cron script is part of the [InstallerPackage], its function is to perform sanity checks for communicating with a [NeurospacesRepository], system installation, and running tests to see that the software packages are properly working. This page is here to serve as a guide to show how to use the script, set up a cronjob and how to avoid some common pitfalls.
 
+---
+
+= Running =
+
+The neurospaces_cron script can be run by invoking "neurospace_cron" from the command line after installing the neurospaces installer package. There are command line arguments available to customize aspects of the cronjob:
+
+  * outputdir - _This tells neurospaces_cron what directory to write its output log to._
+  * config - _Reads in a YAML configuration file for setting parameters._
 
 
+---
+= Configuration File =
+
+A configuration file is a YAML with values set for the following optional parameters:
+
+  * MAILTO - _An email recipient to send an email to on completion of the job_
+  * MAILFROM - _A desired email address to send a completion email from._
+  * OUTPUTDIR - _A directory to write the output log data._
+
+Example configuration file`:`
+{{{
+---
+MAILTO: sysadminspam@gmail.com
+MAILFROM: g3tester@repo-genesis3.cbi.utsa.edu
+OUTPUTDIR: /var/www/tests
+}}}
+
+---
 = Cron Job =
 
 There are several ways to run a cronjob on a machine, here are some of the easiest ways to do this on a Linux based machine. These typically require administrator rights to set up.
