@@ -10,7 +10,7 @@ The g-tube is a GUI implemented in Python which is used to add another layer of 
 To install the g-tube you need these dependencies installed on your machine.
 
 Dependencies:
-  * Python
+  * Python - http://python.org/download/
   * wxPython - http://www.wxpython.org/download.php
   * PyYAML - http://pyyaml.org/
   
