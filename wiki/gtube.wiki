@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The g-tube is a GUI implemented in Python which is used to add another layer of functionality to GENESIS 3.
+The g-tube is a GUI implemented in Python which is used to simplify using GENESIS 3.
 
 
 = Details =
