@@ -11,6 +11,8 @@ To install the g-tube you need these dependencies installed on your machine.
 
 Dependencies:
   * Python 2.5 (try 'python -V') - http://python.org/download/
-  * wxPython - http://www.wxpython.org/download.php
+  * wxPython 2.8 or higher:
+   # wxPython site - http://www.wxpython.org/download.php
+   # Direct link to sourceforge - https://sourceforge.net/projects/wxpython/files/
   * PyYAML - http://pyyaml.org/
   
