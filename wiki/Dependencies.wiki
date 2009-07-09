@@ -15,7 +15,7 @@ Programs:
 Libraries:
   * libcurses-dev
   * libperl-dev
-  * libhistory-dev (Note: some linux builds and MAC OSX have lib bistory built into another standard library such as stdio or libedit)
+  * libhistory-dev (Note: some linux builds and MAC OSX have libhistory built into another standard library such as stdio or libedit)
   * readline-dev
   * python-dev (for your python version)
 
