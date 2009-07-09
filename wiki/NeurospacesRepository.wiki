@@ -34,7 +34,7 @@ To check out the latest version of the neurospaces project code you must first i
 There are monotone instances running for different parts of neurospaces on different ports. To target the correct component you want you need to use these arguments for the remote server:
 
 || *Description* || *Package name* || *Server address* || *Repository Name* ||
-|| NS genesis backward compatability layer || ns-sli || repo-genesis3.cbi.utsa.edu:4692 || ns-gen.mtn ||
+|| NS genesis backward compatability layer || ns-sli || repo-genesis3.cbi.utsa.edu:4692 || ns-sli.mtn ||
 || Internal Storage for Models || model-container || repo-genesis3.cbi.utsa.edu:4693 || model-container.mtn ||
 || Single neuron solver || heccer || repo-genesis3.cbi.utsa.edu:4694 || heccer.mtn ||
 || Scheduler || ssp || repo-genesis3.cbi.utsa.edu:4695 || ssp.mtn ||
