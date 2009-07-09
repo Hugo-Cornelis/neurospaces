@@ -1,0 +1,25 @@
+#summary Here are dependencies which are needed to build and run GENESIS 3.
+#labels installation,dependencies
+
+= Dependency list =
+
+Programs:
+  * automake
+  * autoconf
+  * make
+  * gcc (and dependencies)
+  * yacc
+  * flex (and libraries)
+  * swig
+
+Libraries:
+  * libcurses-dev
+  * libperl-dev
+  * libhistory-dev (Note: some linux builds and MAC OSX have lib bistory built into another standard library such as stdio or libedit)
+  * readline-dev
+  * python-dev (for your python version)
+
+perl:
+  * YAML
+  * LWP::Simple
+  * Expect (IO::Pty)
