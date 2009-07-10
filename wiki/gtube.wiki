@@ -31,4 +31,4 @@ To use wxPython you must first build wxWidgets, which is included with the wxPyt
   If you want 3D bindings you'll need:
   * libglut-dev 
 
-After building wxWidgets go into the wxPython directory and use the puthon script setup.py to build and install the wxPython bindings. 
+Once built be sure to run ldconfig. After building and setting up wxWidgets go into the wxPython directory and use the python script setup.py to build and install the wxPython bindings. 
