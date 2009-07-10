@@ -16,3 +16,17 @@ Dependencies:
    # Direct link to sourceforge - https://sourceforge.net/projects/wxpython/files/
   * PyYAML - http://pyyaml.org/
   
+
+Building wxPython from source:
+
+To build wxPython from source you'll need these libraries installed. To compile you'll need g++. 
+
+  * zlib-dev
+  * libjpeg-dev
+  * libpng-dev
+  * libtiff-dev
+  * libgtk-dev
+
+
+  If you want 3D bindings you'll need:
+  * libglut-dev 
