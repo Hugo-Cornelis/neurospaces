@@ -19,7 +19,7 @@ Dependencies:
 
 Building wxPython from source:
 
-To build wxPython from source you'll need these libraries installed. To compile you'll need g++. 
+To use wxPython you must first build wxWidgets, which is included with the wxPython source tarball. To build wxWidgets you'll need these libraries installed. To compile you'll need g++. 
 
   * zlib-dev
   * libjpeg-dev
@@ -30,3 +30,5 @@ To build wxPython from source you'll need these libraries installed. To compile 
 
   If you want 3D bindings you'll need:
   * libglut-dev 
+
+After building wxWidgets go into the wxPython directory and use the puthon script setup.py to build and install the wxPython bindings. 
