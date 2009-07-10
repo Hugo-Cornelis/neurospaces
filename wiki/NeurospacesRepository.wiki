@@ -43,11 +43,11 @@ There are monotone instances running for different parts of neurospaces on diffe
 || Incomplete GUI  || studio || repo-genesis3.cbi.utsa.edu:4698 || studio.mtn ||
 || GShell || gshell || repo-genesis3.cbi.utsa.edu:4699 || gshell.mtn ||
 || User documentation || userdocs || repo-genesis3.cbi.utsa.edu:4700 || userdocs.mtn ||
-|| Gui development || gui || repo-genesis3.cbi.utsa.edu:4701 || gui.mtn ||
+
 
 To pull the code from the monotone server into your working repository via the command.
 
-  _mtn --db=myrepo.mtn pull virtual2.cbi.utsa.edu:<port#> "`*`"_
+  _mtn --db=myrepo.mtn pull repo-genesis3.cbi.utsa.edu:<port#> "`*`"_
 
 The "`*`" argument pulls all branches from the server into your local repository. To pull a specific branch look at the next section. It's important that each server be synced to it's own local repository. Once the code has been pulled you can checkout one of the branches into your working directory via the command:
 
@@ -58,7 +58,7 @@ The "`*`" argument pulls all branches from the server into your local repository
 
 To sync your monotone repository to the remote server you'll need to use the sync command with the proper address of the server (as listed above). 
 
-   _mtn --db=myrepo.mtn sync virtual2.cbi.utsa.edu:<port#> "`*`"_
+   _mtn --db=myrepo.mtn sync repo-genesis3.cbi.utsa.edu:<port#> "`*`"_
 
 Now all changes, including logs will be on both the client and server repositories. Note in order to perform this operation you need to be given write access to the repositories on virtual2.
 
@@ -67,7 +67,7 @@ Now all changes, including logs will be on both the client and server repositori
 
 Since you must know the desired branch you want when pulling a specific branch, here are the branches available on the monotone server.
 
-  _*Neurospaces Genesis SLI* - ns-genesis.sli_
+  _*Neurospaces Genesis SLI* - 0_
 
 If you download all branches via the "`*`" argument you can get a list of what branches are available to check out from your local repository via the command:
 
