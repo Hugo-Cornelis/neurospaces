@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The g-tube is a GUI implemented in Python which simplifies the use of GENESIS 3. It is currently *under development* so its functionality is currently limited. Bugs and feature requests should be reported to the authors to ensure users are satisfied with each release.
+The g-tube is a GUI implemented in Python which simplifies the use of GENESIS 3. It is currently *under development* so its functionality is currently limited. Bugs and feature requests should be reported to the authors to ensure users are satisfied with the end result.
 
 
 = Details =
