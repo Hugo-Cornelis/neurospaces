@@ -1,4 +1,4 @@
-#summary g-tube, the lightweight python GUI for GENESIS 3.
+#summary g-tube, the lightweight python GUI which is *under development* for GENESIS 3.
 
 = Introduction =
 
