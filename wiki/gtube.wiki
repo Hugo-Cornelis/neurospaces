@@ -1,8 +1,8 @@
-#summary g-tube, the lightweight python GUI which is *under development* for GENESIS 3.
+#summary g-tube, the lightweight python GUI which is under development for GENESIS 3.
 
 = Introduction =
 
-The g-tube is a GUI implemented in Python which simplifies the use of GENESIS 3.
+The g-tube is a GUI implemented in Python which simplifies the use of GENESIS 3. It is currently *under development* so its functionality is currently limited. Bugs and feature requests should be reported to the authors to ensure users are satisfied with each release.
 
 
 = Details =
