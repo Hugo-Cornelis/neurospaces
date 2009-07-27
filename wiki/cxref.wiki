@@ -16,7 +16,7 @@ To set up a project in xrefactory you typically use a "recipe" file. It consists
 
 To generate documentation via the command line you call the xref command if it has been installed to the system. If not reference the executable from the directory you unzipped xrefactory in. Here is an example of xrefactory being run on the command line for the ns-sli showing all of the required flags:
 
-_xref -xrefactory-II -o ~/g3tester/ns-sliHTML.log -encoding=european -html -htmlgxlist -htmllxlist -htmlfunseparate -htmllinenums -errors -xrefrc ~/.xrefrc -p ns-sli -user 1_
+_xref -xrefactory-II -o ~/ns-sliHTML.log -encoding=european -html -htmlgxlist -htmllxlist -htmlfunseparate -htmllinenums -errors -xrefrc ~/.xrefrc -p ns-sli -user 1_
 
 
 The -html`*` tags are all needed to insure that source code that is referenced several times does not produce more than one page. The -xrefrc file references the recipe file you are using for the project as shown above. 
