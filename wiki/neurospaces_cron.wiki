@@ -67,5 +67,4 @@ Since it is desirable to only allow a regular user to perform commands they abso
 
 _g3tester        ALL=(ALL)       NOPASSWD: /usr/bin/make /usr/local/bin/neurospaces_cron_
 
-This now gives g3tester the ability to execute only the commands neurospaces_cron and make, without needing a password. 
-
+This now gives g3tester the ability to execute only the commands neurospaces_cron and make, without needing a password. More commands can be added as needed simply by appending them to the list with a space delimiter.
