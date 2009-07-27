@@ -41,4 +41,31 @@ This is a directory in /etc/, you can put a cronjob formatted text file in here 
 
 01 00 `*` `*` `*` g3tester neurospaces_cron
 
-This particular job is set to run at exactly one minute after midnight. g3tester is a  user set up for permissions to perform a 'sudo make install,' and 'sudo make uninstall.' To set up a regular user to use sudo, add them to the /etc/sudoers file. 
+This particular job is set to run at exactly one minute after midnight. If you want to have the job run more frequently you can do this:
+
+
+01 `*`/8 `*` `*` `*` g3tester neurospaces_cron
+
+This makes the job run every 8 hours.
+
+g3tester is a  user set up for permissions to perform a 'sudo make install,' and 'sudo make uninstall.' To set up a regular user to use sudo, add them to the /etc/sudoers file (see next section). 
+
+---
+= Sudoers File =
+
+The suoders file is a file which grants a particular user the ability to run a command or set of commands in super user mode. It is found in /etc/sudoers. There are some variables here which must be set in order to allow a regular user to perform a neurospaces_cron job since it involves doing an install and uninstall of the neurospaces_project to the system.
+
+To allow out g3tester user to perform any command anywhere on the system in super user mode you would enter in a line like this:
+
+_g3tester    ALL=(ALL)       ALL_
+
+This will however still ask for a password, which will stop a cronjob. To avoid the system asking for a password we use the NOPASSWD option like so:
+
+_g3tester        ALL=(ALL)       NOPASSWD: ALL_
+
+Since it is desirable to only allow a regular user to perform commands they absolutely need to run we can constrain their privileges my inserting a command list:
+
+_g3tester        ALL=(ALL)       NOPASSWD: /usr/bin/make /usr/local/bin/neurospaces_cron_
+
+This now gives g3tester the ability to execute only the commands neurospaces_cron and make, without needing a password. 
+
