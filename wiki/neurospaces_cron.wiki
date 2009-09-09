@@ -1,4 +1,4 @@
-#summary An overview on the neurospaces_cron script.
+#summary An overview on the neurospaces_cron script which performs automated testing of neurospaces packages.
 
 = Introduction =
 
