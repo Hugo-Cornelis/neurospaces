@@ -22,6 +22,11 @@ A configuration file is a YAML with values set for the following optional parame
   * MAILTO - _An email recipient to send an email to on completion of the job_
   * MAILFROM - _A desired email address to send a completion email from._
   * OUTPUTDIR - _A directory to write the output log data._
+  * URL - _An http link which serves the test harness output._
+  * DOXYGENOUTPUT - The local directory which holds the doxygen html output.
+  * DOXYGENURL - An http link which serves the doxygen output.
+  * REGTESTOUTPUT - The local directory which contains the output of the regression test html.
+  * REGTESTURL - An http link which serves the regression test html output.
 
 Example configuration file`:`
 {{{
