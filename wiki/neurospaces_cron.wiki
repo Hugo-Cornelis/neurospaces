@@ -27,6 +27,7 @@ A configuration file is a YAML with values set for the following optional parame
   * DOXYGENURL - _An http link which serves the doxygen output._
   * REGTESTOUTPUT - _The local directory which contains the output of the regression test html._
   * REGTESTURL - _An http link which serves the regression test html output._
+  * LOGROTATE - _The number of output logs to rotate on successive runs._
 
 Example configuration file`:`
 {{{
@@ -39,6 +40,7 @@ DOXYGENOUTPUT: /var/www/doxygen
 DOXYGENURL: http://repo-genesis3.cbi.utsa.edu/doxygen
 REGTESTOUTPUT: /var/www/regtests
 REGTESTURL: http://repo-genesis3.cbi.utsa.edu/regtests
+LOGROTATE: 10
 
 }}}
 
