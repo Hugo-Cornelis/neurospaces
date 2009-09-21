@@ -21,7 +21,7 @@ If you are using the Ubuntu operating system, all three are available from apt-g
 
 neurospaces_build_debian: Checks for all files needed to build a debian package and performs the build. 
 
-= Configurations Files =
+= Configuration Files =
 
 To build a Debian package you need the following files specific to the package you are building:
 
