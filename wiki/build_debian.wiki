@@ -34,6 +34,37 @@ A detailed explanation of each file follows.
 
 == control file ==
 
+The control file is a series of fields which corresspond to these d
+
+ * Source - The source package name (Mandatory).
+ * Section - classification for the package. 
+ * Priority - Importance of installation to the user, all of GENESIS 3 can be labeled "optional"
+ * Maintainer - The name and address of the packager (Mandatory).
+ * Build-Depends - This holds dependencies that are checked when performing a build.
+ * Homepage - The URL of the website for the package.
+ * Package - The name of the binary package (Mandatory).
+ * Architecture: Which architecture the package is for, all GENESIS  packages are labeled 'any.'
+ * Depends - This holds dependencies that are checked during configuration.
+ * Suggests - Recommended software.
+ * Description - A textual description of the package and its uses.
+
+Example taken from the installer package:
+
+{{{
+Source: neurospaces-developer
+Section: Science 
+Priority: optional
+Maintainer: Hugo Cornelis [hugo.cornelis@gmail.com]
+Build-Depends: python2.5(>=2.5),libc6(>=2.3.6),libgcc1 (>=4.1.1)
+Homepage: http://neurospaces.sourceforge.net/
+
+Package: neurospaces-developer
+Architecture: any
+Depends: python2.5(>=2.5),libc6(>=2.3.6),libgcc1 (>=4.1.1)
+Suggests: gnuplot
+Description: The Neurospaces developer package contains essential tools for Neurospaces development.
+}}}
+
 == rules file ==
 
 == changelog ==
