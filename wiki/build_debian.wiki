@@ -31,3 +31,11 @@ To build a Debian package you need the following files specific to the package y
  * copyright: Contains the author and distribution license. 
 
 A detailed explanation of each file follows.
+
+== control file ==
+
+== rules file ==
+
+== changelog ==
+
+== copyright file ==
