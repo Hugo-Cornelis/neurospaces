@@ -34,7 +34,7 @@ A detailed explanation of each file follows.
 
 == control file ==
 
-The control file is a series of fields which corresspond to these d
+The control file is a series of fields which correspond to information about the package you are building.
 
  * Source - The source package name (Mandatory).
  * Section - classification for the package. 
