@@ -67,6 +67,10 @@ Description: The Neurospaces developer package contains essential tools for Neur
 
 == rules file ==
 
+This is a file with make instructions that are called when dpkg-buildpackage is invoked. It contains a rule for each source in the package.
+
+The rules file used in the GENESIS 3 packages is based off of an example from Joey Hess from the Debian forums.
+
 == changelog ==
 
 == copyright file ==
