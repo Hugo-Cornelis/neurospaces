@@ -1,0 +1,17 @@
+#summary Guide to building Debian packages.
+#labels debian,packaging,installer
+
+= Building Debian packages for GENESIS 3 components =
+
+This is a guide to show how to build Debian packages for components in GENESIS 3 using the installer scripts included with the installer package.
+
+
+= Dependencies =
+
+Before you can build a Debian package you need to have the following packages installed.
+
+ * dh-make
+ * dpkg-dev
+ * dpkg
+
+If you are using the Ubuntu operating system, all three are available from apt-get and Synaptic Package Manager. 
