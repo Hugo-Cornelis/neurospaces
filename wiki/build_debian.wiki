@@ -15,3 +15,8 @@ Before you can build a Debian package you need to have the following packages in
  * dpkg
 
 If you are using the Ubuntu operating system, all three are available from apt-get and Synaptic Package Manager. 
+
+
+= Utilities = 
+
+neurospaces_build_debian: Checks for all files needed to build a debian package and performs the build. 
