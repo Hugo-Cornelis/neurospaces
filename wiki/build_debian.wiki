@@ -20,3 +20,14 @@ If you are using the Ubuntu operating system, all three are available from apt-g
 = Utilities = 
 
 neurospaces_build_debian: Checks for all files needed to build a debian package and performs the build. 
+
+= Configurations Files =
+
+To build a Debian package you need the following files specific to the package you are building:
+
+ * control: Has information like the package name, dependencies, and package information.
+ * rules: Contains build instructions.
+ * changelog: A log file that shows the date, author, and context of the last change made to the package.
+ * copyright: Contains the author and distribution license. 
+
+A detailed explanation of each file follows.
