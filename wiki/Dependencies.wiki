@@ -1,5 +1,7 @@
+#labels installation,dependencies,G3doc
+G3 Doc: genesis-dependencies
+
 #summary Here are dependencies which are needed to build and run GENESIS 3.
-#labels installation,dependencies
 
 = Dependency list =
 
