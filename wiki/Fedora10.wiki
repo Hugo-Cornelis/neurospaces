@@ -13,4 +13,4 @@ Installing Neurospaces on Fedora 10 consists of the following of major steps:
   * Install the following packages using the System -> Administration -> Add/Remove Software menu.
     * perl-YAML
     * perl-Expect (and its dependency perl-IO)
-    * monotone (available from http://monotone.ca/)
+    * monotone-0.44 (and its dependency, crypto libraries, install the client package, but not the server package)
