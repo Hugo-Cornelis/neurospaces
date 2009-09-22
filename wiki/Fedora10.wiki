@@ -11,4 +11,5 @@ Installing Neurospaces on Fedora 10 consists of the following of major steps:
 = Prepare and upgrade the system software =
 
   * Install the following packages using the System -> Administration -> Add/Remove Software menu.
-    * YAML
+    * perl-YAML
+    * 
