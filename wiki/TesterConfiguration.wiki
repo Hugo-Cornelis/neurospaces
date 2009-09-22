@@ -1,5 +1,5 @@
 #summary The tester configuration file.
-#labels Phase-QA,G-3Doc
+#labels Phase-QA,G3doc
 
 [Index]
 
