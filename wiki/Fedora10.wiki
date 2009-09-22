@@ -43,5 +43,6 @@ This step is optional.
     * perl -MCPAN -e 'install Test::More'
     * perl -MCPAN -e 'install Clone'
     * perl -MCPAN -e 'install Data::Utilities'
+    * perl -MCPAN -e 'install File::Find::Rule'
   * Run the tests of all the packages and save the output to a file (type 'neurospaces_check >/tmp/check.out 2>&1').
   * Check the output (type 'less /tmp/check.out', especially search for lines with the string 'error_count').
