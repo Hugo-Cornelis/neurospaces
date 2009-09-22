@@ -73,4 +73,23 @@ The rules file used in the GENESIS 3 packages is based off of an example from Jo
 
 == changelog ==
 
+This is a log of the changes made to the package by the maintainer. This file has a particular format that must be followed, otherwise the package build will bail out, halting the packaging process. 
+
+example from the installer package. 
+{{{
+neurospaces-developer (alpha.1) dapper; urgency=low
+ 
+  * First release packaged for ubuntu
+ 
+ -- Hugo Cornelis <hugo.cornelis@gmail.com>  Sat, 8 Aug 2009 14:45:16 +0000
+}}}
+
+The date in particular must follow the shown format of:
+
+  _*Day of the week*, *Day* *Month* *Year* *Time*_
+
+as shown in the example above. 
+
 == copyright file ==
+
+File contains copyright info. All components of the GENESIS project are licensed under GPL.
