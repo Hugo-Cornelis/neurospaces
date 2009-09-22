@@ -5,7 +5,7 @@
 Installing Neurospaces on Fedora 10 consists of the following of major steps:
 
   * Prepare and upgrade the system software.
-  * Install the Neurospaces deverloper package
+  * Download and Install the Neurospaces developer package
   * Install the other software packages.
   * Check if the installation was successful.
 
@@ -15,3 +15,7 @@ Installing Neurospaces on Fedora 10 consists of the following of major steps:
     * perl-YAML
     * perl-Expect (and its dependency perl-IO)
     * monotone-0.44 (and its dependency, crypto libraries, install the client package, but not the server package)
+
+= Download and Install the Neurospaces developer package =
+
+  * Download the latest version (currently python-5) of the Neurospaces developer package, available from sourceforge (http://sourceforge.net/projects/neurospaces/files/, it is currently called installer-python-5.tar.gz.
