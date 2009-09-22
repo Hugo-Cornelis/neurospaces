@@ -1,4 +1,4 @@
-#summary Installing on Ubuntu, lenny/sid
+#summary Installing on Neurospaces for development on Ubuntu, lenny/sid
 
 = Introduction =
 
