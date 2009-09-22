@@ -93,3 +93,8 @@ as shown in the example above.
 == copyright file ==
 
 File contains copyright info. All components of the GENESIS project are licensed under GPL.
+
+
+== View files ==
+
+Once you have your .deb file in the top level source directory, you can view its contents using the *deb-gview* application. This program is available off of Synaptic Package manager and apt-get.
