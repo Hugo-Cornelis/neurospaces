@@ -25,3 +25,7 @@ Installing Neurospaces on Fedora 10 requires executing the following major steps
   * Configure (type './configure').
   * Compile (type 'make').
   * Install (type 'make install').
+
+= Install the other software packages =
+
+  * Use the Neurospaces installer script to download and install the other packages (type 'neurospaces_install').
