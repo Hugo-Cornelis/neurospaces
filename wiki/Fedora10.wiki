@@ -40,6 +40,8 @@ Installing Neurospaces on Fedora 10 requires executing the following major steps
 This step is optional.
 
   * Install the dependencies for running the tests:
+    * perl -MCPAN -e 'install Test::More'
+    * perl -MCPAN -e 'install Clone'
     * perl -MCPAN -e 'install Data::Utilities'
   * Run the tests of all the packages and save the output to a file (type 'neurospaces_check >/tmp/check.out 2>&1').
   * Check the output (type 'less /tmp/check.out', especially search for lines with the string 'error_count').
