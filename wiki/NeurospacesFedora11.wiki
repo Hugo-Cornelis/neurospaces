@@ -1,4 +1,4 @@
-#summary Neurospaces on Fedora 11
+#summary Installing Neurospaces on Fedora 11
 
 = Introduction =
 
