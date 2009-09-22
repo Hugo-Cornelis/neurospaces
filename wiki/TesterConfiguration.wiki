@@ -1,7 +1,9 @@
 #summary The tester configuration file.
-#labels Phase-QA
+#labels Phase-QA,G-3Doc
 
 [Index]
+
+G-3 Doc: tester-configuration
 
 NeurospacesTester
 
