@@ -3,7 +3,7 @@
 
 [Index]
 
-G-3 Doc: tester-configuration
+G-3 Doc: tester-configuration.tex
 
 NeurospacesTester
 
