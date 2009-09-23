@@ -1,5 +1,5 @@
 #summary Using the repository for development
-#labels monotone,repository,G3doc
+#labels monotone,repository,G3doc,Deprecated
 
 [Index]
 
