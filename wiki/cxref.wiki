@@ -9,7 +9,7 @@ This page details the procedure for generating the browsable html source.
 
 = xrefrc =
 
-To set up a project in xrefactory you typically use a "recipe" file. It consists of formatted blocks pertaining to a particular project. Each block contains a set of xref flags with their complimentary arguments. (TODO insert example)
+To set up a project in xrefactory you typically use a "recipe" file. It consists of formatted blocks pertaining to a particular project. Each block contains a set of xref flags with their complimentary arguments.
 
 = Generating HTML =
 
