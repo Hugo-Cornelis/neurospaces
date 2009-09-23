@@ -1,5 +1,5 @@
 #summary Things to install before installing Neurospaces
-#labels Phase-Deploy
+#labels Phase-Deploy,Deprecated
 
 [Index]
 
