@@ -2,7 +2,7 @@
 
 See also
 
-  * Fedora10
+  * [Fedora10]
 
 = Introduction =
 
