@@ -18,7 +18,9 @@ Installing Neurospaces on Ubuntu requires executing the following major steps wi
     * libexpect-perl (and its dependency perl-IO)
     * autoconf
     * automake
-    * monotone-0.44 (available as a statically linked binary from http://monotone.ca/)
+    * libc6-dev
+
+  * monotone-0.44 (available as a statically linked binary from http://monotone.ca/)
 
 = Download and Install the Neurospaces developer package =
 
