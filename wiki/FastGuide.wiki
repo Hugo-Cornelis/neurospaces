@@ -1,5 +1,5 @@
 #summary A simple outline of how to use SSP for running simulations.
-#labels G3doc
+#labels G3doc,Deprecated
 
 [Index]
 
