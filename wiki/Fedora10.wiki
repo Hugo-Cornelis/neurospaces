@@ -15,6 +15,7 @@ Installing Neurospaces on Fedora 10 requires executing the following major steps
     * perl-CPAN (only required to run the tests, see below).
     * perl-YAML
     * perl-Inline
+    * perl-RecDescent
     * perl-Expect (and its dependency perl-IO)
     * perl-ExtUtils-Embed
     * monotone-0.44 (and its dependency, crypto libraries, install the client package, but not the server package)
