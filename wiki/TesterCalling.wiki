@@ -1,5 +1,5 @@
 #summary How to run the tester.
-#labels Phase-QA,G3doc
+#labels Phase-QA,G3doc,Deprecated
 
 [Index]
 
