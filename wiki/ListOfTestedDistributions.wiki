@@ -1,5 +1,5 @@
 #summary Neurospaces has been tested on these distributions
-#labels Phase-Deploy,G3doc
+#labels Phase-Deploy,G3doc,Deprecated
 
 [Index]
 
