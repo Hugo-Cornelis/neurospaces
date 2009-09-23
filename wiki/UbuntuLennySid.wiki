@@ -1,5 +1,9 @@
 #summary Installing on Neurospaces for development on Ubuntu, lenny/sid
 
+See also
+
+  * Fedora10
+
 = Introduction =
 
 Installing Neurospaces on Ubuntu requires executing the following major steps with administrator priviliges:
