@@ -19,6 +19,7 @@ Installing Neurospaces on Ubuntu requires executing the following major steps wi
     * autoconf
     * automake
     * libc6-dev
+    * libncurses5-dev
 
   * monotone-0.44 (available as a statically linked binary from http://monotone.ca/)
 
