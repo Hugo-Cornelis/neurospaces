@@ -1,5 +1,5 @@
 #summary How to create new neurospaces components
-#labels G3doc
+#labels G3doc,Deprecated
 
 [Index]
 
