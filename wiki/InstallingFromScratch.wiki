@@ -1,5 +1,5 @@
 #summary Installation of neurospaces packages from scratch
-#labels Phase-Deploy
+#labels Phase-Deploy,Deprecated
 
 [Index]
 
