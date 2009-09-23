@@ -1,4 +1,5 @@
 #summary Installing on Neurospaces for development on Ubuntu, lenny/sid
+#labels installation
 
 See also
 
