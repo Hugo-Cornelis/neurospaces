@@ -1,5 +1,5 @@
 #summary Accessing the NeurospacesRepository from the InstallerPackage
-#labels G3doc
+#labels G3doc,Deprecated
 
 [Index]
 
