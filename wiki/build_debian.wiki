@@ -51,14 +51,14 @@ The control file is a series of fields which correspond to information about the
 Example taken from the installer package:
 
 {{{
-Source: neurospaces-developer
+Source: neurospaces-developer-package
 Section: Science 
 Priority: optional
 Maintainer: Hugo Cornelis [hugo.cornelis@gmail.com]
 Build-Depends: python2.5(>=2.5),libc6(>=2.3.6),libgcc1 (>=4.1.1)
 Homepage: http://neurospaces.sourceforge.net/
 
-Package: neurospaces-developer
+Package: neurospaces-developer-package
 Architecture: any
 Depends: python2.5(>=2.5),libc6(>=2.3.6),libgcc1 (>=4.1.1)
 Suggests: gnuplot
@@ -77,7 +77,7 @@ This is a log of the changes made to the package by the maintainer. This file ha
 
 example from the installer package. 
 {{{
-neurospaces-developer (alpha.1) dapper; urgency=low
+neurospaces-developer-package (alpha.1) dapper; urgency=low
  
   * First release packaged for ubuntu
  
@@ -94,6 +94,15 @@ as shown in the example above.
 
 File contains copyright info. All components of the GENESIS project are licensed under GPL.
 
+== Important Note about config files ==
+
+The package identifier must be identical in:
+
+ * The first line in the changelog file.
+ * Source and Package tags in the control file.
+ * The 'make install DESTDIR=$(CURDIR)/debian/(packagename)' line in the install target of the rules file. Where (packagename) is the name of the package being built.
+
+Otherwise the build will fail. A log of a debian build can be found in build_debian.log file in the top level directory.
 
 == View files ==
 
