@@ -24,6 +24,7 @@ Installing Neurospaces on Ubuntu requires executing the following major steps wi
     * bison
     * libperl-dev
     * swig
+    * libreadline5-dev
 
   * monotone-0.44 (available as a statically linked binary from http://monotone.ca/)
 
