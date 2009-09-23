@@ -23,6 +23,7 @@ Installing Neurospaces on Ubuntu requires executing the following major steps wi
     * flex
     * bison
     * libperl-dev
+    * python-dev
     * swig
     * libreadline5-dev
 
