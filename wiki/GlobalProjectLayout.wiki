@@ -1,5 +1,5 @@
 #summary GlobalProjectLayout, directory structure, development workflows.
-#labels G3doc
+#labels G3doc,Deprecated
 
 [Index]
 
