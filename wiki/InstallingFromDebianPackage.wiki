@@ -1,0 +1,23 @@
+#summary Installation of a package from a .deb file.
+#labels debian,package,installation,installer
+
+= Introduction =
+
+Debian packages will be available for all major components of GENESIS 3. This allows for easy installation via the Debian Package installer.
+
+
+= Installation via GUI =
+
+Simply download the desired package so your machine. Go to the directory it was downloaded, it should have an appropriate "package" icon.
+
+http://repo-genesis3.cbi.utsa.edu/Picture13.png
+
+Then double click on the package file, a form will appear that gives details about the package such as: A package description, dependencies, and files to be installed.
+
+http://repo-genesis3.cbi.utsa.edu/Picture14.png
+
+Click on the *Install Package* button and you will be prompted to enter in the administrator password for the installation. 
+
+http://repo-genesis3.cbi.utsa.edu/Picture15.png
+
+Once the installation is complete the package installer will prompt with a finished message.  
