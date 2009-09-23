@@ -1,5 +1,5 @@
 #summary The Neurospaces Tester Framework.
-#labels Phase-QA,G3doc
+#labels Phase-QA,G3doc,Deprecated
 
 [Index]
 
