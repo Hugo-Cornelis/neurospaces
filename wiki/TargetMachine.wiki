@@ -1,5 +1,5 @@
 #summary Structure and Configuration of a Neurospaces Target PC
-#labels Phase-Deploy,G3doc
+#labels Phase-Deploy,G3doc,Deprecated
 
 [Index]
 
