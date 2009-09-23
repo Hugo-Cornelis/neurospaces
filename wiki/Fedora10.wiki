@@ -1,5 +1,9 @@
 #summary Installing Neurospaces for development on Fedora 10
 
+See also
+
+  * UbuntuLennySid
+
 = Introduction =
 
 Installing Neurospaces on Fedora 10 requires executing the following major steps with administrator priviliges:
