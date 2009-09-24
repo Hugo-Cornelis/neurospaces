@@ -19,7 +19,7 @@ If you are using the Ubuntu operating system, all three are available from apt-g
 
 = Utilities = 
 
-neurospaces_build_debian: Checks for all files needed to build a debian package and performs the build. 
+nspkg-deb: Checks for all files needed to build a debian package and performs the build. 
 
 = Configuration Files =
 
