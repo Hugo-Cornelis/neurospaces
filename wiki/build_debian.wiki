@@ -1,5 +1,7 @@
 #summary Guide to building Debian packages.
-#labels debian,packaging,installer
+#labels debian,packaging,installer,G3doc
+
+G3 Doc: build-debian
 
 = Building Debian packages for GENESIS 3 components =
 
