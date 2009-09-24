@@ -25,3 +25,13 @@ Click on the *Install Package* button and you will be prompted to enter in the a
 http://repo-genesis3.cbi.utsa.edu/Picture15.png
 
 Once the installation is complete the package installer will prompt with a finished message.  
+
+
+
+== Removing a package via the command line ==
+
+If you need to remove a package from your system you can do so via this command:
+
+_sudo apt-get --purge remove PACKAGE_NAME_
+
+Where package name is the name of the deb package that was installed previously.
