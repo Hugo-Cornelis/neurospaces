@@ -1,5 +1,7 @@
+#labels xrefactory,html,browsablesource,G3doc
+G3 Doc: cxref.tex
+
 #summary A small guide for generating html documentation using xrefactory.
-#labels xrefactory,html,browsablesource
 
 = Introduction =
 
