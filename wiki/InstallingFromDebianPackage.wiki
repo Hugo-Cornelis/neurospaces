@@ -3,7 +3,11 @@
 
 = Introduction =
 
-Debian packages will be available for all major components of GENESIS 3. This allows for easy installation via the Debian Package installer.
+Debian packages will be available for all major components of GENESIS 3 via sourceforge at: 
+
+https://sourceforge.net/projects/genesis-sim/
+
+This allows for easy installation via the Debian Package installer GUI.
 
 
 = Installation via GUI =
