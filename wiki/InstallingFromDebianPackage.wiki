@@ -10,7 +10,7 @@ https://sourceforge.net/projects/genesis-sim/
 This allows for easy installation via the Debian Package installer GUI.
 
 
-= Installation via GUI =
+= Installation via Package Installer =
 
 Simply download the desired package so your machine. Go to the directory it was downloaded, it should have an appropriate "package" icon.
 
