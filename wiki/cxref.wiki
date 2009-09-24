@@ -1,4 +1,4 @@
-#labels xrefactory,html,browsablesource,G3doc
+#labels xrefactory,html,browsablesource,G3doc,Deprecated
 G3 Doc: cxref.tex
 
 #summary A small guide for generating html documentation using xrefactory.
