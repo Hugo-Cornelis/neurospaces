@@ -1,5 +1,7 @@
 #summary Installation of a package from a .deb file.
-#labels debian,package,installation,installer
+#labels debian,package,installation,installer,G3doc
+
+G3 Doc: installation-debian
 
 = Introduction =
 
