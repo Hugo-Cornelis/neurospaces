@@ -11,22 +11,21 @@
 This page explains how to do a developer installation of GENESIS on a MAC.  Almost the same installation procedure for Neurospaces on a regular PC works on the MAC.
 
 
-= Note Book =
+== Installing Dependencies ==
 
-  * install monotone
-  * install CPAN YAML
-  * install make (no need to search for you CD if you have the matlab gmake, just make a symbolic link that is accessible from your $PATH)
-  * download the installer from sourceforge
-  * `./configure`, `make` and `sudo make install` on the installer from sourceforge, or ...
-  * ... cp -p neurospaces_build /usr/local/bin
-  * add /usr/local/bin to your $PATH
-  * `neurospaces_build --help` should work now
-  * add /System/Library/Frameworks to your $PATH (why again ?)
-  * use neurospaces_build to pull the latest installer
-{{{
-neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create --regex installer --enable installer
-}}}
-  * `untar`, `configure`, `make` and `sudo make install` for the downloaded installer
-  * `neurospaces_pull` (pulls all the enabled software components from the central repositories)
+Note that some installation must be done from the terminal. The terminal can be found in the Applications/Utilities folder. Would be a good idea to drag the terminal to the doc for easy access.
 
-  * continue with standard installation
+  * Install monotone, this is freely available as a package from the monotone website http://monotone.ca/.
+  * Install Xcode, the Apple Development Toolset. It is available disk 2 of Mac OSX under optional install. It is also available from the Apple Developer Website here http://developer.apple.com/technology/xcode.html you will need a valid Apple ID to log in and access the developer page. _Note: It is not advised to use the compilers available from macports._
+  * Install the following perl dependencies via CPAN:
+    # YAML
+    # Inline
+    # RecDescent
+    # Expect (and its dependency perl-IO)
+    # ExtUtils
+    # Data::Comparator
+
+
+Once all of these prerequisites are met you can follow the standard developer installation outlined here:
+
+http://genesis-sim.org/userdocs/installation-developer/installation-developer.html
