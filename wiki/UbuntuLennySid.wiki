@@ -1,9 +1,11 @@
 #summary Installing on Neurospaces for development on Ubuntu, lenny/sid
-#labels installation
+#labels installation,G3doc
 
 See also
 
   * [Fedora10]
+
+G3 Doc: installation-ubuntu-lennysid
 
 = Introduction =
 
