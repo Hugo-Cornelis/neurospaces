@@ -25,6 +25,7 @@ Note that some installation must be done from the terminal. The terminal can be 
     # ExtUtils
     # Data::Comparator
 
+== Installation  ==
 
 Once all of these prerequisites are met you can follow the standard developer installation outlined here:
 
