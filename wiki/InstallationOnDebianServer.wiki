@@ -55,9 +55,26 @@ After you updated your configuration restart apache with this command:
 
 You should now be able to view the contents of the directory /var/www/tests from your URL suffixed with your alias.
 
-= Setting up the Monotone Repository Server =
+
+= Installing the Developer Package =
+
+== Install autotools ==
+
+Debian by default usually doesn't have development tools installed. You will need to use apt-get to install automake, make with the following commands:
+
+*apt-get install automake*
+*apt-get install make*
+
+
+= Setting up the Monotone Repository Server (still working on this) =
 
 The GENESIS project uses monotone for its source code versioning system. The Developer Package contains scripts for starting up the monotone repositories, but first some things must be set up for it to run correctly. 
+
+== Install Monotone ==
+
+Install monotone, it is freely available from http://monotone.ca/.
+
+Simply download the static binary and place it in your path. 
 
 == Creating a 'monotone' user ==
 
@@ -66,4 +83,3 @@ It is bad practice to run a monotone repository as root so the first thing that 
 *useradd monotone -b /home/monotone*
 
 _note: if the user directory is not created, you must create it in the /home directory via the mkdir command: mkdir /home/monotone. Then you must perform a chown to set the permissions: chown -R monotone:monotone /home/monotone._
-
