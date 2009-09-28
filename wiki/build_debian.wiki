@@ -1,5 +1,5 @@
 #summary Guide to building Debian packages.
-#labels debian,packaging,installer,G3doc
+#labels debian,packaging,installer,G3doc,Deprecated
 
 G3 Doc: build-debian
 
