@@ -56,7 +56,7 @@ After you updated your configuration restart apache with this command:
 You should now be able to view the contents of the directory /var/www/tests from your URL suffixed with your alias.
 
 
-= Installing the Developer Package =
+= Installing the Developer Package (In progress)=
 
 == Install autotools ==
 
