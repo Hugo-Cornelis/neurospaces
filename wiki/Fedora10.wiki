@@ -1,5 +1,5 @@
 #summary Installing Neurospaces for development on Fedora 10
-#labels installation,G3doc
+#labels installation,G3doc,Deprecated
 
 See also
 
