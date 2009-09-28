@@ -1,0 +1,57 @@
+#summary This guide outlines installing GENESIS on Debian 5.0.3
+
+= Introduction =
+
+This is a guide for setting up GENESIS 3 on a new Debain 5.0.3 installation, with the tester, code repository and webserver running.
+
+
+= Setting up the Web Server =
+
+Test run output as well as generated html files from programs like Xrefactory and Doxygen need to be accessible over the internet. This is a guide on adding the apache2 rules to set up a directory that will have its contents displayed via the http server.
+
+== Configuration File /etc/apache2/apache2.conf ==
+
+The default http configuration file for the Apache Web Server in Debian is in the file _/etc/apache2/apache2.conf_. The cleanest method for doing this is to put all of your rules in a separate file, then add an *Include* statement to the default configuration file to include your file. As in this example:
+
+{{{
+Include /etc/apache2/my.conf
+}}} 
+
+
+To start your configuration file you'll need a VirtualHost block. So the initial conf file should look like this.
+
+{{{
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+
+</VirtualHost>
+}}}
+
+
+In your configuration file you will explicitly declare which directories you want served within the VirtualHost block. If you want to serve the directory _/var/www/tests_ for test output you simply declare a block in the your configuration file for the directory and an Alias directive so that the directory can be accesible via a suffix to the URL (such as http://myserver.edu/tests). Your configuration file should end up looking like this:
+
+{{{
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+
+   <Directory /var/www/tests>
+     Options +FollowSymLinks Indexes MultiViews
+     AllowOverride All
+     order allow,deny
+     allow from all
+   </Directory>
+
+   Alias /tests /var/www/tests/
+
+</VirtualHost>
+}}}
+
+For each directory you'd like to serve you must add a block and an alias 
+After you updated your configuration restart apache with this command:
+
+*apache2ctl restart*
+
+You should now be able to view the contents of the directory /var/www/tests from your URL suffixed with your alias.
+
