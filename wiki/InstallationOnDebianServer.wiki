@@ -1,4 +1,4 @@
-#summary This guide outlines installing GENESIS on Debian 5.0.3
+#summary (IN PROGRESS) This guide outlines installing GENESIS on Debian 5.0.3
 
 = Introduction =
 
@@ -54,4 +54,3 @@ After you updated your configuration restart apache with this command:
 *apache2ctl restart*
 
 You should now be able to view the contents of the directory /var/www/tests from your URL suffixed with your alias.
-
