@@ -1,5 +1,5 @@
 #summary Installing on Neurospaces for development on Ubuntu, lenny/sid
-#labels installation,G3doc
+#labels installation,G3doc,Deprecated
 
 See also
 
