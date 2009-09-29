@@ -83,6 +83,7 @@ Install the following Perl modules from CPAN:
   * IO::Pty
   * Expect 
   * Data::Comparator
+  * File::Find::Rule
 
 _note: you must install gcc first in order to compile Perl modules from CPAN._
 
