@@ -58,13 +58,32 @@ You should now be able to view the contents of the directory /var/www/tests from
 
 = Installing the Developer Package (In progress)=
 
-== Install autotools ==
+== Dependencies ==
+
+
+=== Install gcc ===
+
+Install gcc by executing the following command as root:
+
+*apt-get install gcc*
+
+
+=== Install autotools ===
 
 Debian by default usually doesn't have development tools installed. You will need to use apt-get to install automake, make with the following commands:
 
 *apt-get install automake*
 *apt-get install make*
 
+=== Perl Dependencies ===
+
+Install the following Perl modules from CPAN:
+
+  * YAML
+  * IO::Pty
+  * Expect 
+
+_note: you must install gcc first in order to compile Perl modules from CPAN._
 
 = Setting up the Monotone Repository Server (still working on this) =
 
