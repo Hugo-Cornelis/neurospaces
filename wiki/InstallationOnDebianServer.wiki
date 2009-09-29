@@ -56,7 +56,7 @@ After you updated your configuration restart apache with this command:
 You should now be able to view the contents of the directory /var/www/tests from your URL suffixed with your alias.
 
 
-= Installing the Developer Package (In progress)=
+= Installing the Developer Package =
 
 == Dependencies ==
 
@@ -84,6 +84,15 @@ Install the following Perl modules from CPAN:
   * Expect 
 
 _note: you must install gcc first in order to compile Perl modules from CPAN._
+
+== Additional Dependencies ==
+
+These additional dependencies must be installed via apt-get:
+
+ * psmisc (for the killall command)
+ * daemon (to run neurospaces_serve as a daemon process)
+ * sudo 
+
 
 = Setting up the Monotone Repository Server (still working on this) =
 
