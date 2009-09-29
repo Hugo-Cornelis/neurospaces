@@ -84,6 +84,7 @@ Install the following Perl modules from CPAN:
   * Expect 
   * Data::Comparator
   * File::Find::Rule
+  * Inline
 
 _note: you must install gcc first in order to compile Perl modules from CPAN._
 
