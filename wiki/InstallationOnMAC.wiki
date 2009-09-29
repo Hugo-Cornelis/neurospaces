@@ -24,9 +24,21 @@ Note that some installation must be done from the terminal. The terminal can be 
     # Expect (and its dependency perl-IO)
     # ExtUtils
     # Data::Comparator
+    # File::Find::Rule
+    # Inline 
 
 == Installation  ==
 
-Once all of these prerequisites are met you can follow the standard developer installation outlined here:
+Once these dependencies have been met you can pull source code from the GENESIS repository and do a build on your machine with the following command:
 
-http://genesis-sim.org/userdocs/installation-developer/installation-developer.html
+ * _neurospaces_create_directories_
+ * _neurospaces_pull_
+ * _neurospaces_update_
+ * _neurospaces_configure_
+ * _neurospaces_install (requires admin password)_
+
+Once these have completed you can test your installation by performing this command:
+
+  _neurospaces_check_
+
+This will perform a series of regression tests that will indicate any inconsistencies with your installation.
