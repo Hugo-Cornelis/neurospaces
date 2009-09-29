@@ -82,6 +82,7 @@ Install the following Perl modules from CPAN:
   * YAML
   * IO::Pty
   * Expect 
+  * Data::Comparator
 
 _note: you must install gcc first in order to compile Perl modules from CPAN._
 
