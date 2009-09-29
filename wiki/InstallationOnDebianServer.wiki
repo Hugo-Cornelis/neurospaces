@@ -129,3 +129,8 @@ _note: if the user directory is not created, you must create it in the /home dir
 == Sending Mail == 
 
 By default Debian is configured for local mail only. To send email over the internet you will need to set the *dc_eximconfig_configtype* option in the file */etc/exim4/update-exim4.conf.conf* from 'local' to 'internet'.
+
+Then perform a restart of exim via the command:
+
+_/etc/init.d/exim4 restart_
+
