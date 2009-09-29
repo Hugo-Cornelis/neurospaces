@@ -1,4 +1,7 @@
 #summary Installation on the MAC.
+#labels G3doc
+
+G3 Doc: installation-osx
 
 [Index]
 
@@ -25,7 +28,6 @@ Note that some installation must be done from the terminal. The terminal can be 
     # ExtUtils
     # Data::Comparator
     # File::Find::Rule
-    # Inline 
 
 == Installation  ==
 
