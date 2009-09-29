@@ -92,7 +92,13 @@ These additional dependencies must be installed via apt-get:
  * psmisc (for the killall command)
  * daemon (to run neurospaces_serve as a daemon process)
  * sudo 
-
+ * libncurses5-dev
+ * flex
+ * bison 
+ * swig
+ * libperl-dev
+ * libreadline5-dev
+ * python-dev
 
 = Setting up the Monotone Repository Server (still working on this) =
 
