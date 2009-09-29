@@ -29,7 +29,7 @@ Note that some installation must be done from the terminal. The terminal can be 
 
 == Installation  ==
 
-Once these dependencies have been met you can pull source code from the GENESIS repository and do a build on your machine with the following command:
+Once these dependencies have been met you can pull source code from the GENESIS repository and do a build on your machine with the following commands:
 
  * _neurospaces_create_directories_
  * _neurospaces_pull_
