@@ -48,7 +48,7 @@ NameVirtualHost *:80
 </VirtualHost>
 }}}
 
-For each directory you'd like to serve you must add a block and an alias 
+For each directory you'd like to serve you must add a block and an alias. 
 After you updated your configuration restart apache with this command:
 
 *apache2ctl restart*
