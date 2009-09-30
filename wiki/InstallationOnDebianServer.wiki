@@ -9,6 +9,13 @@ This is a guide for setting up GENESIS 3 on a new Debain 5.0.3 installation, wit
 
 Test run output as well as generated html files from programs like Xrefactory and Doxygen need to be accessible over the internet. This is a guide on adding the apache2 rules to set up a directory that will have its contents displayed via the http server.
 
+== DocumentRoot ==
+
+The DocumentRoot is the publicly available directory displayed when a user visits the bare URL for your server with a web browser (example: http://myserver.edu). If you want data to be available over the web, you can simply place it in the document root. If you place a file named _'mydata'_ in the DocumentRoot, it will be available at the URL http://myserver.edu/mydata. 
+
+In case you want directories in another location on the machine to be displayed via the URL with a suffix see the next section.
+
+
 == Configuration File /etc/apache2/apache2.conf ==
 
 The default http configuration file for the Apache Web Server in Debian is in the file _/etc/apache2/apache2.conf_. The cleanest method for doing this is to put all of your rules in a separate file, then add an *Include* statement to the default configuration file to include your file. As in this example:
