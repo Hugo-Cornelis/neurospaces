@@ -134,3 +134,14 @@ Then perform a restart of exim via the command:
 
 _/etc/init.d/exim4 restart_
 
+= Building userdocs =
+
+== Dependencies ==
+
+To build the user documentation you need to install *latex* and all of its dependencies via apt-get:
+
+  * tetex-base 
+  * tetex-bin 
+  * tetex-doc (Might not need to install this as it may be included with tetex-base)
+  * tetex-extra 
+
