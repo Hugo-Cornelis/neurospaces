@@ -144,4 +144,4 @@ To build the user documentation you need to install *latex* and all of its depen
   * tetex-bin 
   * tetex-doc (Might not need to install this as it may be included with tetex-base)
   * tetex-extra 
-
+  * tex4ht
