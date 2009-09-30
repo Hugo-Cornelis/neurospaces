@@ -147,7 +147,7 @@ To build the user documentation you need to install *latex* and all of its depen
   * tex4ht
   * webcheck (For link checking)
 
-For level 6 and 7 documentation you need to install:
+For level 6 documentation you need to install:
   * doxygen 
   * graphviz (If you want graphs in your doxygen output)
  
