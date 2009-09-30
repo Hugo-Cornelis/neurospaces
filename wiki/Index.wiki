@@ -3,6 +3,8 @@
 
 = Introduction =
 
+Note: most documentation in the wiki is now deprecated in favor of [the installation documents] of [the official Genesis 3 documentation system].
+
 The neurospaces wiki is used by people who are involved in development of the [http://www.neurospaces.org/ Neurospaces] based implementation of the Genesis 3 simulator.
 
 In principle anyone can join, yet we do focus on tools and documentation related to the software development.  So this is not a wiki for users who want to do scientific simulations.
