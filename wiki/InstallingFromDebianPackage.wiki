@@ -1,5 +1,5 @@
 #summary Installation of a package from a .deb file.
-#labels debian,package,installation,installer,G3doc
+#labels debian,package,installation,installer,G3doc,Deprecated
 
 G3 Doc: installation-debian
 
