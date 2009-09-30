@@ -149,5 +149,6 @@ To build the user documentation you need to install *latex* and all of its depen
 
 For level 6 and 7 documentation you need to install:
   * doxygen 
-  * tcl and dot (If you want graphs in your doxygen output)
+  * graphviz (If you want graphs in your doxygen output)
+ 
   
