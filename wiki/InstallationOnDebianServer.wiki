@@ -131,7 +131,10 @@ _note: if the user directory is not created, you must create it in the /home dir
 
 = Setting up the Tester = 
 
-<in progress>
+The neurospaces tester is a script which performs a routine check of the GENESIS 3 repository, source code, and documentation.  It is meant to be set up as a cronjob on a server with email capabilities, so that notification of a test run can be emailed to designated recipients. 
+
+When the script is set up, it makes timely reporting of errors available. 
+
 
 == Sending Mail == 
 
