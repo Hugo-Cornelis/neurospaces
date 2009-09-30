@@ -148,7 +148,16 @@ To build the user documentation you need to install *latex* and all of its depen
   * webcheck (For link checking)
 
 For level 6 documentation you need to install:
+
   * doxygen 
   * graphviz (If you want graphs in your doxygen output)
+
+For building regression test output you need:
+
+  * source-highlight
  
+The following CPAN modules for Perl must also be installed:
+
+  * HTML::Table
+  * HTML::Template
   
