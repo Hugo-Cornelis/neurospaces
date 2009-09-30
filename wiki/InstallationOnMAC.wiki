@@ -1,5 +1,5 @@
 #summary Installation on the MAC.
-#labels G3doc
+#labels G3doc,Deprecated
 
 G3 Doc: installation-osx
 
