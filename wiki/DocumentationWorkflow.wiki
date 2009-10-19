@@ -1,7 +1,7 @@
 #summary Documentation workflow
 #labels G3Doc
 
-G3Doc: workflow-documentation
+G3 Document: workflow-documentation
 
 = Introduction =
 
