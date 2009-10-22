@@ -15,6 +15,7 @@ To configure the userdocs_cron script you must construct a YAML file with the fo
   * OUTPUTDIR - _A directory to write the output log data._
   * URL - _An http link which serves the test harness output._
 
+Example configuration file`:`
 {{{
 ---
 MAILTO: my@email.com
