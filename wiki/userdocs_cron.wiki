@@ -3,7 +3,7 @@
 
 = Introduction =
 
-The GENESIS documentation system is very time consuming
+The GENESIS documentation system is very time consuming so it is desirable to set up the documentation build as an unmanned operation. The userdocs package comes with a cron script that can be set up to run at periodic intervals to keep your documentation up to date.
 
 == Configuration ==
 
