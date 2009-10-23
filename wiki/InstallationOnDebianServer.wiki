@@ -129,6 +129,35 @@ It is bad practice to run a monotone repository as root so the first thing that 
 _note: if the user directory is not created, you must create it in the /home directory via the mkdir command: mkdir /home/monotone. Then you must perform a chown to set the permissions: _chown -R monotone:monotone /home/monotone._
 
 
+== Setting up keys ==
+
+<todo>
+
+== Starting the montone repository servers ==
+
+First you must have the compliant directory setup for the developer packages scripts to find the repositories to serve:
+
+*~/neurospaces_project/MTN*
+
+Inside the MTN directory you have repositories for each of the projects you will be serving over the web:
+
+{{{
+developer.mtn		model-container.mtn	studio.mtn
+gshell.mtn		ns-sli.mtn		userdocs.mtn
+heccer.mtn		ssp.mtn
+}}}
+
+You can then issue the command:
+
+*nohup neurospaces_serve &*
+
+as your monotone user or you can issue the command:
+
+*sudo -H -u monotone nohup neurospaces_serve &*
+
+as root to start the repository servers. They can now be connected to over the internet for pulls, pushes, and syncs.
+
+
 = Setting up the Tester = 
 
 The neurospaces tester is a script which performs a routine check of the GENESIS 3 repository, source code, and documentation.  It is meant to be set up as a cronjob on a server with email capabilities, so that notification of a test run can be emailed to designated recipients. 
