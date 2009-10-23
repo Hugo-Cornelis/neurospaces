@@ -62,6 +62,7 @@ After you updated your configuration restart apache with this command:
 
 You should now be able to view the contents of the directory /var/www/tests from your URL suffixed with your alias.
 
+---
 
 = Installing the Developer Package =
 
@@ -109,6 +110,8 @@ These additional dependencies must be installed via apt-get:
  * libperl-dev
  * libreadline5-dev
  * python-dev
+
+---
 
 = Setting up the Monotone Repository Server (still working on this) =
 
@@ -189,6 +192,7 @@ as your monotone user or you can issue the command:
 
 as root to start the repository servers. They can now be connected to over the internet for pulls, pushes, and syncs.
 
+---
 
 = Setting up the Tester = 
 
@@ -204,6 +208,8 @@ By default Debian is configured for local mail only. To send email over the inte
 Then perform a restart of exim via the command:
 
 _/etc/init.d/exim4 restart_
+
+---
 
 = Building userdocs =
 
