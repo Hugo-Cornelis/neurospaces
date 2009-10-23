@@ -131,7 +131,10 @@ _note: if the user directory is not created, you must create it in the /home dir
 
 == Setting up keys ==
 
-<todo>
+See the section on "*Committing Changes*" in:
+
+../developer-repository/developer-repository.html
+
 
 == Starting the montone repository servers ==
 
