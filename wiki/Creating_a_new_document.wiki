@@ -17,4 +17,4 @@ tags:
 }}}
 
 
-The structure is identical to previous descriptor files with the exception of our _redirect_ attribute. This will place a link to the content in the Level 5 contents page.
+The structure is identical to previous descriptor files with the exception of our _redirect_ attribute. This will place a link to the content in the Level 5 contents page.  To add a redirect to your documentation the only file needed is the descriptor file with the indicated _redirect_ flag.
