@@ -8,7 +8,7 @@ To create a new blank document simply envoke the *userdocs-create* script giving
 
 You will see that it creates a new directory with a template tex file and descriptor.yml file for editing.
 
-You can also specify a number of documents on the command line to create a serie of blank documents:
+You can also specify a number of documents on the command line to create a series of blank documents:
 
 *userdocs-create my-document1 my-document2 my-document3 my-document4*
 
