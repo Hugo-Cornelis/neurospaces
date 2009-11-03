@@ -1,5 +1,17 @@
 #summary Creating Documentation for Level 3-7
 
+= Creating a new document =
+
+To create a new blank document simply envoke the *userdocs-create* script giving the name of the document you wish to create as an argument:
+
+*userdocs-create my-document*
+
+You will see that it creates a new directory with a template tex file and descriptor.yml file for editing.
+
+You can also specify a number of documents on the command line to create a serie of blank documents:
+
+*userdocs-create my-document1 my-document2 my-document3 my-document4*
+
 = HTTP redirect =
 
 At times it is necessary to direct users to documentation that is off site since reproducing the content can be time consuming, or require special host configurations (e.g youtube videos). By using the 'redirect' attribute in your documentation descriptor file, you can link to URLs on the internet, effectively integrating the linked content into your own documentation. 
