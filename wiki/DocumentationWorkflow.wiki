@@ -1,5 +1,5 @@
 #summary Documentation workflow
-#labels G3Doc
+#labels G3Doc,Deprecated
 
 G3 doc: workflow-documentation
 
