@@ -134,7 +134,7 @@ PulseDescription	/* <ppulse> */
 }}}
 
 ----
-A rule for PoolSectionEnd:
+A rule for PulseSectionEnd:
 
 {{{
 PulseSectionEnd
