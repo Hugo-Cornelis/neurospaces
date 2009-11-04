@@ -57,3 +57,22 @@ Now some more declarations must be added for the lexer. Copying the format of th
 
 
 Note: The pool example did not have a "PoolComponent" section but nearly all neighbors contained this so I am adding this to play the averages.
+
+The next step is to add a rule for each of the declarations we just declared so that the parser knows what to do with them. 
+
+We need to add a rule for the PulseSymbol:
+
+{{{
+
+PulseSymbol
+	:
+		PulseSection
+		{
+#line
+		    //- put symbol table element on stack
+
+		    $$ = &$1->bio.ioh.iol.hsle;
+		}
+}}}
+
+The pulse symbol uses a Bio Component symbol. 
