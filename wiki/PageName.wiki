@@ -220,7 +220,7 @@ PulseSectionFront2	/* <ppulse> */
 	;
 }}}
 
----
+----
 
 Rule for PulseSection:
 
