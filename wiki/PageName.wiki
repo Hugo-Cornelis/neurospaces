@@ -1,0 +1,28 @@
+#summary Adding a pulse object to the model-container
+
+= Introduction =
+
+This is essentially a developer blogpost to detail my experience adding a new object to the model-container. 
+
+
+= Briefing =
+
+First began by reading up on what documentation was available. The document doc/HOWTO.outline in model-container source code contains a section titled *Add new components* which gives a rough outline of the procedure. 
+
+= Adding the Pulse object =
+
+=== Adding a new tokenizer ===
+
+First I added a new tokenizer to the analyzer.l file like so:
+
+_pulse		{	return(TOKEN_PULSE);	}_
+
+
+=== Add a new token ===
+
+Added a new token to the description.tokens file located in _hierarchy/output/symbols/_ like so:
+
+_%token TOKEN_PULSE_
+
+
+=== Adding a parser rule ===
