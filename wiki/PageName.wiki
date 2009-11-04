@@ -17,15 +17,18 @@ The following subheadings are in order of execution.
 
 First I added a new tokenizer to the analyzer.l file:
 
-_pulse		{	return(TOKEN_PULSE);	}_
+{{{
+pulse		{	return(TOKEN_PULSE);	}
+}}}
 
 
 === Add a new token ===
 
 Added a new token to the description.tokens file located in _hierarchy/output/symbols/_ like so:
 
-_%token TOKEN_PULSE_
-
+{{{
+%token TOKEN_PULSE
+}}}
 
 === Adding a parser rule ===
 
@@ -34,18 +37,23 @@ A series of grammar rules must now be added to parser.rules file:
 
 At the top of the file there is a union. In this union I add a symbol for my pulse object:
 
-_struct symtab_Pulse * ppulse;_
+{{{
+struct symtab_Pulse * ppulse;
+}}}
 
 The prefix p for pulse indicates that this is a pointer. 
 
 
 Now some more declarations must be added for the lexer. Copying the format of the current declarations you will need to add a block like this for our pulse object:
 
-_%type <phsle> PulseSymbol_
-_%type <ppulse> PulseSectionFront_
-_%type <ppulse> PulseSectionFront1_
-_%type <pidin> PulseSectionFront2_
-_%type <ppulse> PulseDescription_
-_%type <phsle> PulseComponent_
+{{{
+%type <phsle> PulseSymbol
+%type <ppulse> PulseSectionFront
+%type <ppulse> PulseSectionFront1
+%type <pidin> PulseSectionFront2
+%type <ppulse> PulseDescription
+%type <phsle> PulseComponent
+}}}
+
 
 Note: The pool example did not have a "PoolComponent" section but nearly all neighbors contained this so I am adding this to play the averages.
