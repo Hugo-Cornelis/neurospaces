@@ -30,3 +30,22 @@ _%token TOKEN_PULSE_
 === Adding a parser rule ===
 
 A series of grammar rules must now be added to parser.rules file:
+
+
+At the top of the file there is a union. In this union I add a symbol for my pulse object:
+
+_struct symtab_Pulse * ppulse;_
+
+The prefix p for pulse indicates that this is a pointer. 
+
+
+Now some more declarations must be added for the lexer. Copying the format of the current declarations you will need to add a block like this for our pulse object:
+
+_%type <phsle> PulseSymbol_
+_%type <ppulse> PulseSectionFront_
+_%type <ppulse> PulseSectionFront1_
+_%type <pidin> PulseSectionFront2_
+_%type <ppulse> PulseDescription_
+_%type <phsle> PulseComponent_
+
+Note: The pool example did not have a "PoolComponent" section but nearly all neighbors contained this so I am adding this to play the averages.
