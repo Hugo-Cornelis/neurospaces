@@ -57,7 +57,7 @@ Now some more declarations must be added for the lexer. Copying the format of th
 
 
 Note: The pool example did not have a "PoolComponent" section but nearly all neighbors contained this so I am adding this to play the averages.
-
+----
 The next step is to add a rule for each of the declarations we just declared so that the parser knows what to do with them. 
 
 We need to add a rule for the PulseSymbol:
@@ -77,8 +77,9 @@ PulseSymbol
 
 The pulse symbol uses a Bio Component symbol. 
 
+----
 
-We add a rule for our description section:
+We add a rule for PulseDescription:
 {{{
 PulseDescription	/* <ppulse> */
 	:
@@ -132,7 +133,7 @@ PulseDescription	/* <ppulse> */
 
 }}}
 
-
+----
 A rule for PoolSectionEnd:
 
 {{{
@@ -145,3 +146,107 @@ PulseSectionEnd
 		}
 	;
 }}}
+
+----
+
+A rule for PulseSectionFront:
+
+{{{
+PulseSectionFront	/* <ppulse> */
+	:
+		PulseSectionFront1
+		PulseSectionFront2
+		{
+#line
+
+		    //- prepare struct for symbol table
+
+		    $$ = $1;
+
+		    //- set actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$$->bio.ioh.iol.hsle);
+
+		    //- assign name to symbol
+
+		    SymbolSetName(&$$->bio.ioh.iol.hsle, $2);
+		}
+	;
+}}}
+
+----
+
+Rule for PulseSectionFront1:
+
+{{{
+PulseSectionFront1	/* <ppulse> */
+	:
+		TOKEN_PULSE
+		{
+#line
+
+		    //- prepare struct for symbol table
+
+		    $$ = PulseCalloc();
+
+		    //- set actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$$->bio.ioh.iol.hsle);
+		}
+	;
+}}}
+
+Note that this called PulseCalloc, which must be defined for this to work.
+
+----
+
+Rule for PulseSection2:
+
+{{{
+PulseSectionFront2	/* <ppulse> */
+	:
+		IdentifierOptionIndexPushedPidin
+		{
+#line
+
+		    //- put identifier on stack
+
+		    $$ = $1;
+		}
+	;
+}}}
+
+---
+
+Rule for PulseSection:
+
+{{{
+PulseSection	/* <ppulse> */
+	:
+		PulseSectionFront
+			InputOutputRelations
+			OptionalItemInputRelations
+			PulseDescription
+		PulseSectionEnd
+		{
+#line
+		    //- link input/output relations
+
+		    SymbolAssignBindableIO(&$4->bio.ioh.iol.hsle, $2);
+
+		    //- bind I/O relations
+
+		    SymbolAssignInputs(&$4->bio.ioh.iol.hsle, $3);
+
+		    //- put finished section info on stack
+
+		    $$ = $4;
+		}
+	;
+}}}
+
+----
