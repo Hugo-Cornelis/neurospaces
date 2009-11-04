@@ -76,3 +76,58 @@ PulseSymbol
 }}}
 
 The pulse symbol uses a Bio Component symbol. 
+
+
+We add a rule for our description section:
+{{{
+PulseDescription	/* <ppulse> */
+	:
+		{
+#line
+
+		    $$ = ParserContextGetActual((PARSERCONTEXT *)pacParserContext);
+		}
+	|
+		PulseDescription
+		ChildSectionOptionalInputOptionalParameters
+		{
+#line
+		    //- link children
+
+		    if ($2)
+		    {
+			SymbolAddChild(&$1->bio.ioh.iol.hsle, $2);
+		    }
+
+		    //- reset actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$1->bio.ioh.iol.hsle);
+
+		    //- put symbol description on stack
+
+		    $$ = $1;
+		}
+	|
+		PulseDescription
+		Parameters
+		{
+#line
+		    //- link parameters
+
+		    SymbolParameterLinkAtEnd(&$1->bio.ioh.iol.hsle, $2);
+
+		    //- reset actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$1->bio.ioh.iol.hsle);
+
+		    //- put symbol on stack
+
+		    $$ = $1;
+		}
+	;
+
+}}}
