@@ -131,3 +131,17 @@ PulseDescription	/* <ppulse> */
 	;
 
 }}}
+
+
+A rule for PoolSectionEnd:
+
+{{{
+PulseSectionEnd
+	:
+		EndPushedPidin
+		TOKEN_PULSE
+		{
+#line
+		}
+	;
+}}}
