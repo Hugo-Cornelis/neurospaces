@@ -13,7 +13,7 @@ First began by reading up on what documentation was available. The document doc/
 
 === Adding a new tokenizer ===
 
-First I added a new tokenizer to the analyzer.l file like so:
+First I added a new tokenizer to the analyzer.l file:
 
 _pulse		{	return(TOKEN_PULSE);	}_
 
