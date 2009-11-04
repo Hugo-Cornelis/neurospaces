@@ -11,6 +11,8 @@ First began by reading up on what documentation was available. The document doc/
 
 = Adding the Pulse object =
 
+The following subheadings are in order of execution.
+
 === Adding a new tokenizer ===
 
 First I added a new tokenizer to the analyzer.l file:
