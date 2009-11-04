@@ -204,7 +204,7 @@ Note that this called PulseCalloc, which must be defined for this to work.
 
 ----
 
-Rule for PulseSection2:
+Rule for PulseSectionFront2:
 
 {{{
 PulseSectionFront2	/* <ppulse> */
