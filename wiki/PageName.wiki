@@ -301,6 +301,9 @@ The symbols file contains declarations for class types. A new set of declaration
 
 }}}
 
+
+In the parameters section we clear out what is there and add parameters that are necessary for our pulse object.
+
 === Creating Source Files ===
 
 Now souce files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
