@@ -256,5 +256,5 @@ Now souce files which had the appropriate data structures and functions must be 
 
 pool.c is located in the _components_ directory, and pool.h is located in _neurospaces/components_. 
 
-*cp components/pool.c components/pulse.h*
+*cp components/pool.c components/pulse.c*
 *cp neurospaces/components/pool.h neurospaces/components/pulse.h*
