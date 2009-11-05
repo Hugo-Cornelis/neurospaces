@@ -268,7 +268,7 @@ The symbols file contains declarations for class types. A new set of declaration
                   annotations => {
                                   'piSymbolType2Biolevel' => 'BIOLEVEL_MECHANISM',
                                  },
-                  description => 'a concentration pulse, exponential decay',
+                  description => 'an object that can generate a variety of pulse patterns',
                   dimensions => [
                                  'mechanism',
                                 ],
@@ -298,6 +298,7 @@ The symbols file contains declarations for class types. A new set of declaration
                                 },
                  },
         ),
+
 
 }}}
 
