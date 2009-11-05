@@ -249,4 +249,12 @@ PulseSection	/* <ppulse> */
 	;
 }}}
 
-----
+
+=== Creating Source Files ===
+
+Now souce files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
+
+pool.c is located in the _components_ directory, and pool.h is located in _neurospaces/components_. 
+
+*cp components/pool.c components/pulse.h*
+*cp neurospaces/components/pool.h neurospaces/components/pulse.h*
