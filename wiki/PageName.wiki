@@ -259,3 +259,27 @@ pool.c is located in the _components_ directory, and pool.h is located in _neuro
 *cp components/pool.c components/pulse.c*
 
 *cp neurospaces/components/pool.h neurospaces/components/pulse.h*
+
+Now change all references of pool to pulse with appropriate case. This is a good starting point as all that's needed is to determine which parameters and functions you with to add.
+
+=== Adding to compilation ===
+
+To have your new pulse object compile into the model-container you must add to some of the existing build targets in the top level *Makefile.am* file.
+
+In the target _libneurospacesread_a_SOURCES_ you must add:
+
+{{{
+	components/pulse.c \
+}}}
+
+The target _nobase_include_HEADERS_ add:
+
+{{{
+	neurospaces/components/pulse.h \
+}}}
+
+The target _libneurospacesread.so_ add:
+
+{{{
+	pulse.o \
+}}}
