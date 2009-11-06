@@ -32,10 +32,9 @@ Added a new token to the description.tokens file located in _hierarchy/output/sy
 
 === Adding a parser rule ===
 
-A series of grammar rules must now be added to parser.rules file:
+A series of grammar rules must now be added:
 
-
-At the top of the file there is a union. In this union I add a symbol for my pulse object:
+First open the file _hierarchy/parser.start_ file there is a union. In this file there is a union, here we add a symbol for our pulse object:
 
 {{{
 struct symtab_Pulse * ppulse;
