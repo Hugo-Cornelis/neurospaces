@@ -424,9 +424,6 @@ Test specification files are essentially perl hashes, they are stored in the _te
 
 {{{
 
-#!/usr/bin/perl -w
-#
-
 use strict;
 
 
@@ -464,6 +461,7 @@ my $test
 						  },
 
 
+
 						  {
 						   description => "Has the parameter delay1 been set ?",
 						   read => 'value = 5',
@@ -477,8 +475,35 @@ my $test
 						   write => 'printparameter /Pulse_gen LEVEL2',
 						  },
 
+						  {
+						   description => "Has the parameter width2 been set ?",
+						   read => 'value = 5',
+						   write => 'printparameter /Pulse_gen WIDTH2',
+						  },
 
-						  
+
+						  {
+						   description => "Has the parameter delay2 been set ?",
+						   read => 'value = 8',
+						   write => 'printparameter /Pulse_gen DELAY2',
+						  },
+
+
+
+
+						  {
+						   description => "Has the parameter baselevel been set ?",
+						   read => 'value = 10',
+						   write => 'printparameter /Pulse_gen BASELEVEL',
+						  },
+
+
+						  {
+						   description => "Has the trigger mode parameter been set ?",
+						   read => 'value = 0',
+						   write => 'printparameter /Pulse_gen TRIGMODE',
+						  },
+
 
 						 ],
 				description => "library pulse generators",
@@ -491,9 +516,6 @@ my $test
 
 
 return $test;
-
-
-
 }}}
 
 ----
@@ -531,16 +553,62 @@ value = 5
  neurospaces > *** Test: Has the parameter level2 been set ?
 *** Write: printparameter /Pulse_gen LEVEL2
 value = -20
+ neurospaces > *** Test: Has the parameter width2 been set ?
+*** Write: printparameter /Pulse_gen WIDTH2
+value = 5
+ neurospaces > *** Test: Has the parameter delay2 been set ?
+*** Write: printparameter /Pulse_gen DELAY2
+value = 8
+ neurospaces > *** Test: Has the parameter baselevel been set ?
+*** Write: printparameter /Pulse_gen BASELEVEL
+value = 10
+ neurospaces > *** Test: Has the trigger mode parameter been set ?
+*** Write: printparameter /Pulse_gen TRIGMODE
+value = 0
  neurospaces > 
 ------------------------------------------------
 ------------------------------------------------
 
 End of tests of module generic pulse objects
-Total of 5 tests (encountered 1 error(s) so far)
+Total of 9 tests (encountered 0 error(s) so far)
 
 ------------------------------------------------
 ------------------------------------------------
 ------------------------------------------------
+
 }}}
 
 From the output we can see that it properly set the parameters from the NDF file, and we were able to retrieve the values from the query machine of the model-container. 
+
+If there is an error with one of the tests then it will be indicated in the output. In this instance the parameter LEVEL1 has been set wrong:
+
+{{{
+------------------------------------------------
+------------------------------------------------
+
+End of tests of module generic pulse objects
+Total of 9 tests (encountered 1 error(s) so far)
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+
+---
+description:
+  command: tests/neurospaces_harness
+  name: Test report
+  package: &1
+    name: model-container
+    version: c29add6329c4c4fd3576b1885c36df996c00ecaa-0
+errors:
+  modules:
+    pulse.t:
+      1:
+        error: 1:TIMEOUT
+        library pulse generators:
+          description: Has the parameter level1 been set ?
+
+}}}
+
+This makes it easy to determine where the error is. 
