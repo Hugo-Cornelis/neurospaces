@@ -355,3 +355,192 @@ The target _libneurospacesread.so_ add:
 
 
 After all of this it should compile and your new object is ready to use.
+
+=== Creating a Simple Test ===
+
+Now to generate a simple test for our new object we need to create two files: one is a test specification file, the other is an ndf file which makes use of our new object. We will create a test that performs a simple parameter check.
+
+*NDF file*
+
+NDF is the file format used for declaring a model in the model-container. In your source directory they located in the _library_ directory, after installation they get installed to the _/usr/local/neurospaces/models/library_ directory. 
+
+Again taking an example from the pools library as a template (golgi.ca.ndf) I construct a simple pulse object which sets parameters with reasonable values:
+
+{{{
+#!neurospacesparse
+// -*- NEUROSPACES -*-
+
+NEUROSPACES NDF
+
+// VERSION 0.1
+
+PRIVATE_MODELS
+
+	PULSE Pulse_gen
+		BINDABLES
+			INPUT I
+		END BINDABLES
+
+		PARAMETERS
+			PARAMETER ( LEVEL1 = 50.0 ),
+			PARAMETER ( WIDTH1 =  3.0),
+			PARAMETER ( DELAY1 = 5.0 ),
+			PARAMETER ( LEVEL2 = -20.0 ),
+			PARAMETER ( WIDTH2 =  5.0),
+			PARAMETER ( DELAY2 = 8.0 ),
+			PARAMETER ( BASELEVEL = 10.0 ),
+			PARAMETER ( TRIGMODE = 0 ),
+		END PARAMETERS
+
+	END PULSE
+
+END PRIVATE_MODELS
+
+
+PUBLIC_MODELS
+
+	ALIAS Pulse_gen Pulse_gen END ALIAS
+
+	ALIAS Pulse_gen 
+		Pulse_standalone
+		PARAMETERS
+			PARAMETER ( LEVEL1 = 50.0 ),
+			PARAMETER ( LEVEL2 = -20.0 )
+		END PARAMETERS
+	END ALIAS
+
+END PUBLIC_MODELS
+
+
+
+}}}
+
+Pulse_gen is our instance of a Pulse object, when we load our model it will be callable via this name. We save this file as _pulse/pulse1.ndf_ inside of the library directory.
+
+----
+*Test Specification*
+
+Test specification files are essentially perl hashes, they are stored in the _tests/specifications_ directory. We create a new file within the specifications directory with calls to printparameter to check if each parameter is properly set:
+
+{{{
+
+#!/usr/bin/perl -w
+#
+
+use strict;
+
+
+my $test
+    = {
+       command_definitions => [
+			       {
+				arguments => [
+					      '-v',
+					      '1',
+					      '-q',
+					      '-R',
+					      'pulse/pulse1.ndf',
+					     ],
+				command => './neurospacesparse',
+				command_tests => [
+						  {
+						   description => "Is neurospaces startup successful ?",
+						   read => [ '-re', './neurospacesparse: No errors for .+?/pulse/pulse1.ndf.', ],
+						   timeout => 3,
+						   write => undef,
+						  },
+
+
+						  {
+						   description => "Has the parameter level1 been set ?",
+						   read => 'value = 50',
+						   write => 'printparameter /Pulse_gen LEVEL1',
+						  },
+
+						  {
+						   description => "Has the parameter width1 been set ?",
+						   read => 'value = 3',
+						   write => 'printparameter /Pulse_gen WIDTH1',
+						  },
+
+
+						  {
+						   description => "Has the parameter delay1 been set ?",
+						   read => 'value = 5',
+						   write => 'printparameter /Pulse_gen DELAY1',
+						  },
+
+
+						  {
+						   description => "Has the parameter level2 been set ?",
+						   read => 'value = -20',
+						   write => 'printparameter /Pulse_gen LEVEL2',
+						  },
+
+
+						  
+
+						 ],
+				description => "library pulse generators",
+			       },
+
+			      ],
+       description => "generic pulse objects",
+       name => 'pulse.t',
+      };
+
+
+return $test;
+
+
+
+}}}
+
+----
+
+Now with both of these saved you can run the test on the command line with the test_harness located in the tests directory. Since there are several tests for the model-container we only want to run our pulse test. We do this by using the regex option with the test harness, so from the top level source directory we perform:
+
+{{{
+tests/neurospaces_harness --regex pulse
+}}}
+
+This produces the output telling us whether is passed or failed our test. Following output has been shortened to extract the part we are looking for:
+
+{{{
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+
+Running tests of module generic pulse objects
+
+---------------------------------------------
+---------------------------------------------
+
+*** Executing ./neurospacesparse '-v' '1' '-q' '-R' 'pulse/pulse1.ndf'
+*** Test: Is neurospaces startup successful ?
+./neurospacesparse: No errors for /tmp/neurospaces/test/models/pulse/pulse1.ndf.
+ neurospaces > *** Test: Has the parameter level1 been set ?
+*** Write: printparameter /Pulse_gen LEVEL1
+value = 50
+ neurospaces > *** Test: Has the parameter width1 been set ?
+*** Write: printparameter /Pulse_gen WIDTH1
+value = 3
+ neurospaces > *** Test: Has the parameter delay1 been set ?
+*** Write: printparameter /Pulse_gen DELAY1
+value = 5
+ neurospaces > *** Test: Has the parameter level2 been set ?
+*** Write: printparameter /Pulse_gen LEVEL2
+value = -20
+ neurospaces > 
+------------------------------------------------
+------------------------------------------------
+
+End of tests of module generic pulse objects
+Total of 5 tests (encountered 1 error(s) so far)
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+}}}
+
+From the output we can see that it properly set the parameters from the NDF file, and we were able to retrieve the values from the query machine of the model-container. 
