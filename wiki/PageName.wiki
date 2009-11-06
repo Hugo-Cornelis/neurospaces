@@ -352,3 +352,6 @@ The target _libneurospacesread.so_ add:
 {{{
 	pulse.o \
 }}}
+
+
+After all of this it should compile and your new object is ready to use.
