@@ -316,6 +316,17 @@ pool.c is located in the _components_ directory, and pool.h is located in _neuro
 
 Now change all references of pool to pulse with appropriate case. This is a good starting point as all that's needed is to determine which parameters and functions you with to add.
 
+=== Include your header in symboltable.c ===
+
+Include the header for your new object file in the _symboltable.c_ file located in the top level source directory.
+
+{{{
+#include "neurospaces/components/pulse.h"
+}}}
+
+Note: May also need to include your file in the _neurospaces/cachedconnection.h_
+
+
 === Adding to compilation ===
 
 To have your new pulse object compile into the model-container you must add to some of the existing build targets in the top level *Makefile.am* file.
