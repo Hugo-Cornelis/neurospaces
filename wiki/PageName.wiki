@@ -21,6 +21,7 @@ First I added a new tokenizer to the analyzer.l file:
 pulse		{	return(TOKEN_PULSE);	}
 }}}
 
+This step is automated.
 
 === Add a new token ===
 
@@ -29,6 +30,8 @@ Added a new token to the description.tokens file located in _hierarchy/output/sy
 {{{
 %token TOKEN_PULSE
 }}}
+
+This step is automated.
 
 === Adding a parser rule ===
 
