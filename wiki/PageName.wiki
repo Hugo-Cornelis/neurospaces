@@ -57,7 +57,7 @@ Now some more declarations must be added for the lexer. Copying the format of th
 %type <phsle> PulseComponent
 }}}
 
-This is automated.
+This part of this step is automated.
 
 
 ----
@@ -79,6 +79,8 @@ PulseSymbol
 }}}
 
 The pulse symbol uses a Bio Component symbol. 
+
+This step is automated.
 
 ----
 
@@ -136,6 +138,8 @@ PulseDescription	/* <ppulse> */
 
 }}}
 
+This step is automated.
+
 ----
 A rule for PulseSectionEnd:
 
@@ -149,6 +153,8 @@ PulseSectionEnd
 		}
 	;
 }}}
+
+This step is automated.
 
 ----
 
@@ -179,6 +185,8 @@ PulseSectionFront	/* <ppulse> */
 	;
 }}}
 
+This step is automated.
+
 ----
 
 Rule for PulseSectionFront1:
@@ -205,6 +213,8 @@ PulseSectionFront1	/* <ppulse> */
 
 Note that this called PulseCalloc, which must be defined for this to work.
 
+This step is automated.
+
 ----
 
 Rule for PulseSectionFront2:
@@ -222,6 +232,8 @@ PulseSectionFront2	/* <ppulse> */
 		}
 	;
 }}}
+
+This step is automated.
 
 ----
 
@@ -251,6 +263,8 @@ PulseSection	/* <ppulse> */
 		}
 	;
 }}}
+
+This step is automated.
 
 ----
 
@@ -308,11 +322,11 @@ The symbols file contains declarations for class types. A new set of declaration
 }}}
 
 
-In the parameters section we clear out what is there and add parameters that are necessary for our pulse object.
+In the parameters section we clear out what is there and add parameters that are known to our pulse object.
 
 === Creating Source Files ===
 
-Now souce files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
+Now source files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
 
 pool.c is located in the _components_ directory, and pool.h is located in _neurospaces/components_. 
 
@@ -320,7 +334,7 @@ pool.c is located in the _components_ directory, and pool.h is located in _neuro
 
 *cp neurospaces/components/pool.h neurospaces/components/pulse.h*
 
-Now change all references of pool to pulse with appropriate case. This is a good starting point as all that's needed is to determine which parameters and functions you with to add.
+Now change all references of pool to pulse with appropriate case. This is a good starting point as all that's needed is to determine which parameters and functions you wish to add.
 
 === Include your header ===
 
