@@ -57,6 +57,7 @@ Now some more declarations must be added for the lexer. Copying the format of th
 %type <phsle> PulseComponent
 }}}
 
+This is automated.
 
 
 ----
