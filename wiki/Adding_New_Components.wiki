@@ -91,7 +91,7 @@ There are two more instances in the file that use HIERARCHY`_`TYPE`_`symbols`_`p
 You will need to include your new header into a few files with a line like this:
 
 {{{
-#include "neurospaces/components/pulse.h"
+#include "neurospaces/components/pulsegen.h"
 }}}
 
 The following files need to have an include:
@@ -108,19 +108,19 @@ To have your new pulse object compile into the model-container you must add to s
 In the target _libneurospacesread_a_SOURCES_ you must add:
 
 {{{
-	components/pulse.c \
+	components/pulsegen.c \
 }}}
 
 The target _nobase_include_HEADERS_ add:
 
 {{{
-	neurospaces/components/pulse.h \
+	neurospaces/components/pulsegen.h \
 }}}
 
 The target _libneurospacesread.so_ add:
 
 {{{
-	pulse.o \
+	pulsegen.o \
 }}}
 
 
