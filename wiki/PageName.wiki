@@ -440,7 +440,11 @@ Pulse_gen is our instance of a Pulse object, when we load our model it will be c
 ----
 *Test Specification*
 
-Test specification files are essentially perl hashes, they are stored in the _tests/specifications_ directory. We create a new file within the specifications directory with calls to printparameter to check if each parameter is properly set:
+Test specification files are essentially perl hashes, they are stored in the _tests/specifications_ directory.
+
+As a first test, it can be useful to add the above mentioned file to the general syntax parsing test to (parsing.t).
+
+For a second test we create a new file within the specifications directory with calls to printparameter to check if each parameter is properly set:
 
 {{{
 
