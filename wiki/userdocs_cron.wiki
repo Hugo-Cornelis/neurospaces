@@ -1,5 +1,7 @@
 #summary This is a guide for using the userdocs_cron script.
-#labels userdocs
+#labels userdocs,G3doc
+
+G3 Doc: userdocs-cron
 
 = Introduction =
 
