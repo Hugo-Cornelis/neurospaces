@@ -1,5 +1,5 @@
 #summary This is a guide for using the userdocs_cron script.
-#labels userdocs,G3doc
+#labels userdocs,G3doc,Deprecated
 
 G3 Doc: userdocs-cron
 
