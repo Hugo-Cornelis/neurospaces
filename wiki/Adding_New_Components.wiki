@@ -14,7 +14,7 @@ The symbols file contains declarations for class types. A new set of declaration
                  allows => {
                              'create_alias' => 'pulse_gen',
                              'get_parameter' => 'pulse_gen',
-                             'parameter_scale_value' => 'pulse_gen',
+#                              'parameter_scale_value' => 'pulse_gen',
                              'reduce' => 'pulse_gen',
                             },
                   annotations => {
@@ -22,7 +22,8 @@ The symbols file contains declarations for class types. A new set of declaration
                                  },
                   description => 'an object that can generate a variety of pulse patterns',
                   dimensions => [
-                                 'mechanism',
+#                                  'mechanism',
+                                 'experiment',
                                 ],
                   grammar => {
                               components => [],
@@ -54,6 +55,8 @@ The symbols file contains declarations for class types. A new set of declaration
                  },
         
 }}}
+
+Note the commented lines that were adapted to reflect PulseGen semantics.
 
 Because we want to have our instances of pulsegen to be output as "PulseGen," with a capital letter for each word, we declare the pulsegen with an underscore between each word. 
 
