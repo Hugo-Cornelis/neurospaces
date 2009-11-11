@@ -60,6 +60,8 @@ Note the commented lines that were adapted to reflect PulseGen semantics.
 
 Because we want to have our instances of pulsegen to be output as "PulseGen," with a capital letter for each word, we declare the pulsegen with an underscore between each word. 
 
+The NewPage page shows how this configuration changes the grammar for the NDF model specification language.
+
 === Creating Source Files ===
 
 Now source files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
@@ -430,5 +432,7 @@ errors:
         library pulsegen generators:
           description: Has the parameter level1 been set ?
 }}}
+
+In case of such an error files whose filename matches /tmp/text_model-container.*{.seen,.expected} can be inspected to find out what the differences between specified output and seen output are.
 
 This makes it easy to determine where the error is.
