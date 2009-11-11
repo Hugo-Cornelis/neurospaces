@@ -1,4 +1,7 @@
 #summary Creating Documentation for Level 3-7
+#labels G3doc
+
+G3 Doc: document-create, http-redirect
 
 = Creating a new document =
 
