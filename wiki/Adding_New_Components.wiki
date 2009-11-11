@@ -62,6 +62,17 @@ Because we want to have our instances of pulsegen to be output as "PulseGen," wi
 
 The PageName page shows how this configuration changes the grammar for the NDF model specification language.
 
+=== Added the necessary types to the parser ===
+
+First open the file _hierarchy/parser.start_ file there is a union. In this file there is a union, here we add a symbol for our pulse object:
+
+{{{
+struct symtab_Pulse * ppulse;
+}}}
+
+The prefix p for pulse indicates that this is a pointer. 
+
+
 === Creating Source Files ===
 
 Now source files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
