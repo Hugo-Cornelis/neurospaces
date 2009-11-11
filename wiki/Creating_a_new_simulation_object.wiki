@@ -1,0 +1,40 @@
+#summary (IN PROGRESS) Guide to creating a new solver object for GENESIS 3.
+
+= Introduction =
+
+This is a guide for adding a new simulation object to the Heccer package and integrating it with GENESIS 3.  
+
+
+= Creating source files =
+
+First we create the following source files for our object in the correct places in the Heccer package:
+
+{{{
+     pulsegen.c
+     heccer/pulsegen.h
+}}}
+
+
+= Implementation =
+
+<working on this>
+
+
+= Compiling  =
+
+To compile your simulation object into the heccer package
+you must add your source files to some targets in the Makefile.am
+of the heccer package.
+
+In *libheccer_a_SOURCES* add:
+
+{{{
+	pulsegen.c
+}}}
+
+
+In *nobase_include_HEADERS* add:
+
+{{{
+	heccer/pulsegen.h 
+}}}
