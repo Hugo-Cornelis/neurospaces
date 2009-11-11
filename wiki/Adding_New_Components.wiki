@@ -64,13 +64,13 @@ The PageName page shows how this configuration changes the grammar for the NDF m
 
 === Add the necessary types to the parser ===
 
-First open the file _hierarchy/parser.start_ file there is a union. In this file there is a union, here we add a symbol for our pulse object:
+First open the file _hierarchy/parser.start_ file. In this file there is a union, to this union we add a symbol for our pulsegen object:
 
 {{{
 struct symtab_PulseGen * ppulsegen;
 }}}
 
-The prefix p for pulse indicates that this is a pointer. 
+The prefix p for pulsegen indicates that this is a pointer. 
 
 
 === Creating Source Files ===
