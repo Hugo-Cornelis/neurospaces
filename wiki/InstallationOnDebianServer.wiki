@@ -113,7 +113,7 @@ These additional dependencies must be installed via apt-get:
 
 ----
 
-= Setting up the Monotone Repository Server (still working on this) =
+= Setting up the Monotone Repository Server =
 
 The GENESIS project uses monotone for its source code versioning system. The Developer Package contains scripts for starting up the monotone repositories, but first some things must be set up for it to run correctly. 
 
