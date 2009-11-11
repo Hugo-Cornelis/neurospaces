@@ -60,7 +60,7 @@ Note the commented lines that were adapted to reflect PulseGen semantics.
 
 Because we want to have our instances of pulsegen to be output as "PulseGen," with a capital letter for each word, we declare the pulsegen with an underscore between each word. 
 
-The NewPage page shows how this configuration changes the grammar for the NDF model specification language.
+The PageName page shows how this configuration changes the grammar for the NDF model specification language.
 
 === Creating Source Files ===
 
