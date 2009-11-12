@@ -24,7 +24,7 @@ First we create the following source files for our object in the correct places 
 
 === Data Structure ====
 
-To keep track of all the data for our object we define a struct which contains all of our variables:
+To keep track of all the data for our object we define a struct which contains all of our variables. In our header file _heccer/pulsegen.h_ we set up our data struct:
 
 {{{
 struct simobj_PulseGen
