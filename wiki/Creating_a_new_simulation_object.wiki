@@ -61,9 +61,9 @@ struct simobj_PulseGen
 Keeping in mind that our object is going to be used by a simulation, we will need appropriate functions for setting up the object, performing an action during a simulation step, and freeing the object. We create a set of functions for each of these ases:
 
 Allocating a new Pulse Generator:
-{{
+{{{
 struct PulseGen * PulseGenNew(char *pcName);
-}}
+}}}
 
 Deleting a Pulse Generator:
 {{{
