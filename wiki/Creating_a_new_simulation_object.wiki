@@ -20,7 +20,7 @@ First we create the following source files for our object in the correct places 
 
 == Declarations ==
 
-----
+
 
 === Data Structure ====
 
