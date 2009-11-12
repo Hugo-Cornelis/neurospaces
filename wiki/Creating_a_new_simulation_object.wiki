@@ -17,7 +17,96 @@ First we create the following source files for our object in the correct places 
 
 = Implementation =
 
-<working on this>
+== Declarations ==
+
+=== Data Structure ====
+
+To keep track of all the data for our object we define a struct which contains all of our variables:
+
+{{{
+struct simobj_PulseGen
+{
+
+  char *pcName;
+
+  double dLevel1;
+  double dWidth1;
+  double dDelay1;
+
+  double dLevel2;
+  double dWidth2;
+  double dDelay2;
+
+  double dBaseLevel;
+
+  double dTriggerTime;
+  int iTriggerMode;
+
+  
+  int iPreviousInput;
+  
+  double *pdPulseIn;
+
+  /// solved variables
+
+  double *pdPulseOut;
+};
+
+
+}}}
+
+
+=== Functions ===
+
+Keeping in mind that our object is going to be used by a simulation, we will need appropriate functions for setting up the object, performing an action during a simulation step, and freeing the object. We create a set of functions for each of these ases:
+
+Allocating a new Pulse Generator:
+{{
+struct PulseGen * PulseGenNew(char *pcName);
+}}
+
+Deleting a Pulse Generator:
+{{{
+int PulseGenFinish(struct simobj_PulseGen *ppg);
+}}}
+
+Adding an input to our Pulse Generator:
+{{{
+int PulseGenAddInput(struct simobj_PulseGen *ppg, void *pvInput);
+}}}
+
+Adding an output to our Pulse Generator:
+{{{
+int PulseGenAddOutput(struct simobj_PulseGen *ppg, void *pvOutput);
+}}}
+
+Resetting our Pulse Generator:
+{{{
+int PulseGenReset(struct simobj_PulseGen *ppg);
+}}}
+
+Setting the data fields for our Pulse Generator:
+{{{
+int PulseGenSetFields(
+ struct simobj_PulseGen *ppg,
+ double dLevel1,
+ double dWidth1,
+ double dDelay1,
+ double dLevel2,
+ double dWidth2,
+ double dDelay2,
+ int iTriggerMode,
+ double *pdPulseOut
+)
+}}}
+
+And finally performing a step of a simulation:
+{{{
+int PulseGenSingleStep(struct simobj_PulseGen *ppg, double dTime);
+}}}
+
+
+*<still working on this>*
 
 
 = Compiling  =
