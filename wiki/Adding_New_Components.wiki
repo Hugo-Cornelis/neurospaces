@@ -1,4 +1,7 @@
 #summary Adding a PulseGen object to the model container.
+#labels G3doc
+
+G3Doc: genesis-extend-model-container
 
 = Introduction =
 
