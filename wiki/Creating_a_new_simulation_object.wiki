@@ -14,10 +14,13 @@ First we create the following source files for our object in the correct places 
      heccer/pulsegen.h
 }}}
 
+----
 
 = Implementation =
 
 == Declarations ==
+
+----
 
 === Data Structure ====
 
@@ -55,6 +58,7 @@ struct simobj_PulseGen
 
 }}}
 
+----
 
 === Functions ===
 
@@ -108,6 +112,7 @@ int PulseGenSingleStep(struct simobj_PulseGen *ppg, double dTime);
 
 *<still working on this>*
 
+----
 
 = Compiling  =
 
