@@ -110,8 +110,6 @@ int PulseGenSingleStep(struct simobj_PulseGen *ppg, double dTime);
 }}}
 
 
-*<still working on this>*
-
 ----
 
 = Compiling  =
