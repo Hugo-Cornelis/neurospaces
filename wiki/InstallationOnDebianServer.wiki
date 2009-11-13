@@ -1,4 +1,7 @@
 #summary (IN PROGRESS) This guide outlines installing GENESIS on Debian 5.0.3
+#labels D3doc
+
+G3 Doc: installation-debian-server
 
 = Introduction =
 
