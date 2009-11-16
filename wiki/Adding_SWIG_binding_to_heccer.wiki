@@ -5,6 +5,9 @@
 
 In a previous example we created a simulation object called PulseGen for use in GENESIS 3 simulations as a callable object.  Here we will implement the necessary bindings to make the object callable from perl using SWIG. This will allow it to easily be used in the perl based applications of GENESIS such as the gshell and ssp.
 
+
+----
+
 = Source files =
 
 The PulseGen implementation currently resides in the Heccer package in the files:
@@ -24,9 +27,19 @@ glue/swig/perl/heccer.i
 glue/swig/perl/Heccer.pm
 }}}
 
+heccer.i is a SWIG interface file which generates C code that we can compile and link against Perl headers and libraries. 
+
+Heccer.pm is a Perl module which contains higher level function calls to the previously mentioned interface.
+
 We will add our own bindings to these files to make the PulseGen object callable.
 
 === SWIG file glue/swig/perl/heccer.i ===
 
+
+
+
+
 === Perl module glue/swig/perl/Heccer.pm ===
 
+
+----
