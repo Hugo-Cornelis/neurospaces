@@ -1,4 +1,4 @@
-#summary This is a guide on how to add a swig perl binding to heccer.
+#summary (In Pogress) This is a guide on how to add a swig perl binding to heccer.
 #labels G3Doc
 
 = Introduction =
@@ -47,9 +47,9 @@ For the module declaration we add it near the end like this:
 %include "heccer/pulsegen.h"
 }}}
 
-Next we need to declare a couple of functions for retrieving object data, and for performing a step in a simulation.
+Next we need to declare a couple of functions for retrieving object data, and for performing a step in a simulation. These functions are considered to be _low level_ functions.
 
-This function will return a pointer to a _simobj_PulseGen_ (defined in heccer/pulsegen.h) data struct so that the calling process can get access to the objects data:
+This function will return a pointer to a _simobj_PulseGen_ data struct (defined in heccer/pulsegen.h) so that the calling process can get access to the objects data:
 
 {{{
 void * pulse_gen_get_driver_data(struct simobj_PulseGen *ppg)
@@ -68,7 +68,40 @@ void * pulse_gen_get_driver_method(struct simobj_PulseGen *ppg)
 }}}
 
 
+
 === Perl module Heccer.pm ===
 
+In this section we define higher level functions that make use of the functions we defined in out SWIG interface file. These functions will be defined within a Perl module and be callable by other Perl programs. 
+
+In our implementation files for our simulation object, pulsegen.c and heccer/pulsegen.h, we have a set of functions required for running a simulation:
+
+{{{
+struct simobj_PulseGen * PulseGenNew(char *pcName);
+
+int PulseGenFinish(struct simobj_PulseGen *ppg);
+
+int PulseGenAddInput(struct simobj_PulseGen *ppg, void *pvInput);
+
+int PulseGenAddOutput(struct simobj_PulseGen *ppg, void *pvOutput);
+
+int PulseGenReset(struct simobj_PulseGen *ppg);
+
+int PulseGenSingleStep(struct simobj_PulseGen *ppg, double dTime);
+
+int PulseGenSetFields
+(
+ struct simobj_PulseGen *ppg,
+ double dLevel1,
+ double dWidth1,
+ double dDelay1,
+ double dLevel2,
+ double dWidth2,
+ double dDelay2,
+ int iTriggerMode,
+ double *pdPulseOut
+ );
+}}}
+
+In our Perl module we want to create a 1 to 1 correspondence for each function. 
 
 ----
