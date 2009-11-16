@@ -102,6 +102,12 @@ int PulseGenSetFields
  );
 }}}
 
-In our Perl module we want to create a 1 to 1 correspondence for each function. 
+In our Perl module we want to create a 1-to-1 correspondence for each function. The file _glue/swig/perl/Heccer.pm_ contains declarations for packages along with their accompanying functions. 
+
+We start a new package block and set up a set of functions:
+
+{{{
+
+}}}
 
 ----
