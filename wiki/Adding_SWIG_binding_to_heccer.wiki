@@ -1,0 +1,5 @@
+#summary This is a guide on how to add a swig perl binding to heccer.
+
+= Introduction =
+
+In a previous example we created a simulation object called PulseGen for use in GENESIS 3 simulations as a callable object.  Here we will implement the necessary bindings to make the object callable from perl using SWIG. 
