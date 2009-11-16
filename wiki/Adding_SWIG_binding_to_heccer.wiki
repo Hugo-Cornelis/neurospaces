@@ -33,13 +33,42 @@ Heccer.pm is a Perl module which contains higher level function calls to the pre
 
 We will add our own bindings to these files to make the PulseGen object callable.
 
-=== SWIG file glue/swig/perl/heccer.i ===
+=== SWIG interface file heccer.i ===
+
+First we need to include our _heccer/pulsegen.h_ header in the interface file in two places. At the top of the file with the other includes we add:
+
+{{{
+#include "heccer/pulsegen.h"
+}}} 
+
+For the module declaration we add it near the end like this:
+
+{{{
+%include "heccer/pulsegen.h"
+}}}
+
+Next we need to declare a couple of functions for retrieving object data, and for performing a step in a simulation.
+
+This function will return a pointer to a _simobj_PulseGen_ (defined in heccer/pulsegen.h) data struct so that the calling process can get access to the objects data:
+
+{{{
+void * pulse_gen_get_driver_data(struct simobj_PulseGen *ppg)
+{
+    return((void *)ppg);
+}
+}}}
+
+This function will be called when performing a step in a simulation:
+
+{{{
+void * pulse_gen_get_driver_method(struct simobj_PulseGen *ppg)
+{
+    return((void *)PulseGenSingleStep);
+}
+}}}
 
 
-
-
-
-=== Perl module glue/swig/perl/Heccer.pm ===
+=== Perl module Heccer.pm ===
 
 
 ----
