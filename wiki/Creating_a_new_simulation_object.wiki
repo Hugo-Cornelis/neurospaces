@@ -1,4 +1,4 @@
-#summary (IN PROGRESS) Guide to creating a new solver object for GENESIS 3.
+#summary Guide to creating a new solver object for GENESIS 3.
 
 = Introduction =
 
