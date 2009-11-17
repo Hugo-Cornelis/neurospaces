@@ -104,7 +104,7 @@ int PulseGenSetFields
 
 In our Perl module we want to create a 1-to-1 correspondence for each function. The file _glue/swig/perl/Heccer.pm_ contains declarations for packages along with their accompanying functions. 
 
-We start a new package block and set up a set of functions, here is a template of what should be added to the file, we will fill in the empty functions:
+We declare a  new package and then, using an existing working example for PerfectClamp, we create identical calls to our PulseGen.
 
 {{{
 package Heccer::PulseGen;
@@ -112,45 +112,147 @@ package Heccer::PulseGen;
 
 BEGIN { our @ISA = qw(Heccer::Glue); }
 
+
 sub add
 {
+    my $self = shift;
+
+    my $options = shift;
+
+    my $backend = $self->backend();
+
+    my $name
+	= $options->{service_request}->{component_name}
+	    . "__"
+		. $options->{service_request}->{field};
+
+    $name =~ s/\//____/g;
+
+    my $result = $backend->PulseGenAddVariable($options->{address});
+
+    return $result;
 }
 
 
 sub finish
 {
+    my $self = shift;
+
+    # close files, free memory
+
+    my $backend = $self->backend();
+
+    $backend->PulseGenFinish();
 }
 
 
 sub get_driver
 {
+    my $self = shift;
+
+    my $result
+	= {
+	   data => $self->{backend}->pulse_gen_get_driver_data(),
+	   method => $self->{backend}->pulse_gen_get_driver_method(),
+# 	   data => $self->{backend},
+# 	   method => \&SwiggableHeccer::PerfectClampSingleStep,
+	  };
+
+    return $result;
 }
 
 
 sub get_time_step
 {
+    my $self = shift;
+
+    # a perfect clamp object does not have a time step
+
+    return undef;
 }
 
 
 sub initiate
 {
+    my $self = shift;
+
+    #t perhaps need to set the command voltage here ?
 }
 
 
 sub new
 {
+    my $package = shift;
+
+    my $options = shift;
+
+    my $self = { %$options, };
+
+    bless $self, $package;
+
+    if (!defined $self->{name})
+    {
+	$self->{name} = "a pc";
+    }
+
+    $self->{backend} = SwiggableHeccer::PulseGenNew($self->{name});
+
+    if (!defined $self->{backend})
+    {
+	return undef;
+    }
+
+    # make distinction between command_filename and command voltage option
+
+    if (defined $options->{command})
+    {
+	my $backend = $self->backend();
+
+	$backend->PulseGenSetFields($options->{command}, undef);
+    }
+    elsif (defined $options->{filename})
+    {
+	my $backend = $self->backend();
+
+	#! the command voltage is ignored in this case, use an
+	#! unreasonable value to make result invalid if it would be used
+	#! (due to a bug).
+
+	$backend->PulseGenSetFields(-10000, $options->{filename});
+    }
+    else
+    {
+	return "Heccer::PulseGen constructor: cannot construct a perfect clamp without command voltage and without a filename";
+    }
+
+    return $self;
 }
 
 
 sub report
 {
+    my $self = shift;
+
+    #t nothing I guess ?
 }
 
 
 sub step
 {
-}
+    my $self = shift;
 
+    my $scheduler = shift;
+
+    my $options = shift;
+
+    my $backend = $self->backend();
+
+    my $result = $backend->PulseGenSingleStep($options->{steps});
+
+    return $result;
+}
 }}}
 
+
+The function *sub add* is for adding a solved variable that will be callable by Heccer or other external packages. The code will look 
 ----
