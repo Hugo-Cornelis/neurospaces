@@ -2,8 +2,35 @@
 
 = Introduction =
 
-This is a guide for creating a test for the Heccer package. Since Heccer and it's associated simulation objects are all compiled into a library, programs are written in C and compiled against this library to test each use case. In this example we will create suitable tests for our PulseGen simulation object (simobj_PulseGen) that we created before [Creating_a_new_simulation_object].
+This is a guide for creating a test for the Heccer package. Since Heccer and it's associated simulation objects are all compiled into a library, programs are written in C and compiled against this library to test each use case. In this example we will create suitable tests for our PulseGen simulation object (simobj_PulseGen) that we created before[Creating_a_new_simulation_object].
 
 = Source Files =
 
 The source files for the Heccer tests are found in the _tests/code_ directory within the Heccer Package. 
+
+=== Adding our object to the test framework ===
+
+Since we are testing a new simulation object, we need to make the test framework aware of our object. First we must add a line to the files:
+
+{{{
+tests/code/main.c
+tests/code/main.h
+}}}
+
+In _tests/code/main.c_ we add:
+
+{{{
+struct simobj_PulseGen *ppg = NULL;
+}}}
+
+Then in _tests/code/main.h_ we add:
+
+{{{
+extern struct simobj_PulseGen *ppg;
+}}}
+
+Now the main driver for the test framework is aware of our PulseGen simulation object. Next we create a source file that demonstrates a specific use case.
+
+=== Use Case ===
+
+Ideally you want to test your output against a use case which can be verified to work. 
