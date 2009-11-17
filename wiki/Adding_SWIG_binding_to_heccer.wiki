@@ -1,4 +1,4 @@
-#summary (In Pogress) This is a guide on how to add a swig perl binding to heccer.
+#summary (In Progress) This is a guide on how to add a swig perl binding to heccer.
 #labels G3Doc
 
 = Introduction =
