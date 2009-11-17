@@ -37,3 +37,22 @@ Now the main driver for the test framework is aware of our PulseGen simulation o
 Ideally you want to test your output against a use case which can be verified to work. Since the PulseGen object is a port of the same object used in GENESIS 2, we can obtain output from a GENESIS 2 script to compare to the output of our simulation object. 
 
 *<working on this>*
+
+= Adding our source files to the build =
+
+The _tests/code_ directory has a Makefile.am which automake uses to generate a Makefile for building each test program. We only need to add some info to a couple of places and automake will handle the rest. 
+
+In the target *check_PROGRAMS* we need to add the resulting executable for the our test program. For the case *pulsegen-freerun.c* we add:
+
+{{{
+	pulsegen-freerun \
+}}}
+
+Next we add rules to build and link our program near the bottom of the file. It is preferable to keep this in alphabetical order with the rest of the test programs build rules:
+
+{{{
+pulsegen_freerun_DEPENDENCIES = ../../libheccer.a main.c
+pulsegen_freerun_LDADD = -L../.. -lheccer -lm
+}}}
+
+_Note: The resulting executable will be _pulsegen-freerun_, as defined in the first target, however to declare the accompanying build rule you must use an underscore._
