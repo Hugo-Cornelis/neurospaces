@@ -28,6 +28,7 @@ First we create the following source files for our object in the correct places 
 To keep track of all the data for our object we define a struct which contains all of our variables. In our header file _heccer/pulsegen.h_ we set up our data struct:
 
 {{{
+
 struct simobj_PulseGen
 {
 
@@ -48,15 +49,20 @@ struct simobj_PulseGen
 
   
   int iPreviousInput;
+
+  /// An input value referenced via pointer. 
+  /// Since we don't have "messages" we'll use 
+  /// a pointer for now.
   
   double *pdPulseIn;
+
 
   /// solved variables
 
   double *pdPulseOut;
+
+
 };
-
-
 }}}
 
 ----
@@ -75,14 +81,9 @@ Deleting a Pulse Generator:
 int PulseGenFinish(struct simobj_PulseGen *ppg);
 }}}
 
-Adding an input to our Pulse Generator:
+Adding a solved variable to our Pulse Generator:
 {{{
-int PulseGenAddInput(struct simobj_PulseGen *ppg, void *pvInput);
-}}}
-
-Adding an output to our Pulse Generator:
-{{{
-int PulseGenAddOutput(struct simobj_PulseGen *ppg, void *pvOutput);
+int PulseGenAddVariable(struct simobj_PulseGen *ppg, void *pvOutput);
 }}}
 
 Resetting our Pulse Generator:
@@ -92,7 +93,8 @@ int PulseGenReset(struct simobj_PulseGen *ppg);
 
 Setting the data fields for our Pulse Generator:
 {{{
-int PulseGenSetFields(
+int PulseGenSetFields
+(
  struct simobj_PulseGen *ppg,
  double dLevel1,
  double dWidth1,
@@ -100,9 +102,9 @@ int PulseGenSetFields(
  double dLevel2,
  double dWidth2,
  double dDelay2,
- int iTriggerMode,
- double *pdPulseOut
-)
+ double dBaseLevel,
+ int iTriggerMode
+ );
 }}}
 
 And finally performing a step of a simulation:
