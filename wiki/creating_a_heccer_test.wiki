@@ -1,4 +1,5 @@
-#summary Creating a test for Heccer
+#summary (In Progress) Creating a test for Heccer
+#labels G3Doc
 
 = Introduction =
 
@@ -33,4 +34,6 @@ Now the main driver for the test framework is aware of our PulseGen simulation o
 
 === Use Case ===
 
-Ideally you want to test your output against a use case which can be verified to work. 
+Ideally you want to test your output against a use case which can be verified to work. Since the PulseGen object is a port of the same object used in GENESIS 2, we can obtain output from a GENESIS 2 script to compare to the output of our simulation object. 
+
+*<working on this>*
