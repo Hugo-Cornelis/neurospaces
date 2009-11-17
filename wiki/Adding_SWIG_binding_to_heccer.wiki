@@ -253,6 +253,5 @@ sub step
 }
 }}}
 
-
-The function *sub add* is for adding a solved variable that will be callable by Heccer or other external packages. The code will look 
+Some functions perform no real operation, but are left in for consistency. 
 ----
