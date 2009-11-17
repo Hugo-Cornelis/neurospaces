@@ -1,0 +1,9 @@
+#summary Creating a test for Heccer
+
+= Introduction =
+
+This is a guide for creating a test for the Heccer package. Since Heccer and it's associated simulation objects are all compiled into a library, programs are written in C and compiled against this library to test each use case. In this example we will create suitable tests for our PulseGen simulation object (simobj_PulseGen) that we created before [Creating_a_new_simulation_object].
+
+= Source Files =
+
+The source files for the Heccer tests are found in the _tests/code_ directory within the Heccer Package. 
