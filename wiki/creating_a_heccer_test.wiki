@@ -9,7 +9,7 @@ This is a guide for creating a test for the Heccer package. Since Heccer and it'
 
 The source files for the Heccer tests are found in the _tests/code_ directory within the Heccer Package. 
 
-=== Adding our object to the test framework ===
+= Adding our object to the test framework =
 
 Since we are testing a new simulation object, we need to make the test framework aware of our object. First we must add a line to the files:
 
@@ -32,7 +32,7 @@ extern struct simobj_PulseGen *ppg;
 
 Now the main driver for the test framework is aware of our PulseGen simulation object. Next we create a source file that demonstrates a specific use case.
 
-=== Use Case ===
+= Use Case =
 
 Ideally you want to test your output against a use case which can be verified to work. Since the PulseGen object is a port of the same object used in GENESIS 2, we can obtain output from a GENESIS 2 script to compare to the output of our simulation object. 
 
