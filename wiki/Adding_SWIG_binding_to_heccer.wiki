@@ -104,9 +104,52 @@ int PulseGenSetFields
 
 In our Perl module we want to create a 1-to-1 correspondence for each function. The file _glue/swig/perl/Heccer.pm_ contains declarations for packages along with their accompanying functions. 
 
-We start a new package block and set up a set of functions:
+We start a new package block and set up a set of functions, here is a template of what should be added to the file, we will fill in the empty functions:
 
 {{{
+package Heccer::PulseGen;
+
+
+BEGIN { our @ISA = qw(Heccer::Glue); }
+
+sub add
+{
+}
+
+
+sub finish
+{
+}
+
+
+sub get_driver
+{
+}
+
+
+sub get_time_step
+{
+}
+
+
+sub initiate
+{
+}
+
+
+sub new
+{
+}
+
+
+sub report
+{
+}
+
+
+sub step
+{
+}
 
 }}}
 
