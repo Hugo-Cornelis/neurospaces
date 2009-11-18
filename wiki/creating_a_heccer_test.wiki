@@ -1,5 +1,4 @@
 #summary (In Progress) Creating a test for Heccer
-#labels G3Doc
 
 = Introduction =
 
