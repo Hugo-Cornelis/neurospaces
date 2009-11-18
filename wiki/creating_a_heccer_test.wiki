@@ -73,8 +73,54 @@ Our test will run for 200 steps with a time step of 0.5 seconds. It will produce
 
 Next we will see some declarations for data structures that the test will operate on.
 
+We have a declaration for a Compartment struct. Our PulseGen needs this even tho it does not perform any compartment specific operations, because we will be addressing the Vm variable (membrane potential) to produce output. :
 
+{{{
+struct Compartment compSoma =
+{
+    //m administrative overhead
 
+    {
+	//m type of structure
+
+	MATH_TYPE_Compartment,
+    },
+
+    //m index of parent compartment, -1 for none
+
+    -1,
+
+    //m descriptive values, alphabetical order
+
+/*     double dCm; */
+
+    4.57537e-11, // unscaled 0.0164,
+
+/*     double dEm; */
+
+    -0.08,
+
+/*     double dInitVm; */
+
+    -0.068,
+
+/*     double dInject;		 */
+
+    0,
+
+/*     double dRa; */
+
+    360502, // unscaled 2.5,
+
+/*     double dRm; */
+
+    3.58441e+08, // unscaled 1
+};
+}}}
+
+This declarations sets this compartment to be a Math type, has no parent, Cm to 4.57537e-11, Em to -0.08, Initial membrane potential to -0.068, inject to 0, Ra to 360502, and Rm to 3.58441e+08 respectively. 
+
+*<Still working here>*
 
 
 = Adding our source files to the build =
