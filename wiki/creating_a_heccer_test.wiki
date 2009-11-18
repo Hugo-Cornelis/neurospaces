@@ -4,6 +4,8 @@
 
 This is a guide for creating a test for the Heccer package. Since Heccer and it's associated simulation objects are all compiled into a library, programs are written in C and compiled against this library to test each use case. In this example we will create suitable tests for our PulseGen simulation object (simobj_PulseGen) that we created before[Creating_a_new_simulation_object].
 
+----
+
 = Source Files =
 
 The source files for the Heccer tests are found in the _tests/code_ directory within the Heccer Package. 
@@ -31,11 +33,49 @@ extern struct simobj_PulseGen *ppg;
 
 Now the main driver for the test framework is aware of our PulseGen simulation object. Next we create a source file that demonstrates a specific use case.
 
+----
+
 = Use Case =
 
 Ideally you want to test your output against a use case which can be verified to work. Since the PulseGen object is a port of the same object used in GENESIS 2, we can obtain output from a GENESIS 2 script to compare to the output of our simulation object. 
 
 *<working on this>*
+
+----
+
+= Creating a test program =
+
+A test program for Heccer consists of a set of defines, structs and a main function. Simply changing sections of an existing program is enough to get your test running. The code in each test has inline comments to help understand the functionality, but we'll go through it to be thorough.
+
+At the top of the file you will see defines for setting some simulation and output parameters:
+
+*HECCER_TEST_REPORTING_GRANULARITY* : This sets the output granularity. In this case the granularity is 1, so our test program will output on ever step. If you want the program to output on every 10th step you can set it to 10, and so on.
+
+*HECCER_TEST_STEPS* : This is the number of time steps for your simulation.
+
+*HECCER_TEST_TESTED_THINGS* : Allows you to output Heccer internal data for debugging. 
+
+*HECCER_TEST_TIME_STEP* : The time step size to use when running the simulation. 
+
+So here is our settings for our test:
+
+{{{
+#define HECCER_TEST_REPORTING_GRANULARITY 1
+#define HECCER_TEST_STEPS 200
+#define HECCER_TEST_TESTED_THINGS ( HECCER_DUMP_VM_COMPARTMENT_MATRIX \
+				    | HECCER_DUMP_VM_MECHANISM_OPERATIONS \
+	)
+#define HECCER_TEST_TIME_STEP (0.5)
+}}}
+
+Our test will run for 200 steps with a time step of 0.5 seconds. It will produce output, complete with Heccer internal data every single step of the simulation.
+
+
+Next we will see some declarations for data structures that the test will operate on.
+
+
+
+
 
 = Adding our source files to the build =
 
