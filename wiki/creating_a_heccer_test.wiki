@@ -174,7 +174,7 @@ We set the parameters for PulseGen with our PulseGenSetFields function:
     PulseGenSetFields(ppg, dLevel1, dWidth2, dDelay1, dLevel2, dWidth2, dDelay2, dBaseLevel, iTriggerMode);
 }}}
 
-Next for the define HECCER_TEST_INITIATE we fetch a compartment variable from Heccer and attach it to our PulseGen output (is this correct or should I use inject into a blank compartment?):
+Next for the define HECCER_TEST_INITIATE we fetch a compartment variable from Heccer and attach it to our PulseGen output (is this correct or should I use inject to hook it into a blank compartment?):
 
 {{
 
