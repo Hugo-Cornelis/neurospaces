@@ -120,6 +120,36 @@ struct Compartment compSoma =
 
 This declarations sets this compartment to be a Math type, has no parent, Cm to 4.57537e-11, Em to -0.08, Initial membrane potential to -0.068, inject to 0, Ra to 360502, and Rm to 3.58441e+08 respectively. 
 
+Then we have a declaration for an intermediary, in most cases this can be left alone, since test will only use one compartment with one intermediary:
+
+{{{
+int piC2m[] =
+{
+    0,
+    -1,
+};
+
+
+struct Intermediary inter =
+{
+    //m compartment array
+
+    1,
+
+    &compSoma,
+
+    //m all other mathematical components
+
+    NULL,
+
+    //m compartment 2 first mechanism number
+
+    piC2m,
+};
+}}}
+
+
+
 *<Still working here>*
 
 
