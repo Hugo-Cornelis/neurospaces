@@ -176,12 +176,12 @@ We set the parameters for PulseGen with our PulseGenSetFields function:
 
 Next for the define HECCER_TEST_INITIATE we fetch a compartment variable from Heccer and attach it to our PulseGen output (is this correct or should I use inject to hook it into a blank compartment?):
 
-{{
+{{{
 
 #define HECCER_TEST_INITIATE \
     double *pdVm = HeccerAddressCompartmentVariable(pheccer, 0, "Vm");	\
     PulseGenAddVariable(ppg, pdVm)
-}}
+}}}
 
 Finally for HECCER_TEST_SCHEDULE we add the PulseGen step function so that it is performed on every step of the simulation:
 
