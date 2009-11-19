@@ -12,4 +12,6 @@ A specification file is essentially a Perl hash which is set up with the followi
 
 Mando, beware, there is already documentation about this.  Feel free to continue this document, but beware not to duplicate documentation, and we must communicate with Allan such that he merges the appropriate documents.
 
+See documents tester-configuration
+
 *<still working on this>*
