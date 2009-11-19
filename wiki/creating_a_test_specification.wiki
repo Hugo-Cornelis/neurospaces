@@ -10,7 +10,7 @@ Each package with regression tests contains a _tests/specifications_ directory w
 
 A specification file is essentially a Perl hash which is set up with the following structure:
 
-Mando, beware, there is already documentation about this.  Feel free to continue this document, but beware not to duplicate documentation, and we must communicate with Allan such that he merges the appropriate documents.
+*Mando, beware, there is already documentation about this.  Feel free to continue this document, but beware not to duplicate documentation, and we must communicate with Allan such that he merges the appropriate documents.*
 
 See documents tester-configuration and neurospaces-tester.
 
