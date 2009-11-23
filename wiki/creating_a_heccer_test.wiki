@@ -80,10 +80,10 @@ From out data output files we can see what the behavior of the object is suppose
 *Free run mode*
 
 [http://repo-genesis3.cbi.utsa.edu/images/pulse1.png]
-*Ext Trigger*
+*Ext Trigger* constant, never triggered.
 
 [http://repo-genesis3.cbi.utsa.edu/images/pulse2.png]
-*Ext Gate*
+*Ext Gate* constant, never triggered.
 
 This serves as a good base case for testing, if these tests should happen to fail then we know some necessary functionality has been compromised when doing development to support more use cases. 
 
