@@ -133,3 +133,5 @@ In *nobase_include_HEADERS* add:
 {{{
 	heccer/pulsegen.h 
 }}}
+
+Your simulation object has now been compiled into the Heccer library. 
