@@ -1,5 +1,4 @@
 #summary Guide to creating a new solver object for GENESIS 3.
-#labels G3Doc
 
 = Introduction =
 
