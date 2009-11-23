@@ -213,7 +213,7 @@ What follows next is the main function where we will actually use the functions 
 
 Allocating a new PulseGen is done via 
 {{{
-
+    ppg = PulseGenNew("pulsegen freerun");
 }}}
 
 We set the parameters for PulseGen with our PulseGenSetFields function:
