@@ -270,5 +270,3 @@ pulsegen_freerun_LDADD = -L../.. -lheccer -lm
 }}}
 
 _Note: The resulting executable will be _pulsegen-freerun_, as defined in the first target, however to declare the accompanying build rule you must use an underscore._
-
-= Adding to a Test Specification =
