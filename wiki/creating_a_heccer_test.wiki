@@ -85,7 +85,7 @@ From out data output files we can see what the behavior of the object is suppose
 [http://repo-genesis3.cbi.utsa.edu/images/pulse2.png]
 *Ext Gate* constant, never triggered.
 
-This serves as a good base case for testing, if these tests should happen to fail then we know some necessary functionality has been compromised when doing development to support more use cases. 
+When we run our corresponding PulseGen tests we match the value from the solved variable (pdVms[0]) for each time step and see that it matches the output we obtain from the GENESIS 2 script. We therefore know this use case works and can set our expect output for a test specification to the output of our program. This serves as a good base case for testing, if these tests should happen to fail then we know some necessary functionality has been compromised when doing development to support more use cases. 
 
 ----
 
