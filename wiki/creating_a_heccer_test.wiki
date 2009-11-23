@@ -180,7 +180,7 @@ struct Compartment compSoma =
 
 This declarations sets this compartment to be a Math type, has no parent, Cm to 4.57537e-11, Em to -0.08, Initial membrane potential to -0.068, inject to 0, Ra to 360502, and Rm to 3.58441e+08 respectively. 
 
-Then we have a declaration for an intermediary, in most cases this can be left alone, since test will only use one compartment with one intermediary:
+Then we have a declaration for an intermediary, in this case it can be left alone, since test will only use one compartment with one intermediary:
 
 {{{
 int piC2m[] =
@@ -270,3 +270,5 @@ pulsegen_freerun_LDADD = -L../.. -lheccer -lm
 }}}
 
 _Note: The resulting executable will be _pulsegen-freerun_, as defined in the first target, however to declare the accompanying build rule you must use an underscore._
+
+= Adding to a Test Specification =
