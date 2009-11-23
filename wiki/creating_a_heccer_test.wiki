@@ -39,7 +39,53 @@ Now the main driver for the test framework is aware of our PulseGen simulation o
 
 Ideally you want to test your output against a use case which can be verified to work. Since the PulseGen object is a port of the same object used in GENESIS 2, we can obtain output from a GENESIS 2 script to compare to the output of our simulation object. 
 
-*<working on this>*
+To test PulseGen we want a very basic script that will test minimal functionality in each of its trigger modes. Here is an example that creates three PulseGen objects, one for each trigger mode, and outputs to a file respectively:
+
+{{{
+create pulsegen /pulse0
+setfield ^ level1 50.0 width1 3.0 delay1 5.0 level2 -20.0 width2 5.0  \
+    delay2 8.0 baselevel 10.0 trig_mode 0
+
+create pulsegen /pulse1
+setfield ^ level1 50.0 width1 3.0 delay1 5.0 level2 -20.0 width2 5.0  \
+    delay2 8.0 baselevel 10.0 trig_mode 1
+
+create pulsegen /pulse2
+setfield ^ level1 50.0 width1 3.0 delay1 5.0 level2 -20.0 width2 5.0  \
+    delay2 8.0 baselevel 10.0 trig_mode 2
+
+create asc_file /pulse0_out 
+setfield /pulse0_out    filename "pulse-freerun.txt" flush 1  leave_open 1 append 1  float_format %0.9g
+addmsg       /pulse0     /pulse0_out       SAVE output
+call /pulse0_out OUT_OPEN
+
+create asc_file /pulse1_out 
+setfield /pulse1_out    filename "pulse-exttrig.txt" flush 1  leave_open 1 append 1  float_format %0.9g
+addmsg       /pulse1     /pulse1_out       SAVE output
+call /pulse1_out OUT_OPEN
+
+create asc_file /pulse2_out 
+setfield /pulse2_out    filename "pulse-extgate.txt" flush 1  leave_open 1 append 1  float_format %0.9g
+addmsg       /pulse2     /pulse2_out       SAVE output
+call /pulse2_out OUT_OPEN
+
+reset
+setclock 0 0.5
+step 200
+}}}
+
+From out data output files we can see what the behavior of the object is supposed to be like:
+
+[http://repo-genesis3.cbi.utsa.edu/images/pulse0.png] 
+*Free run mode*
+
+[http://repo-genesis3.cbi.utsa.edu/images/pulse1.png]
+*Ext Trigger*
+
+[http://repo-genesis3.cbi.utsa.edu/images/pulse2.png]
+*Ext Gate*
+
+This serves as a good base case for testing, if these tests should happen to fail then we know some necessary functionality has been compromised when doing development to support more use cases. 
 
 ----
 
@@ -47,7 +93,20 @@ Ideally you want to test your output against a use case which can be verified to
 
 A test program for Heccer consists of a set of defines, structs and a main function. Simply changing sections of an existing program is enough to get your test running. The code in each test has inline comments to help understand the functionality, but we'll go through it to be thorough.
 
-At the top of the file you will see defines for setting some simulation and output parameters:
+At the top of the file you will see defines for setting some simulation and output parameters. Here are some available options:
+
+
+*HECCER_DUMP_VM_COMPARTMENT_MATRIX*: Output compartment matrix data for solved variables. 
+
+*HECCER_DUMP_VM_COMPARTMENT_MATRIX_DIAGONALS*: Output compartment matrix diagonals for solved variables. 
+
+*HECCER_DUMP_VM_COMPARTMENT_OPERATIONS*: Output compartment operations for solved vaiables.
+
+*HECCER_DUMP_VM_MECHANISM_DATA*: Output the mechanism data for solved variables.
+
+*HECCER_DUMP_VM_MECHANISM_OPERATIONS*: Output mechanism operation data for solved variables.
+
+*HECCER_DUMP_VM_SUMMARY*: Output run data for solved variables.
 
 *HECCER_TEST_REPORTING_GRANULARITY* : This sets the output granularity. In this case the granularity is 1, so our test program will output on ever step. If you want the program to output on every 10th step you can set it to 10, and so on.
 
@@ -56,6 +115,7 @@ At the top of the file you will see defines for setting some simulation and outp
 *HECCER_TEST_TESTED_THINGS* : Allows you to output Heccer internal data for debugging. 
 
 *HECCER_TEST_TIME_STEP* : The time step size to use when running the simulation. 
+
 
 So here is our settings for our test:
 
