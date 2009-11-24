@@ -1,0 +1,6 @@
+#summary (IN PROGRESS) This is a document for creating a test for a Heccer binding
+
+= Introduction =
+
+In this example we take the previous example [http://code.google.com/p/neurospaces/wiki/Adding_SWIG_binding_to_heccer adding a swig binding] and create a test.
+
