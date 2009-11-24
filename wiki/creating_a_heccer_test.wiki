@@ -269,4 +269,45 @@ pulsegen_freerun_DEPENDENCIES = ../../libheccer.a main.c
 pulsegen_freerun_LDADD = -L../.. -lheccer -lm
 }}}
 
+This must be done for each test we want to add.
+
 _Note: The resulting executable will be _pulsegen-freerun_, as defined in the first target, however to declare the accompanying build rule you must use an underscore._
+
+= Adding a Test Specification =
+
+The final step is to declare a test specification which tests your built test program against output that we know is correct. We create the file _tests/specifications/pulsegen.t_ and input the following to test the *pulsegen-freerun* test program. This assumes that the expected output is in the _tests/specifications/strings_ directory with the filename _pulsegen-freerun.txt. 
+
+{{{
+#!/usr/bin/perl -w
+#
+
+use strict;
+
+
+my $test
+    = {
+       command_definitions => [
+			       {
+				arguments => [
+					     ],
+				command => 'tests/code/pulsegen-freerun',
+				command_tests => [
+						  {
+
+						   description => "Can a single pulsegen object output amplitude in free run mode ?",
+						   read => (join '', `cat $::config->{core_directory}/tests/specifications/strings/pulsegen-freerun.txt`),
+						  },
+						 ],
+				description => "pulsegen functionality, can we output a current in free run mode?",
+			       },
+			      ],
+       description => "pulsegen simulation object",
+       name => 'pulsegen.t',
+      };
+
+
+return $test;
+
+}}}
+
+For more info on declaring test specifications see the documents documents *tester-configuration* and *neurospaces-tester*.
