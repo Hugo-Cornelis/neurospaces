@@ -1,5 +1,5 @@
 #summary Creating Documentation for Level 3-7
-#labels G3doc
+#labels G3doc,Deprecated
 
 G3 Doc: document-create, http-redirect
 
