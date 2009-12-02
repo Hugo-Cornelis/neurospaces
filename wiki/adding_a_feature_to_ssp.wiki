@@ -2,4 +2,73 @@
 
 = Introduction =
 
-coming soon
+This document describes how to integrate the PulseGen object with ssp.
+
+= Reading Parameters  =
+
+To integrate your object with ssp you must first make ssp aware of the objects parameters. We know that PulseGen takes parameters for Level1, Width1, Delay1, Level2, Width2, Delay2, BaseLevel, and TriggerMode. So we must allow for ssp to read in a value for each as an argument to the program. First we declare variable for the optional arguments near the top of the _bin/ssp_ file:
+
+{{{
+my $option_pulsegen_level1;
+my $option_pulsegen_width1;
+my $option_pulsegen_delay1;
+my $option_pulsegen_level2;
+my $option_pulsegen_width2;
+my $option_pulsegen_delay2;
+my $option_pulsegen_baselvel;
+my $option_pulsegen_triggermode;
+}}}
+
+Then in the perl subroutine _read_cmd_line_ we add the options to be read in to the call to _GetOptions_ like this:
+
+{{{
+	     "pulsegen-level1=s" => \$option_pulsegen_level1,
+	     "pulsegen-width1=s" => \$option_pulsegen_width1,
+	     "pulsegen-delay1=s" => \$option_pulsegen_delay1,
+	     "pulsegen-level2=s" => \$option_pulsegen_level2,
+	     "pulsegen-width2=s" => \$option_pulsegen_width2,
+	     "pulsegen-delay2=s" => \$option_pulsegen_delay2,
+}}}
+
+This simply allows us to read in the values from the command line and get them into memory. Next we must pass them on to PulseGen.
+
+
+
+= Passing data to PulseGen =
+
+Now what the program can read in values we must check for each parameter and pass it on to the PulseGen object. We do this by using a simple _if_ statement which checks if the variable has been defined and passes on the value to scheduler. A block similar to this one must be made for each parameter that can be accepted by PulseGen:
+
+{{{
+	if (defined $option_pulsegen_width1)
+	{
+	    my $pulsegen_inputclassname = "pulsegen";
+
+	    my $inputclass
+		= {
+		   module_name => "Heccer",
+		   options => {
+			       command => $option_pulsegen_width1,
+			       name => "pulsegen set to $option_pulsegen_width1",
+			      },
+		   package => "Heccer::Pulsegen",
+		  };
+
+	    my $inputs
+		= [
+		   {
+		    component_name => "$model_root/segments/soma",
+		    field => "WIDTH1",
+		    inputclass => $pulsegen_inputclassname,
+		   },
+		  ];
+
+	    $scheduler->{inputclasses}->{$pulsegen_inputclassname} = $inputclass;
+
+	    if (!defined $scheduler->{inputs})
+	    {
+		$scheduler->{inputs} = [];
+	    }
+
+	    push @{$scheduler->{inputs}}, @$inputs;
+	}
+}}}
