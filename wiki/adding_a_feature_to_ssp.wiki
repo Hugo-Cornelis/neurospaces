@@ -1,4 +1,4 @@
-#summary Document describing how to add pulsegen to ssp
+#summary (IN PROGRESS) Document describing how to add pulsegen to ssp
 
 = Introduction =
 
