@@ -103,15 +103,21 @@ int PulseGenSetFields
 
 In our Perl module we want to create a 1-to-1 correspondence for each function. The file _glue/swig/perl/Heccer.pm_ contains declarations for packages along with their accompanying functions. 
 
-We declare a  new package and then, using an existing working example for PerfectClamp, we create identical calls to our PulseGen.
+We declare a  new package and then, using an existing working example for PerfectClamp, we create identical calls to our PulseGen, with some changes made to accommodate the PulseGen parameters. We are going to define a function for the following actions: add, finish, get_driver, get_time_step, initiate, new, report, step:
+
+This is our package declaration, it precedes our set of functions:
 
 {{{
 package Heccer::PulseGen;
 
 
 BEGIN { our @ISA = qw(Heccer::Glue); }
+}}}
 
 
+The add function _add_ a variable address to the PulseGen structure so that it knows where to write its output. We perform a call to _PulseGenAddVariable_ which we created in our simulation object:
+
+{{{
 sub add
 {
     my $self = shift;
@@ -131,8 +137,12 @@ sub add
 
     return $result;
 }
+}}}
 
 
+The _finish_ function performs a call to _PulseGenFinish_ from our simulation object:
+
+{{{
 sub finish
 {
     my $self = shift;
@@ -143,8 +153,12 @@ sub finish
 
     $backend->PulseGenFinish();
 }
+}}}
 
 
+The _get_driver_ function simply makes calls to _pulse_gen_get_driver_data_ and _pulse_gen_get_driver_method_ to give the Perl bindings access to the simulation object. 
+
+{{{
 sub get_driver
 {
     my $self = shift;
@@ -153,32 +167,40 @@ sub get_driver
 	= {
 	   data => $self->{backend}->pulse_gen_get_driver_data(),
 	   method => $self->{backend}->pulse_gen_get_driver_method(),
-# 	   data => $self->{backend},
-# 	   method => \&SwiggableHeccer::PerfectClampSingleStep,
 	  };
 
     return $result;
 }
 
+}}}
 
+The _get_time_step_ function has just been left in for consistency, performs no operation.
+
+{{{
 sub get_time_step
 {
     my $self = shift;
 
-    # a perfect clamp object does not have a time step
 
     return undef;
 }
+}}}
 
 
+The _initiate_ function has just been left in for consistency, performs no operation.
+
+{{{
 sub initiate
 {
     my $self = shift;
 
-    #t perhaps need to set the command voltage here ?
+
 }
+}}}
 
+The _new_ function is the most important, this function allocates and sets up a new PulseGen object. We create a new object via a call to PulseGenNew from our simulation object. Once that is successful we then set up the parameters PulseGen needs by checking for them in the options hash: width1, level1, delay1, width2, level2, delay2, baselevel, and triggermode. If all are present then a call is made to _PulseGenSetFields_, which sets all of the parameters for our simulation object:
 
+{{{
 sub new
 {
     my $package = shift;
@@ -191,7 +213,7 @@ sub new
 
     if (!defined $self->{name})
     {
-	$self->{name} = "a pc";
+	$self->{name} = "a pulsegen";
     }
 
     $self->{backend} = SwiggableHeccer::PulseGenNew($self->{name});
@@ -201,41 +223,74 @@ sub new
 	return undef;
     }
 
-    # make distinction between command_filename and command voltage option
-
-    if (defined $options->{command})
-    {
-	my $backend = $self->backend();
-
-	$backend->PulseGenSetFields($options->{command}, undef);
+    #
+    # Here we check for all of our needed variables, we die if even 
+    # one is missing since we need it to continue creating the object.
+    #
+    if (!defined $options->{width1})
+    {	
+	return "Heccer::PulseGen constructor: width1 is not defined, cannot construct pulsegen object";
     }
-    elsif (defined $options->{filename})
+    elsif(!defined $options->{level1})
     {
-	my $backend = $self->backend();
-
-	#! the command voltage is ignored in this case, use an
-	#! unreasonable value to make result invalid if it would be used
-	#! (due to a bug).
-
-	$backend->PulseGenSetFields(-10000, $options->{filename});
+	return "Heccer::PulseGen constructor: level1 is not defined, cannot construct pulsegen object";
+    }
+    elsif(!defined $options->{delay1})
+    {
+	return "Heccer::PulseGen constructor: delay1 is not defined, cannot construct pulsegen object";
+    }
+    elsif(!defined $options->{level2})
+    {
+	return "Heccer::PulseGen constructor: level2 is not defined, cannot construct pulsegen object";
+    }
+    elsif(!defined $options->{width2})
+    {
+	return "Heccer::PulseGen constructor: width2 is not defined, cannot construct pulsegen object";
+    }
+    elsif(!defined $options->{delay2})
+    {
+	return "Heccer::PulseGen constructor: delay2 is not defined, cannot construct pulsegen object";
+    }
+    elsif(!defined $options->{baselevel})
+    {
+	return "Heccer::PulseGen constructor: baselevel is not defined, cannot construct pulsegen object";
+    }
+    elsif(!defined $options->{triggermode})
+    {
+	return "Heccer::PulseGen constructor: triggermode is not defined, cannot construct pulsegen object";
     }
     else
     {
-	return "Heccer::PulseGen constructor: cannot construct a perfect clamp without command voltage and without a filename";
+	my $backend = $self->backend();
+
+	$backend->PulseGenSetFields($options->{level1},
+					$options->{width1},
+					$options->{delay1},
+					$options->{level2},
+					$options->{width2},
+					$options->{delay2},
+					$options->{baselevel},
+					$options->{triggermode});
     }
 
     return $self;
 }
+}}}
 
+The _report_ function has just been left in for consistency, performs no operation.
 
+{{{
 sub report
 {
     my $self = shift;
 
     #t nothing I guess ?
 }
+}}}
 
+The _step_ function simply performs a give number of simulation steps. A call is made to _PulseGenSingleStep_ from our simulation object:
 
+{{{
 sub step
 {
     my $self = shift;
@@ -250,7 +305,7 @@ sub step
 
     return $result;
 }
+
 }}}
 
-Some functions perform no real operation, but are left in for consistency. 
-----
+With this set of declarations, we are now able to utilize the PulseGen simulation object from a set of Perl functions via SWIG. 
