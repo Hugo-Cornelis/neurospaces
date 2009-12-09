@@ -1,5 +1,5 @@
 #summary the "with-delete--operation"
-#labels Obsoleted
+#labels Obsoleted,Deprecated
 
 *NOTE: the contents on this page is incorrect*
 
