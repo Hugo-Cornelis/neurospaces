@@ -26,7 +26,7 @@ else
 fi
 }}}
 
-new block sets the variable _with_delete_operation_ to "yes":
+new block sets the variable _with_delete_operation_ to "yes" so that it can be checked by the bash _if_ statement:
 {{{
 AC_ARG_ENABLE(delete-operation, [--with-delete-operation   enable the delete operation],[with_delete_operation=yes
 ])
