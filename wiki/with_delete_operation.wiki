@@ -1,0 +1,40 @@
+#summary Just a log of the issues/solution with the "with-delete--operation"
+
+
+
+
+= Details =
+
+Regardless of whether the _--with-delete-operation_ flag is given it always shows that its disabled during a configure. The *AC_ARG_ENABLE* block didn't have a variable set for checking. 
+
+old block:
+{{{
+# Check for delete operation
+AC_ARG_ENABLE(delete_operation, AS_HELP_STRING([--with-delete-operation   enable th\
+e delete operation]) )
+
+if test x"$with_delete_operation" == "xyes" ; then
+
+    echo "delete operation is enabled"
+
+    AC_DEFINE(DELETE_OPERATION, 1, [enable the delete operation])
+
+else
+
+    echo "delete operation is disabled"
+
+fi
+}}}
+
+new block sets the variable _with_delete_operation_ to "yes":
+{{{
+AC_ARG_ENABLE(delete-operation, [--with-delete-operation   enable the delete operation],[with_delete_operation=yes
+])
+
+if test "$with_delete_operation" == "yes" ; then
+	echo "delete operation is enabled"
+	AC_DEFINE(DELETE_OPERATION, 1, [enable the delete operation])
+else
+	echo "delete operation is disabled"
+fi
+}}}
