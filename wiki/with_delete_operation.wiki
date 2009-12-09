@@ -10,8 +10,7 @@ Regardless of whether the _--with-delete-operation_ flag is given it always show
 old block:
 {{{
 # Check for delete operation
-AC_ARG_ENABLE(delete_operation, AS_HELP_STRING([--with-delete-operation   enable th\
-e delete operation]) )
+AC_ARG_ENABLE(delete_operation, AS_HELP_STRING([--with-delete-operation   enable the delete operation]) )
 
 if test x"$with_delete_operation" == "xyes" ; then
 
