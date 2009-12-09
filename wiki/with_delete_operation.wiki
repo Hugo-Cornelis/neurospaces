@@ -1,6 +1,7 @@
-#summary Just a log of the issues/solution with the "with-delete--operation"
+#summary the "with-delete--operation"
+#labels Obsoleted
 
-
+*NOTE: the contents on this page is incorrect*
 
 
 = Details =
