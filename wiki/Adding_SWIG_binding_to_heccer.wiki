@@ -1,4 +1,4 @@
-#summary (In Progress) This is a guide on how to add a swig perl binding to heccer.
+#summary (Done) This is a guide on how to add a swig perl binding to heccer.
 
 = Introduction =
 
