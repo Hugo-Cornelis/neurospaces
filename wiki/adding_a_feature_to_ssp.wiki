@@ -36,7 +36,7 @@ This simply allows us to read in the values from the command line and get them i
 
 = Passing data to PulseGen =
 
-Now what the program can read in values we must check for each parameter and pass it on to the PulseGen object. We do this by using a simple _if_ statement which checks if the variable has been defined and passes on the value to scheduler. A block similar to this one must be made for each parameter that can be accepted by PulseGen:
+Now what the program can read in values we must check for each parameter and pass it on to the PulseGen object. We do this by using a simple _if_ statement which checks if the variable has been defined and passes on the value to scheduler. A block similar to this one must be made for each parameter that can be accepted by PulseGen, here is an example for setting width1 in PulseGen:
 
 {{{
 	if (defined $option_pulsegen_width1)
@@ -72,3 +72,120 @@ Now what the program can read in values we must check for each parameter and pas
 	    push @{$scheduler->{inputs}}, @$inputs;
 	}
 }}}
+
+----
+
+= Creating an SSP specification =
+
+For testing purposes we will create an SSP specification that checks the functionality of the PulseGen object. Our test will load a model, create a PulseGen solver object, then clamp the PulseGen output to the models membrane potential in its soma. This is biologically not correct, however it provides a good base case for a test. 
+
+Here we create a file _pulsegen_freerun.yml_ as a large YAML hash. We indicate that the simulation is going to run for 200 steps, similar to the Heccer test, and GENESIS 2 script that was previously created:
+
+{{{
+--- !!perl/hash:SSP
+apply:
+  results:
+    - arguments:
+        - commands:
+            - perl -e 'my $result = [ `cat /tmp/output`, ]'
+      method: shell
+  simulation:
+    - arguments:
+        - 200
+      method: steps
+}}}
+
+
+Here we declare our PulseGen object as an input class, assigning it all of the parameters previously used in the Heccer test and GENESIS script. 
+
+{{{
+inputclasses:
+  pulsegen:
+    module_name: Heccer
+    options:
+      level1: 50.0
+      width1: 3.0
+      delay1: 5.0
+      level2: -20.0
+      width2: 5.0
+      delay2: 8.0
+      baselevel: 10.0
+      triggermode: 0
+    package: Heccer::PulseGen
+}}}
+
+
+Here we "clamp" the PulseGen to the models soma. 
+
+{{{
+inputs:
+  - component_name: /Purkinje/segments/soma
+    field: Vm
+    inputclass: pulsegen
+models:
+  - modelname: /Purkinje
+    solverclass: heccer
+name: purkinje cell pulsegen
+}}}
+
+
+Here we declare an output object _double_2_ascii_ which will write the output from the membrane potential we previously clamped (Vm) to the file _/tmp/output_.
+ 
+{{{
+outputclasses:
+  double_2_ascii:
+    module_name: Heccer
+    options:
+      filename: /tmp/output
+    package: Heccer::Output
+outputs:
+  - component_name: /Purkinje/segments/soma
+    field: Vm
+    outputclass: double_2_ascii
+
+}}}
+
+
+Here the model-container is invoked in order to load the desired model. Parameters for the model container can also be set in this block:
+
+{{{
+services:
+  model_container:
+    initializers:
+      - arguments:
+          - filename: cells/purkinje/edsjb1994.ndf
+            no-use-library: 1
+          -
+            - ssp configuration for edsjb1994 using pulsegen
+            - -R
+            - -A
+        method: load
+    module_name: Neurospaces
+}}}
+
+
+Finally here we invoke heccer, we set the output granularity to 1 and the step size to 0.5 seconds, again to keep in line with the previous examples:
+
+{{{
+solverclasses:
+  heccer:
+    constructor_settings:
+      configuration:
+        reporting:
+          granularity: 1
+          tested_things: 6225920
+      dStep: 0.5
+      options:
+        iOptions: 4
+    module_name: Heccer
+    service_name: model_container
+}}}
+
+
+Now after saving our specification we can start the simulation with the command:
+
+{{{
+ssp pulsegen_freerun.yml
+}}}
+
+
