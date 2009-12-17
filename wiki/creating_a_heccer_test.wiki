@@ -1,4 +1,7 @@
 #summary (Done) Creating a test for Heccer
+#labels G3doc
+
+G3 Doc: genesis-create-test-heccer
 
 = Introduction =
 
