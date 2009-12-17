@@ -1,4 +1,7 @@
 #summary (Done) This is a guide on how to add a swig perl binding to heccer.
+#labels G3doc
+
+G3 Doc: genesis-add-swigbinding-heccer
 
 = Introduction =
 
