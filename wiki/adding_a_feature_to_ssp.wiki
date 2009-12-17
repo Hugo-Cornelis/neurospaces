@@ -188,4 +188,4 @@ Now after saving our specification we can start the simulation with the command:
 ssp pulsegen_freerun.yml
 }}}
 
-
+Our expected output is then written to the file _/tmp/output_ as we declared in out specification.  
