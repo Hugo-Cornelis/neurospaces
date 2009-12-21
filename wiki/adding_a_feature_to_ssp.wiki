@@ -1,4 +1,7 @@
 #summary (Done) Document describing how to add pulsegen to ssp
+#labels G3doc
+
+G3 Doc: genesis-add-feature-ssp
 
 = Introduction =
 
