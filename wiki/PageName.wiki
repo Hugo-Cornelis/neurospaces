@@ -1,5 +1,5 @@
 #summary Adding a pulse object to the model-container
-#labels G3doc
+#labels G3doc,Deprecated
 
 G3 Doc: genesis-extend-model-container-detail
 
