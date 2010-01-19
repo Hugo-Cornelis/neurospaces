@@ -1,5 +1,5 @@
 #summary (Done) Creating a test for Heccer
-#labels G3doc
+#labels G3doc,Deprecated
 
 G3 Doc: genesis-create-test-heccer
 
