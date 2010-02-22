@@ -91,7 +91,7 @@ To allow all users to pull from your repositories simple enter:
 
 into your _~/.monotone/read_permissions_ file.
 
-To allow users to write to your repositories they must first have their public key stored on your databases. You can check to see which keys are currenlty present via the command:
+To allow users to write to your repositories they must first have their public key stored on your databases. You can check to see which keys are currently present via the command:
 
 {{{
 mtn list keys
@@ -120,7 +120,7 @@ If you need to read in new public keys into your repositories to allow new users
 
 == Serving repositories ==
 
-To serve your own repositories to another user you must provide them with your ip address so that they can input it into the data array in _neurospaces_build_. Opening up a page like http://whatismyip.com/ will provide you with your ip address quickly. Once the intended user has entered your ip you can serve your repositories via the command:
+To serve your own repositories to another user you must provide them with your ip address so that they can input it into the data array in _neurospaces_build_. Opening up a page like http://whatismyip.com/ or http://whatismyipaddress.com/ will provide you with your ip address quickly. Once the intended user has entered your ip you can serve your repositories via the command:
 
 {{{
 neurospaces_serve
