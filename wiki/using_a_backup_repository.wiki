@@ -55,7 +55,6 @@ neurospaces_upgrade --repo-pull backup_server
 }}}
 
 
-
 = Setting your machine as a "backup" server =
 
 To serve your own repositories to another user you must provide them with your ip address so that they can input it into the data array in _neurospaces_build_. Opening up a page like http://whatismyip.com/ will provide you with your ip address quickly. Once the intended user has entered your ip you can serve your repositories via the command:
