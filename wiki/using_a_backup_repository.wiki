@@ -48,6 +48,12 @@ To perform a pull from the backup server enter the command:
 neurospaces_pull --repo-pull backup_server
 }}}
 
+To perform an upgrade of your system against the backup repository perform the command:
+
+{{{
+neurospaces_upgrade --repo-pull backup_server
+}}}
+
 A sync can be performed via the command:
 
 {{{
