@@ -11,9 +11,9 @@ This is a guide to setting a backup_server option in order to sync with a backup
 
 There are two files which manage permissions in monotone:
 
-*_~/.monotone/read_permissions_ - Determines who can read your repositories.
+* _~/.monotone/read_permissions_ - Determines who can read your repositories.
 
-*_~/.monotone/write_permissions_ - Determines who can write to your repositories.
+* _~/.monotone/write_permissions_ - Determines who can write to your repositories.
 
 To allow all users to pull from your repositories simple enter:
 
@@ -129,4 +129,3 @@ neurospaces_sync --repo-sync backup_server
 }}}
 
 In order for this to succeed you must be given write permission on the backup servers repositories.
-
