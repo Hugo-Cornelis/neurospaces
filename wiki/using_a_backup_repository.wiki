@@ -65,3 +65,5 @@ neurospaces_serve
 }}}
 
 Status messages should pop up onto the terminal indicating when a client has successfully connected to your machine or if there was an error. 
+
+It is common for non standard ports to be blocked via firewall on some networks. If your client has been configured correctly and the backup server appears to be online, but no monotone connection is made, check with your network administrator to see if ports 4692-4700 are currently blocked via firewall.
