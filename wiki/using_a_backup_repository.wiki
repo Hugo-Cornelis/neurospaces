@@ -4,17 +4,7 @@
 
 This is a guide to setting a backup_server option in order to sync with a backup server in the event that the primary server is unconnectable. 
 
-== Serving repositories ==
 
-To serve your own repositories to another user you must provide them with your ip address so that they can input it into the data array in _neurospaces_build_. Opening up a page like http://whatismyip.com/ will provide you with your ip address quickly. Once the intended user has entered your ip you can serve your repositories via the command:
-
-{{{
-neurospaces_serve
-}}}
-
-Status messages should pop up onto the terminal indicating when a client has successfully connected to your machine or if there was an error. 
-
-It is common for non standard ports to be blocked via firewall on some networks. If your client has been configured correctly and the backup server appears to be online, but no monotone connection is made, check with your network administrator to see if ports 4692-4700 are currently blocked via firewall.
 
 
 = Setting the backup server address for the client =
@@ -127,3 +117,15 @@ user4@email.com
 
 
 If you need to read in new public keys into your repositories to allow new users access, please see the [http://genesis-sim.org/userdocs/developer-repository/developer-repository.html Developer Reposiory] Document.
+
+== Serving repositories ==
+
+To serve your own repositories to another user you must provide them with your ip address so that they can input it into the data array in _neurospaces_build_. Opening up a page like http://whatismyip.com/ will provide you with your ip address quickly. Once the intended user has entered your ip you can serve your repositories via the command:
+
+{{{
+neurospaces_serve
+}}}
+
+Status messages should pop up onto the terminal indicating when a client has successfully connected to your machine or if there was an error. 
+
+It is common for non standard ports to be blocked via firewall on some networks. If your client has been configured correctly and the backup server appears to be online, but no monotone connection is made, check with your network administrator to see if ports 4692-4700 are currently blocked via firewall.
