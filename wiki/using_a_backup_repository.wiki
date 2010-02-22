@@ -4,55 +4,6 @@
 
 This is a guide to setting a backup_server option in order to sync with a backup server in the event that the primary server is unconnectable. 
 
-
-= Setting your machine up as a "backup" server =
-
-== Permissions ==
-
-There are two files which manage permissions in monotone:
-
-  *_~/.monotone/read_permissions_ - Determines who can read your repositories.
-
-  *_~/.monotone/write_permissions_ - Determines who can write to your repositories.
-
-To allow all users to pull from your repositories simple enter:
-
-{{{
-  pattern "*"  
-      allow "*"
-}}}
-
-into your _~/.monotone/read_permissions_ file.
-
-To allow users to write to your repositories they must first have their public key stored on your databases. You can check to see which keys are currenlty present via the command:
-
-{{{
-mtn list keys
-}}}
-
-when you are in your project workspace directory. This will list a hash along with the email address used to identify the key.
-
-{{{
-[public keys]
-23f8b6bee72df6421e49cec4a766225c0604046c user1@email.com
-1e12560c49d1ca8f23dcf360ce6e6eaebc46c251 user2@email.com
-2d451ae15d697afb4f92cb04ca7a582c90434130 user3@gmail.com
-cbc91b2ec1d19e95f64cb164cc2166f4bdfe7bf4 user4@email.com
-}}}
-
-Now if a user has a public key present, all that needs to be done is to enter each identifier email you wish to give access once per line in the _~/.monotone/write_permissions_. The following _write_permissions_ file will grant user2, user3, and user4 access, since they already have a corresponding key stored in the repository:
-
-{{{
-user2@email.com
-user3@email.com
-user4@email.com
-}}}
-
-
-If you need to read in new public keys into your repositories to allow new users access, please see the [http://genesis-sim.org/userdocs/developer-repository/developer-repository.html Developer Reposiory] Document.
-
-
-
 == Serving repositories ==
 
 To serve your own repositories to another user you must provide them with your ip address so that they can input it into the data array in _neurospaces_build_. Opening up a page like http://whatismyip.com/ will provide you with your ip address quickly. Once the intended user has entered your ip you can serve your repositories via the command:
@@ -129,3 +80,50 @@ neurospaces_sync --repo-sync backup_server
 }}}
 
 In order for this to succeed you must be given write permission on the backup servers repositories.
+
+
+= Setting your machine up as a "backup" server =
+
+== Permissions ==
+
+There are two files which manage permissions in monotone:
+
+  *_~/.monotone/read_permissions_ - Determines who can read your repositories.
+
+  *_~/.monotone/write_permissions_ - Determines who can write to your repositories.
+
+To allow all users to pull from your repositories simple enter:
+
+{{{
+  pattern "*"  
+      allow "*"
+}}}
+
+into your _~/.monotone/read_permissions_ file.
+
+To allow users to write to your repositories they must first have their public key stored on your databases. You can check to see which keys are currenlty present via the command:
+
+{{{
+mtn list keys
+}}}
+
+when you are in your project workspace directory. This will list a hash along with the email address used to identify the key.
+
+{{{
+[public keys]
+23f8b6bee72df6421e49cec4a766225c0604046c user1@email.com
+1e12560c49d1ca8f23dcf360ce6e6eaebc46c251 user2@email.com
+2d451ae15d697afb4f92cb04ca7a582c90434130 user3@gmail.com
+cbc91b2ec1d19e95f64cb164cc2166f4bdfe7bf4 user4@email.com
+}}}
+
+Now if a user has a public key present, all that needs to be done is to enter each identifier email you wish to give access once per line in the _~/.monotone/write_permissions_. The following _write_permissions_ file will grant user2, user3, and user4 access, since they already have a corresponding key stored in the repository:
+
+{{{
+user2@email.com
+user3@email.com
+user4@email.com
+}}}
+
+
+If you need to read in new public keys into your repositories to allow new users access, please see the [http://genesis-sim.org/userdocs/developer-repository/developer-repository.html Developer Reposiory] Document.
