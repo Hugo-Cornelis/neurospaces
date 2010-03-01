@@ -46,6 +46,7 @@ Here we add an entry to the package matrix (a Perl hash) with the following attr
 
 = Creating a new repository on the server = 
 
+For more context regarding the central server setup, see this [http://genesis-sim.org/userdocs/installation-debian-server/installation-debian-server.html document.] 
 In this scenario a user has created the "exchange" package and wants to share the code by propagating it via the central repository.  There are three machines:
 
   * user1 - Created the exchange package and has a monotone repository on their machine they'd like to share. 
@@ -100,4 +101,3 @@ User2 wants to download the exchange package, so they first perform a _neurospac
 Now User1 and User2 have a all code revisions and can collaborate work via the centralized repository.
 
  
-
