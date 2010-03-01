@@ -1,4 +1,4 @@
-#summary This document outlines the procedure for adding a new software component to the project. (IN PROGRESS)
+#summary This document outlines the procedure for adding a new software component to the project.
 
 = Introduction =
 
