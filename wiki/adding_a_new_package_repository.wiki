@@ -2,12 +2,44 @@
 
 = Introduction =
 
-Add your content here.
+As your project grows, it may become necessary to create and maintain a new software component.  This document shows how to add a new software component to the developer package as well as creating the corresponding monotone repository on a repository server. For this example, we will be adding a new package called the "exchange" package.
 
 
-= Details =
+= Adding a new component to the Developer package =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+To add a new package to the system you must first make the script *neurospaces_build* aware of your package. First locate the package matrix in *neurospaces_build*:
+
+{{{
+my $all_packages
+}}}
+
+Next we must add an entry for our package, first we must designate a port number for performing push, pulls and syncs. The current port numbers in use range between 4692 (ns-sli) to 4700 (userdocs), so it is safe to designate port 4701 as the port for the exchange package. 
+
+*WARNING* _make absolutely certain that no two packages point to the same port number. Two packages attempting to sync to the same port number can result in a corruption of your repository._
+
+Now we add our entry complete with port number:
+
+{{{
+       exchange => {
+		    dependencies => {
+				     'model-container' => 'for storing the model in computer memory',
+				    },
+		    directory => "$ENV{HOME}/neurospaces_project/exchange/source/snapshots/0",
+		    order => 1.5,
+		    version_control => {
+					port_number => 4701,
+					repository => "$ENV{HOME}/neurospaces_project/MTN/exchange.mtn",
+				       },
+		    version_script => 'neurospaces_exchange --version',
+		   },
+}}}
+
+Here we add an entry to the package matrix (a Perl hash) with the following attributes.  
+
+  * dependencies - list of package dependencies with a string message delimited by commas.
+  * directory - The target directory for checking out source code.
+  * order - A weight value which designates the order to perform pulls, pushes and syncs in
+  * version_control - Designates the port number and mtn file to use for version control
+  * version_script - Command to give the version number.
+
+
