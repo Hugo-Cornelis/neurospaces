@@ -1,4 +1,6 @@
 #summary This document outlines the procedure for adding a new software component to the project.
+#labels g3doc
+G3 Doc: genesis-addto-component-developerpackage
 
 = Introduction =
 
