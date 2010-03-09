@@ -1,5 +1,5 @@
 #summary This document outlines the procedure for adding a new software component to the project.
-#labels g3doc
+#labels g3doc,Deprecated
 G3 Doc: genesis-addto-component-developerpackage
 
 = Introduction =
