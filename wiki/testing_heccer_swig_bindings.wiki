@@ -1,4 +1,5 @@
-#summary (IN PROGRESS) This is a document for creating a test for a Heccer binding
+#summary This is a document for creating a test for a Heccer binding
+#labels Deprecated
 
 = Introduction =
 
