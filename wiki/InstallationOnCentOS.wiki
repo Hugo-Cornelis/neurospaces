@@ -1,4 +1,5 @@
-#summary (In Progress) Installation on CentOS release 5.4
+#summary Installation on CentOS release 5.4
+#labels Deprecated
 
 = Introduction =
 
