@@ -1,4 +1,5 @@
-#summary (IN PROGRESS) Document detailing g-tube development.
+#summary Document detailing g-tube development.
+#labels Deprecated
 
 = Introduction =
 
