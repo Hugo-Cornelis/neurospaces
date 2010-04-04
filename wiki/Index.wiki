@@ -3,7 +3,7 @@
 
 = NOTE =
 
-*Note: most documentation in the wiki is now deprecated in favor of [http://www.genesis-sim.org/userdocs/installation-introduction/installation-introduction.html the installation documents] of [http://www.genesis-sim.org/userdocs/documentation-overview/documentation-overview.html the Genesis 3 documentation system].*
+*Note: most documentation in the wiki is now deprecated in favor of [http://www.genesis-sim.org/userdocs/installation-introduction/installation-introduction.html the installation documents] of [http://www.genesis-sim.org/userdocs/documentation-homepage/documentation-homepage.html the Genesis 3 documentation system].*
 
 The wiki pages in active development can be found [http://code.google.com/p/neurospaces/w/list here].
 
