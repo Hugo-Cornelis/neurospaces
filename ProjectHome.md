@@ -1,0 +1,5 @@
+The Neurospaces project is a development center for software components of computational neuroscience simulators.  This is in contrast to the monolythic software system design of current-generation neuronal simulators.
+
+The first component that has been developed is a model container, a modeling system that allows to store and interact with a model in various ways. It translates a biological model to a mathematical model. A second component that was recently developed is Heccer, a fast compartmental solver that uses Crank-Nicolson integration to compute the behaviour of nerve cells. The third component is SSP, a simple lightweight scheduler, that integrates Neurospaces and Heccer and allows them to work on a simulation of a biological model. Gluing the components together gives you a very efficient neuronal network simulator that is easy to use.
+
+The googlecode site of neurospaces is restricted to the wiki.  For downloads, go to http://www.neurospaces.org/, currently hosted at sourceforge.

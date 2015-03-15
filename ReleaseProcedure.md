@@ -1,0 +1,73 @@
+[Index](Index.md)
+
+G3 Doc: release-procedure.tex
+
+# Introduction #
+
+After putting a tag on the code, you first must check if the package can be built from the tarball.  The autotools 'distcheck' target does this (see below).  An additional check is to build the tarball, put it somewhere on your filesystem, and then build the 'check' target from the tarball.  First build the tarball and put it somewhere on your filesystem (eg. /tmp):
+
+```
+neurospaces_build --developer --verbose --upload-server file://tmp/uploads --src-tag python-5 --no-configure --no-compile --no-install --regex studio
+```
+
+Then build the 'check' target from the tarball:
+
+```
+neurospaces_build --verbose --check --regex studio --src-tag python-5 --src-dir /tmp/uploads --verbose --verbose --unpack --no-install
+```
+
+In a one line summary you need to put a tag, and distcheck the current code, then make them available on sourceforge.  In one line of code:
+
+```
+neurospaces_build --developer --distcheck --verbose --tag network-5 --src-tag network-5 --upload-server https://frs.sourceforge.net/uploads --verbose
+```
+
+If you don't want to do the upload, fi for a single package:
+
+```
+neurospaces_build --tag network-5 --distcheck --regex 'model-container' --developer --verbose
+```
+
+If that works, you then wanna do the upload:
+
+```
+neurospaces_build --src-tag network-5 --upload-server https://frs.sourceforge.net/uploads --regex 'model-container' --developer --verbose
+```
+
+The `--verbose` option is there to let you know what is going on during this lengthy command.
+
+The same procedure is used to build a release of all, or of individual packages.  An official public release will be made available for download on sourceforge.  Intermediate releases are for internal use only.
+
+Because official releases are built using automake's distcheck target, they must pass the tests of the package (on the machine used for the build).  So they are considered alpha releases (ie. internally well tested).
+
+The release procedure normally checks for package correctness using the automake 'distcheck' target, meaning that both `install` and `uninstall` targets work and are each other's complement.  Official releases must always succeed on this target.  Intermediate releases can fail.
+
+
+# The Details of the Release Procedure #
+
+
+  * Define the tag
+    * In principal developer tags follow the naming convention '
+
+&lt;milestone-number&gt;
+
+.  So for example for the latest release at this moment, the release tag is 'des-10', which is the tenth subrelease after starting development of the 'des' milestone.
+    * Milestone labels point to an important event for development.
+    * Tag numbers are monotonically increasing per milestone.
+    * Some packages might skip some releases -- milestone labels as well as tag numbers.
+    * Internally, the development system refers to the milestone labels as 'major's, the numbers as 'minor's, and for future use, there is also a 'micro' number possible.
+  * Set the tag using 'neurospaces\_build'.  Use the options '--tag', eg. 'neurospaces\_build --tag des-10'.  Use additional options to select individual packages if needed.
+  * Build the tarballs:
+    * For public alpha releases: 'neurospaces\_build --distcheck'
+    * For internal releases, 'neurospaces\_build --dist' is ok, but make sure you know what you are doing.
+    * Again use additional options to select individual packages if needed.
+    * Use the '--certification-report' to annotate the mtn revision with the output of the build, if that is useful.
+  * Put the files on an file server.
+    * For the moment only ftp is supported.
+    * If uploading to the sourceforge server, you have to fill the release notes manually.
+
+Note that the build script by default installs the packages on the developer machine.  Use '--no-install' if this is not intended.
+
+  * For examples, see the InstallerPackage
+
+It might be useful to do 'make html-upload' for some packages after the release, to synchronize the content of the website with the content of the downloadable packages.

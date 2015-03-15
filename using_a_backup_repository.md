@@ -1,0 +1,131 @@
+G3 Doc: backup-repository
+
+# Introduction #
+
+This is a guide to setting a backup\_server option in order to sync with a backup server in the event that the primary server is unconnectable.
+
+
+
+
+# Setting the backup server address for the client #
+
+In the developer package, located in _~/neurospaces\_project/developer/source/snapshots/0_ there is a script in the bin directory named _neurospaces\_build_. To set the backup server address there is an associative array value that must be set. Look for this variable:
+
+```
+
+my $version_control_servers
+    = [
+       {
+	name => 'default',
+	address => 'repo-genesis3.cbi.utsa.edu',
+       },
+       {
+	name => 'default2',
+	address => 'repo.cbi.utsa.edu',
+       },
+       {
+	name => 'backup_server',
+	address => '129.115.117.50',
+       },
+       {
+	name => 'mercurial_server',
+	address => 'http://repo-genesis3.cbi.utsa.edu/hg/',
+       },
+      ];
+
+```
+
+For the value for _backup\_server_ set address to the intended host address using your text editor, then save your changes. Next you must install the scripts to your system, so perform:
+
+```
+neurospaces_install --regex developer
+```
+
+and your updated script is installed and ready to use. This will allow you to pull from the indicated backup repository should it be listening.
+
+
+# Client Operations #
+
+## pulling revisions ##
+
+To perform a pull from the backup server enter the command:
+
+```
+neurospaces_pull --repo-pull backup_server
+```
+
+To perform an upgrade of your system against the backup repository perform the command:
+
+```
+neurospaces_upgrade --repo-pull backup_server
+```
+
+
+## syncing with a repository ##
+
+To sync with a repository backup server you issue the command:
+
+```
+neurospaces_sync --repo-sync backup_server
+```
+
+In order for this to succeed you must be given write permission on the backup servers repositories.
+
+
+# Setting your machine up as a "backup" server #
+
+## Permissions ##
+
+There are two files which manage permissions in monotone:
+
+  * ~/.monotone/read\_permissions_- Determines who can read your repositories._
+
+  * ~/.monotone/write\_permissions_- Determines who can write to your repositories._
+
+To allow all users to pull from your repositories simple enter:
+
+```
+  pattern "*"  
+      allow "*"
+```
+
+into your _~/.monotone/read\_permissions_ file.
+
+To allow users to write to your repositories they must first have their public key stored on your databases. You can check to see which keys are currently present via the command:
+
+```
+mtn list keys
+```
+
+when you are in your project workspace directory. This will list a hash along with the email address used to identify the key.
+
+```
+[public keys]
+23f8b6bee72df6421e49cec4a766225c0604046c user1@email.com
+1e12560c49d1ca8f23dcf360ce6e6eaebc46c251 user2@email.com
+2d451ae15d697afb4f92cb04ca7a582c90434130 user3@gmail.com
+cbc91b2ec1d19e95f64cb164cc2166f4bdfe7bf4 user4@email.com
+```
+
+Now if a user has a public key present, all that needs to be done is to enter each identifier email you wish to give access once per line in the _~/.monotone/write\_permissions_. The following _write\_permissions_ file will grant user2, user3, and user4 access, since they already have a corresponding key stored in the repository:
+
+```
+user2@email.com
+user3@email.com
+user4@email.com
+```
+
+
+If you need to read in new public keys into your repositories to allow new users access, please see the [Developer Reposiory](http://genesis-sim.org/userdocs/developer-repository/developer-repository.html) Document.
+
+## Serving repositories ##
+
+To serve your own repositories to another user you must provide them with your ip address so that they can input it into the data array in _neurospaces\_build_. Opening up a page like http://whatismyip.com/ or http://whatismyipaddress.com/ will provide you with your ip address quickly. Once the intended user has entered your ip you can serve your repositories via the command:
+
+```
+neurospaces_serve
+```
+
+Status messages should pop up onto the terminal indicating when a client has successfully connected to your machine or if there was an error.
+
+It is common for non standard ports to be blocked via firewall on some networks. If your client has been configured correctly and the backup server appears to be online, but no monotone connection is made, check with your network administrator to see if ports 4692-4700 are currently blocked via firewall.

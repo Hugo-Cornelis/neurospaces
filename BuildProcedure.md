@@ -1,0 +1,27 @@
+[Index](Index.md)
+
+G3 Doc: developers-intro.tex
+
+# Introduction #
+
+You can go to the directory of each individual software component, configure, compile, check and install the package.  The InstallerPackage has builtin support to automate these actions, while respecting the dependencies between the packages (ie. each of the mentioned steps is done for each package in the correct order).
+
+Examples:
+
+  * A simple build for packages model\_container, heccer, ssp, studio on a developer machine:
+```
+neurospaces_build --developer --regex 'model-container|heccer|ssp|studio'
+```
+  * Including running the tests via the check target of the makefiles on a developer machine:
+```
+neurospaces_build --check --developer --regex 'model-container|heccer|ssp|studio'
+```
+
+For more information, see the details of the InstallerPackage.
+
+# Details #
+
+Add your content here.  Format your content with:
+  * Text in **bold** or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

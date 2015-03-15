@@ -1,0 +1,25 @@
+G3 Doc: userdocs-cron
+
+# Introduction #
+
+The GENESIS documentation system is very time consuming so it is desirable to set up the documentation build as an unmanned operation. The userdocs package comes with a cron script that can be set up to run at periodic intervals to keep your documentation up to date.
+
+## Configuration ##
+
+To configure the userdocs\_cron script you must construct a YAML file with the following options:
+
+  * MAILTO - _An email recipient to send an email to on completion of the job_
+  * MAILFROM - _A desired email address to send a completion email from._
+  * HTMLDIR - A directory which will hold your userdocs html data directory to be served form the internet.
+  * OUTPUTDIR - _A directory to write the output log data._
+  * URL - _An http link which serves the test harness output._
+
+Example configuration file`:`
+```
+---
+MAILTO: my@email.com
+MAILFROM: userdocs@buildmachine.com
+HTMLDIR: 
+OUTPUTDIR: /tmp
+URL: http://mywebsite/userdocs
+```

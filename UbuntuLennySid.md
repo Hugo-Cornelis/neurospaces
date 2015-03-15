@@ -1,0 +1,65 @@
+See also
+
+  * [Fedora10](Fedora10.md)
+
+G3 Doc: installation-ubuntu-lennysid
+
+# Introduction #
+
+Installing Neurospaces on Ubuntu requires executing the following major steps with administrator priviliges:
+
+  * Prepare and upgrade the system software.
+  * Download and Install the Neurospaces developer package
+  * Install the other software packages.
+  * Check if the installation was successful.
+
+
+# Prepare and upgrade the system software #
+
+  * Install the following packages using the System -> Administration -> Synaptic Package Manager menu.
+    * perl-CPAN (only required to run the tests, see below).
+    * libyaml-perl
+    * libexpect-perl (and its dependency perl-IO)
+    * libinline-perl
+    * autoconf
+    * automake
+    * libc6-dev
+    * libncurses5-dev
+    * flex
+    * bison
+    * libperl-dev
+    * python-dev
+    * swig
+    * libreadline5-dev
+
+  * monotone-0.44 (available as a statically linked binary from http://monotone.ca/)
+
+# Download and Install the Neurospaces developer package #
+
+  * Download the latest version (currently userdocs-6) of the Neurospaces developer package, available from sourceforge (http://sourceforge.net/projects/neurospaces/files/, it is currently called installer-userdocs-6.tar.gz.
+  * Change to the directory where you downloaded the file into.
+  * Unpack the archive (type 'tar xfz installer-userdocs-6.tar.gz).
+  * Change to the directory with the content of the archive (type 'cd installer-userdocs-6').
+  * Configure (type './configure').
+  * Compile (type 'make').
+  * Install (type 'make install').
+
+# Install the other software packages #
+
+  * Use the Neurospaces installer script to create the correct directory layout (type 'neurospaces\_create\_directories').
+  * Pull the archives of the source code (type 'neurospaces\_pull').
+  * Update the source code in the working directories (type 'neurospaces\_update').
+  * Compile and install the software (type 'neurospaces\_install').
+
+# Check if the installation was successful #
+
+This step is optional.
+
+  * Install the dependencies for running the tests:
+    * perl -MCPAN -e 'install Test::More'
+    * perl -MCPAN -e 'install Clone'
+    * perl -MCPAN -e 'install Data::Utilities'
+    * perl -MCPAN -e 'install File::Find::Rule'
+    * perl -MCPAN -e 'install Digest::SHA'
+  * Run the tests of all the packages and save the output to a file (type 'neurospaces\_check >/tmp/check.out 2>&1').
+  * Check the output (type 'less /tmp/check.out', especially search for lines with the string 'error\_count').

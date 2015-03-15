@@ -1,0 +1,319 @@
+G3 Doc: genesis-create-test-heccer
+
+# Introduction #
+
+This is a guide for creating a test for the Heccer package. Since Heccer and it's associated simulation objects are all compiled into a library, programs are written in C and compiled against this library to test each use case. In this example we will create suitable tests for our PulseGen simulation object (simobj\_PulseGen) that we created before[Creating\_a\_new\_simulation\_object](Creating_a_new_simulation_object.md).
+
+
+---
+
+
+# Source Files #
+
+The source files for the Heccer tests are found in the _tests/code_ directory within the Heccer Package.
+
+# Adding our object to the test framework #
+
+Since we are testing a new simulation object, we need to make the test framework aware of our object. First we must add a line to the files:
+
+```
+tests/code/main.c
+tests/code/main.h
+```
+
+In _tests/code/main.c_ we add:
+
+```
+struct simobj_PulseGen *ppg = NULL;
+```
+
+Then in _tests/code/main.h_ we add:
+
+```
+extern struct simobj_PulseGen *ppg;
+```
+
+Now the main driver for the test framework is aware of our PulseGen simulation object. Next we create a source file that demonstrates a specific use case.
+
+
+---
+
+
+# Use Case #
+
+Ideally you want to test your output against a use case which can be verified to work. Since the PulseGen object is a port of the same object used in GENESIS 2, we can obtain output from a GENESIS 2 script to compare to the output of our simulation object.
+
+To test PulseGen we want a very basic script that will test minimal functionality in each of its trigger modes. Here is an example that creates three PulseGen objects, one for each trigger mode, and outputs to a file respectively:
+
+```
+create pulsegen /pulse0
+setfield ^ level1 50.0 width1 3.0 delay1 5.0 level2 -20.0 width2 5.0  \
+    delay2 8.0 baselevel 10.0 trig_mode 0
+
+create pulsegen /pulse1
+setfield ^ level1 50.0 width1 3.0 delay1 5.0 level2 -20.0 width2 5.0  \
+    delay2 8.0 baselevel 10.0 trig_mode 1
+
+create pulsegen /pulse2
+setfield ^ level1 50.0 width1 3.0 delay1 5.0 level2 -20.0 width2 5.0  \
+    delay2 8.0 baselevel 10.0 trig_mode 2
+
+create asc_file /pulse0_out 
+setfield /pulse0_out    filename "pulse-freerun.txt" flush 1  leave_open 1 append 1  float_format %0.9g
+addmsg       /pulse0     /pulse0_out       SAVE output
+call /pulse0_out OUT_OPEN
+
+create asc_file /pulse1_out 
+setfield /pulse1_out    filename "pulse-exttrig.txt" flush 1  leave_open 1 append 1  float_format %0.9g
+addmsg       /pulse1     /pulse1_out       SAVE output
+call /pulse1_out OUT_OPEN
+
+create asc_file /pulse2_out 
+setfield /pulse2_out    filename "pulse-extgate.txt" flush 1  leave_open 1 append 1  float_format %0.9g
+addmsg       /pulse2     /pulse2_out       SAVE output
+call /pulse2_out OUT_OPEN
+
+reset
+setclock 0 0.5
+step 200
+```
+
+From out data output files we can see what the behavior of the object is supposed to be like:
+
+![http://repo-genesis3.cbi.utsa.edu/images/pulse0.png](http://repo-genesis3.cbi.utsa.edu/images/pulse0.png)
+**Free run mode**
+
+![http://repo-genesis3.cbi.utsa.edu/images/pulse1.png](http://repo-genesis3.cbi.utsa.edu/images/pulse1.png)
+**Ext Trigger** constant, never triggered.
+
+![http://repo-genesis3.cbi.utsa.edu/images/pulse2.png](http://repo-genesis3.cbi.utsa.edu/images/pulse2.png)
+**Ext Gate** constant, never triggered.
+
+When we run our corresponding PulseGen tests we match the value from the solved variable (pdVms[0](0.md)) for each time step and see that it matches the output we obtain from the GENESIS 2 script. We therefore know this use case works and can set our expect output for a test specification to the output of our program. This serves as a good base case for testing, if these tests should happen to fail then we know some necessary functionality has been compromised when doing development to support more use cases.
+
+
+---
+
+
+# Creating a test program #
+
+A test program for Heccer consists of a set of defines, structs and a main function. Simply changing sections of an existing program is enough to get your test running. The code in each test has inline comments to help understand the functionality, but we'll go through it to be thorough.
+
+At the top of the file you will see defines for setting some simulation and output parameters. Here are some available options:
+
+
+**HECCER\_DUMP\_VM\_COMPARTMENT\_MATRIX**: Output compartment matrix data for solved variables.
+
+**HECCER\_DUMP\_VM\_COMPARTMENT\_MATRIX\_DIAGONALS**: Output compartment matrix diagonals for solved variables.
+
+**HECCER\_DUMP\_VM\_COMPARTMENT\_OPERATIONS**: Output compartment operations for solved vaiables.
+
+**HECCER\_DUMP\_VM\_MECHANISM\_DATA**: Output the mechanism data for solved variables.
+
+**HECCER\_DUMP\_VM\_MECHANISM\_OPERATIONS**: Output mechanism operation data for solved variables.
+
+**HECCER\_DUMP\_VM\_SUMMARY**: Output run data for solved variables.
+
+**HECCER\_TEST\_REPORTING\_GRANULARITY** : This sets the output granularity. In this case the granularity is 1, so our test program will output on ever step. If you want the program to output on every 10th step you can set it to 10, and so on.
+
+**HECCER\_TEST\_STEPS** : This is the number of time steps for your simulation.
+
+**HECCER\_TEST\_TESTED\_THINGS** : Allows you to output Heccer internal data for debugging.
+
+**HECCER\_TEST\_TIME\_STEP** : The time step size to use when running the simulation.
+
+
+So here is our settings for our test:
+
+```
+#define HECCER_TEST_REPORTING_GRANULARITY 1
+#define HECCER_TEST_STEPS 200
+#define HECCER_TEST_TESTED_THINGS ( HECCER_DUMP_VM_COMPARTMENT_MATRIX \
+				    | HECCER_DUMP_VM_MECHANISM_OPERATIONS \
+	)
+#define HECCER_TEST_TIME_STEP (0.5)
+```
+
+Our test will run for 200 steps with a time step of 0.5 seconds. It will produce output, complete with Heccer internal data every single step of the simulation.
+
+
+Next we will see some declarations for data structures that the test will operate on.
+
+We have a declaration for a Compartment struct. Our PulseGen needs this even tho it does not perform any compartment specific operations, because we will be addressing the Vm variable (membrane potential) to produce output. :
+
+```
+struct Compartment compSoma =
+{
+    //m administrative overhead
+
+    {
+	//m type of structure
+
+	MATH_TYPE_Compartment,
+    },
+
+    //m index of parent compartment, -1 for none
+
+    -1,
+
+    //m descriptive values, alphabetical order
+
+/*     double dCm; */
+
+    4.57537e-11, // unscaled 0.0164,
+
+/*     double dEm; */
+
+    -0.08,
+
+/*     double dInitVm; */
+
+    -0.068,
+
+/*     double dInject;		 */
+
+    0,
+
+/*     double dRa; */
+
+    360502, // unscaled 2.5,
+
+/*     double dRm; */
+
+    3.58441e+08, // unscaled 1
+};
+```
+
+This declarations sets this compartment to be a Math type, has no parent, Cm to 4.57537e-11, Em to -0.08, Initial membrane potential to -0.068, inject to 0, Ra to 360502, and Rm to 3.58441e+08 respectively.
+
+Then we have a declaration for an intermediary, in this case it can be left alone, since test will only use one compartment with one intermediary:
+
+```
+int piC2m[] =
+{
+    0,
+    -1,
+};
+
+
+struct Intermediary inter =
+{
+    //m compartment array
+
+    1,
+
+    &compSoma,
+
+    //m all other mathematical components
+
+    NULL,
+
+    //m compartment 2 first mechanism number
+
+    piC2m,
+};
+```
+
+What follows next is the main function where we will actually use the functions in our simulation object. Here we must create a PulseGen object, set its parameters, and then set two defines, one for connecting the PulseGen to a compartment variable, and one for performing a step.
+
+
+Allocating a new PulseGen is done via
+```
+    ppg = PulseGenNew("pulsegen freerun");
+```
+
+We set the parameters for PulseGen with our PulseGenSetFields function:
+```
+    double dLevel1 = 50.0;
+    double dWidth1 = 3.0;
+    double dDelay1 = 5.0;
+    
+    double dLevel2 = -20.0;
+    double dWidth2 = 5.0;
+    double dDelay2 = 8.0;
+
+    double dBaseLevel = 10.0;
+
+    int iTriggerMode = FREE_RUN;
+
+
+    PulseGenSetFields(ppg, dLevel1, dWidth2, dDelay1, dLevel2, dWidth2, dDelay2, dBaseLevel, iTriggerMode);
+```
+
+Next for the define HECCER\_TEST\_INITIATE we fetch a compartment variable from Heccer and attach it to our PulseGen output (is this correct or should I use inject to hook it into a blank compartment?):
+
+```
+
+#define HECCER_TEST_INITIATE \
+    double *pdVm = HeccerAddressCompartmentVariable(pheccer, 0, "Vm");	\
+    PulseGenAddVariable(ppg, pdVm)
+```
+
+Finally for HECCER\_TEST\_SCHEDULE we add the PulseGen step function so that it is performed on every step of the simulation:
+
+```
+#define HECCER_TEST_SCHEDULE PulseGenSingleStep(ppg, (dSimulationTime))
+```
+
+**<Still working here>**
+
+
+# Adding our source files to the build #
+
+The _tests/code_ directory has a Makefile.am which automake uses to generate a Makefile for building each test program. We only need to add some info to a couple of places and automake will handle the rest.
+
+In the target **check\_PROGRAMS** we need to add the resulting executable for the our test program. For the case **pulsegen-freerun.c** we add:
+
+```
+	pulsegen-freerun \
+```
+
+Next we add rules to build and link our program near the bottom of the file. It is preferable to keep this in alphabetical order with the rest of the test programs build rules:
+
+```
+pulsegen_freerun_DEPENDENCIES = ../../libheccer.a main.c
+pulsegen_freerun_LDADD = -L../.. -lheccer -lm
+```
+
+This must be done for each test we want to add.
+
+_Note: The resulting executable will be_pulsegen-freerun_, as defined in the first target, however to declare the accompanying build rule you must use an underscore._
+
+# Adding a Test Specification #
+
+The final step is to declare a test specification which tests your built test program against output that we know is correct. We create the file _tests/specifications/pulsegen.t_ and input the following to test the **pulsegen-freerun** test program. This assumes that the expected output is in the _tests/specifications/strings_ directory with the filename _pulsegen-freerun.txt._
+
+```
+#!/usr/bin/perl -w
+#
+
+use strict;
+
+
+my $test
+    = {
+       command_definitions => [
+			       {
+				arguments => [
+					     ],
+				command => 'tests/code/pulsegen-freerun',
+				command_tests => [
+						  {
+
+						   description => "Can a single pulsegen object output amplitude in free run mode ?",
+						   read => (join '', `cat $::config->{core_directory}/tests/specifications/strings/pulsegen-freerun.txt`),
+						  },
+						 ],
+				description => "pulsegen functionality, can we output a current in free run mode?",
+			       },
+			      ],
+       description => "pulsegen simulation object",
+       name => 'pulsegen.t',
+      };
+
+
+return $test;
+
+```
+
+For more info on declaring test specifications see the documents documents **tester-configuration** and **neurospaces-tester**.

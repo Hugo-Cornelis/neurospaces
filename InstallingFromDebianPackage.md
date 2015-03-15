@@ -1,0 +1,36 @@
+G3 Doc: installation-debian
+
+# Introduction #
+
+Debian packages will be available for all major components of GENESIS 3 via sourceforge at:
+
+https://sourceforge.net/projects/genesis-sim/
+
+This allows for easy installation via the Debian Package installer GUI.
+
+
+# Installation via Package Installer #
+
+Simply download the desired package so your machine. Go to the directory it was downloaded, it should have an appropriate "package" icon.
+
+![http://repo-genesis3.cbi.utsa.edu/Picture13.png](http://repo-genesis3.cbi.utsa.edu/Picture13.png)
+
+Then double click on the package file, a form will appear that gives details about the package such as: A package description, dependencies, and files to be installed.
+
+![http://repo-genesis3.cbi.utsa.edu/Picture14.png](http://repo-genesis3.cbi.utsa.edu/Picture14.png)
+
+Click on the **Install Package** button and you will be prompted to enter in the administrator password for the installation.
+
+![http://repo-genesis3.cbi.utsa.edu/Picture15.png](http://repo-genesis3.cbi.utsa.edu/Picture15.png)
+
+Once the installation is complete the package installer will prompt with a finished message.
+
+
+
+## Removing a package via the command line ##
+
+If you need to remove a package from your system you can do so via this command:
+
+_sudo apt-get --purge remove PACKAGE\_NAME_
+
+Where package name is the name of the deb package that was installed previously.

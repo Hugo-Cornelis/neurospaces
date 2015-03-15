@@ -1,0 +1,658 @@
+G3 Doc: genesis-extend-model-container-detail
+
+# Introduction #
+
+This is essentially a developer blogpost to detail my experience adding a new object to the model-container.
+
+
+# Briefing #
+
+First began by reading up on what documentation was available. The document doc/HOWTO.outline in model-container source code contains a section titled **Add new components** which gives a rough outline of the procedure.
+
+# Adding the Pulse object #
+
+The following subheadings are in order of execution.
+
+### Adding a new tokenizer ###
+
+First I added a new tokenizer to the analyzer.l file:
+
+```
+pulse		{	return(TOKEN_PULSE);	}
+```
+
+This step is automated.
+
+### Add a new token ###
+
+Added a new token to the description.tokens file located in _hierarchy/output/symbols/_ like so:
+
+```
+%token TOKEN_PULSE
+```
+
+This step is automated.
+
+### Adding a parser rule ###
+
+A series of grammar rules must now be added:
+
+First open the file _hierarchy/parser.start_ file there is a union. In this file there is a union, here we add a symbol for our pulse object:
+
+```
+struct symtab_Pulse * ppulse;
+```
+
+The prefix p for pulse indicates that this is a pointer.
+
+
+Now some more declarations must be added for the lexer. Copying the format of the current declarations you will need to add a block like this for our pulse object:
+
+```
+%type <phsle> PulseSymbol
+%type <ppulse> PulseSectionFront
+%type <ppulse> PulseSectionFront1
+%type <pidin> PulseSectionFront2
+%type <ppulse> PulseDescription
+%type <phsle> PulseComponent
+```
+
+This part of this step is automated.
+
+
+
+---
+
+The next step is to add a rule for each of the declarations we just declared so that the parser knows what to do with them.
+
+We need to add a rule for the PulseSymbol:
+
+```
+
+PulseSymbol
+	:
+		PulseSection
+		{
+#line
+		    //- put symbol table element on stack
+
+		    $$ = &$1->bio.ioh.iol.hsle;
+		}
+```
+
+The pulse symbol uses a Bio Component symbol.
+
+This step is automated.
+
+
+---
+
+
+We add a rule for PulseDescription:
+```
+PulseDescription	/* <ppulse> */
+	:
+		{
+#line
+
+		    $$ = ParserContextGetActual((PARSERCONTEXT *)pacParserContext);
+		}
+	|
+		PulseDescription
+		ChildSectionOptionalInputOptionalParameters
+		{
+#line
+		    //- link children
+
+		    if ($2)
+		    {
+			SymbolAddChild(&$1->bio.ioh.iol.hsle, $2);
+		    }
+
+		    //- reset actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$1->bio.ioh.iol.hsle);
+
+		    //- put symbol description on stack
+
+		    $$ = $1;
+		}
+	|
+		PulseDescription
+		Parameters
+		{
+#line
+		    //- link parameters
+
+		    SymbolParameterLinkAtEnd(&$1->bio.ioh.iol.hsle, $2);
+
+		    //- reset actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$1->bio.ioh.iol.hsle);
+
+		    //- put symbol on stack
+
+		    $$ = $1;
+		}
+	;
+
+```
+
+This step is automated.
+
+
+---
+
+A rule for PulseSectionEnd:
+
+```
+PulseSectionEnd
+	:
+		EndPushedPidin
+		TOKEN_PULSE
+		{
+#line
+		}
+	;
+```
+
+This step is automated.
+
+
+---
+
+
+A rule for PulseSectionFront:
+
+```
+PulseSectionFront	/* <ppulse> */
+	:
+		PulseSectionFront1
+		PulseSectionFront2
+		{
+#line
+
+		    //- prepare struct for symbol table
+
+		    $$ = $1;
+
+		    //- set actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$$->bio.ioh.iol.hsle);
+
+		    //- assign name to symbol
+
+		    SymbolSetName(&$$->bio.ioh.iol.hsle, $2);
+		}
+	;
+```
+
+This step is automated.
+
+
+---
+
+
+Rule for PulseSectionFront1:
+
+```
+PulseSectionFront1	/* <ppulse> */
+	:
+		TOKEN_PULSE
+		{
+#line
+
+		    //- prepare struct for symbol table
+
+		    $$ = PulseCalloc();
+
+		    //- set actual symbol
+
+		    ParserContextSetActual
+			((PARSERCONTEXT *)pacParserContext,
+			 &$$->bio.ioh.iol.hsle);
+		}
+	;
+```
+
+Note that this called PulseCalloc, which must be defined for this to work.
+
+This step is automated.
+
+
+---
+
+
+Rule for PulseSectionFront2:
+
+```
+PulseSectionFront2	/* <ppulse> */
+	:
+		IdentifierOptionIndexPushedPidin
+		{
+#line
+
+		    //- put identifier on stack
+
+		    $$ = $1;
+		}
+	;
+```
+
+This step is automated.
+
+
+---
+
+
+Rule for PulseSection:
+
+```
+PulseSection	/* <ppulse> */
+	:
+		PulseSectionFront
+			InputOutputRelations
+			OptionalItemInputRelations
+			PulseDescription
+		PulseSectionEnd
+		{
+#line
+		    //- link input/output relations
+
+		    SymbolAssignBindableIO(&$4->bio.ioh.iol.hsle, $2);
+
+		    //- bind I/O relations
+
+		    SymbolAssignInputs(&$4->bio.ioh.iol.hsle, $3);
+
+		    //- put finished section info on stack
+
+		    $$ = $4;
+		}
+	;
+```
+
+This step is automated.
+
+
+---
+
+
+### Add an entry to hierarchy/symbols ###
+
+The symbols file contains declarations for class types. A new set of declarations must be added for each unique object added to the model container. Again, taking the pool entry as a template, we create a new entry for our pulse objects:
+
+```
+
+
+         pulse => {
+                  allows => {
+                             'create_alias' => 'pulse',
+                             'get_parameter' => 'pulse',
+                             'parameter_scale_value' => 'pulse',
+                             'reduce' => 'pulse',
+                            },
+                  annotations => {
+                                  'piSymbolType2Biolevel' => 'BIOLEVEL_MECHANISM',
+                                 },
+                  description => 'an object that can generate a variety of pulse patterns',
+                  dimensions => [
+                                 'mechanism',
+                                ],
+                  grammar => {
+                              components => [],
+                              specific_allocator => 'PulseCalloc',
+                              specific_token => {
+                                                 class => 'pulse',
+                                                 lexical => 'TOKEN_PULSE',
+                                                 purpose => 'physical',
+                                                },
+                              typing => {
+                                         base => 'phsle',
+                                         id => 'pidin',
+                                         spec => 'ppulse',
+                                         to_base => '->bio.ioh.iol.hsle',
+                                        },
+                             },
+                  isa => 'bio_comp',
+                  name => 'symtab_Pulse',
+                  parameters => {
+				 LEVEL1 => 'level of pulse1',
+				 LEVEL2 => 'level of pulse2',
+				 WIDTH1 => 'width of pulse1',
+				 WIDTH2 => 'width of pulse2',
+				 DELAY1 => 'delay of pulse1',
+				 DELAY2 => 'delay of pulse2',
+				 BASELEVEL => 'baseline level',
+				 TRIGMODE => 'Trigger mode, 0 - free run, 1 - ext trig, 2 - ext gate',
+                                },
+                 },
+
+
+```
+
+
+In the parameters section we clear out what is there and add parameters that are known to our pulse object.
+
+### Creating Source Files ###
+
+Now source files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
+
+pool.c is located in the _components_ directory, and pool.h is located in _neurospaces/components_.
+
+**cp components/pool.c components/pulse.c**
+
+**cp neurospaces/components/pool.h neurospaces/components/pulse.h**
+
+Now change all references of pool to pulse with appropriate case. This is a good starting point as all that's needed is to determine which parameters and functions you wish to add.
+
+### Include your header ###
+
+You will need to include your new header into a few files with a line like this:
+
+```
+#include "neurospaces/components/pulse.h"
+```
+
+The following files need to have an include:
+
+  * symboltable.c
+  * parser.decl
+  * neurospaces/cachedconnection.h (not in all cases)
+
+
+### Adding to compilation ###
+
+To have your new pulse object compile into the model-container you must add to some of the existing build targets in the top level **Makefile.am** file.
+
+In the target _libneurospacesread\_a\_SOURCES_ you must add:
+
+```
+	components/pulse.c \
+```
+
+The target _nobase\_include\_HEADERS_ add:
+
+```
+	neurospaces/components/pulse.h \
+```
+
+The target _libneurospacesread.so_ add:
+
+```
+	pulse.o \
+```
+
+
+After all of this it should compile and your new object is ready to use.
+
+### Creating a Simple Test ###
+
+Now to generate a simple test for our new object we need to create two files: one is a test specification file, the other is an ndf file which makes use of our new object. We will create a test that performs a simple parameter check.
+
+**NDF file**
+
+NDF is the file format used for declaring a model in the model-container. In your source directory they located in the _library_ directory, after installation they get installed to the _/usr/local/neurospaces/models/library_ directory.
+
+Again taking an example from the pools library as a template (golgi.ca.ndf) I construct a simple pulse object which sets parameters with reasonable values:
+
+```
+#!neurospacesparse
+// -*- NEUROSPACES -*-
+
+NEUROSPACES NDF
+
+// VERSION 0.1
+
+PRIVATE_MODELS
+
+	PULSE Pulse_gen
+		BINDABLES
+			INPUT I
+		END BINDABLES
+
+		PARAMETERS
+			PARAMETER ( LEVEL1 = 50.0 ),
+			PARAMETER ( WIDTH1 =  3.0),
+			PARAMETER ( DELAY1 = 5.0 ),
+			PARAMETER ( LEVEL2 = -20.0 ),
+			PARAMETER ( WIDTH2 =  5.0),
+			PARAMETER ( DELAY2 = 8.0 ),
+			PARAMETER ( BASELEVEL = 10.0 ),
+			PARAMETER ( TRIGMODE = 0 ),
+		END PARAMETERS
+
+	END PULSE
+
+END PRIVATE_MODELS
+
+
+PUBLIC_MODELS
+
+	ALIAS Pulse_gen Pulse_gen END ALIAS
+
+	ALIAS Pulse_gen 
+		Pulse_standalone
+		PARAMETERS
+			PARAMETER ( LEVEL1 = 50.0 ),
+			PARAMETER ( LEVEL2 = -20.0 )
+		END PARAMETERS
+	END ALIAS
+
+END PUBLIC_MODELS
+
+
+
+```
+
+Pulse\_gen is our instance of a Pulse object, when we load our model it will be callable via this name. We save this file as _pulse/pulse1.ndf_ inside of the library directory.
+
+
+---
+
+**Test Specification**
+
+Test specification files are essentially perl hashes, they are stored in the _tests/specifications_ directory.
+
+As a first test, it can be useful to add the above mentioned file to the general syntax parsing test to (parsing.t).
+
+For a second test we create a new file within the specifications directory with calls to printparameter to check if each parameter is properly set:
+
+```
+
+use strict;
+
+
+my $test
+    = {
+       command_definitions => [
+			       {
+				arguments => [
+					      '-v',
+					      '1',
+					      '-q',
+					      '-R',
+					      'pulse/pulse1.ndf',
+					     ],
+				command => './neurospacesparse',
+				command_tests => [
+						  {
+						   description => "Is neurospaces startup successful ?",
+						   read => [ '-re', './neurospacesparse: No errors for .+?/pulse/pulse1.ndf.', ],
+						   timeout => 3,
+						   write => undef,
+						  },
+
+
+						  {
+						   description => "Has the parameter level1 been set ?",
+						   read => 'value = 50',
+						   write => 'printparameter /Pulse_gen LEVEL1',
+						  },
+
+						  {
+						   description => "Has the parameter width1 been set ?",
+						   read => 'value = 3',
+						   write => 'printparameter /Pulse_gen WIDTH1',
+						  },
+
+
+
+						  {
+						   description => "Has the parameter delay1 been set ?",
+						   read => 'value = 5',
+						   write => 'printparameter /Pulse_gen DELAY1',
+						  },
+
+
+						  {
+						   description => "Has the parameter level2 been set ?",
+						   read => 'value = -20',
+						   write => 'printparameter /Pulse_gen LEVEL2',
+						  },
+
+						  {
+						   description => "Has the parameter width2 been set ?",
+						   read => 'value = 5',
+						   write => 'printparameter /Pulse_gen WIDTH2',
+						  },
+
+
+						  {
+						   description => "Has the parameter delay2 been set ?",
+						   read => 'value = 8',
+						   write => 'printparameter /Pulse_gen DELAY2',
+						  },
+
+
+
+
+						  {
+						   description => "Has the parameter baselevel been set ?",
+						   read => 'value = 10',
+						   write => 'printparameter /Pulse_gen BASELEVEL',
+						  },
+
+
+						  {
+						   description => "Has the trigger mode parameter been set ?",
+						   read => 'value = 0',
+						   write => 'printparameter /Pulse_gen TRIGMODE',
+						  },
+
+
+						 ],
+				description => "library pulse generators",
+			       },
+
+			      ],
+       description => "generic pulse objects",
+       name => 'pulse.t',
+      };
+
+
+return $test;
+```
+
+
+---
+
+
+Now with both of these saved you can run the test on the command line with the test\_harness located in the tests directory. Since there are several tests for the model-container we only want to run our pulse test. We do this by using the regex option with the test harness, so from the top level source directory we perform:
+
+```
+tests/neurospaces_harness --regex pulse
+```
+
+This produces the output telling us whether is passed or failed our test. Following output has been shortened to extract the part we are looking for:
+
+```
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+
+Running tests of module generic pulse objects
+
+---------------------------------------------
+---------------------------------------------
+
+*** Executing ./neurospacesparse '-v' '1' '-q' '-R' 'pulse/pulse1.ndf'
+*** Test: Is neurospaces startup successful ?
+./neurospacesparse: No errors for /tmp/neurospaces/test/models/pulse/pulse1.ndf.
+ neurospaces > *** Test: Has the parameter level1 been set ?
+*** Write: printparameter /Pulse_gen LEVEL1
+value = 50
+ neurospaces > *** Test: Has the parameter width1 been set ?
+*** Write: printparameter /Pulse_gen WIDTH1
+value = 3
+ neurospaces > *** Test: Has the parameter delay1 been set ?
+*** Write: printparameter /Pulse_gen DELAY1
+value = 5
+ neurospaces > *** Test: Has the parameter level2 been set ?
+*** Write: printparameter /Pulse_gen LEVEL2
+value = -20
+ neurospaces > *** Test: Has the parameter width2 been set ?
+*** Write: printparameter /Pulse_gen WIDTH2
+value = 5
+ neurospaces > *** Test: Has the parameter delay2 been set ?
+*** Write: printparameter /Pulse_gen DELAY2
+value = 8
+ neurospaces > *** Test: Has the parameter baselevel been set ?
+*** Write: printparameter /Pulse_gen BASELEVEL
+value = 10
+ neurospaces > *** Test: Has the trigger mode parameter been set ?
+*** Write: printparameter /Pulse_gen TRIGMODE
+value = 0
+ neurospaces > 
+------------------------------------------------
+------------------------------------------------
+
+End of tests of module generic pulse objects
+Total of 9 tests (encountered 0 error(s) so far)
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+```
+
+From the output we can see that it properly set the parameters from the NDF file, and we were able to retrieve the values from the query machine of the model-container.
+
+If there is an error with one of the tests then it will be indicated in the output. In this instance the parameter LEVEL1 has been set wrong:
+
+```
+------------------------------------------------
+------------------------------------------------
+
+End of tests of module generic pulse objects
+Total of 9 tests (encountered 1 error(s) so far)
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+
+---
+description:
+  command: tests/neurospaces_harness
+  name: Test report
+  package: &1
+    name: model-container
+    version: c29add6329c4c4fd3576b1885c36df996c00ecaa-0
+errors:
+  modules:
+    pulse.t:
+      1:
+        error: 1:TIMEOUT
+        library pulse generators:
+          description: Has the parameter level1 been set ?
+
+```
+
+This makes it easy to determine where the error is.

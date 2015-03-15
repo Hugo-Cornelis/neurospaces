@@ -1,0 +1,111 @@
+[Index](Index.md)
+
+[NeurospacesRepositoryAndTheInstaller](NeurospacesRepositoryAndTheInstaller.md)
+
+G3 Doc: developers-intro.tex
+
+# Introduction #
+
+For the federated development of the software components of the neurospaces project and other software components a software buildbot machine houses a [monotone](http://monotone.ca/) server that is connected to the internet. Source code changes can be merged using the functions available from monotone, regardless of the location where the changes have been made (at home, in your office, on the airplane). The build mechanism will always build the most up to date version of the code.
+
+# Convenient Access to the Source Code #
+
+The most easy way to get the latest version of the source code is via the Neurospaces installer.  See NeurospacesRepositoryAndTheInstaller for more information.
+
+The information below explains how to checkout code manually when not using the installer.
+
+
+# Serving your source code #
+
+If you want someone else to sync their code with what you have on your laptop, you can conveniently convert your laptop to a source code server using the command `neurospaces_serve` (see the InstallerPackage).  Other people can now connect to your laptop using eg. `neurospaces_sync --repo-sync <ip-address-of-your-laptop>` or `neurospaces_pull --repo-pull <ip-address-of-your-laptop>`.  All these commands accept a `--regex <package-regex>` to select packages to serve, sync and pull respectively.
+
+To interrupt the server, kill  all the server processes using `neurospaces_kill_servers`.
+
+
+# Checking out Code Manually #
+
+To check out the latest version of the neurospaces project code you must first initialize a local monotone repository via this command:
+
+> _mtn --db=myrepo.mtn db init_
+
+There are monotone instances running for different parts of neurospaces on different ports. To target the correct component you want you need to use these arguments for the remote server:
+
+| **Description** | **Package name** | **Server address** | **Repository Name** |
+|:----------------|:-----------------|:-------------------|:--------------------|
+| NS genesis backward compatability layer | ns-sli | repo-genesis3.cbi.utsa.edu:4692 | ns-sli.mtn |
+| Internal Storage for Models | model-container | repo-genesis3.cbi.utsa.edu:4693 | model-container.mtn |
+| Single neuron solver | heccer | repo-genesis3.cbi.utsa.edu:4694 | heccer.mtn |
+| Scheduler | ssp | repo-genesis3.cbi.utsa.edu:4695 | ssp.mtn |
+| Installer | installer | repo-genesis3.cbi.utsa.edu:4696 | neurospaces-developer.mtn |
+| Project Browser | project-browser | repo-genesis3.cbi.utsa.edu:4697 | neurospacesweb.mtn |
+| Incomplete GUI  | studio | repo-genesis3.cbi.utsa.edu:4698 | studio.mtn |
+| GShell | gshell | repo-genesis3.cbi.utsa.edu:4699 | gshell.mtn |
+| User documentation | userdocs | repo-genesis3.cbi.utsa.edu:4700 | userdocs.mtn |
+
+
+To pull the code from the monotone server into your working repository via the command.
+
+> _mtn --db=myrepo.mtn pull repo-genesis3.cbi.utsa.edu:<port#> "`*`"_
+
+The "`*`" argument pulls all branches from the server into your local repository. To pull a specific branch look at the next section. It's important that each server be synced to it's own local repository. Once the code has been pulled you can checkout one of the branches into your working directory via the command:
+
+> _mtn --db=myrepo.mtn --branch=<Branch ID> co source\_directory_
+
+
+# Syncing Databases #
+
+To sync your monotone repository to the remote server you'll need to use the sync command with the proper address of the server (as listed above).
+
+> _mtn --db=myrepo.mtn sync repo-genesis3.cbi.utsa.edu:<port#> "`*`"_
+
+Now all changes, including logs will be on both the client and server repositories. Note in order to perform this operation you need to be given write access to the repositories on virtual2.
+
+
+# Branches #
+
+Since you must know the desired branch you want when pulling a specific branch, here are the branches available on the monotone server.
+
+> _**Neurospaces Genesis SLI** - 0_
+
+If you download all branches via the "`*`" argument you can get a list of what branches are available to check out from your local repository via the command:
+
+> _mtn --db=myrepo.mtn list branches_
+
+
+
+
+
+
+
+# Committing Changes #
+
+A monotone repository is an annotated database and every change that is made is signed with keys. To be able to commit changes to your local monotone repository you need to generate a key pair. To do this execute the command:
+
+> _mtn genkey email@address.com_
+
+This stores a private key for yourself in ~/.monotone. It will ask you to enter a passphrase which you'll use to verify your identification when you check in changes. To see all the keys monotone has stored you can do a:
+
+> _mtn list keys_
+
+and also an
+
+> _mtn --db=myrepo.mtn list keys_
+
+To commit the changes you made to your own database repository; inside of the source directory execute:
+
+> _mtn ci_ or _mtn commit_
+
+
+# Repository Access #
+
+To get write access to a repository which you did not initiate, it must be signed with your public key.
+
+To export your public key perform the following comment:
+
+> _mtn --db=repo.mtn pubkey my@email.com > me.pubkey_
+
+Send the repository owner your public key for write access. To perform this you must have monotone read in the key from stdin with the read command:
+
+> _cat me.pubkey | mtn --db=repo.mtn read_
+
+If it is successful it will indicate that it read in a packet. You can input several keys in a file this way and it will indicate the number of successful packets read in.

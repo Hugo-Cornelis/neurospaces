@@ -1,0 +1,32 @@
+G3 Doc: document-create, http-redirect
+
+# Creating a new document #
+
+To create a new blank document simply envoke the **userdocs-create** script giving the name of the document you wish to create as an argument:
+
+**userdocs-create my-document**
+
+You will see that it creates a new directory with a template tex file and descriptor.yml file for editing.
+
+You can also specify a number of documents on the command line to create a series of blank documents:
+
+**userdocs-create my-document1 my-document2 my-document3 my-document4**
+
+# HTTP redirect #
+
+At times it is necessary to direct users to documentation that is off site since reproducing the content can be time consuming, or require special host configurations (e.g youtube videos). By using the 'redirect' attribute in your documentation descriptor file, you can link to URLs on the internet, effectively integrating the linked content into your own documentation.
+
+An example of the use of the redirect tag can be shown here:
+
+```
+---
+description: A redirect to a website
+document name: Off Site Information
+redirect: http://www.directmehere.edu
+tags:
+  - contents-level5
+  - published
+```
+
+
+The structure is identical to previous descriptor files with the exception of our _redirect_ attribute. This will place a link to the content in the Level 5 contents page.  To add a redirect to your documentation the only file needed is the descriptor file with the indicated _redirect_ flag.

@@ -1,0 +1,26 @@
+[Index](Index.md)
+
+NeurospacesTester
+
+G3 Doc: neurospaces-tester.tex
+
+# Introduction #
+
+The most convenient way to call the tester is by doing `make check`.  For Neurospaces software packages, this calls the command line `tests/neurospaces_harness`.
+
+`tests/neurospaces_harness` is a perl script that runs all the TesterSpecifications found in `tests/specifications`.  A test specification is a file ending in the suffix `.t`.
+
+
+  * `neurospaces_harness` runs all the test specifications found in the `specifications` directory.  A test specification ends in the suffix `.t`.
+  * `--regex` option runs those test specifications that match with the given regular expression.  E.g. `neurospaces_harness --regex convertors` runs all tests whose pathnames match with `convertors`.
+  * `--numerical-compare` enables numerical comparisons for numerical output.
+  * `--randomize-order` randomizes the order of the tests before executing them.
+  * `--timeout-multiplier` multiplies all timeout values with the given constant.
+  * `--timings` adds timing information to the test report.
+
+# Details #
+
+Add your content here.  Format your content with:
+  * Text in **bold** or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

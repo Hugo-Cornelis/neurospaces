@@ -1,0 +1,108 @@
+G3 Doc: build-debian
+
+# Building Debian packages for GENESIS 3 components #
+
+This is a guide to show how to build Debian packages for components in GENESIS 3 using the installer scripts included with the installer package.
+
+
+# Dependencies #
+
+Before you can build a Debian package you need to have the following packages installed.
+
+  * dh-make
+  * dpkg-dev
+  * dpkg
+
+If you are using the Ubuntu operating system, all three are available from apt-get and Synaptic Package Manager.
+
+
+# Utilities #
+
+nspkg-deb: Checks for all files needed to build a debian package and performs the build.
+
+# Configuration Files #
+
+To build a Debian package you need the following files specific to the package you are building:
+
+  * control: Has information like the package name, dependencies, and package information.
+  * rules: Contains build instructions.
+  * changelog: A log file that shows the date, author, and context of the last change made to the package.
+  * copyright: Contains the author and distribution license.
+
+A detailed explanation of each file follows.
+
+## control file ##
+
+The control file is a series of fields which correspond to information about the package you are building.
+
+  * Source - The source package name (Mandatory).
+  * Section - classification for the package.
+  * Priority - Importance of installation to the user, all of GENESIS 3 can be labeled "optional"
+  * Maintainer - The name and address of the packager (Mandatory).
+  * Build-Depends - This holds dependencies that are checked when performing a build.
+  * Homepage - The URL of the website for the package.
+  * Package - The name of the binary package (Mandatory).
+  * Architecture: Which architecture the package is for, all GENESIS  packages are labeled 'any.'
+  * Depends - This holds dependencies that are checked during configuration.
+  * Suggests - Recommended software.
+  * Description - A textual description of the package and its uses.
+
+Example taken from the installer package:
+
+```
+Source: neurospaces-developer-package
+Section: Science 
+Priority: optional
+Maintainer: Hugo Cornelis [hugo.cornelis@gmail.com]
+Build-Depends: python2.5(>=2.5),libc6(>=2.3.6),libgcc1 (>=4.1.1)
+Homepage: http://neurospaces.sourceforge.net/
+
+Package: neurospaces-developer-package
+Architecture: any
+Depends: python2.5(>=2.5),libc6(>=2.3.6),libgcc1 (>=4.1.1)
+Suggests: gnuplot
+Description: The Neurospaces developer package contains essential tools for Neurospaces development.
+```
+
+## rules file ##
+
+This is a file with make instructions that are called when dpkg-buildpackage is invoked. It contains a rule for each source in the package.
+
+The rules file used in the GENESIS 3 packages is based off of an example from Joey Hess from the Debian forums.
+
+## changelog ##
+
+This is a log of the changes made to the package by the maintainer. This file has a particular format that must be followed, otherwise the package build will bail out, halting the packaging process.
+
+example from the installer package.
+```
+neurospaces-developer-package (alpha.1) dapper; urgency=low
+ 
+  * First release packaged for ubuntu
+ 
+ -- Hugo Cornelis <hugo.cornelis@gmail.com>  Sat, 8 Aug 2009 14:45:16 +0000
+```
+
+The date in particular must follow the shown format of:
+
+> _**Day of the week**, **Day** **Month** **Year** **Time**_
+
+as shown in the example above.
+
+## copyright file ##
+
+File contains copyright info. All components of the GENESIS project are licensed under GPL.
+
+## Important Note about config files ##
+
+The package identifier must be identical in:
+
+  * The first line in the changelog file.
+  * Source and Package tags in the control file.
+  * The 'make install DESTDIR=$(CURDIR)/debian/(packagename)' line in the install target of the rules file. Where (packagename) is the name of the package being built.
+
+Otherwise the build will fail. A log of a debian build can be found in build\_debian.log file in the top level directory.
+
+## View files ##
+
+Once you have your .deb file in the top level source directory, you can view its contents using the **deb-gview** application. This program is available off of Synaptic Package manager and apt-get.

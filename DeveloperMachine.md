@@ -1,0 +1,115 @@
+[Index](Index.md)
+
+
+[NeurospacesRepository](NeurospacesRepository.md)
+
+[NeurospacesRepositoryAndTheInstaller](NeurospacesRepositoryAndTheInstaller.md)
+
+G3 Doc: installation-developer.tex
+
+# Introduction #
+
+  * Required tools are gdb, gcc, (x)emacs with elisp packages.
+  * The neurospaces NDF file format has a special elisp package for use with (x)emacs.
+  * For version control we use Monotone (http://www.monotone.ca/), monotone is also supported by the InstallerPackage.
+  * The monotone we use is a statically linked binary, version 0.40.  Because Monotone is a distributed version control system, developers sometimes exchange monotone repositories and monotone executables.
+
+  * It is recommended to use the InstallerPackage to do the initial directory layout, see the script _neurospaces\_create\_directories_.
+
+# Basic Directory layout #
+
+  * there is a directory `~/neurospaces_project` in your home directory.
+  * the directory `~/neurospaces_project/MTN` contains all monotone repositories accessible to the InstallerPackage.
+  * every software package has its own subdirectory, eg. `~/neurospaces_project/installer`
+  * inside a software package directory there are several subdirectories:
+| `~/neurospaces_project/installer/docs` | contains documentation not included in the distribution. |
+|:---------------------------------------|:---------------------------------------------------------|
+| `~/neurospaces_project/installer/source/snapshots/0` | contains the source code you are working on. |
+| `~/neurospaces_project/installer/snapshots/0/_MTN` | is the directory with the monotone options specific to the source code. |
+| `~/neurospaces_project/installer/source/snapshots/0/installed` | optionally contains a locally installed version of the software package. |
+| `~/neurospaces_project/installer/source/snapshots/patches` | contains diffs / patches to your code, available on your local PC. |
+
+  * The InstallerPackage knows how to work with this directory hierarchy.
+  * Here is a full example:
+    1. It sets up the installer repository on your local machine.
+    1. Checks out the code.
+    1. Uses the installer to install all the currently available packages.
+```
+[10:54] (0,2) ~ $ mkdir neurospaces_project/
+[10:54] (0,2) ~ $ cd neurospaces_project/
+[10:55] (0,2) neurospaces_project $ mkdir MTN
+[10:57] (0,2) neurospaces_project $ cd MTN/
+[10:57] (0,2) MTN $ mtn --db=neurospaces-developer.mtn db init
+[11:00] (0,2) MTN $ mtn --db=neurospaces-developer.mtn pull virtual2.cbi.utsa.edu:4696 "*"
+mtn: doing anonymous pull; use -kKEYNAME if you need authentication
+mtn: connecting to virtual2.cbi.utsa.edu:4696
+mtn: first time connecting to server virtual2.cbi.utsa.edu:4696
+mtn: I'll assume it's really them, but you might want to double-check
+mtn: their key's fingerprint: cbc91b2ec1d19e95f64cb164cc2166f4bdfe7bf4
+mtn: warning: saving public key for cbiadmin@utsa.edu to database
+mtn: finding items to synchronize:
+mtn:  bytes in | bytes out | certs in | revs in
+mtn:   549.1 k |       510 |  754/754 | 183/183
+mtn: successful exchange with virtual2.cbi.utsa.edu:4696
+
+[11:00] (0,2) MTN $ cd ../
+[11:00] (0,2) neurospaces_project $ mkdir installer/
+[11:00] (0,2) neurospaces_project $ mkdir installer/source
+[11:00] (0,2) neurospaces_project $ mkdir installer/source/snapshots/
+[11:00] (0,2) neurospaces_project $ mkdir installer/source/snapshots/0
+[11:00] (0,2) neurospaces_project $ cd installer/source/snapshots/0/
+[11:00] (0,2) 0 $ mtn --db ~/neurospaces_project/MTN/installer.mtn --branch 0 co .
+[11:01] (0,2) 0 $ ls
+aclocal.m4  bin/  configure*  configure.ac  COPYING  docs/  INSTALL  install-sh*  license.txt  Makefile.am  Makefile.in  missing*  _MTN/  release-expand.config*  tests/  tests.config  TODO.txt
+
+[11:01] (0,2) 0 $ ./configure 
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+find: tests/data: No such file or directory
+configure: creating ./config.status
+config.status: creating Makefile
+
+[11:08] (0,2) 0 $ make
+make[1]: Entering directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
+make[1]: Nothing to be done for `all-am'.
+make[1]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
+
+[11:08] (0,2) 0 $ sudo make install
+make[1]: Entering directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
+make[2]: Entering directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
+test -z "/usr/local/bin" || mkdir -p -- "/usr/local/bin"
+ /usr/bin/install -c 'bin/mcad2doxy' '/usr/local/bin/mcad2doxy'
+ /usr/bin/install -c 'bin/neurospaces_build' '/usr/local/bin/neurospaces_build'
+ /usr/bin/install -c 'bin/neurospaces_status' '/usr/local/bin/neurospaces_status'
+ /usr/bin/install -c 'bin/neurospaces_versions' '/usr/local/bin/neurospaces_versions'
+ /usr/bin/install -c 'bin/release-expand' '/usr/local/bin/release-expand'
+ /usr/bin/install -c 'bin/release-extract' '/usr/local/bin/release-extract'
+test -z "/usr/local/neurospaces/installer" || mkdir -p -- "/usr/local/neurospaces/installer"
+ /local_home/hugo/neurospaces_project/installer/source/snapshots/0/install-sh -c -m 644 'tests/introduction.html' '/usr/local/neurospaces/installer/tests/introduction.html'
+ /local_home/hugo/neurospaces_project/installer/source/snapshots/0/install-sh -c -m 644 'tests/specifications/global.t' '/usr/local/neurospaces/installer/tests/specifications/global.t'
+ /local_home/hugo/neurospaces_project/installer/source/snapshots/0/install-sh -c -m 644 'tests/specifications/downloads.t' '/usr/local/neurospaces/installer/tests/specifications/downloads.t'
+ /local_home/hugo/neurospaces_project/installer/source/snapshots/0/install-sh -c -m 644 'tests/specifications/developer.t' '/usr/local/neurospaces/installer/tests/specifications/developer.t'
+ /local_home/hugo/neurospaces_project/installer/source/snapshots/0/install-sh -c -m 644 'tests/specifications/strings/neurospaces_build--no-compile--no-configure--no-install--regex-installer--dry-run--developer--verbose--verbose--verbose.txt' '/usr/local/neurospaces/installer/tests/specifications/strings/neurospaces_build--no-compile--no-configure--no-install--regex-installer--dry-run--developer--verbose--verbose--verbose.txt'
+ /local_home/hugo/neurospaces_project/installer/source/snapshots/0/install-sh -c -m 644 'tests/specifications/strings/neurospaces_build--tag-build-10--no-compile--no-configure--no-install--regex-installer--dry-run--developer--verbose--verbose--verbose.txt' '/usr/local/neurospaces/installer/tests/specifications/strings/neurospaces_build--tag-build-10--no-compile--no-configure--no-install--regex-installer--dry-run--developer--verbose--verbose--verbose.txt'
+make[2]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
+make[1]: Leaving directory `/local_home/hugo/neurospaces_project/installer/source/snapshots/0'
+
+[11:08] (0,2) 0 $ neurospaces_packages
+/usr/local/bin/neurospaces_build:
+  enabled packages in order of build:
+    - installer
+    - model-container
+    - heccer
+    - ssp
+    - studio
+    - ns-genesis-SLI
+    - gshell
+    - userdocs
+
+[11:08] (0,2) 0 $ neurospaces_pull
+[11:08] (0,2) 0 $ neurospaces_update
+[11:08] (0,2) 0 $ neurospaces_install
+[11:08] (0,2) 0 $ neurospaces_check
+```

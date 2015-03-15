@@ -1,0 +1,103 @@
+G3 Doc: genesis-addto-component-developerpackage
+
+# Introduction #
+
+As your project grows, it may become necessary to create and maintain a new software component.  This document shows how to add a new software component to the developer package as well as creating the corresponding monotone repository on a repository server. For this example, we will be adding a new package called the "exchange" package.
+
+
+# Adding a new component to the Developer package #
+
+To add a new package to the system you must first make the script **neurospaces\_build** aware of your package. First locate the package matrix in **neurospaces\_build**:
+
+```
+my $all_packages
+```
+
+Next we must add an entry for our package, first we must designate a port number for performing push, pulls and syncs. The current port numbers in use range between 4692 (ns-sli) to 4700 (userdocs), so it is safe to designate port 4701 as the port for the exchange package.
+
+**WARNING** _make absolutely certain that no two packages point to the same port number. Two packages attempting to sync to the same port number can result in a corruption of your repository._
+
+Now we add our entry complete with port number:
+
+```
+       exchange => {
+		    dependencies => {
+				     'model-container' => 'for storing the model in computer memory',
+				    },
+		    directory => "$ENV{HOME}/neurospaces_project/exchange/source/snapshots/0",
+		    order => 1.5,
+		    version_control => {
+					port_number => 4701,
+					repository => "$ENV{HOME}/neurospaces_project/MTN/exchange.mtn",
+				       },
+		    version_script => 'neurospaces_exchange --version',
+		   },
+```
+
+Here we add an entry to the package matrix (a Perl hash) with the following attributes.
+
+  * dependencies - list of package dependencies with a string message delimited by commas.
+  * directory - The target directory for checking out source code.
+  * order - A weight value which designates the order to perform pulls, pushes and syncs in
+  * version\_control - Designates the port number and mtn file to use for version control
+  * version\_script - Command to give the version number.
+
+
+
+# Creating a new repository on the server #
+
+For more context regarding the central server setup, see this [document.](http://genesis-sim.org/userdocs/installation-debian-server/installation-debian-server.html)
+
+In this scenario a user has created the "exchange" package and wants to share the code by propagating it via the central repository.  There are three machines:
+
+  * user1 - Created the exchange package and has a monotone repository on their machine they'd like to share.
+  * user2 - Another user which would like to have access to the exchange package.
+  * repo - A centralized server that serves the monotone repositories.
+
+First the the administrator of the **repo** initializes a new repository in the same location indicated in the _directory_ hash from the values in the package matrix from **neurospaces\_build**. As the dedicated _monotone_ user on the repo we execute this command to create a blank repository:
+
+```
+mtn --db=~/neurospaces_project/MTN/exchange.mtn
+```
+
+Next we need to add the public keys for User1 and User2 to the blank repository. To add their public keys you must first obtain them either via a secure transfer (encrypted email or im) or you can get it from a pre existing repository via a command like this:
+
+```
+mtn --db=~/neurospaces_project/MTN/heccer.mtn pubkey user1@email.com >~/user1.pubkey
+```
+
+Once they're in files you can read them into the blank exchange repository:
+
+```
+cat ~/user1.pubkey ~/user2.pubkey | mtn --db=~/neurospaces_project/MTN/exchange.mtn read
+```
+
+
+Now with the blank repository in place with the users public keys, the _exchange_ package can be served via _neurospaces\_serve_ as well as synced and pulled via _neurospaces\_sync_ and _neurospaces\_pull_ respectively.  With the modified **neurospaces\_build** from the previous section installed on all of the users machines we can serve the repositories on the repo via:
+
+```
+sudo -H -u monotone nohup neurospaces_serve &
+```
+
+So the code sharing scenario can be illustrated like this:
+
+![http://repo-genesis3.cbi.utsa.edu/images/repo1.png](http://repo-genesis3.cbi.utsa.edu/images/repo1.png)
+
+User1 has the complete set of code in his repository for the exchange package. The repo serves an empty repository on a designated port for the exchange package. User 2 has no repository or code yet.
+
+![http://repo-genesis3.cbi.utsa.edu/images/repo2.png](http://repo-genesis3.cbi.utsa.edu/images/repo2.png)
+
+User1 performs a sync, which pushes all code revisions to the repo exchange repository.
+
+![http://repo-genesis3.cbi.utsa.edu/images/repo3.png](http://repo-genesis3.cbi.utsa.edu/images/repo3.png)
+
+The repo now has a complete set of code for the exchange package.
+
+![http://repo-genesis3.cbi.utsa.edu/images/repo4.png](http://repo-genesis3.cbi.utsa.edu/images/repo4.png)
+
+User2 wants to download the exchange package, so they first perform a _neurospaces\_create\_directories_ to create the checkout directories for source code.  User2 can now perform a pull, which will automatically create their _exchange.mtn_ repository in the correct location and make a connection to the repo to pull a complete set of source code revisions.
+
+![http://repo-genesis3.cbi.utsa.edu/images/repo5.png](http://repo-genesis3.cbi.utsa.edu/images/repo5.png)
+
+Now User1 and User2 have a all code revisions and can collaborate work via the centralized repository.
+

@@ -1,0 +1,63 @@
+[Index](Index.md)
+
+InstallingFromScratch
+
+PrerequisiteScript
+
+# Introduction #
+
+Dependencies fall into two categories:
+
+  1. Binary dependencies.
+  1. Perl dependencies.
+
+For some linux distributions, these can be installed automatically using the PrerequisiteScript.
+
+# Details #
+
+Binary dependencies:
+
+  * a compiler, and a makefile system.  See the GNU website.  Most Linux distributions come with these installed.
+  * GTK+, available for all common Linux distributions.
+  * SDL2 for visualization functions.  For most systems there are prebuilt packages available.  Note that SDL2 is required, SDL1 does not suffice.
+  * Graphviz, available from www.graphviz.org.  For redhat users: if you install this from an RPM, be sure to know what you are doing.
+  * Python and Perl developer packages (eg. the file Python.h must be installed, and is often distributed in a separate rpm or deb file).
+
+Perl dependencies:
+
+All the following dependencies are available from CPAN (search.cpan.org).  You can install them with a command line like "sudo perl -MCPAN -e 'install Mail::Sender'", where "Mail::Sender" should be replaced with the appropriate package name.  Also remove things between parentheses ("sudo perl -MCPAN -e 'install Glib'", but not "sudo perl -MCPAN -e 'install Glib (Gtk2)'").
+
+  * `Mail::Sender`
+  * `Clone`
+  * `Expect::Simple`
+  * `YAML`
+  * `File::Find::Rule`
+  * `Digest::SHA`
+  * `Data::Utilities`
+
+  * `ExtUtils::Depends` (Gtk2)
+  * `ExtUtils::PkgConfig` (Gtk2)
+  * `Glib` (Gtk2)
+  * `Cairo` (Gtk2)
+  * `Gtk2`
+
+  * Bundle::CPAN (SDL uses Build.pl, so make sure you have the latest)
+
+  * SDL, only required for the Neurospaces Studio
+    * On a redhat based system, I have downloaded and installed these rpms:
+      * SDL\_gfx-2.0.13-1.i386.rpm
+      * SDL\_gfx-debuginfo-2.0.13-1.i386.rpm
+      * SDL\_gfx-demos-2.0.13-1.i386.rpm
+      * SDL\_gfx-devel-2.0.13-1.i386.rpm
+      * SDL\_image-1.2.5-1.i386.rpm
+      * SDL\_image-devel-1.2.5-1.i386.rpm
+      * SDL\_mixer-1.2.7-1.i386.rpm
+      * SDL\_mixer-devel-1.2.7-1.i386.rpm
+      * SDL\_net-1.2.6-1.i386.rpm
+      * SDL\_net-devel-1.2.6-1.i386.rpm
+      * SDL\_Perl-2.1.3.tar.gz
+      * SDL\_ttf-2.0.8-1.i386.rpm
+      * SDL\_ttf-devel-2.0.8-1.i386.rpm
+    * For debian based systems (includes ubuntu)
+      * the debian files equivalent for the above rpm files are included in the standard debian repositories.
+  * `GraphViz`, only required for the Neurospaces Studio

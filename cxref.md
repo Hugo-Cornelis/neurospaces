@@ -1,0 +1,63 @@
+G3 Doc: cxref.tex
+
+#summary A small guide for generating html documentation using xrefactory.
+
+# Introduction #
+
+Xrefactory is a development tool used for source browsing and refactoring of C and C++ code. It is used with emacs and xemacs. In the neurospaces project Xrefactory is used to develop source code, as well as to generate browsable html of cross referenced source code.
+
+This page details the procedure for generating the browsable html source.
+
+# xrefrc #
+
+To set up a project in xrefactory you typically use a "recipe" file. It consists of formatted blocks pertaining to a particular project. Each block contains a set of xref flags with their complimentary arguments.
+
+```
+[model-container]
+  //  input files and directories (processed recursively)
+  /local_home/local_home/hugo/neurospaces_project/model-container/source/snapshots/0
+  //  directory where tag files are stored
+  -refs /local_home/local_home/hugo/.xrefs/neurospaces/source/snapshots/0/model-container
+  //  split tag files using first letter
+  -refalphahash
+  //  include directories
+  -I ~/neurospaces_project/model-container/source/snapshots/0
+  -I ~/neurospaces_project/model-container/source/snapshots/0/modules/symbol
+  -I ~/neurospaces_project/model-container/source/snapshots/0/modules/event
+  -I /usr/lib/perl5/5.8.5/i386-linux-thread-multi/CORE
+  -I /usr/lib/perl/5.8.7/CORE
+  -I /
+  //  setting for Emacs compile and run
+  -set compilefile "cc %s"
+  -set compiledir "cc *.c"
+  -set compileproject "
+	cd /local_home/local_home/hugo/neurospaces_project/model-container/source/snapshots/0
+	make
+	"
+  -set run1 "a.out"
+  -set run5 ""  // an empty run; C-F8 will only compile
+  //  set default to run1
+  -set run ${run1}
+  //  HTML configuration
+  -htmlroot=/local_home/local_home/hugo/HTML
+  -htmlgxlist -htmllxlist -htmldirectx -htmllinenums
+  -htmltab=8 -htmllinenumcolor=000000
+  //  pre-processor macros and passes specification
+  -DPRE_PROTO_TRAVERSAL
+  -DUSE_READLINE
+  // found in smart browsing toggle help
+  -storelocalxrefs
+  -prune neurospacesread-*
+```
+
+# Generating HTML #
+
+
+To generate documentation via the command line you call the xref command if it has been installed to the system. If not reference the executable from the directory you unzipped xrefactory in. Here is an example of xrefactory being run on the command line for the ns-sli showing all of the required flags:
+
+_xref -xrefactory-II -o ~/ns-sliHTML.log -encoding=european -html -htmlgxlist -htmllxlist -htmlfunseparate -htmllinenums -errors -xrefrc ~/.xrefrc -p ns-sli -user 1_
+
+
+The -html`*` tags are all needed to insure that source code that is referenced several times does not produce more than one page. The -xrefrc file references the recipe file you are using for the project as shown above.
+
+The -p flag allows you to select a project block from your xrefrc file. The referenced file contains 3 projects, so it must be explicitly told which project to build docs for.

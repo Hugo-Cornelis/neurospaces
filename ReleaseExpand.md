@@ -1,0 +1,205 @@
+G3 Doc: release-expand.tex
+
+# Introduction #
+
+The release-expand utility does keyword expansion in text files.  Keywords and replacement texts are both customizable via a configuration file.
+
+Below is the man page of release-expand, it still needs to be wikified, so some things are out of place.
+
+
+# Details #
+
+RELEASE-EXPAND(1)     User Contributed Perl Documentation    RELEASE-EXPAND(1)
+
+
+
+NAME
+> release-expand - expand keywords before building a release distribution.
+
+SYNOPSIS
+> release-expand [options ](.md) 
+
+&lt;package&gt;
+
+ 
+
+&lt;major&gt;
+
+ 
+
+&lt;minor&gt;
+
+ 
+
+&lt;micro&gt;
+
+ 
+
+&lt;label&gt;
+
+ 
+
+&lt;email&gt;
+
+
+
+DESCRIPTION
+> release-expand is a keyword expander for arbitrary source code.
+
+> It is intended to be used before building a distribution, to expand
+> keywords, and optionally before a commit to a repository under version
+> control, to remove keywords.  The advantage is that it is programming
+> language independent, there is one single clear definition of each key‐
+> word, and it allows for user extension.  The idea is taken from the
+> user extensible keyword expansion mechanism that was implemented in the
+> prcs version control system.
+
+USAGE
+> Source file keywords
+> > In your source files, insert text of the following form, possibly
+> > in comments:
+
+
+> $Format:
+
+&lt;text-with-keywords&gt;
+
+$
+
+> The keywords have the format ${keyword-name}, the rest of the text
+> is arbitrary, but starts and ends with a dollar sign.
+
+> Specifying your keywords
+> > By default the following keywords are known:
+
+
+> package major minor micro label email
+
+> There is an implicit assumption that the ’label’ keyword is a concatenation
+> of ’major’, ’minor’, and ’micro’, with dashes in between.
+
+> Additional keywords can be added in the config file if needed.
+> Beware that at the time of writing, these additional keywords can
+> not be overridden from the command line.
+
+> Specifying your source files
+> > Not all files are checked for keyword expansion.  The files that
+> > need keyword expansion must be specified in the config file.
+
+
+> Config file
+> > The config file is named ’release-expand.config’ and is found in
+> > the current directory.  It has the following format:
+
+  1. /usr/bin/perl -w
+
+> my $config
+> > = {
+> > > files => [
+> > > > ’./configure.ac’,
+> > > > ’./heccer.c’,
+> > > > ’./glue/configure.ac’,
+> > > > ’./glue/swig/perl/configure.ac’,
+> > > > ’./test-dist’,
+> > > > ’./tests/code/configure.ac’,
+> > > > ’./tests/library/version.t’,
+> > > > ],
+
+> > > labels => {
+> > > > package => ’’,
+> > > > major => ’’,
+> > > > minor => ’’,
+> > > > micro => ’’,
+> > > > label => ’’,
+> > > > email => ’’,
+> > > > },
+
+> > > };
+
+> return $config;
+
+> The files section enumerates the files for which keyword expansion
+> is needed.  The labels section enumerates the keywords and their
+> values.
+
+> You can add custom keywords, e.g.
+
+> labels => {
+> > website => ’http://www.neurospaces.org’,
+> > optimization => ’-O2’,
+> > },
+
+
+> The values of the default keywords are replaced by the command line
+> arguments before the expansion algorithm starts.
+
+> How keyword expansion works
+> > All the files enumarated in the config file, are checked for
+> > occurence of the sequence ’$Format: ... $’.  This sequence must
+> > occur on one single line in the source file.
+
+
+> The expansion algorithm will replace the next full line in the file
+> with the text after the colon, with keywords expanded as appropri‐
+> ate.
+
+> An example
+> > In a C source file, you have the comment:
+
+
+> // $Format: "    static char **pcVersion=\"${label}\";"$**
+
+> and you use the following command line:
+
+> ./release-expand neurospaces 1 10 pre-release 1-10-pre-release ’hugo\.cornelis\@gmail\.com’
+
+> On expansion the line, following this comment line will expand to:
+
+> static char **pcVersion="1-10-pre-release";**
+
+> In your configure.ac file, you have the line:
+
+  1. $Format: "AM\_INIT\_AUTOMAKE(${package}, ${label})"$
+
+> Again using the command line from above, this would give:
+
+> AM\_INIT\_AUTOMAKE(neurospaces, 1-10-pre-release)
+
+OPTIONS
+> Following options are supported:
+
+> -v, --verbose
+> > Verbose
+
+
+> -h, --help
+> > Give help page.
+
+
+> -r, --remove
+> > Remove keyword expansions, and replace them with an empty line.
+> > Use this before checkin in a version control repository, to
+> > avoid generating artificial differences between different ver‐
+> > sions of your code.  This avoid merge conflicts.
+
+BUGS
+
+> Mixing different quoting styles can probably give problems.
+
+SEE ALSO
+> prcs(1)
+
+AUTHOR
+> Hugo Cornelis <hugo.cornelis@gmail.com>
+
+COPYRIGHT
+> Copyright (c) 2007-2008. Hugo Cornelis. All rights reserved.
+
+> This program is free software; you can redistribute it and/or modify it
+> under the same terms as Perl itself.
+
+> See <http://www.perl.com/perl/misc/Artistic.html>
+
+
+
+perl v5.8.7                       2009-04-30                 RELEASE-EXPAND(1)

@@ -1,0 +1,32 @@
+[Index](Index.md)
+
+G3 Doc: neurospaces-tester.tex
+
+# Introduction #
+
+The neurospaces tester framework provides a general purpose framework for regressing testing.
+
+It allows to:
+
+  * Test the output and behavior of simple and complex applications.
+  * Give a human readable report of the tests performed, a description of the errors (if any), and configuration options and environment.
+  * Test application command line options.
+  * Test communication over file descriptors with an application, and test the behaviour of the application.
+  * Reconfigure and recompile the tested software on the fly.
+  * Test the consistency of the source code.
+  * Has built in support for application specific libraries.
+  * Allows to interact with the environment, including environment variables.
+  * Allows to run the application in a chrooted environment.
+  * Converts the test cases to html.
+
+Despite the wealth of functionality, using and configuring the tester is quite simple, read below for more.  The latest version of the tester framework can be found in the model container package at the neurospaces website (http://www.neurospaces.org/).  The same framework is used for regression testing of all Neurospaces related software.
+
+The Neurospaces tester is written in perl, knowledge of perl is not necessary to be able to work with the tester.  Basic knowledge of perl might be handy, and is explained on these pages.
+
+# Details #
+
+  * TesterCalling
+  * TesterConfiguration
+  * TesterSpecifications
+  * TesterHTML
+  * TesterTutorial

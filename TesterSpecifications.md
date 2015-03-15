@@ -1,0 +1,102 @@
+[Index](Index.md)
+
+NeurospacesTester
+
+G3 Doc: neurospaces-tester.tex
+
+# Introduction #
+
+A tester specification is contained in a file with a name that has a suffix of `.t`.  The tester specification tells the tester what application to run, with what command line, command line options, and under what environment.  It is possible to change directory before the application gets executed, or to change to a chrooted environment by using shell pipelines.
+
+After running the application, the tester communicates with the application over stdin/stdout/stderr (general socket communication under development).  The output read from stdout/sterr is checked with expected output (literal output or regular expressions), and mismatches are reported.
+
+Multiple writes to and reads from the application are possible.
+
+If, for whatever reason, the same application is started in more than one test specification, the running application is 'recycled' (unless the `side_effects` option is used, see below).
+
+If there was configuration in effect for an application specific library, the library is checked for changes after a test has been performed.  Changes to the library are not allowed.
+
+# Test Specifications #
+
+A test specification is a file with perl code that returns a perl hash (quite soon, JSON supported too):
+```
+#!/usr/bin/perl -w
+
+use strict;
+
+my $test
+    = {
+...
+...
+      };
+
+return $test;
+
+```
+
+The content of the hash ref encodes all the tests in the specification.  I discuss the following example, taken from the Neurospaces model container software package:
+
+```
+#!/usr/bin/perl -w
+#
+
+use strict;
+
+my $test
+    = {
+       command_definitions => [
+                               {
+                                arguments => [
+                                              '-q',
+                                             ],
+                                command => './neurospacesparse',
+                                command_tests => [
+                                                  {
+                                                   description => "Is neurospaces startup successful ?",
+                                                   read => 'neurospaces ',
+                                                   timeout => 3,
+                                                   write => undef,
+                                                  },
+                                                  {
+                                                   description => "Does the version information match with model-container-build-8 ?",
+                                                   read => "model-container-build-8",
+                                                   write => "version",
+                                                  },
+                                                 ],
+                                description => "check version information",
+                               },
+                              ],
+       description => "run-time versioning",
+       name => 'version.t',
+      };
+
+
+return $test;
+```
+
+A test specification contains the following keys/values:
+  * `comment` a general purpose comment, e.g. `this test is broken because ... `.
+  * `description` describes the purpose of the test in a few words (not an entire paragraph).
+  * `name` must be the same as the filename, e.g. `version.t`.
+  * `command_definitions` an array ref with hash refs.  Each hash ref contains the tests for one application run.  See below.
+
+# Command Definitions #
+
+  1. `arguments` and `command` keys are the shell command line to run, and to connect stdin and stdout.
+  1. `command_tests`, see below.
+  1. `description` describes the purpose of the test in a few words (not an entire paragraph).
+
+# Command Tests #
+
+The `description` key is mandatory, the other keys may be omitted.
+
+  1. `description` describes the purpose of the test in a few words (not an entire paragraph).
+  1. `read` expected output from the application.
+    * If this is a string, it is taken as (a part of the) output to be expected literally.
+    * If this is an array, the first element in the array should be `-re`, and the second element can be a regular expression that is matched against the real output of the application.
+    * If this is a hash, the hash must contain a key `alternatives` that enumerates several alternatives for the expected output in an array.
+  1. `write` writes output to stdin of the application before any output is expected.
+  1. `comment` a free style text comment.
+  1. `side_effects` avoid recycling of application commands, even if the options are the same.
+  1. `preparation` and `reparation` are two commands to bring the **application environment** in a particalur state and restore the previous state after the test has been performed.  Do not use this to change the application state, use the `write` key for that.
+  1. `disabled` gives explanation why a test has been disabled.  Omitting this key or setting this key to a false value or the emtpy string, enables the test.

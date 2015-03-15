@@ -1,0 +1,53 @@
+[Index](Index.md)
+
+G-3 Doc: tester-configuration.tex
+
+NeurospacesTester
+
+# Introduction #
+
+The Neurospaces tester needs to know certain things about your machine before tests can be executed.  These things are in the tester configuration file, named `tests.config`, located in your current directory.
+
+It is normal that a software package has multiple `tests.config` files, eg. in several directories.
+
+The config file defines a perl hash (soon JSON supported to).  In the test specifications, this hash is available in the variable `main::config`.  So to access the `core_directory` entry in the hash, you have `$main::config->{core_directory}`.
+
+Here is an example:
+
+```
+#!/usr/bin/perl -w
+
+use strict;
+
+my $package_name = "heccer";
+my $package_label = "build-8";
+my $package_version = "build-8-0";
+
+my $monotone_id = `mtn automate get_current_revision_id`;
+chomp $monotone_id;
+
+my $config
+    = {
+       core_directory => './',
+       description => 'Configure the tester when run from this directory',
+       outputs_dir => './tests/html',
+       package => {
+                   label => $package_label,
+                   name => $package_name,
+                   version => $package_version,
+                   version_control_id => $monotone_id,
+                  },
+       tests_directory => './tests/specifications',
+      };
+
+return $config;
+```
+
+
+# Details #
+
+  * `core_directory` is the directory with the source code of your package.  Tests can use this directory to read files.
+  * `description` is a few word description of the tests.
+  * `outputs_dir` defines the directory where to put the htmlified test specifications (generated using `tests_2_html`).
+  * `package` contains package version information.
+  * `tests_dir` contains the directory where to search for test specifications with the `.t` suffix.

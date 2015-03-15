@@ -1,0 +1,34 @@
+G3 Doc: gtube
+
+# Introduction #
+
+The g-tube is a GUI implemented in Python which simplifies the use of GENESIS 3. It is currently **under development** so its functionality is currently limited. Bugs and feature requests should be reported to the authors to ensure users are satisfied with the end result.
+
+
+# Details #
+
+To install the g-tube you need these dependencies installed on your machine.
+
+Dependencies:
+  * Python 2.5 (try 'python -V') - http://python.org/download/
+  * wxPython 2.8 or higher:
+    1. wxPython site - http://www.wxpython.org/download.php
+    1. Direct link to sourceforge - https://sourceforge.net/projects/wxpython/files/
+  * PyYAML - http://pyyaml.org/
+
+
+Building wxPython from source:
+
+To use wxPython you must first build wxWidgets, which is included with the wxPython source tarball. To build wxWidgets you'll need these libraries installed. To compile you'll need g++.
+
+  * zlib-dev
+  * libjpeg-dev
+  * libpng-dev
+  * libtiff-dev
+  * libgtk-dev
+
+
+> If you want 3D bindings you'll need:
+  * libglut-dev
+
+Once built be sure to run ldconfig. After building and setting up wxWidgets go into the wxPython directory and use the python script setup.py to build and install the wxPython bindings.

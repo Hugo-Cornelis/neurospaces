@@ -1,0 +1,453 @@
+G3Doc: genesis-extend-model-container
+
+# Introduction #
+
+This document details the steps a developer must go through in order to add an object called "PulseGen" to the model-container.  The following steps are performed in order.
+
+
+### Add an entry to hierarchy/symbols ###
+
+The symbols file contains declarations for class types. A new set of declarations must be added for each unique object added to the model container. Again, taking the pool entry as a template, we create a new entry for our pulsegen object:
+
+```
+         pulse_gen => {
+                 allows => {
+                             'create_alias' => 'pulse_gen',
+                             'get_parameter' => 'pulse_gen',
+#                              'parameter_scale_value' => 'pulse_gen',
+                             'reduce' => 'pulse_gen',
+                            },
+                  annotations => {
+                                  'piSymbolType2Biolevel' => 'BIOLEVEL_MECHANISM',
+                                 },
+                  description => 'an object that can generate a variety of pulse patterns',
+                  dimensions => [
+#                                  'mechanism',
+                                 'experiment',
+                                ],
+                  grammar => {
+                              components => [],
+                              specific_allocator => 'PulseGenCalloc',
+                              specific_token => {
+                                                 class => 'pulse_gen',
+                                                 lexical => 'TOKEN_PULSE_GEN',
+                                                 purpose => 'physical',
+                                                },
+                              typing => {
+                                         base => 'phsle',
+                                         id => 'pidin',
+                                         spec => 'ppulsegen',
+                                         to_base => '->bio.ioh.iol.hsle',
+                                        },
+                             },
+                  isa => 'bio_comp',
+                  name => 'symtab_PulseGen',
+                  parameters => {
+				 LEVEL1 => 'level of pulse1',
+				 LEVEL2 => 'level of pulse2',
+				 WIDTH1 => 'width of pulse1',
+				 WIDTH2 => 'width of pulse2',
+				 DELAY1 => 'delay of pulse1',
+				 DELAY2 => 'delay of pulse2',
+				 BASELEVEL => 'baseline level',
+				 TRIGMODE => 'Trigger mode, 0 - free run, 1 - ext trig, 2 - ext gate',
+                                },
+                 },
+        
+```
+
+Note the commented lines that were adapted to reflect PulseGen semantics.
+
+Because we want to have our instances of pulsegen to be output as "PulseGen," with a capital letter for each word, we declare the pulsegen with an underscore between each word.
+
+The PageName page shows how this configuration changes the grammar for the NDF model specification language.
+
+### Add the necessary types to the parser ###
+
+First open the file _hierarchy/parser.start_ file. In this file there is a union, to this union we add a symbol for our pulsegen object:
+
+```
+struct symtab_PulseGen * ppulsegen;
+```
+
+The prefix p for pulsegen indicates that this is a pointer.
+
+
+### Creating Source Files ###
+
+Now source files which had the appropriate data structures and functions must be created. Here we use the pool.c and pool.h file as a template so we make copies.
+
+pool.c is located in the _components_ directory, and pool.h is located in _neurospaces/components_.
+
+**cp components/pool.c components/pulsegen.c**
+
+**cp neurospaces/components/pool.h neurospaces/components/pulsegen.h**
+
+Now change all references of pool to pulsegen with appropriate case. This is a good starting point as all that's needed is to determine which parameters and functions you wish to add. Also since we declared our symbol with an underscore, we must retain this format for certain parts of the file:
+
+Our symbol generated a file called pulse\_gen\_vtable.c which we must properly point to in our PulseGenCalloc function.
+
+```
+#include "hierarchy/output/symbols/pulse_gen_vtable.c"
+```
+
+
+Again in PulseGenCalloc we must retain the underscore when the system performs a SymbolCalloc. This uses a define which is generated from our symbols entry called HIERARCHY`_`TYPE`_`symbols`_`pulse`_`gen which retains the underscore.
+
+```
+ SymbolCalloc(1, sizeof(struct symtab_PulseGen), _vtable_pulse_gen, HIERARCHY_TYPE_symbols_pulse_gen);
+```
+
+
+There are two more instances in the file that use HIERARCHY`_`TYPE`_`symbols`_`pulse`_`gen. Note that if we were to have declared our symbol as "pulsegen" then the underscore wouldn't be needed in those cases, however our generated file calls would reference "Pulsegen" and not "PulseGen."
+
+
+### Include your header ###
+
+You will need to include your new header into a few files with a line like this:
+
+```
+#include "neurospaces/components/pulsegen.h"
+```
+
+The following files need to have an include:
+
+  * symboltable.c
+  * parser.decl
+  * neurospaces/cachedconnection.h (not in all cases)
+
+
+### Adding to compilation ###
+
+To have your new pulse object compile into the model-container you must add to some of the existing build targets in the top level **Makefile.am** file.
+
+In the target _libneurospacesread\_a\_SOURCES_ you must add:
+
+```
+	components/pulsegen.c \
+```
+
+The target _nobase\_include\_HEADERS_ add:
+
+```
+	neurospaces/components/pulsegen.h \
+```
+
+The target _libneurospacesread.so_ add:
+
+```
+	pulsegen.o \
+```
+
+
+After all of this it should compile and your new object is ready to use.
+
+### Creating a Simple Test ###
+
+Now to generate a simple test for our new object we need to create two files: one is a test specification file, the other is an ndf file which makes use of our new object. We will create a test that performs a simple parameter check.
+
+**NDF File**
+
+NDF is the file format used for declaring a model in the model-container. In your source directory they located in the library directory, after installation they get installed to the _/usr/local/neurospaces/models/library_ directory.
+
+Again taking an example from the pools library as a template (golgi.ca.ndf) I construct a simple pulse object which sets parameters with reasonable values:
+
+```
+#!neurospacesparse
+// -*- NEUROSPACES -*-
+
+NEUROSPACES NDF
+
+// VERSION 0.1
+
+PRIVATE_MODELS
+
+	PULSE_GEN PulseGen_1
+		BINDABLES
+			INPUT I
+		END BINDABLES
+
+		PARAMETERS
+			PARAMETER ( LEVEL1 = 50.0 ),
+			PARAMETER ( WIDTH1 =  3.0),
+			PARAMETER ( DELAY1 = 5.0 ),
+			PARAMETER ( LEVEL2 = -20.0 ),
+			PARAMETER ( WIDTH2 =  5.0),
+			PARAMETER ( DELAY2 = 8.0 ),
+			PARAMETER ( BASELEVEL = 10.0 ),
+			PARAMETER ( TRIGMODE = 0 ),
+		END PARAMETERS
+
+	END PULSE_GEN
+
+END PRIVATE_MODELS
+
+
+PUBLIC_MODELS
+
+	ALIAS PulseGen_1 PulseGen_1 END ALIAS
+
+	ALIAS PulseGen_1 
+		Pulse_standalone
+		PARAMETERS
+			PARAMETER ( LEVEL1 = 50.0 ),
+			PARAMETER ( LEVEL2 = -20.0 )
+		END PARAMETERS
+	END ALIAS
+
+END PUBLIC_MODELS
+```
+
+PulseGen\_1 is our instance of a Pulse object, when we load our model it will be callable via this name. We save this file as pulsegen/pulsegen1.ndf inside of the library directory.
+
+
+---
+
+
+**Test Specification**
+
+Test specification files are essentially perl hashes, they are stored in the _tests/specifications_ directory. We create a new file within the specifications directory with calls to printparameter to check if each parameter is properly set:
+
+
+```
+#!/usr/bin/perl -w
+#
+
+use strict;
+
+
+my $test
+    = {
+       command_definitions => [
+			       {
+				arguments => [
+					      '-v',
+					      '1',
+					      '-q',
+					      '-R',
+					      'pulsegen/pulsegen1.ndf',
+					     ],
+				command => './neurospacesparse',
+				command_tests => [
+						  {
+						   description => "Is neurospaces startup successful ?",
+						   read => [ '-re', './neurospacesparse: No errors for .+?/pulsegen/pulsegen1.ndf.', ],
+						   timeout => 3,
+						   write => undef,
+						  },
+
+
+						  {
+						   description => "Has the parameter level1 been set ?",
+						   read => 'value = 50',
+						   write => 'printparameter /PulseGen_1 LEVEL1',
+						  },
+
+						  {
+						   description => "Has the parameter width1 been set ?",
+						   read => 'value = 3',
+						   write => 'printparameter /PulseGen_1 WIDTH1',
+						  },
+
+
+
+						  {
+						   description => "Has the parameter delay1 been set ?",
+						   read => 'value = 5',
+						   write => 'printparameter /PulseGen_1 DELAY1',
+						  },
+
+
+						  {
+						   description => "Has the parameter level2 been set ?",
+						   read => 'value = -20',
+						   write => 'printparameter /PulseGen_1 LEVEL2',
+						  },
+
+						  {
+						   description => "Has the parameter width2 been set ?",
+						   read => 'value = 5',
+						   write => 'printparameter /PulseGen_1 WIDTH2',
+						  },
+
+
+						  {
+						   description => "Has the parameter delay2 been set ?",
+						   read => 'value = 8',
+						   write => 'printparameter /PulseGen_1 DELAY2',
+						  },
+
+
+
+
+						  {
+						   description => "Has the parameter baselevel been set ?",
+						   read => 'value = 10',
+						   write => 'printparameter /PulseGen_1 BASELEVEL',
+						  },
+
+
+						  {
+						   description => "Has the trigger mode parameter been set ?",
+						   read => 'value = 0',
+						   write => 'printparameter /PulseGen_1 TRIGMODE',
+						  },
+
+
+						 ],
+				description => "library pulsegen generators",
+			       },
+
+			      ],
+       description => "generic pulsegen objects",
+       name => 'pulsegen.t',
+      };
+
+
+return $test;
+```
+
+
+---
+
+
+Now with both of these saved you can run the test on the command line with the test\_harness located in the tests directory. Since there are several tests for the model-container we only want to run our pulse test. We do this by using the regex option with the test harness, so from the top level source directory we perform:
+
+```
+tests/neurospaces_harness --regex pulsegen
+```
+
+This produces the output telling us whether is passed or failed our test. Following output has been shortened to extract the part we are looking for:
+
+```
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+Running tests of module generic pulsegen objects
+
+------------------------------------------------
+------------------------------------------------
+
+*** Executing ./neurospacesparse '-v' '1' '-q' '-R' 'pulsegen/pulsegen1.ndf'
+*** Test: Is neurospaces startup successful ?
+./neurospacesparse: No errors for /tmp/neurospaces/test/models/pulsegen/pulsegen1.ndf.
+ neurospaces > *** Test: Has the parameter level1 been set ?
+*** Write: printparameter /PulseGen_1 LEVEL1
+value = 50
+ neurospaces > *** Test: Has the parameter width1 been set ?
+*** Write: printparameter /PulseGen_1 WIDTH1
+value = 3
+ neurospaces > *** Test: Has the parameter delay1 been set ?
+*** Write: printparameter /PulseGen_1 DELAY1
+value = 5
+ neurospaces > *** Test: Has the parameter level2 been set ?
+*** Write: printparameter /PulseGen_1 LEVEL2
+value = -20
+ neurospaces > *** Test: Has the parameter width2 been set ?
+*** Write: printparameter /PulseGen_1 WIDTH2
+value = 5
+ neurospaces > *** Test: Has the parameter delay2 been set ?
+*** Write: printparameter /PulseGen_1 DELAY2
+value = 8
+ neurospaces > *** Test: Has the parameter baselevel been set ?
+*** Write: printparameter /PulseGen_1 BASELEVEL
+value = 10
+ neurospaces > *** Test: Has the trigger mode parameter been set ?
+*** Write: printparameter /PulseGen_1 TRIGMODE
+value = 0
+ neurospaces > 
+------------------------------------------------
+------------------------------------------------
+
+End of tests of module generic pulsegen objects
+Total of 9 tests (encountered 0 error(s) so far)
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+```
+
+
+From the output we can see that it properly set the parameters from the NDF file, and we were able to retrieve the values from the query machine of the model-container.
+
+If there is an error with one of the tests then it will be indicated in the output. In this instance the parameter LEVEL1 has been set wrong:
+
+```
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+Running tests of module generic pulsegen objects
+
+------------------------------------------------
+------------------------------------------------
+
+*** Executing ./neurospacesparse '-v' '1' '-q' '-R' 'pulsegen/pulsegen1.ndf'
+*** Test: Is neurospaces startup successful ?
+./neurospacesparse: No errors for /tmp/neurospaces/test/models/pulsegen/pulsegen1.ndf.
+ neurospaces > *** Test: Has the parameter level1 been set ?
+*** Write: printparameter /PulseGen_1 LEVEL1
+value = 150
+ neurospaces > *** Error: 1:TIMEOUT (Has the parameter level1 been set ?, pulsegen.t, error_count 1)
+
+*** Error: expected: value = 50
+*** Error: expected: 
+
+*** Error: seen: 
+*** Error: seen:  neurospaces > value = 150
+*** Error: seen:  neurospaces > 
+*** Error: seen: 
+*** Test: Has the parameter width1 been set ?
+*** Write: printparameter /PulseGen_1 WIDTH1
+value = 3
+ neurospaces > *** Test: Has the parameter delay1 been set ?
+*** Write: printparameter /PulseGen_1 DELAY1
+value = 5
+ neurospaces > *** Test: Has the parameter level2 been set ?
+*** Write: printparameter /PulseGen_1 LEVEL2
+value = -20
+ neurospaces > *** Test: Has the parameter width2 been set ?
+*** Write: printparameter /PulseGen_1 WIDTH2
+value = 5
+ neurospaces > *** Test: Has the parameter delay2 been set ?
+*** Write: printparameter /PulseGen_1 DELAY2
+value = 8
+ neurospaces > *** Test: Has the parameter baselevel been set ?
+*** Write: printparameter /PulseGen_1 BASELEVEL
+value = 10
+ neurospaces > *** Test: Has the trigger mode parameter been set ?
+*** Write: printparameter /PulseGen_1 TRIGMODE
+value = 0
+ neurospaces > 
+------------------------------------------------
+------------------------------------------------
+
+End of tests of module generic pulsegen objects
+Total of 9 tests (encountered 1 error(s) so far)
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+
+---
+description:
+  command: tests/neurospaces_harness
+  name: Test report
+  package: &1
+    name: model-container
+    version: c29add6329c4c4fd3576b1885c36df996c00ecaa-0
+errors:
+  modules:
+    pulsegen.t:
+      1:
+        error: 1:TIMEOUT
+        library pulsegen generators:
+          description: Has the parameter level1 been set ?
+```
+
+In case of such an error files whose filename matches /tmp/text\_model-container.**{.seen,.expected} can be inspected to find out what the differences between specified output and seen output are.**
+
+This makes it easy to determine where the error is.

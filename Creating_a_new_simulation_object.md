@@ -1,0 +1,142 @@
+G3 Doc: genesis-add-object-solver
+
+# Introduction #
+
+This is a guide for adding a new simulation object to the Heccer package and integrating it with GENESIS 3.
+
+
+# Creating source files #
+
+First we create the following source files for our object in the correct places in the Heccer package:
+
+```
+     pulsegen.c
+     heccer/pulsegen.h
+```
+
+
+---
+
+
+# Implementation #
+
+## Declarations ##
+
+
+
+### Data Structure ###
+
+To keep track of all the data for our object we define a struct which contains all of our variables. In our header file _heccer/pulsegen.h_ we set up our data struct:
+
+```
+
+struct simobj_PulseGen
+{
+
+  char *pcName;
+
+  double dLevel1;
+  double dWidth1;
+  double dDelay1;
+
+  double dLevel2;
+  double dWidth2;
+  double dDelay2;
+
+  double dBaseLevel;
+
+  double dTriggerTime;
+  int iTriggerMode;
+
+  
+  int iPreviousInput;
+
+  /// An input value referenced via pointer. 
+  /// Since we don't have "messages" we'll use 
+  /// a pointer for now.
+  
+  double *pdPulseIn;
+
+
+  /// solved variables
+
+  double *pdPulseOut;
+
+
+};
+```
+
+
+---
+
+
+### Functions ###
+
+Keeping in mind that our object is going to be used by a simulation, we will need appropriate functions for setting up the object, performing an action during a simulation step, and freeing the object. We create a set of functions for each of these ases:
+
+Allocating a new Pulse Generator:
+```
+struct PulseGen * PulseGenNew(char *pcName);
+```
+
+Deleting a Pulse Generator:
+```
+int PulseGenFinish(struct simobj_PulseGen *ppg);
+```
+
+Adding a solved variable to our Pulse Generator:
+```
+int PulseGenAddVariable(struct simobj_PulseGen *ppg, void *pvOutput);
+```
+
+Resetting our Pulse Generator:
+```
+int PulseGenReset(struct simobj_PulseGen *ppg);
+```
+
+Setting the data fields for our Pulse Generator:
+```
+int PulseGenSetFields
+(
+ struct simobj_PulseGen *ppg,
+ double dLevel1,
+ double dWidth1,
+ double dDelay1,
+ double dLevel2,
+ double dWidth2,
+ double dDelay2,
+ double dBaseLevel,
+ int iTriggerMode
+ );
+```
+
+And finally performing a step of a simulation:
+```
+int PulseGenSingleStep(struct simobj_PulseGen *ppg, double dTime);
+```
+
+
+
+---
+
+
+# Compiling #
+
+To compile your simulation object into the heccer package
+you must add your source files to some targets in the Makefile.am
+of the heccer package.
+
+In **libheccer\_a\_SOURCES** add:
+
+```
+	pulsegen.c
+```
+
+
+In **nobase\_include\_HEADERS** add:
+
+```
+	heccer/pulsegen.h 
+```
+
+Your simulation object has now been compiled into the Heccer library.

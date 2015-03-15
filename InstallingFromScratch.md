@@ -1,0 +1,73 @@
+[Index](Index.md)
+
+InstallerPackage
+
+# Introduction #
+
+Installation of neurospaces packages on a Linux system.
+
+Because Neurospaces is compliant with the CBI simulator architecture, it consists of many independent software packages.  To facilitate the installation of these packages, an installer has been written.
+
+First you need to install the dependencies (ListOfDependencies).
+
+In a summary, first install the InstallerPackage manually, then for downloading and installing:
+
+```
+neurospaces_build --download-server downloads.sourceforge.net --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --regex 'heccer|ssp|studio|model-container' --verbose
+```
+
+For checking:
+```
+neurospaces_build --check --no-install --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --regex 'heccer|ssp|studio|model-container' --verbose
+```
+
+Or all with one command
+
+```
+neurospaces_build --download-server downloads.sourceforge.net --src-tag build-25 --src-dir <path-to-a-directory-for-unpacking> --check --regex 'heccer|ssp|studio|model-container' --verbose
+```
+
+
+# Details #
+
+(This is based on installer-build-13.tar.gz).
+
+  * Install the neurospaces installer.
+    * mkdir tmp ; cd tmp
+    * mv <path to your installer package> tmp/installer-build-13.tar.gz
+    * tar xfz installer-build-13.tar.gz
+    * cd installer-build-13
+    * ./configure
+    * make
+    * make check (some tests are known to fail at this moment, e.g. the test that downloads from a non-existent server fails, that is ok).
+    * sudo make install
+> Now the neurospaces installer has been installed.
+  * Make a directory to contain downloaded packages.
+    * mkdir $HOME/automated
+  * Download and install the other packages
+> This is done automatically by the neurospaces installer.  Use the following command line to install version 'des-10' of all packages:
+```
+neurospaces_build --download-server downloads.sourceforge.net --regex 'model-container|heccer|ssp|studio' --src-tag des-10 --src-dir $HOME/automated
+```
+
+> Now go for a coffee.
+
+  * To select individual packages, use the --regex option, e.g. to install only heccer:
+```
+neurospaces_build --download-server downloads.sourceforge.net --regex heccer --src-tag des-10 --src-dir $HOME/automated
+```
+> > At this moment, not all packages are available for download.  So always use the option --regex 'model-container|heccer|ssp|studio'.
+  * If you don't trust what is going to happen, first use the --verbose option (times 3) and --dry-run option and pipe to less (or more):
+```
+neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --verbose --verbose --verbose --dry-run | less
+```
+  * If you want to test the packages, use the --check option:
+```
+neurospaces_build --download-server downloads.sourceforge.net --src-tag des-10 --src-dir $HOME/automated --check
+```
+
+> Now go for a coffee, and come back in an hour -- all the packages get tested, which takes some time.
+  * If you have installed the packages, and just want to test them, omit the download options:
+```
+neurospaces_build --src-tag des-10 --src-dir $HOME/automated --check
+```

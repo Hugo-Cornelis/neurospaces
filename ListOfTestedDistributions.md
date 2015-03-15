@@ -1,0 +1,21 @@
+[Index](Index.md)
+
+InstallingFromScratch
+
+G3 doc: tested-distributions.tex
+
+# Introduction #
+
+Neurospaces packages have been tested on these Linux distros:
+
+  * Redhat enterprise release 3, 4, 5
+  * Ubuntu 6.06, 6.10
+  * Suse 10
+  * Fedora 7, 8, 9
+
+# Details #
+
+Add your content here.  Format your content with:
+  * Text in **bold** or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

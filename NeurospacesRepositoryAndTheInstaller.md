@@ -1,0 +1,55 @@
+[Index](Index.md)
+
+[NeurospacesRepository](NeurospacesRepository.md)
+
+G3 Doc: installation-developer.tex
+
+# Introduction #
+
+The NeurospacesRepository is accessible from the InstallerPackage.  Important for this feature to work is to have the [correct directory layout on your developer machine](DeveloperMachine.md).
+
+In summary, what you want to do is this: pulling the set of default packages from the servers:
+```
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create --no-configure --no-compile --no-install
+```
+
+This command has options that inhibit the default actions of configuration, compilation and installation.  If you also want to compile and install in just one run, simply omit those options:
+```
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create
+```
+
+There are developer friendly frontends to the neurospaces\_build script in the InstallerPackage:
+
+  * neurospaces\_serve: starts serving the source code repositories such that other people can pull and sync to your machine (note that this locks all your databases).
+  * neurospaces\_pull: download the source code from a repository.
+  * neurospaces\_status: check for local source code modification (no network required).
+  * neurospaces\_sync: synchronize local source code modification with a repository.
+  * neurospaces\_update: makes the local source code up to date using the repositories locally stored on your PC (so this is a local operation).
+
+
+# Details #
+
+  * pulling to your local repository
+```
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp'
+```
+
+  * checkout from your local repository
+```
+neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp'
+```
+
+  * When you start from scratch it is useful to create the workspace directories
+```
+neurospaces_build --repo-co --no-configure --no-install --no-compile --verbose --developer --regex 'heccer|model-container|ssp' --directories-create
+```
+
+  * combining everything for the set of default packages, including compilation and installation
+```
+neurospaces_build --repo-pull virtual2.cbi.utsa.edu --repo-co --verbose --developer --directories-create
+```
+
+Add your content here.  Format your content with:
+  * Text in **bold** or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

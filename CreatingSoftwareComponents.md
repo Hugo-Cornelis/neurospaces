@@ -1,0 +1,52 @@
+[Index](Index.md)
+
+[Autogen](Autogen.md)
+
+[InstallerPackage](InstallerPackage.md)
+
+[NeurospacesRepositoryAndTheInstaller](NeurospacesRepositoryAndTheInstaller.md)
+
+G3 Doc: developers-intro.tex
+
+# Introduction #
+
+Neurospaces contains many software components.  The source code of the most important ones is publicly available from a central repository.  (The server virtual2 at cbi is coded as the default server in the InstallerPackage.  This default can be overwritten using command line options.)  Other software components can be made available from other sources.  The installer package, when configured correctly, will automatically incorporate software components from geographically distributed sources.
+
+New software components can be added to the configuration of the neurospaces\_build script of the InstallerPackage.  All the other tools of the InstallerPackage, such as tools to compile and install, tools to [synchronize](NeurospacesRepositoryAndTheInstaller.md) the [source code](NeurospacesRepository.md) with remote servers, and tools to generate and publish documentation on a website will work with the new configuration.
+
+For smooth integration with the neurospaces installer, it is a requirement that the top level source directory of the new component contains a `configure` script, and a `Makefile` with the targets `clean`, `check`, `dist`, `distcheck`, `install`, `uninstall`, `docs`, `html-upload-prepare`, `html-upload`, `dist-keywords`.
+
+# Creating a new software component on the original development computer #
+
+  * add the new software component to the configuration of the neurospaces\_build script.  For example, for the model-container, you have
+```
+       'model-container' => {
+			     './configure' => [
+					       '--with-delete-operation',
+					      ],
+			     directory => "$ENV{HOME}/neurospaces_project/model-container/source/snapshots/0",
+			     disabled => 0,
+			     order => 1,
+			     target_name => 'model-container',
+			     version_control => {
+						 port_number => 4693,
+						 repository => "$ENV{HOME}/neurospaces_project/MTN/model-container.mtn",
+						},
+			    },
+```
+which includes the directory name where sources are to be found, the build order, and version control information (note that the server port number cannot be changed at anytime).
+  * `neurospaces_create_directories` to create the correct directory layout.
+  * `neurospaces_build --enable model-container --regex model-container --developer --repo-co` to create the monotone repository.
+  * start populating the project with files, checkin your modifications using monotone.
+  * configure the monotone server using the information in the configuration of the component.
+  * Use `neurospaces_sync` to synchronize your local monotone repository with the server one.
+
+# Pushing the new software component to other computers #
+
+  * Get a version of the installer package that has configuration of the new software component.
+  * `neurospaces_create_directories` to create the correct directory layout.
+  * `neurospaces_pull --enable model-container --regex model-container` pulls the repository from the server (creating a new repository locally if that is needed).
+  * `neurospaces_update --enable model-container --regex model-container` updates local source code with the latest source in the local repository, keeping local changes if any.
+  * `neurospaces_install --configure` recompiles all software components, and links them against each other.  Use `--enable model-container --regex model-container` to perform this operation only on the model-container software component.  `--configure` enables configuration, which is needed for a new software component.
+
+  * 
